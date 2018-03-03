@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.sql.*;
 
 
-public class DaoPrototipo {
+public class Dao {
 
     private static final String BDURL = "jdbc:mysql://localhost:3306/MMIT"; // ruta de la base de datos
     private static final String USUARIO = "MMIT";//user
