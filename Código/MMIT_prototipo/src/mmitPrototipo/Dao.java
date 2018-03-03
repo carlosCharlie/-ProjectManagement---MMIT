@@ -11,58 +11,33 @@ import java.sql.*;
 
 public class Dao {
 
-    private static final String BDURL = "jdbc:mysql://localhost:3306/MMIT"; // ruta de la base de datos
-    private static final String USUARIO = "MMIT";//user
-    private static final String CONTRASENNA = "MMIT";// pass
-
-    public boolean guardardatos(String datos) {
+    public boolean guardardatos(String tabla,String name) {
         boolean ok = false;
-        int r;
-        Connection conn = null;
-        Statement stmt = null;
-        try {
-            conn = DriverManager.getConnection(BDURL, USUARIO, CONTRASENNA);
-            stmt = conn.createStatement();
-            r = stmt.executeUpdate("INSERT equipos (nombre) VALUES (" + datos + ")");
-            // Comprobar que solo ha sido afectada una fila
-            ResultSet rs = stmt.executeQuery("SELECT * FROM equipos WHERE nombre = '"
-                    + datos+ "';");
-            if (rs.next()) {
-                ok = true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (stmt != null) {
-                    stmt.close();
-                }
-            } catch (SQLException e2) {
-            }
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException e3) {
-                e3.printStackTrace();
-            }
-        }
+        String sql = "INSERT INTO " + tabla +"(name) VALUES(?)";
 
-        return ok;
+        try {
+            Connection conn = baseDeDatos.connect();
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, name);
+            pstmt.executeUpdate();
+            ok=true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+		return ok;
     }
 
     public ArrayList<String> leerdatos() {
-        ArrayList<String> tp = null;
-        int r;
+        ArrayList<String> tp = new ArrayList<String>();
         Connection conn = null;
         Statement stmt = null;
 
         try {
-            conn = DriverManager.getConnection(BDURL, USUARIO, CONTRASENNA);
+            conn = baseDeDatos.connect();
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM equipos ;");
-            if (rs.next()) {
-                tp.add(rs.getString(1));
+            while (rs.next()) {
+                tp.add(rs.getString("name"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
