@@ -6,11 +6,9 @@
 package mmitPrototipo.presentacion.controlador;
 import java.awt.List;
 import java.util.ArrayList;
-
 import mmitPrototipo.presentacion.vistas.*;
 import mmitPrototipo.integracion.Dao;
 import mmitPrototipo.presentacion.Eventos;
-import Modelo;
 /**
  *
  * @author Laura
