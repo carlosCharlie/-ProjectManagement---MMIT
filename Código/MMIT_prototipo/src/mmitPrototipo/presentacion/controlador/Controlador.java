@@ -5,7 +5,10 @@
  */
 package mmitPrototipo.presentacion.controlador;
 import java.awt.List;
+import java.util.ArrayList;
+
 import mmitPrototipo.presentacion.vistas.*;
+import mmitPrototipo.integracion.Dao;
 import mmitPrototipo.presentacion.Eventos;
 import Modelo;
 /**
@@ -17,14 +20,15 @@ public class Controlador {
  private Formulario GUICrearFormulario;
  private Listar GUICargarBBDD;
  private HolaMundo GUIHolaMundo;
- private Modelo modeloFormulario, modeloCargarBBDD;
+ private Dao modeloFormulario;
+ private Dao modeloCargarBBDD;
+ 
  public Controlador(){   
   
  }
  
-      public void accion(int evento, Object datos){
-      
-    	  vista = new Vista(); 
+ public void accion(int evento, Object datos){
+       
           switch(evento){
               case Eventos.MOSTRAR_MENU:
                   if(GUIMenu==null) GUIMenu = new Vista();
@@ -40,7 +44,7 @@ public class Controlador {
                   //poner un getInstance en cada GUI
                   if(GUICargarBBDD == null) GUICargarBBDD = new Listar();
                   GUICargarBBDD.actualizar(Eventos.MOSTRAR_CARGAR_BBDD, datos);
-                  List<String> lista = modeloCargarBBDD.sacarTodosLosDatos();
+                  ArrayList<String> lista = modeloCargarBBDD.leerdatos();
                   if(lista!=null)
                       GUICargarBBDD.actualizar(Eventos.RES_CARGAR_BBDD_OK, lista);
                   else 
@@ -52,9 +56,10 @@ public class Controlador {
                  break;
                  
               case Eventos.ACCION_CREAR_FORMULARIO:
-                  int resCrearFormulario = modeloFormulario.crearFormulario((String) datos);
-                  
-                  if(resCrearFormulario>0){
+            	  // Ni idea...
+                  boolean resCrearFormulario = modeloFormulario.guardardatos((String) datos, niPutaIdea);
+                  // Ni idea...
+                  if(resCrearFormulario){
                   GUICrearFormulario.actualizar(Eventos.RES_CREAR_FORMULARIO_OK, 
                   resCrearFormulario);
                   }
