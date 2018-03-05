@@ -1,4 +1,4 @@
-package vistas.vistas;
+package mmitPrototipo.presentacion.vistas;
 
 import javax.swing.JFrame;
 

@@ -1,4 +1,4 @@
-package integracion;
+package mmitPrototipo.integracion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -3,23 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vistas.controlador;
+package mmitPrototipo.presentacion.controlador;
 import java.awt.List;
-import vistas.*;
-import vistas.vistas.Formulario;
-import vistas.vistas.HolaMundo;
-import vistas.vistas.Vista;
+import mmitPrototipo.presentacion.vistas.*;
+import mmitPrototipo.presentacion.Eventos;
 import Modelo;
 /**
  *
  * @author Laura
  */
-import mmitPrototipo.presentacion.Eventos;
-
 public class Controlador {
  private Vista GUIMenu;
  private Formulario GUICrearFormulario;
- private GUICargarBBDD;
+ private Listar GUICargarBBDD;
  private HolaMundo GUIHolaMundo;
  private Modelo modeloFormulario, modeloCargarBBDD;
  public Controlador(){   
@@ -42,7 +38,7 @@ public class Controlador {
                   
               case Eventos.MOSTRAR_CARGAR_BBDD:
                   //poner un getInstance en cada GUI
-                  if(GUICargarBBDD == null) GUICargarBBDD = new GUICargarBBDD();
+                  if(GUICargarBBDD == null) GUICargarBBDD = new Listar();
                   GUICargarBBDD.actualizar(Eventos.MOSTRAR_CARGAR_BBDD, datos);
                   List<String> lista = modeloCargarBBDD.sacarTodosLosDatos();
                   if(lista!=null)
