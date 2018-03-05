@@ -3,16 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mmitPrototipo;
+package vistas.controlador;
 import java.awt.List;
-import Vista;
+import vistas.*;
+import vistas.vistas.Formulario;
+import vistas.vistas.HolaMundo;
+import vistas.vistas.Vista;
 import Modelo;
 /**
  *
  * @author Laura
  */
+import mmitPrototipo.presentacion.Eventos;
+
 public class Controlador {
- private Vista GUIMenu, GUICrearFormulario, GUICargarBBDD;
+ private Vista GUIMenu;
+ private Formulario GUICrearFormulario;
+ private GUICargarBBDD;
+ private HolaMundo GUIHolaMundo;
  private Modelo modeloFormulario, modeloCargarBBDD;
  public Controlador(){   
   
@@ -28,7 +36,7 @@ public class Controlador {
                   break;
                   
               case Eventos.MOSTRAR_CREAR_FORMULARIO:
-                 if( GUICrearFormulario == null) GUICrearFormulario = new GUIFormulario();
+                 if( GUICrearFormulario == null) GUICrearFormulario = new Formulario();
                   GUICrearFormulario.actualizar(Eventos.MOSTRAR_CREAR_FORMULARIO, null);
                   break;
                   
@@ -43,8 +51,8 @@ public class Controlador {
                       GUICargarBBDD.actualizar(Eventos.RES_CARGAR_BBDD_ERROR, lista);
               
               case Eventos.MOSTRAR_HOLA_MUNDO:
-                if( GUIMenu == null) GUIMenu = new GUIMenu();
-                 GUIMenu.actualizar(Eventos.MOSTRAR_HOLA_MUNDO, null);
+                if( GUIMenu == null) GUIHolaMundo = new HolaMundo();
+                 GUIHolaMundo.actualizar(Eventos.MOSTRAR_HOLA_MUNDO, null);
                  break;
                  
               case Eventos.ACCION_CREAR_FORMULARIO:
