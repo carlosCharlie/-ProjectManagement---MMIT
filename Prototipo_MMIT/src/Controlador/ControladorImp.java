@@ -6,21 +6,23 @@ package Controlador;
  * and open the template in the editor.
  */
 
-import GUIs.FactoriaGUI;
-import GUIs.Formulario;
-import GUIs.HolaMundo;
-import GUIs.IGUI;
-import GUIs.Listar;
-import GUIs.Vista;
+import Presentacion.FactoriaGUI;
+import Presentacion.Formulario;
+import Presentacion.HolaMundo;
+import Presentacion.IGUI;
+import Presentacion.Listar;
+import Presentacion.Vista;
 import Negocio.FactoriaSA;
 import Negocio.SAFormulario;
+import Negocio.SAUsuario;
+import Presentacion.Usuario;
 import java.util.ArrayList;
 /**
  *
  * @author Laura
  */
 public class ControladorImp extends Controlador{
- private IGUI GUIMenu, GUICrearFormulario, GUICargarBBDD, GUIHolaMundo;
+ private IGUI GUIMenu, GUICrearFormulario, GUICargarBBDD, GUIHolaMundo, Login;
  
 private final SAFormulario saFormulario;
 
@@ -31,7 +33,7 @@ ControladorImp(){
 
 }
  
- public void accion(Eventos evento, String datos){    
+ public void accion(Eventos evento, Object datos){    
      if(evento == Eventos.ACCION_CARGAR_BBDD){
         FactoriaSA f= FactoriaSA.getInstancia();
         SAFormulario ff = f.getSAFormulario();
@@ -76,6 +78,13 @@ ControladorImp(){
                   GUICrearFormulario.actualizar(Eventos.OCULTAR_CREAR_FORMULARIO, (String) datos);  
           } else if (evento == Eventos.OCULTAR_CARGAR_BBDD){
                   GUICargarBBDD.actualizar(Eventos.OCULTAR_CARGAR_BBDD, (String) datos);
+          } else if (evento == Eventos.COMPROBAR_LOGIN){
+              SAUsuario saUsuario = FactoriaSA.getInstancia().getSAUsuario();
+              if (saUsuario.comprobarLogin((Usuario) datos)){
+                  Login.actualizar(Eventos.LOGIN_OK, null);
+              } else {
+                  Login.actualizar(Eventos.LOGIN_ERROR, null);
+              }
           }
          
      }

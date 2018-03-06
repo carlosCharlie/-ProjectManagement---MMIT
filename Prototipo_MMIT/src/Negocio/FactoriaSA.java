@@ -19,6 +19,8 @@ public abstract class FactoriaSA {
 	}
 	
 	public abstract SAFormulario getSAFormulario();
+        
+        public abstract SAUsuario getSAUsuario();
 	
 	
 

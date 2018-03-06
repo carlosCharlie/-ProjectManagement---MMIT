@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.sql.*;
 
 
-public class DAO {
+public class DAOFormulario {
 
     public boolean guardardatos(String tabla,String name) {
   

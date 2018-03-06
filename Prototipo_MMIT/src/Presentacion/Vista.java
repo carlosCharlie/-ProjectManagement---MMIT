@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUIs;
+package Presentacion;
 
 import Controlador.Controlador;
 import Controlador.Eventos;
@@ -170,13 +170,13 @@ public class Vista extends javax.swing.JFrame implements IGUI {
          else if (evento == Eventos.OCULTAR_MENU) 
 			setVisible(false);
        if(evento == Eventos.RES_CREAR_FORMULARIO_OK){
-           jTextArea1.setText("Inserccion correcta");
+           jTextArea1.setText("Inserccion correcta\n");
            
             //JOptionPane.showMessageDialog(null, "Creado correctamente");
          //setVisible(false);
        }
        if(evento == Eventos.RES_CREAR_FORMULARIO_ERROR){
-           jTextArea1.setText("Inserccion failed");
+           jTextArea1.setText("Inserccion failed\n");
            
             //JOptionPane.showMessageDialog(null, "Creado correctamente");
          //setVisible(false);

@@ -10,9 +10,14 @@ package Integración;
  * @author Laura
  */
 public class FactoriaDAOImp extends FactoriaDAO {
-	@Override
-	public DAO crearDAO() {
-		return new DAO();
-	}
+    @Override
+    public DAOFormulario crearDAOFormulario() {
+        return new DAOFormulario();
+    }
+
+    @Override
+    public DAOUsuario crearDAOUsuario() {
+        return new DAOUsuario();
+    }
 	
 }

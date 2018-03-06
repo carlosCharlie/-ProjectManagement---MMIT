@@ -5,6 +5,8 @@
  */
 package Controlador;
 
+import Presentacion.Login;
+
 /**
  *
  * @author Laura
@@ -12,6 +14,6 @@ package Controlador;
 public class Main {
     
     	public static void main(String[] args) {
-		Controlador.getInstancia().accion(Eventos.MOSTRAR_MENU, null);
+		new Login().setVisible(true);
 	}
 }

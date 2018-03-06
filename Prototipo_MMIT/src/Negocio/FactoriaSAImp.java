@@ -16,5 +16,10 @@ public class FactoriaSAImp extends FactoriaSA {
         return new SAFormulario();
     }
 
+    @Override
+    public SAUsuario getSAUsuario() {
+        return new SAUsuario();
+    }
+
 
 }

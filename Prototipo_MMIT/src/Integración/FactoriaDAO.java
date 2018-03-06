@@ -19,5 +19,7 @@ public abstract class FactoriaDAO {
 		return factoriaDAO;
 	}
 	
-	public abstract DAO crearDAO();
+	public abstract DAOFormulario crearDAOFormulario();
+        
+        public abstract DAOUsuario crearDAOUsuario();
 }

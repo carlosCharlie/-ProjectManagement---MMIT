@@ -20,5 +20,5 @@ public abstract class Controlador {
 		return controlador;
 	}
 	
-	public abstract void accion(Eventos evento, String datos);
+	public abstract void accion(Eventos evento, Object datos);
 }

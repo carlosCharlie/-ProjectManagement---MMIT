@@ -5,7 +5,7 @@
  */
 package Negocio;
 
-import Integración.DAO;
+import Integración.DAOFormulario;
 import Integración.FactoriaDAO;
 import java.util.ArrayList;
 
@@ -18,12 +18,12 @@ import java.util.ArrayList;
 public class SAFormulario {
 
     public boolean guardardatos(String datos, String table) {
-        DAO dao = FactoriaDAO.getInstancia().crearDAO();
+        DAOFormulario dao = FactoriaDAO.getInstancia().crearDAOFormulario();
         return dao.guardardatos(table,datos);
     }
 
     public ArrayList<String> leerDatos() {
-        DAO dao = FactoriaDAO.getInstancia().crearDAO();
+        DAOFormulario dao = FactoriaDAO.getInstancia().crearDAOFormulario();
         return dao.leerDatos();
     }
 }
