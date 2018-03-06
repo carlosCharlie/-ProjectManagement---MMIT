@@ -25,7 +25,6 @@ public class Conexion{
 	        Connection conn = null;
 	        try {
 	            conn = DriverManager.getConnection(url);
-                    createNewDatabase("MMIT");
 	        } catch (SQLException e) {
 	            System.out.println(e.getMessage());
 	        }
