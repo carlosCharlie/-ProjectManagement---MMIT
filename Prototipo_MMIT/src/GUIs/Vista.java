@@ -7,6 +7,7 @@ package GUIs;
 
 import Controlador.Controlador;
 import Controlador.Eventos;
+import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 
 /**
@@ -60,6 +61,12 @@ public class Vista extends javax.swing.JFrame implements IGUI {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Crear");
         jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton1);
 
         jButton2.setBackground(new java.awt.Color(51, 51, 51));
@@ -95,11 +102,7 @@ public class Vista extends javax.swing.JFrame implements IGUI {
         jTextField1.setText("Introducir texto");
         jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jTextField1.setPreferredSize(new java.awt.Dimension(81, 20));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
+    
         jPanel3.add(jTextField1, java.awt.BorderLayout.NORTH);
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
@@ -133,11 +136,11 @@ public class Vista extends javax.swing.JFrame implements IGUI {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+        Controlador.getInstancia().accion(Eventos.ACCION_CARGAR_BBDD,null );
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        Controlador.getInstancia().accion(Eventos.ACCION_CREAR_FORMULARIO,this.jTextField1.getText());
     }//GEN-LAST:event_jTextField1ActionPerformed
 
 
