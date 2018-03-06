@@ -22,12 +22,8 @@ public abstract class FactoriaGUI {
 
 	
 
-	public abstract IGUI crearGUIFormulario();
+	public abstract IGUI crearGUILogin();
 
-	public abstract IGUI crearGUIHolaMundo();
-
-	public abstract IGUI crearGUIListar();
-        
-        public abstract IGUI crearGUIVista();
+	public abstract IGUI crearGUIMenuPrincipal();
 
 }

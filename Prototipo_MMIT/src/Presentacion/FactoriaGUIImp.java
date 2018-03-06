@@ -12,23 +12,12 @@ package Presentacion;
 public class FactoriaGUIImp extends FactoriaGUI {
 
     @Override
-    public IGUI crearGUIFormulario() {
-     return new Formulario();
-    }
-
-    @Override
-    public IGUI crearGUIHolaMundo() {
-      return new HolaMundo();
-    }
-
-    @Override
-    public IGUI crearGUIListar() {
-       return new Listar();
-    }
-
-    @Override
-    public IGUI crearGUIVista() {
-       return new Vista();
-    }
+    public IGUI crearGUILogin() {
+        return new Login();
+    }    
     
+    @Override
+    public IGUI crearGUIMenuPrincipal() {
+        return new MenuPrincipal();
+    }
 }

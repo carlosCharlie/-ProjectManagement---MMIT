@@ -18,12 +18,11 @@ public class DAOFormulario {
 
     public boolean guardardatos(String tabla,String name) {
   
-        String sql = "INSERT INTO " + tabla +"(name) VALUES(?)";
+        String sql = "INSERT INTO " + tabla + " (name) VALUES ('" + name +"')";
 
         try {
             Connection conn = Conexion.connect();
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, name);
             pstmt.executeUpdate();
      
         } catch (SQLException e) {

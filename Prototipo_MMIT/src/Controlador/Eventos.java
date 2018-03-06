@@ -12,7 +12,7 @@ package Controlador;
 public enum Eventos {
 //Eventos Menú principal
 
-ACCION_CREAR_FORMULARIO,
+ACCION_INSERTAR_FORMULARIO,
 ACCION_CARGAR_BBDD,
 
 
