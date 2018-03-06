@@ -22,9 +22,9 @@ public class DAOUsuario {
         try {
             conn = Conexion.connect();
             stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM usuarios WHERE ID = " + user + ";");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM usuarios WHERE nombre= '" + user + "';");
             while (rs.next()) {
-                return rs.getString("name");
+                return rs.getString("nombre");
             }
         } catch (SQLException e) {
             return null;

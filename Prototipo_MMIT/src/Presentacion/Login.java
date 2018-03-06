@@ -79,9 +79,10 @@ public class Login extends javax.swing.JFrame implements IGUI {
     public void actualizar(Eventos evento, Object datos) {
         if (evento == Eventos.LOGIN_OK){
             Controlador.getInstancia().accion(Eventos.MOSTRAR_MENU, null);
-        } else {
-            this.fieldContrasena.setText("");
+        } else if (evento == Eventos.LOGIN_ERROR){
             JOptionPane.showMessageDialog(null, "Contraseña Incorrecta");
+        } else if (evento == Eventos.MOSTRAR_LOGIN){
+            this.setVisible(true);
         }
     }
 }
