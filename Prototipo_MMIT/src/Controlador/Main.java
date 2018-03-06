@@ -5,8 +5,6 @@
  */
 package Controlador;
 
-import Presentacion.Login;
-
 /**
  *
  * @author Laura
@@ -14,6 +12,6 @@ import Presentacion.Login;
 public class Main {
     
     	public static void main(String[] args) {
-		new Login().setVisible(true);
+		Controlador.getInstancia().accion(Eventos.MOSTRAR_LOGIN, null);
 	}
 }
