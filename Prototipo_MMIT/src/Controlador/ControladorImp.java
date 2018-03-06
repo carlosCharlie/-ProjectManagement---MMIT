@@ -34,8 +34,11 @@ ControladorImp(){
 
 }
  
- public void accion(Eventos evento, Object datos){    
-     if(evento == Eventos.ACCION_CARGAR_BBDD){
+ public void accion(Eventos evento, Object datos){ 
+     
+     if(evento==Eventos.setFinalistaDe|| evento == Eventos.setFinalistaIz)
+          Vista.actualizar(evento, datos);
+     else if(evento == Eventos.ACCION_CARGAR_BBDD){
         FactoriaSA f= FactoriaSA.getInstancia();
         SAFormulario ff = f.getSAFormulario();
          Vista.actualizar(Eventos.RES_CARGAR_BBDD_OK, ff.leerDatos());

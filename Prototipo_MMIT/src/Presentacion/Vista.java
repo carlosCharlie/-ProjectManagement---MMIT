@@ -170,6 +170,11 @@ public class Vista extends javax.swing.JFrame implements IGUI {
 
     @Override
     public void actualizar(Eventos evento, Object datos) {
+        if(evento == Eventos.setFinalistaDe)
+            this.panelEquipos.setTextEquipoDerechaFinal((String)datos);
+        if(evento == Eventos.setFinalistaIz)
+            this.panelEquipos.setTextEquipoIzquierdaFinal((String)datos);
+        
        if (evento == Eventos.MOSTRAR_MENU) 
 			setVisible(true);
          else if (evento == Eventos.OCULTAR_MENU) 

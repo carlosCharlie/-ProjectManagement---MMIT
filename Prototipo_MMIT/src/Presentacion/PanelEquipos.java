@@ -5,6 +5,10 @@
  */
 package Presentacion;
 
+import Controlador.Controlador;
+import Controlador.Eventos;
+import javax.swing.JFormattedTextField;
+
 /**
  *
  * @author carlos
@@ -48,6 +52,16 @@ public class PanelEquipos extends javax.swing.JPanel {
         equipoIzquierdaArriba.setForeground(new java.awt.Color(0, 0, 0));
         equipoIzquierdaArriba.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         equipoIzquierdaArriba.setText("equipo1");
+        equipoIzquierdaArriba.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                equipoPulsadoIzquierda(evt);
+            }
+        });
+        equipoIzquierdaArriba.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                equipoIzquierdaArribaActionPerformed(evt);
+            }
+        });
         add(equipoIzquierdaArriba);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
@@ -84,6 +98,11 @@ public class PanelEquipos extends javax.swing.JPanel {
         equipoDerechaArriba.setForeground(new java.awt.Color(0, 0, 0));
         equipoDerechaArriba.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         equipoDerechaArriba.setText("equipo3");
+        equipoDerechaArriba.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                equipoPulsadoDerecha(evt);
+            }
+        });
         add(equipoDerechaArriba);
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
@@ -101,6 +120,7 @@ public class PanelEquipos extends javax.swing.JPanel {
 
         add(jPanel3);
 
+        equipoIzquiedaFinal.setEditable(false);
         equipoIzquiedaFinal.setBackground(new java.awt.Color(102, 102, 102));
         equipoIzquiedaFinal.setForeground(new java.awt.Color(0, 0, 0));
         equipoIzquiedaFinal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -112,6 +132,7 @@ public class PanelEquipos extends javax.swing.JPanel {
         });
         add(equipoIzquiedaFinal);
 
+        equipoDerechaFinal.setEditable(false);
         equipoDerechaFinal.setBackground(new java.awt.Color(102, 102, 102));
         equipoDerechaFinal.setForeground(new java.awt.Color(0, 0, 0));
         equipoDerechaFinal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -142,6 +163,11 @@ public class PanelEquipos extends javax.swing.JPanel {
         equipoIzquierdaAbajo.setForeground(new java.awt.Color(0, 0, 0));
         equipoIzquierdaAbajo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         equipoIzquierdaAbajo.setText("equipo2");
+        equipoIzquierdaAbajo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                equipoPulsadoIzquierda(evt);
+            }
+        });
         add(equipoIzquierdaAbajo);
 
         jPanel5.setBackground(new java.awt.Color(51, 51, 51));
@@ -178,6 +204,11 @@ public class PanelEquipos extends javax.swing.JPanel {
         equipoDerechaAbajo.setForeground(new java.awt.Color(0, 0, 0));
         equipoDerechaAbajo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         equipoDerechaAbajo.setText("equipo4");
+        equipoDerechaAbajo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                equipoPulsadoDerecha(evt);
+            }
+        });
         add(equipoDerechaAbajo);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -188,6 +219,18 @@ public class PanelEquipos extends javax.swing.JPanel {
     private void equipoDerechaFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipoDerechaFinalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_equipoDerechaFinalActionPerformed
+
+    private void equipoPulsadoIzquierda(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_equipoPulsadoIzquierda
+       Controlador.getInstancia().accion(Eventos.setFinalistaIz,((JFormattedTextField)evt.getComponent()).getText());
+    }//GEN-LAST:event_equipoPulsadoIzquierda
+
+    private void equipoIzquierdaArribaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_equipoIzquierdaArribaActionPerformed
+        
+    }//GEN-LAST:event_equipoIzquierdaArribaActionPerformed
+
+    private void equipoPulsadoDerecha(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_equipoPulsadoDerecha
+         Controlador.getInstancia().accion(Eventos.setFinalistaDe,((JFormattedTextField)evt.getComponent()).getText());
+    }//GEN-LAST:event_equipoPulsadoDerecha
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
