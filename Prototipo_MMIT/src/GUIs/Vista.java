@@ -9,6 +9,7 @@ import Controlador.Controlador;
 import Controlador.Eventos;
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -167,6 +168,18 @@ public class Vista extends javax.swing.JFrame implements IGUI {
 			setVisible(true);
          else if (evento == Eventos.OCULTAR_MENU) 
 			setVisible(false);
+       if(evento == Eventos.RES_CREAR_FORMULARIO_OK){
+           jTextArea1.setText("Inserccion correcta");
+           
+            //JOptionPane.showMessageDialog(null, "Creado correctamente");
+         //setVisible(false);
+       }
+       if(evento == Eventos.RES_CREAR_FORMULARIO_ERROR){
+           jTextArea1.setText("Inserccion failed");
+           
+            //JOptionPane.showMessageDialog(null, "Creado correctamente");
+         //setVisible(false);
+       }
     }
     
 }

@@ -14,7 +14,6 @@ import GUIs.Listar;
 import GUIs.Vista;
 import Negocio.FactoriaSA;
 import Negocio.SAFormulario;
-import Negocio.SAListar;
 import java.util.ArrayList;
 /**
  *
@@ -24,16 +23,21 @@ public class ControladorImp extends Controlador{
  private IGUI GUIMenu, GUICrearFormulario, GUICargarBBDD, GUIHolaMundo;
  
 private final SAFormulario saFormulario;
-private final SAListar saListar;
+
 
 ControladorImp(){
     
     this.saFormulario=FactoriaSA.getInstancia().getSAFormulario();
-    this.saListar=FactoriaSA.getInstancia().getSAListar();
+
 }
  
  public void accion(Eventos evento, String datos){    
-          if(evento == Eventos.MOSTRAR_MENU){
+     if(evento == Eventos.ACCION_CARGAR_BBDD){
+        FactoriaSA f= FactoriaSA.getInstancia();
+        SAFormulario ff = f.getSAFormulario();
+         GUIMenu.actualizar(Eventos.RES_CREAR_FORMULARIO_OK, ff.leerDatos());
+     }
+     else if(evento == Eventos.MOSTRAR_MENU){
                   if(GUIMenu==null) GUIMenu = new Vista();
                   GUIMenu.actualizar(Eventos.MOSTRAR_MENU, null);
           } else if (evento == Eventos.MOSTRAR_CREAR_FORMULARIO){
@@ -49,22 +53,22 @@ ControladorImp(){
                   else 
                       GUICargarBBDD.actualizar(Eventos.RES_CARGAR_BBDD_ERROR, lista);
                   */
+                  
           } else if (evento == Eventos.MOSTRAR_HOLA_MUNDO){
                 if( GUIHolaMundo == null){
                     GUIHolaMundo = new HolaMundo();
                 }
                  GUIHolaMundo.actualizar(Eventos.MOSTRAR_HOLA_MUNDO, null);   
           } else if (evento == Eventos.ACCION_CREAR_FORMULARIO){
-                  /*
-                  boolean resCrearFormulario = saFormulario.guardardatos((String) datos, null);
+                  
+                  boolean resCrearFormulario = saFormulario.guardardatos((String) datos, "formulario");
                   if(resCrearFormulario){
-                  GUICrearFormulario.actualizar(Eventos.RES_CREAR_FORMULARIO_OK, 
-                  resCrearFormulario);
+                  GUIMenu.actualizar(Eventos.RES_CREAR_FORMULARIO_OK, 
+                  null);
                   }
-                  else GUICrearFormulario.actualizar(Eventos.RES_CREAR_FORMULARIO_ERROR,
-                  resCrearFormulario);
-                  break;
-*/
+
+                  else GUIMenu.actualizar(Eventos.RES_CREAR_FORMULARIO_ERROR,
+                  null);
                   
           } else if (evento ==  Eventos.OCULTAR_MENU){
                   GUIMenu.actualizar(Eventos.OCULTAR_MENU, (String) datos);                

@@ -17,7 +17,7 @@ import java.sql.*;
 public class DAO {
 
     public boolean guardardatos(String tabla,String name) {
-        boolean ok = false;
+  
         String sql = "INSERT INTO " + tabla +"(name) VALUES(?)";
 
         try {
@@ -25,14 +25,15 @@ public class DAO {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, name);
             pstmt.executeUpdate();
-            ok=true;
+     
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
+            return false;
         }
-		return ok;
+	return true;
     }
 
-    public ArrayList<String> leerdatos() {
+    public ArrayList<String> leerDatos() {
         ArrayList<String> tp = new ArrayList<String>();
         Connection conn = null;
         Statement stmt = null;

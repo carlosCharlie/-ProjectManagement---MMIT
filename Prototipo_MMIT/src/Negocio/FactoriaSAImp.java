@@ -16,9 +16,5 @@ public class FactoriaSAImp extends FactoriaSA {
         return new SAFormulario();
     }
 
-    @Override
-    public SAListar getSAListar() {
-         return new SAListar();
-    }
-    
+
 }

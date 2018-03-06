@@ -25,6 +25,7 @@ public class Conexion{
 	        Connection conn = null;
 	        try {
 	            conn = DriverManager.getConnection(url);
+                    createNewDatabase("MMIT");
 	        } catch (SQLException e) {
 	            System.out.println(e.getMessage());
 	        }
@@ -40,6 +41,7 @@ public class Conexion{
 	            Connection conn = DriverManager.getConnection(url);
 	            if (conn != null) {
 	                DatabaseMetaData meta = conn.getMetaData();
+                        createNewTable("formulario");
 	                System.out.println("The driver name is " + meta.getDriverName());
 	                System.out.println("A new database has been created.");
 	            }
