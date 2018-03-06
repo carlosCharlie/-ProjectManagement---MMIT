@@ -33,7 +33,7 @@ public class Vista extends javax.swing.JFrame implements IGUI {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+        panelEquipos = new PanelEquipos();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -123,7 +123,11 @@ public class Vista extends javax.swing.JFrame implements IGUI {
         jScrollPane1.setViewportView(jTextArea1);
 
         jPanel4.add(jScrollPane1, java.awt.BorderLayout.SOUTH);
-
+        
+        this.panelEquipos = new PanelEquipos();
+        jPanel3.add(this.panelEquipos,java.awt.BorderLayout.CENTER);
+        
+        
         jPanel3.add(jPanel4, java.awt.BorderLayout.SOUTH);
 
         jPanel1.add(jPanel3);
@@ -160,11 +164,17 @@ public class Vista extends javax.swing.JFrame implements IGUI {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private PanelEquipos panelEquipos;
     // End of variables declaration//GEN-END:variables
 
 
     @Override
     public void actualizar(Eventos evento, Object datos) {
+        if(evento == Eventos.setFinalistaDe)
+            this.panelEquipos.setTextEquipoDerechaFinal((String)datos);
+        if(evento == Eventos.setFinalistaIz)
+            this.panelEquipos.setTextEquipoIzquierdaFinal((String)datos);
+        
        if (evento == Eventos.MOSTRAR_MENU) 
 			setVisible(true);
          else if (evento == Eventos.OCULTAR_MENU) 
