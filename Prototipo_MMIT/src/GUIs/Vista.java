@@ -8,6 +8,7 @@ package GUIs;
 import Controlador.Controlador;
 import Controlador.Eventos;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -163,7 +164,7 @@ public class Vista extends javax.swing.JFrame implements IGUI {
 
 
     @Override
-    public void actualizar(Eventos evento, String datos) {
+    public void actualizar(Eventos evento, Object datos) {
        if (evento == Eventos.MOSTRAR_MENU) 
 			setVisible(true);
          else if (evento == Eventos.OCULTAR_MENU) 
@@ -179,6 +180,12 @@ public class Vista extends javax.swing.JFrame implements IGUI {
            
             //JOptionPane.showMessageDialog(null, "Creado correctamente");
          //setVisible(false);
+       }
+       if(evento == Eventos.RES_CARGAR_BBDD_OK){
+           ArrayList<String> dato = (ArrayList<String>) datos;
+           for(int i = 0; i < dato.size(); i++){
+               jTextArea1.append(dato.get(i) + "\n");
+           }
        }
     }
     

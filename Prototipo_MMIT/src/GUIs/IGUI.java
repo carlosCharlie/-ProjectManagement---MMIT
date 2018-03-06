@@ -12,6 +12,6 @@ import Controlador.Eventos;
  * @author Laura
  */
 public interface IGUI {
-    void actualizar(Eventos evento, String datos);
+    void actualizar(Eventos evento, Object datos);
 }
 

@@ -35,7 +35,7 @@ ControladorImp(){
      if(evento == Eventos.ACCION_CARGAR_BBDD){
         FactoriaSA f= FactoriaSA.getInstancia();
         SAFormulario ff = f.getSAFormulario();
-         GUIMenu.actualizar(Eventos.RES_CREAR_FORMULARIO_OK, ff.leerDatos());
+         GUIMenu.actualizar(Eventos.RES_CARGAR_BBDD_OK, ff.leerDatos());
      }
      else if(evento == Eventos.MOSTRAR_MENU){
                   if(GUIMenu==null) GUIMenu = new Vista();

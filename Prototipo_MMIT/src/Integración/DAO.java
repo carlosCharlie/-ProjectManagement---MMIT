@@ -41,7 +41,7 @@ public class DAO {
         try {
             conn = Conexion.connect();
             stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM equipos ;");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM formulario ;");
             while (rs.next()) {
                 tp.add(rs.getString("name"));
             }
