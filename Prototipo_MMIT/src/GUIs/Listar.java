@@ -115,7 +115,7 @@ public class Listar extends JFrame implements IGUI{
 			
     }
       
-    public void actualizar(Eventos evento, String datos) {
+    public void actualizar(Eventos evento, Object datos) {
        if (evento == Eventos.MOSTRAR_CARGAR_BBDD) setVisible(true);
 	else if (evento == Eventos.OCULTAR_CARGAR_BBDD) setVisible(false);
 	else if (evento == Eventos.RES_CARGAR_BBDD_OK) GUIMostrar((String) datos);

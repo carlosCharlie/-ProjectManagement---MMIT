@@ -133,7 +133,7 @@ public class Formulario extends JFrame implements IGUI{
 
 
     @Override
-    public void actualizar(Eventos evento, String datos) {
+    public void actualizar(Eventos evento, Object datos) {
         if (evento == Eventos.MOSTRAR_CREAR_FORMULARIO) {
 			setVisible(true);
 		} else if (evento == Eventos.OCULTAR_CREAR_FORMULARIO) {

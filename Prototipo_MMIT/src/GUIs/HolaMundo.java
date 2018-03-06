@@ -78,7 +78,7 @@ public class HolaMundo extends JFrame implements IGUI{
     private javax.swing.JTextArea jTextArea1;
 
     @Override
-    public void actualizar(Eventos evento, String datos) {
+    public void actualizar(Eventos evento, Object datos) {
         JOptionPane.showMessageDialog(null, "Hola mundo!");
     }
 }
