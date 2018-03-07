@@ -43,7 +43,7 @@ ControladorImp(){
             Vista.actualizar(Eventos.RES_CARGAR_BBDD_OK, ff.leerDatos());
             break;
         case ACCION_INSERTAR_FORMULARIO:
-            boolean resCrearFormulario = saFormulario.guardardatos((String) datos, "formulario");
+            boolean resCrearFormulario = saFormulario.guardardatos((String) datos);
             if (resCrearFormulario){
                 Vista.actualizar(Eventos.RES_CREAR_FORMULARIO_OK,
                         null);

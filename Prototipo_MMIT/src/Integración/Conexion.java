@@ -20,15 +20,18 @@ import java.util.ArrayList;
 
 public class Conexion{
 	 public static Connection connect() {
-		// SQLite connection string
-	        String url = "jdbc:sqlite:./MMIT.db";
-	        Connection conn = null;
-	        try {
-	            conn = DriverManager.getConnection(url);
-	        } catch (SQLException e) {
-	            System.out.println(e.getMessage());
-	        }
-	        return conn;
+            Connection c = null;
+
+            try {
+                Class.forName("org.sqlite.JDBC");
+                //createNewDatabase("MMIT");
+                c = DriverManager.getConnection("jdbc:sqlite:MMIT.db");
+            } catch ( Exception e ) {
+                System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+                System.exit(0);
+            }
+            
+            return c;
 	    }
 
 	 //crear base de datos
@@ -41,6 +44,7 @@ public class Conexion{
 	            if (conn != null) {
 	                DatabaseMetaData meta = conn.getMetaData();
                         createNewTable("formulario");
+                        createNewTable("usuario");
 	                System.out.println("The driver name is " + meta.getDriverName());
 	                System.out.println("A new database has been created.");
 	            }

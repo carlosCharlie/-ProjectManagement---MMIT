@@ -16,17 +16,15 @@ import java.sql.*;
 
 public class DAOFormulario {
 
-    public boolean guardardatos(String tabla,String name) {
-  
-        String sql = "INSERT INTO " + tabla + " (name) VALUES ('" + name +"')";
+    public boolean guardardatos(String name) {        
+        String query = "INSERT INTO formulario (name) VALUES ('" + name +"');";
 
         try {
             Connection conn = Conexion.connect();
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.executeUpdate();
-     
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(query);
+            conn.close();
         } catch (SQLException e) {
-            //System.out.println(e.getMessage());
             return false;
         }
 	return true;
@@ -44,6 +42,7 @@ public class DAOFormulario {
             while (rs.next()) {
                 tp.add(rs.getString("name"));
             }
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -61,7 +60,8 @@ public class DAOFormulario {
                 e3.printStackTrace();
             }
         }
-
+        
+        
         return tp;
     }
 

@@ -18,18 +18,21 @@ public class DAOUsuario {
     public String readByUser(String user) {
         Connection conn = null;
         Statement stmt = null;
+        String nombre = null;
 
         try {
             conn = Conexion.connect();
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM usuarios WHERE nombre= '" + user + "';");
             while (rs.next()) {
-                return rs.getString("nombre");
+                nombre = rs.getString("nombre");
             }
+            conn.close();
         } catch (SQLException e) {
             return null;
         }
-        return null;
+        
+        return nombre;
     }
 
 }

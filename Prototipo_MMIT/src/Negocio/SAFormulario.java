@@ -17,9 +17,9 @@ import java.util.ArrayList;
  */
 public class SAFormulario {
 
-    public boolean guardardatos(String datos, String table) {
+    public boolean guardardatos(String datos) {
         DAOFormulario dao = FactoriaDAO.getInstancia().crearDAOFormulario();
-        return dao.guardardatos(table,datos);
+        return dao.guardardatos(datos);
     }
 
     public ArrayList<String> leerDatos() {
