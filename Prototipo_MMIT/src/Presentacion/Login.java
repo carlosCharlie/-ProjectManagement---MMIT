@@ -82,6 +82,7 @@ public class Login extends javax.swing.JFrame implements IGUI {
     public void actualizar(Eventos evento, Object datos) {
         switch (evento) {
             case LOGIN_OK:
+                this.setVisible(false);
                 Controlador.getInstancia().accion(Eventos.MOSTRAR_MENU, null);
                 break;
             case LOGIN_ERROR:
