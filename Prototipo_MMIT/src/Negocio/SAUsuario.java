@@ -5,6 +5,9 @@
  */
 package Negocio;
 
+import Controlador.Controlador;
+import Controlador.ControladorImp;
+import Controlador.Eventos;
 import Integración.DAOFormulario;
 import Integración.DAOUsuario;
 import Integración.FactoriaDAO;
@@ -25,6 +28,9 @@ public class SAUsuario {
         if (pass != null){
             if (pass.equals(user.getPassword())){
                 return true;
+            }
+            else{
+                ControladorImp.getInstancia().accion(Eventos.MOSTRAR_LOGIN, null);
             }
         }
         return false;
