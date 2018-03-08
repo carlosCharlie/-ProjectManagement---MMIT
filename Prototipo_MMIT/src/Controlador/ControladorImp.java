@@ -60,6 +60,9 @@ ControladorImp(){
             Vista.actualizar(Eventos.MOSTRAR_HOLA_MUNDO, null);
             break;
         case MOSTRAR_LOGIN:
+            if (Vista != null){
+                Vista.actualizar(Eventos.OCULTAR_LOGIN, null);
+            }
             Vista = new Login();
             Vista.actualizar(Eventos.MOSTRAR_LOGIN, null);
             break;

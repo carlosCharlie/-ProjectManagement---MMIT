@@ -91,6 +91,9 @@ public class Login extends javax.swing.JFrame implements IGUI {
             case MOSTRAR_LOGIN:
                 this.setVisible(true);
                 break;
+            case OCULTAR_LOGIN:
+                this.setVisible(false);
+                break;
             default:
                 break;
         }

@@ -43,5 +43,5 @@ MOSTRAR_HOLA_MUNDO,
 COMPROBAR_LOGIN,
 
 LOGIN_OK,
-LOGIN_ERROR, setFinalistaIz, setFinalistaDe
+LOGIN_ERROR, setFinalistaIz, setFinalistaDe, OCULTAR_LOGIN
 }
