@@ -29,6 +29,25 @@ public class DAOFormulario {
         }
 	return true;
     }
+    
+    public String leerPorNombre(String name) {        
+        String query = "SELECT * FROM formulario WHERE nombre = '" + name +"';";
+        String nombre = null;
+
+        try {
+            Connection conn = Conexion.connect();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM formulario where name = '" + name + "';");
+            while (rs.next()) {
+                nombre = rs.getString("name");
+            }
+            conn.close();
+        } catch (SQLException e) {
+            return null;
+        }
+	return nombre;
+    }
+
 
     public ArrayList<String> leerDatos() {
         ArrayList<String> tp = new ArrayList<String>();

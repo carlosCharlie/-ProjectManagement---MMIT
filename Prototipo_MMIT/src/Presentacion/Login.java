@@ -37,6 +37,7 @@ public class Login extends javax.swing.JFrame implements IGUI {
         botonAceptarContrasena = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Prototipo MMIT - Login");
         setBackground(new java.awt.Color(102, 102, 102));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximumSize(new java.awt.Dimension(400, 150));

@@ -19,7 +19,11 @@ public class SAFormulario {
 
     public boolean guardardatos(String datos) {
         DAOFormulario dao = FactoriaDAO.getInstancia().crearDAOFormulario();
-        return dao.guardardatos(datos);
+        if (dao.leerPorNombre(datos) == null){
+            return dao.guardardatos(datos);
+        } else {
+                return false;
+        }
     }
 
     public ArrayList<String> leerDatos() {

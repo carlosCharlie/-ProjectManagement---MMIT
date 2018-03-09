@@ -52,6 +52,10 @@ ControladorImp(){
                     null);
             }
             break;
+        case ERROR_ARGUMENTOS:
+             Vista.actualizar(Eventos.RES_CREAR_FORMULARIO_ERROR,
+                    null);
+             break;
         case MOSTRAR_MENU:
             Vista = new MenuPrincipal();
             Vista.actualizar(Eventos.MOSTRAR_MENU, null);

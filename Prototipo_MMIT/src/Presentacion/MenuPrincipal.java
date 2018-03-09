@@ -47,6 +47,9 @@ public class MenuPrincipal extends javax.swing.JFrame implements IGUI{
         textArea = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Prototipo MMIT - Menu Principal");
+        setBackground(new java.awt.Color(0, 204, 102));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximumSize(new java.awt.Dimension(1000, 750));
         setMinimumSize(new java.awt.Dimension(1000, 750));
         setPreferredSize(new java.awt.Dimension(1000, 750));
@@ -178,13 +181,21 @@ public class MenuPrincipal extends javax.swing.JFrame implements IGUI{
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 241;
+        gridBagConstraints.ipady = 195;
         getContentPane().add(jScrollPane2, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInsertarActionPerformed
-        Controlador.getInstancia().accion(Eventos.ACCION_INSERTAR_FORMULARIO,this.textNombre.getText());
+       String text = this.textNombre.getText();
+       if (!text.equals("")) {
+           Controlador.getInstancia().accion(Eventos.ACCION_INSERTAR_FORMULARIO,this.textNombre.getText());
+       } else {
+           Controlador.getInstancia().accion(Eventos.ERROR_ARGUMENTOS,this.textNombre.getText());
+       }
+               
     }//GEN-LAST:event_botonInsertarActionPerformed
 
     private void botonMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarActionPerformed
@@ -229,11 +240,11 @@ public class MenuPrincipal extends javax.swing.JFrame implements IGUI{
                 break;
             case RES_CREAR_FORMULARIO_OK:
                 textArea.setText("Insercion correcta\n");
-                JOptionPane.showMessageDialog(null, "Formulario creado correctamente");
+                JOptionPane.showMessageDialog(null, "Insercion realizada correctamente");
                 break;
             case RES_CREAR_FORMULARIO_ERROR:
                 textArea.setText("Insercion fallida\n");
-                JOptionPane.showMessageDialog(null,"No se pudo crear el formulario","ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null,"No se pudo realizar la insercion");
                 break;
             case RES_CARGAR_BBDD_OK:
                 ArrayList<String> dato = (ArrayList<String>) datos;
