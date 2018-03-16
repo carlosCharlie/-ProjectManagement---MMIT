@@ -1,49 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="8" passed="8">
+<testng-results skipped="0" failed="0" total="10" passed="10">
   <reporter-output>
   </reporter-output>
-  <suite name="Command line suite" duration-ms="20" started-at="2018-03-16T09:32:57Z" finished-at="2018-03-16T09:32:57Z">
+  <suite name="Command line suite" duration-ms="203" started-at="2018-03-16T11:00:45Z" finished-at="2018-03-16T11:00:45Z">
     <groups>
       <group name="funcTest">
-        <method signature="CuadradoNGIntegracionTest.TestCalculaAreaConSuma()[pri:0, instance:launcher.CuadradoNGIntegracionTest@b684286]" name="TestCalculaAreaConSuma" class="launcher.CuadradoNGIntegracionTest"/>
-        <method signature="CuadradoNGIntegracionTest.TestCalculaPerimetroConMultiplicacion()[pri:0, instance:launcher.CuadradoNGIntegracionTest@b684286]" name="TestCalculaPerimetroConMultiplicacion" class="launcher.CuadradoNGIntegracionTest"/>
+        <method signature="CuadradoNGIntegracionTest.TestCalculaAreaConSuma()[pri:0, instance:launcher.CuadradoNGIntegracionTest@7f63425a]" name="TestCalculaAreaConSuma" class="launcher.CuadradoNGIntegracionTest"/>
+        <method signature="CuadradoNGIntegracionTest.TestCalculaPerimetroConMultiplicacion()[pri:0, instance:launcher.CuadradoNGIntegracionTest@7f63425a]" name="TestCalculaPerimetroConMultiplicacion" class="launcher.CuadradoNGIntegracionTest"/>
       </group> <!-- funcTest -->
     </groups>
-    <test name="Command line test" duration-ms="20" started-at="2018-03-16T09:32:57Z" finished-at="2018-03-16T09:32:57Z">
-      <class name="launcher.TrianguloUnitarioTest">
-        <test-method status="PASS" signature="testCalculaArea()[pri:0, instance:launcher.TrianguloUnitarioTest@17c68925]" name="testCalculaArea" duration-ms="1" started-at="2018-03-16T10:32:57Z" finished-at="2018-03-16T10:32:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testCalculaArea -->
-        <test-method status="PASS" signature="testErrorCalculaArea()[pri:0, instance:launcher.TrianguloUnitarioTest@17c68925]" name="testErrorCalculaArea" duration-ms="1" started-at="2018-03-16T10:32:57Z" finished-at="2018-03-16T10:32:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testErrorCalculaArea -->
-      </class> <!-- launcher.TrianguloUnitarioTest -->
+    <test name="Command line test" duration-ms="203" started-at="2018-03-16T11:00:45Z" finished-at="2018-03-16T11:00:45Z">
       <class name="launcher.CuadradoNGIntegracionTest">
-        <test-method status="PASS" signature="TestCalculaAreaConSuma()[pri:0, instance:launcher.CuadradoNGIntegracionTest@b684286]" name="TestCalculaAreaConSuma" duration-ms="8" started-at="2018-03-16T10:32:57Z" finished-at="2018-03-16T10:32:57Z">
+        <test-method status="PASS" signature="TestCalculaAreaConSuma()[pri:0, instance:launcher.CuadradoNGIntegracionTest@7f63425a]" name="TestCalculaAreaConSuma" duration-ms="9" started-at="2018-03-16T12:00:45Z" finished-at="2018-03-16T12:00:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestCalculaAreaConSuma -->
-        <test-method status="PASS" signature="TestCalculaPerimetroConMultiplicacion()[pri:0, instance:launcher.CuadradoNGIntegracionTest@b684286]" name="TestCalculaPerimetroConMultiplicacion" duration-ms="0" started-at="2018-03-16T10:32:57Z" finished-at="2018-03-16T10:32:57Z">
+        <test-method status="PASS" signature="TestCalculaPerimetroConMultiplicacion()[pri:0, instance:launcher.CuadradoNGIntegracionTest@7f63425a]" name="TestCalculaPerimetroConMultiplicacion" duration-ms="0" started-at="2018-03-16T12:00:45Z" finished-at="2018-03-16T12:00:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestCalculaPerimetroConMultiplicacion -->
       </class> <!-- launcher.CuadradoNGIntegracionTest -->
+      <class name="launcher.TrianguloUnitarioTest">
+        <test-method status="PASS" signature="testCalculaArea()[pri:0, instance:launcher.TrianguloUnitarioTest@59a6e353]" name="testCalculaArea" duration-ms="1" started-at="2018-03-16T12:00:45Z" finished-at="2018-03-16T12:00:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCalculaArea -->
+        <test-method status="PASS" signature="testErrorCalculaArea()[pri:0, instance:launcher.TrianguloUnitarioTest@59a6e353]" name="testErrorCalculaArea" duration-ms="0" started-at="2018-03-16T12:00:45Z" finished-at="2018-03-16T12:00:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testErrorCalculaArea -->
+      </class> <!-- launcher.TrianguloUnitarioTest -->
+      <class name="launcher.DatosNGTest">
+        <test-method status="PASS" signature="testRead()[pri:0, instance:launcher.DatosNGTest@17c68925]" name="testRead" duration-ms="180" started-at="2018-03-16T12:00:45Z" finished-at="2018-03-16T12:00:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRead -->
+        <test-method status="PASS" signature="testReadError()[pri:0, instance:launcher.DatosNGTest@17c68925]" name="testReadError" duration-ms="1" started-at="2018-03-16T12:00:45Z" finished-at="2018-03-16T12:00:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testReadError -->
+      </class> <!-- launcher.DatosNGTest -->
       <class name="launcher.CuadradoUnitarioTest">
-        <test-method status="PASS" signature="testCalcularArea()[pri:0, instance:launcher.CuadradoUnitarioTest@5b464ce8]" name="testCalcularArea" duration-ms="1" started-at="2018-03-16T10:32:57Z" finished-at="2018-03-16T10:32:57Z">
+        <test-method status="PASS" signature="testCalcularArea()[pri:0, instance:launcher.CuadradoUnitarioTest@7a0ac6e3]" name="testCalcularArea" duration-ms="0" started-at="2018-03-16T12:00:45Z" finished-at="2018-03-16T12:00:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCalcularArea -->
-        <test-method status="PASS" signature="testCalcularPerimetro()[pri:0, instance:launcher.CuadradoUnitarioTest@5b464ce8]" name="testCalcularPerimetro" duration-ms="0" started-at="2018-03-16T10:32:57Z" finished-at="2018-03-16T10:32:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testCalcularPerimetro -->
-        <test-method status="PASS" signature="testErrorCalcularPerimetro()[pri:0, instance:launcher.CuadradoUnitarioTest@5b464ce8]" name="testErrorCalcularPerimetro" duration-ms="1" started-at="2018-03-16T10:32:57Z" finished-at="2018-03-16T10:32:57Z">
+        <test-method status="PASS" signature="testErrorCalcularPerimetro()[pri:0, instance:launcher.CuadradoUnitarioTest@7a0ac6e3]" name="testErrorCalcularPerimetro" duration-ms="2" started-at="2018-03-16T12:00:45Z" finished-at="2018-03-16T12:00:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testErrorCalcularPerimetro -->
-        <test-method status="PASS" signature="testNoCalcularArea()[pri:0, instance:launcher.CuadradoUnitarioTest@5b464ce8]" name="testNoCalcularArea" duration-ms="0" started-at="2018-03-16T10:32:57Z" finished-at="2018-03-16T10:32:57Z">
+        <test-method status="PASS" signature="testCalcularPerimetro()[pri:0, instance:launcher.CuadradoUnitarioTest@7a0ac6e3]" name="testCalcularPerimetro" duration-ms="0" started-at="2018-03-16T12:00:45Z" finished-at="2018-03-16T12:00:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCalcularPerimetro -->
+        <test-method status="PASS" signature="testNoCalcularArea()[pri:0, instance:launcher.CuadradoUnitarioTest@7a0ac6e3]" name="testNoCalcularArea" duration-ms="1" started-at="2018-03-16T12:00:45Z" finished-at="2018-03-16T12:00:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testNoCalcularArea -->

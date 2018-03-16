@@ -1,4 +1,5 @@
 launcher\OperacionesUnitarioTest.class
 launcher\CuadradoUnitarioTest.class
+launcher\DatosNGTest.class
 launcher\TrianguloUnitarioTest.class
 launcher\CuadradoNGIntegracionTest.class

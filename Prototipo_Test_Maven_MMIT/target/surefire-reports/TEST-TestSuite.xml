@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="TestSuite" time="0.01" errors="0" skipped="0">
+<testsuite tests="10" failures="0" name="TestSuite" time="0.191" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_161\jre\bin"/>
@@ -63,12 +63,14 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="launcher.CuadradoNGIntegracionTest" name="TestCalculaAreaConSuma" time="0.008"/>
+  <testcase classname="launcher.CuadradoNGIntegracionTest" name="TestCalculaAreaConSuma" time="0.01"/>
   <testcase classname="launcher.CuadradoNGIntegracionTest" name="TestCalculaPerimetroConMultiplicacion" time="0"/>
   <testcase classname="launcher.CuadradoUnitarioTest" name="testCalcularArea" time="0"/>
   <testcase classname="launcher.CuadradoUnitarioTest" name="testCalcularPerimetro" time="0"/>
-  <testcase classname="launcher.CuadradoUnitarioTest" name="testErrorCalcularPerimetro" time="0.001"/>
+  <testcase classname="launcher.CuadradoUnitarioTest" name="testErrorCalcularPerimetro" time="0"/>
   <testcase classname="launcher.CuadradoUnitarioTest" name="testNoCalcularArea" time="0"/>
+  <testcase classname="launcher.DatosNGTest" name="testRead" time="0.18"/>
+  <testcase classname="launcher.DatosNGTest" name="testReadError" time="0.001"/>
   <testcase classname="launcher.TrianguloUnitarioTest" name="testCalculaArea" time="0"/>
-  <testcase classname="launcher.TrianguloUnitarioTest" name="testErrorCalculaArea" time="0.001"/>
+  <testcase classname="launcher.TrianguloUnitarioTest" name="testErrorCalculaArea" time="0"/>
 </testsuite>
