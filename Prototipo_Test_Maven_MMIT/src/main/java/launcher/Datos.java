@@ -7,9 +7,9 @@ package launcher;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  *
@@ -25,9 +25,9 @@ public class Datos {
         Connection c = null;
 
         try {
-            Class.forName("org.sqlite.JDBC");
-            //createNewDatabase("MMIT");
-            c = DriverManager.getConnection("jdbc:sqlite:bbdd.db");
+           Class.forName("org.sqlite.JDBC");
+           c = DriverManager.getConnection("jdbc:sqlite:./bbdd.db");
+           c.setAutoCommit(true);
         } catch ( Exception e ) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
@@ -37,28 +37,41 @@ public class Datos {
     }
     
     public int read(String nombre){
+        Connection conn = null;
         try {
-            Connection conn = connect();
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM usuarios WHERE nombre= '" + nombre + "';");
+            conn = connect();
+            
+            String query = "SELECT * FROM usuarios WHERE nombre= '" + nombre + "'";
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
+                rs.close();
+                stmt.close();
+                conn.close();
                 return 0;
             }
-            conn.close();
+            
         } catch (SQLException e) {
             return -5;
         }
-         
+   
         return -1;
     }
     
     public int write(String nombre){
          try {
             Connection conn = connect();
-            Statement stmt = conn.createStatement();
-            stmt.executeQuery("INSERT INTO usuarios(nombre) VALUES ('" + nombre + "');");
+            
+            String query = "INSERT INTO usuarios (nombre) VALUES ('" + nombre + "')";
+            
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+            preparedStatement.execute();
+            
             conn.close();
         } catch (SQLException e) {
+            System.out.println(e.toString());
             return -5;
         }
         return 0;

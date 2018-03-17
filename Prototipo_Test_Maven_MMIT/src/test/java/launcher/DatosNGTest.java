@@ -26,23 +26,21 @@ public class DatosNGTest {
     
     @Test
     public void testReadError() {
-        System.out.println("Lectura BBDD usuario Existente");
-        String nombre = "Prueba B";
+        System.out.println("Lectura BBDD usuario Inexistente");
+        String nombre = "Prueba Inexistente";
         Datos instance = new Datos();
         int expResult = 0;
         int result = instance.read(nombre);
         assertNotEquals(result, expResult);
     }
-/*
+
     @Test
     public void testWrite() {
-        System.out.println("write");
-        String nombre = "";
+        System.out.println("Escritura BBDD usuario");
+        String nombre = "Prueba " + Math.random();
         Datos instance = new Datos();
         int expResult = 0;
         int result = instance.write(nombre);
         assertEquals(result, expResult);
-        fail("The test case is a prototype.");
     }
-    */
 }
