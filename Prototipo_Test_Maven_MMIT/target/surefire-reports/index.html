@@ -90,7 +90,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">4 methods,   4 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -107,6 +107,11 @@
                       <span>
                         <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-launcher.DatosNGTest" title="launcher.DatosNGTest" hash-for-method="testReadError">testReadError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-launcher.DatosNGTest" title="launcher.DatosNGTest" hash-for-method="testReadWrite">testReadWrite</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -144,6 +149,13 @@
                   <a name="testReadError">
                   </a> <!-- testReadError -->
                   <span class="method-name">testReadError</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testReadWrite">
+                  </a> <!-- testReadWrite -->
+                  <span class="method-name">testReadWrite</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -206,24 +218,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(4);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testRead')
 data.setCell(0, 2, 'launcher.DatosNGTest')
-data.setCell(0, 3, 172);
+data.setCell(0, 3, 173);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testWrite')
+data.setCell(1, 1, 'testReadWrite')
 data.setCell(1, 2, 'launcher.DatosNGTest')
-data.setCell(1, 3, 126);
+data.setCell(1, 3, 85);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'testReadError')
+data.setCell(2, 1, 'testWrite')
 data.setCell(2, 2, 'launcher.DatosNGTest')
-data.setCell(2, 3, 1);
+data.setCell(2, 3, 74);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testReadError')
+data.setCell(3, 2, 'launcher.DatosNGTest')
+data.setCell(3, 3, 2);
 window.suiteTableData['launcher.DatosNGTest']= { tableData: data, tableDiv: 'times-div-launcher.DatosNGTest'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 299 ms</span>
+              <span class="suite-total-time">Total running time: 334 ms</span>
               <div id="times-div-launcher.DatosNGTest">
               </div> <!-- times-div-launcher.DatosNGTest -->
             </div> <!-- times-div -->
@@ -256,11 +272,15 @@ return data;
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testReadError</span>
-                <span class="method-start">172 ms</span>
+                <span class="method-start">173 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testReadWrite</span>
+                <span class="method-start">175 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testWrite</span>
-                <span class="method-start">174 ms</span>
+                <span class="method-start">260 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

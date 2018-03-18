@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="launcher.DatosNGTest" duration-ms="308" started-at="2018-03-17T19:56:41Z" finished-at="2018-03-17T19:56:42Z">
+  <suite name="launcher.DatosNGTest" duration-ms="342" started-at="2018-03-18T14:21:13Z" finished-at="2018-03-18T14:21:14Z">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="308" started-at="2018-03-17T19:56:41Z" finished-at="2018-03-17T19:56:42Z">
+    <test name="Command line test" duration-ms="342" started-at="2018-03-18T14:21:13Z" finished-at="2018-03-18T14:21:14Z">
       <class name="launcher.DatosNGTest">
-        <test-method status="PASS" signature="testRead()[pri:0, instance:launcher.DatosNGTest@256216b3]" name="testRead" duration-ms="172" started-at="2018-03-17T20:56:41Z" finished-at="2018-03-17T20:56:41Z">
+        <test-method status="PASS" signature="testRead()[pri:0, instance:launcher.DatosNGTest@256216b3]" name="testRead" duration-ms="173" started-at="2018-03-18T15:21:13Z" finished-at="2018-03-18T15:21:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testRead -->
-        <test-method status="PASS" signature="testReadError()[pri:0, instance:launcher.DatosNGTest@256216b3]" name="testReadError" duration-ms="1" started-at="2018-03-17T20:56:41Z" finished-at="2018-03-17T20:56:41Z">
+        <test-method status="PASS" signature="testReadError()[pri:0, instance:launcher.DatosNGTest@256216b3]" name="testReadError" duration-ms="2" started-at="2018-03-18T15:21:14Z" finished-at="2018-03-18T15:21:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testReadError -->
-        <test-method status="PASS" signature="testWrite()[pri:0, instance:launcher.DatosNGTest@256216b3]" name="testWrite" duration-ms="126" started-at="2018-03-17T20:56:41Z" finished-at="2018-03-17T20:56:42Z">
+        <test-method status="PASS" signature="testReadWrite()[pri:0, instance:launcher.DatosNGTest@256216b3]" name="testReadWrite" duration-ms="85" started-at="2018-03-18T15:21:14Z" finished-at="2018-03-18T15:21:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testReadWrite -->
+        <test-method status="PASS" signature="testWrite()[pri:0, instance:launcher.DatosNGTest@256216b3]" name="testWrite" duration-ms="74" started-at="2018-03-18T15:21:14Z" finished-at="2018-03-18T15:21:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testWrite -->

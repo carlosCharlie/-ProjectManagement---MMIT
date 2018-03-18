@@ -43,4 +43,17 @@ public class DatosNGTest {
         int result = instance.write(nombre);
         assertEquals(result, expResult);
     }
+    
+    @Test
+    public void testReadWrite() {
+        System.out.println("Lectura-Escritura BBDD usuario");
+        String nombre = "Prueba " + Math.random();
+        Datos instance = new Datos();
+        int expResultA = -1;
+        int expResultB = 0;
+        int resultA = instance.read(nombre);
+        assertEquals(resultA, expResultA);
+        int resultB = instance.write(nombre);
+        assertEquals(resultB, expResultB);
+    }
 }
