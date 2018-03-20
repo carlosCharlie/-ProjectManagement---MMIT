@@ -1,0 +1,13 @@
+.root {
+    -fx-font-family: "Helvetica";
+}
+
+.botonMenu {
+    -fx-font-weight: bold;
+    font-size: 50px;
+    -fx-background-color: orange;
+}
+
+.botonMenu:hover {
+    -fx-background-color: #e59400;
+}
