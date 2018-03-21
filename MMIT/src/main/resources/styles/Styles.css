@@ -2,6 +2,17 @@
     -fx-font-family: "Helvetica";
 }
 
+.escenaMenu {
+    -fx-border-style: solid;
+    -fx-border-width: 0px 2px 0px 0px;
+    -fx-background-color: orange;
+}
+
+.escenasContenido {
+    -fx-pref-height: 600px;
+    -fx-pref-width: 900px;
+}
+
 .botonMenu {
     -fx-font-weight: bold;
     font-size: 50px;

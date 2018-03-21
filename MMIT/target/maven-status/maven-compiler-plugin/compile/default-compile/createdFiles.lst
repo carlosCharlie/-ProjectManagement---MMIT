@@ -1,3 +1,4 @@
-com\mmit\presentacion\controladorVistaMenu.class
 com\mmit\main\MainApp.class
+com\mmit\presentacion\Evento.class
+com\mmit\presentacion\controladorVistaMenu.class
 com\mmit\presentacion\equipos\controladorVistaEquipos.class
