@@ -14,6 +14,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -27,6 +29,10 @@ public class controladorVistaMenu implements Initializable {
 
     @FXML
     private Button botonEquipos;
+    @FXML
+    private Button botonJugadores;
+    @FXML
+    private Button botonEntrenadores;
     
     /**
      * Initializes the controller class.
@@ -38,11 +44,19 @@ public class controladorVistaMenu implements Initializable {
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        try {
-            BorderPane root = (BorderPane) botonEquipos.getScene().getRoot();
-            root.setCenter((AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/ListaEquipos.fxml")));
-        } catch (IOException ex) {
-            Logger.getLogger(controladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
+        if (event.getSource() == botonEquipos){
+            try {
+                BorderPane root = (BorderPane) botonEquipos.getScene().getRoot();
+                root.setCenter((AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/ListaEquipos.fxml")));
+            } catch (IOException ex) {
+                Logger.getLogger(controladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("");
+                alert.setHeaderText("Informacion");
+                alert.setContentText("Menu no disponible");
+                alert.show();
         }
     }
     

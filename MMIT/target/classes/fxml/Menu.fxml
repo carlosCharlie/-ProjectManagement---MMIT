@@ -24,8 +24,8 @@
         </rowConstraints>
          <children>
             <Button fx:id="botonEquipos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="botonMenu" text="Equipos" GridPane.rowIndex="1" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="botonMenu" text="Jugadores" GridPane.rowIndex="2" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="botonMenu" text="Entrenadores" GridPane.rowIndex="3" />
+            <Button fx:id="botonJugadores" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="botonMenu" text="Jugadores" GridPane.rowIndex="2" />
+            <Button fx:id="botonEntrenadores" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="botonMenu" text="Entrenadores" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </children>
