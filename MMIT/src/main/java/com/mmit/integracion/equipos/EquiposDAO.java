@@ -5,10 +5,14 @@
  */
 package com.mmit.integracion.equipos;
 
+import com.mmit.negocio.equipos.EquipoTrans;
+import java.util.ArrayList;
+
 /**
  *
  * @author carlos
  */
 public interface EquiposDAO {
     
+   public ArrayList<EquipoTrans>listarEquipos();
 }
