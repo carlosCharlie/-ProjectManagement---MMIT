@@ -1,4 +1,15 @@
+com\mmit\negocio\FactoriaNegocio\FactoriaNegocioImp.class
+com\mmit\presentacion\controladorVistaMenu.class
+com\mmit\integracion\Conexion\ConexionImp.class
+com\mmit\integracion\FactoriaIntegracion\FactoriaIntegracion.class
+com\mmit\negocio\FactoriaNegocio\FactoriaNegocio.class
+com\mmit\negocio\equipos\EquiposSAImp.class
+com\mmit\integracion\FactoriaIntegracion\FactoriaIntegracionImp.class
+com\mmit\presentacion\equipos\controladorVistaEquipos.class
+com\mmit\integracion\Conexion\Conexion.class
 com\mmit\main\MainApp.class
 com\mmit\presentacion\Evento.class
-com\mmit\presentacion\controladorVistaMenu.class
-com\mmit\presentacion\equipos\controladorVistaEquipos.class
+com\mmit\integracion\equipos\EquiposDAOImp.class
+com\mmit\negocio\equipos\EquiposSA.class
+com\mmit\integracion\equipos\EquiposDAO.class
+com\mmit\negocio\equipos\EquipoTrans.class
