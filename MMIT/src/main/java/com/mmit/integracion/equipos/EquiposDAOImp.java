@@ -24,8 +24,8 @@ public class EquiposDAOImp implements EquiposDAO{
        public ArrayList<EquipoTrans> listarEquipos() {
        
         try {
-            Conexion.getConexion().abrir();
-            Connection c = Conexion.getConexion().getResource();
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
             
             PreparedStatement ps = c.prepareStatement("SELECT * from equipos");
             
@@ -34,7 +34,7 @@ public class EquiposDAOImp implements EquiposDAO{
             ArrayList<EquipoTrans>equipos=new ArrayList<EquipoTrans>();
             
             while(rs.next())
-                equipos.add(new EquipoTrans(rs.getInt("int"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"),rs.getInt("entrenador_id")));
+                equipos.add(new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"),rs.getInt("entrenador_id")));
             
             return equipos;
             

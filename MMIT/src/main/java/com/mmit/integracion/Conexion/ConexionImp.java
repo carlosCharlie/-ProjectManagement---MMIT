@@ -8,6 +8,8 @@ package com.mmit.integracion.Conexion;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -32,14 +34,16 @@ class ConexionImp extends Conexion {
             this.connection = DriverManager.getConnection("jdbc:sqlite:MMIT.db");
             
             
-        } catch (SQLException ex) {
-            System.err.print("Error al empezar la conexion: "+ex.getMessage());
-        }  
+        
        
+  }     catch (SQLException ex) {
+            Logger.getLogger(ConexionImp.class.getName()).log(Level.SEVERE, null,"Error al abrir la conexion: "+ ex.getMessage());
+        }
   }
+    @Override
    public Connection getResource(){
        if(this.connection==null)
-           System.err.print("No se ha abierto la conexion, usar primero 'Conexion.abrir()'");
+           Logger.getLogger(ConexionImp.class.getName()).log(Level.SEVERE, "No se ha abierto la conexion, usar primero 'Conexion.abrir()");
        
        return this.connection;
    }
@@ -50,10 +54,11 @@ class ConexionImp extends Conexion {
             try {
                 this.connection.close();
                 this.connection=null;
-            } catch (SQLException ex) {
-                System.err.print("Error al cerrar la conexion: "+ex.getMessage());
-            }
-        }
+           
+            }catch (SQLException ex) {
+                Logger.getLogger(ConexionImp.class.getName()).log(Level.SEVERE, null, "\"Error al cerrar la conexion: "+ex.getMessage());
+              }
+         }
     }
    
 }

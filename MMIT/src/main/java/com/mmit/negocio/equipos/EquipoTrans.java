@@ -23,4 +23,24 @@ public class EquipoTrans {
         this.derrotas=derrotas;
         this.entrenador_id=entrenador_id;
     }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public int getVictorias() {
+        return this.victorias;
+    }
+
+    public int getDerrotas() {
+        return this.derrotas;
+    }
+
+    public Object getEntrenador() {
+        return this.entrenador_id;
+    }
 }
