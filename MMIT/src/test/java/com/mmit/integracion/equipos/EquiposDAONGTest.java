@@ -31,8 +31,8 @@ public class EquiposDAONGTest {
         
         assertEquals(primero.getId(),0);
         assertTrue(primero.getNombre().equals("prueba"));
-        assertEquals(primero.getVictorias(),1);
-        assertEquals(primero.getDerrotas(),2);
+        assertEquals(primero.getVictorias(), Integer.valueOf(1));
+        assertEquals(primero.getDerrotas(), Integer.valueOf(2));
         assertEquals(primero.getEntrenador(),0);
     }
     

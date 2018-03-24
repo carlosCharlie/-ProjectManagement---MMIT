@@ -18,6 +18,10 @@
     -fx-background-color: orange;
 }
 
+.columnasListar {
+    -fx-background-color: white;
+}
+
 .escenasContenido {
     -fx-pref-height: 600px;
     -fx-pref-width: 900px;

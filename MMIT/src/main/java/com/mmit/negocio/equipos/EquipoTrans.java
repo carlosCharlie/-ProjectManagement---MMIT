@@ -12,11 +12,22 @@ package com.mmit.negocio.equipos;
 public class EquipoTrans {
     private int id;
     private String nombre;
-    private int victorias;
-    private int derrotas;
+    private Integer jugados;
+    private Integer victorias;
+    private Integer derrotas;
     private int entrenador_id;
+    private double porcentaje;
     
-    public EquipoTrans(int id, String nombre, int victorias, int derrotas,int entrenador_id){
+    public EquipoTrans(String nombre, Integer victorias, Integer derrotas, Integer entrenador_id){
+        this.nombre=nombre;
+        this.victorias=victorias;
+        this.derrotas=derrotas;
+        this.entrenador_id=entrenador_id;
+        this.jugados = this.victorias + this.derrotas;
+        this.porcentaje = (Double.valueOf(this.victorias) / Double.valueOf(this.jugados)) * 100;
+    }
+    
+    public EquipoTrans(int id, String nombre, Integer victorias, Integer derrotas, Integer entrenador_id){
         this.id=id;
         this.nombre=nombre;
         this.victorias=victorias;
@@ -32,11 +43,11 @@ public class EquipoTrans {
         return this.nombre;
     }
 
-    public int getVictorias() {
+    public Integer getVictorias() {
         return this.victorias;
     }
 
-    public int getDerrotas() {
+    public Integer getDerrotas() {
         return this.derrotas;
     }
 
