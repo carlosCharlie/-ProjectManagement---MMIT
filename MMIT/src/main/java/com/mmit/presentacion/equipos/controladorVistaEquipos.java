@@ -54,16 +54,17 @@ public class controladorVistaEquipos implements Initializable {
     
     private void rellenarTabla(){
         EquiposSA equiposSa = FactoriaNegocio.getInstacia().crearEquiposSA();
-        ObservableList filasTabla = FXCollections.observableArrayList();
         colNombre.setCellValueFactory(new PropertyValueFactory<EquipoTrans, String>("nombre"));
-        colPJ.setCellValueFactory(new PropertyValueFactory<EquipoTrans, Integer>("jugados"));
         colPG.setCellValueFactory(new PropertyValueFactory<EquipoTrans, Integer>("victorias"));
         colPP.setCellValueFactory(new PropertyValueFactory<EquipoTrans, Integer>("derrotas"));
+        colPJ.setCellValueFactory(new PropertyValueFactory<EquipoTrans, Integer>("jugados"));
         colPor.setCellValueFactory(new PropertyValueFactory<EquipoTrans, Double>("porcentaje"));
         
-        for (int i = 0; i < 2; i++){
-            EquipoTrans fila = new EquipoTrans("Prueba" + i, 10 + i, 3 + i, i);
-            tablaEquipos.getItems().add(fila);
+        
+        ArrayList<EquipoTrans> listaEquipos = equiposSa.listarEquipos();
+        
+        for (EquipoTrans equipo : listaEquipos){
+            tablaEquipos.getItems().add(equipo);
         }
 
     }

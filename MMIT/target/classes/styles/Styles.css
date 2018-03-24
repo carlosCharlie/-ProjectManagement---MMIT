@@ -14,12 +14,8 @@
     font-size: 50px;
 }
 
-.tablasListar {
+.tablaListar .column-header-background .filler{
     -fx-background-color: orange;
-}
-
-.columnasListar {
-    -fx-background-color: white;
 }
 
 .escenasContenido {
