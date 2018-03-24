@@ -36,11 +36,13 @@ public class EquiposDAOImp implements EquiposDAO{
             while(rs.next())
                 equipos.add(new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"),rs.getInt("entrenador_id")));
             
+            Conexion.getInstancia().cerrar();
             return equipos;
             
             
         } catch (SQLException ex) {
             Logger.getLogger(EquiposDAOImp.class.getName()).log(Level.SEVERE, null, ex);
+            Conexion.getInstancia().cerrar();
         }
         
         return null;
