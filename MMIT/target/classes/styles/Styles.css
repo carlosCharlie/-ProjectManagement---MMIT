@@ -8,6 +8,16 @@
     -fx-background-color: orange;
 }
 
+.barraHerramientas {
+    -fx-background-color: orange;
+    -fx-font-weight: bold;
+    font-size: 50px;
+}
+
+.tablasListar {
+    -fx-background-color: orange;
+}
+
 .escenasContenido {
     -fx-pref-height: 600px;
     -fx-pref-width: 900px;

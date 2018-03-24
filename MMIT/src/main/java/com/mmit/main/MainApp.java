@@ -3,7 +3,6 @@ package com.mmit.main;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -14,7 +13,7 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        AnchorPane menu = (AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/Menu.fxml"));
+        AnchorPane menu = (AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/MenuNoLog.fxml"));
         AnchorPane index = (AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/Index.fxml"));
         
         BorderPane borderPane = new BorderPane();

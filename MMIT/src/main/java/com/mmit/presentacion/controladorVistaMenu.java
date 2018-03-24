@@ -47,7 +47,7 @@ public class controladorVistaMenu implements Initializable {
         if (event.getSource() == botonEquipos){
             try {
                 BorderPane root = (BorderPane) botonEquipos.getScene().getRoot();
-                root.setCenter((AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/ListaEquipos.fxml")));
+                root.setCenter((AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/ListaEquiposUsuarios.fxml")));
             } catch (IOException ex) {
                 Logger.getLogger(controladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
             }
