@@ -24,5 +24,9 @@ import java.util.ArrayList;
  */
 public interface JugadoresSA {
    
+    /**
+     * Devuelve la lista de todos los jugadores
+     * @return 
+     */
     public ArrayList<JugadorTrans> listarJugadores();
 }
