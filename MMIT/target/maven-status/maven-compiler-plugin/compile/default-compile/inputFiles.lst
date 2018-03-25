@@ -4,6 +4,7 @@ D:\Universidad\GPS\Git\MMIT\MMIT\src\main\java\com\mmit\integracion\equipos\Equi
 D:\Universidad\GPS\Git\MMIT\MMIT\src\main\java\com\mmit\presentacion\Evento.java
 D:\Universidad\GPS\Git\MMIT\MMIT\src\main\java\com\mmit\negocio\equipos\EquiposSAImp.java
 D:\Universidad\GPS\Git\MMIT\MMIT\src\main\java\com\mmit\main\MainApp.java
+D:\Universidad\GPS\Git\MMIT\MMIT\src\main\java\com\mmit\presentacion\jugadores\ControladorVistaJugadores.java
 D:\Universidad\GPS\Git\MMIT\MMIT\src\main\java\com\mmit\presentacion\equipos\ControladorVistaEquipos.java
 D:\Universidad\GPS\Git\MMIT\MMIT\src\main\java\com\mmit\integracion\Conexion\Conexion.java
 D:\Universidad\GPS\Git\MMIT\MMIT\src\main\java\com\mmit\integracion\equipos\EquiposDAOImp.java
@@ -14,5 +15,6 @@ D:\Universidad\GPS\Git\MMIT\MMIT\src\main\java\com\mmit\negocio\equipos\EquipoTr
 D:\Universidad\GPS\Git\MMIT\MMIT\src\main\java\com\mmit\negocio\equipos\EquiposSA.java
 D:\Universidad\GPS\Git\MMIT\MMIT\src\main\java\com\mmit\integracion\FactoriaIntegracion\FactoriaIntegracionImp.java
 D:\Universidad\GPS\Git\MMIT\MMIT\src\main\java\com\mmit\presentacion\controlador\Contexto.java
+D:\Universidad\GPS\Git\MMIT\MMIT\src\main\java\com\mmit\presentacion\entrenadores\ControladorVistaEntrenadores.java
 D:\Universidad\GPS\Git\MMIT\MMIT\src\main\java\com\mmit\presentacion\controlador\Controlador.java
 D:\Universidad\GPS\Git\MMIT\MMIT\src\main\java\com\mmit\presentacion\ControladorVistaMenu.java

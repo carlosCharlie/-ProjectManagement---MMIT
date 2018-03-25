@@ -41,12 +41,20 @@ public class ControladorVistaMenu implements Initializable {
             } catch (IOException ex) {
                 Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("");
-                alert.setHeaderText("Informacion");
-                alert.setContentText("Menu no disponible");
-                alert.show();
+        } else if (event.getSource() == botonJugadores){
+            try {
+                BorderPane root = (BorderPane) botonEquipos.getScene().getRoot();
+                root.setCenter((AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/ListaJugadoresUsuarios.fxml")));
+            } catch (IOException ex) {
+                Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (event.getSource() == botonEntrenadores){
+            try {
+                BorderPane root = (BorderPane) botonEquipos.getScene().getRoot();
+                root.setCenter((AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/ListaEntrenadoresUsuarios.fxml")));
+            } catch (IOException ex) {
+                Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     
