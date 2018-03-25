@@ -1,6 +1,6 @@
 package com.mmit.negocio.equipos;
 
-import com.mmit.integracion.FactoriaIntegracion.FactoriaIntegracion;
+import com.mmit.integracion.factoriaIntegracion.FactoriaIntegracion;
 import com.mmit.integracion.equipos.EquiposDAO;
 import java.util.ArrayList;
 

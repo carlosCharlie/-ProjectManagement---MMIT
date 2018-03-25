@@ -1,6 +1,6 @@
 package com.mmit.presentacion.controlador;
 
-import com.mmit.negocio.FactoriaNegocio.FactoriaNegocio;
+import com.mmit.negocio.factoriaNegocio.FactoriaNegocio;
 import com.mmit.negocio.equipos.EquiposSA;
 
 public class ControladorImp extends Controlador{

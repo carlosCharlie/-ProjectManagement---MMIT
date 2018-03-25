@@ -1,6 +1,6 @@
 package com.mmit.integracion.equipos;
 
-import com.mmit.integracion.Conexion.Conexion;
+import com.mmit.integracion.conexion.Conexion;
 import com.mmit.negocio.equipos.EquipoTrans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

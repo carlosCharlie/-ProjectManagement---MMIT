@@ -1,5 +1,6 @@
 package com.mmit.integracion.Conexion;
 
+import com.mmit.integracion.conexion.Conexion;
 import java.sql.Connection;
 import static org.testng.Assert.*;
 
