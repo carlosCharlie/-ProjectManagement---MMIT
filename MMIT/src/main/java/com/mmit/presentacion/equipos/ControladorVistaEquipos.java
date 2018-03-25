@@ -1,13 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mmit.presentacion.equipos;
 
-import com.mmit.negocio.FactoriaNegocio.FactoriaNegocio;
 import com.mmit.negocio.equipos.EquipoTrans;
-import com.mmit.negocio.equipos.EquiposSA;
 import com.mmit.presentacion.Evento;
 import com.mmit.presentacion.controlador.Contexto;
 import com.mmit.presentacion.controlador.Controlador;
@@ -21,11 +14,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-/**
- * FXML Controller class
- *
- * @author crash
- */
 public class ControladorVistaEquipos implements Initializable {
 
     @FXML

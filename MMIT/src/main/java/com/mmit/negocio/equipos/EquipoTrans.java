@@ -1,16 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mmit.negocio.equipos;
 
-import java.text.NumberFormat;
-
-/**
- *
- * @author carlos
- */
 public class EquipoTrans {
     private int id;
     private String nombre;
@@ -19,7 +8,6 @@ public class EquipoTrans {
     private Integer derrotas;
     private int entrenador_id;
     private double porcentaje;
-    private NumberFormat nf;
     
     public EquipoTrans(int id, String nombre, Integer victorias, Integer derrotas, Integer entrenador_id){
         this.id = id;

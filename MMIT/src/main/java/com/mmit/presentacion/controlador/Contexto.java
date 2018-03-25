@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mmit.presentacion.controlador;
 
 import com.mmit.presentacion.Evento;
 
-/**
- *
- * @author crash
- */
 public class Contexto {
 	private Object datos;
 	private Evento evento;
