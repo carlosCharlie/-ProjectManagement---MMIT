@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="250.0" styleClass="escenaMenu" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.presentacion.controladorVistaMenu">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="250.0" styleClass="escenaMenu" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.presentacion.ControladorVistaMenu">
    <children>
       <GridPane layoutX="14.0" layoutY="14.0" prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: orange;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>

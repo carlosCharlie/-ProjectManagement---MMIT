@@ -10,6 +10,8 @@ package com.mmit.presentacion;
  * @author crash
  */
 public enum Evento {
-    //Eventos Menu
-    abrirListaEquipos,
+    //Eventos Comunes
+    ErrorSQL,
+    //Eventos Equipos
+    ListarEquipos
 }

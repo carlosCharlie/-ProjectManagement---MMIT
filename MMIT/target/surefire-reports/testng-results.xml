@@ -2,40 +2,40 @@
 <testng-results skipped="0" failed="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="com.mmit.integracion.equipos.EquiposDAONGTest" duration-ms="6" started-at="2018-03-24T19:03:24Z" finished-at="2018-03-24T19:03:24Z">
+  <suite name="com.mmit.integracion.equipos.EquiposDAONGTest" duration-ms="6" started-at="2018-03-25T11:25:42Z" finished-at="2018-03-25T11:25:42Z">
     <groups>
     </groups>
-    <test name="Command line test 4c082f57-e5f9-4a8e-a095-5042c18fd5dc" duration-ms="6" started-at="2018-03-24T19:03:24Z" finished-at="2018-03-24T19:03:24Z">
+    <test name="Command line test a8d80a0a-eb2b-45a2-87d4-6246833ca22d" duration-ms="6" started-at="2018-03-25T11:25:42Z" finished-at="2018-03-25T11:25:42Z">
       <class name="com.mmit.integracion.equipos.EquiposDAONGTest">
-        <test-method status="PASS" signature="testListarEquipos()[pri:0, instance:com.mmit.integracion.equipos.EquiposDAONGTest@47f37ef1]" name="testListarEquipos" duration-ms="5" started-at="2018-03-24T20:03:24Z" finished-at="2018-03-24T20:03:24Z">
+        <test-method status="PASS" signature="testListarEquipos()[pri:0, instance:com.mmit.integracion.equipos.EquiposDAONGTest@47f37ef1]" name="testListarEquipos" duration-ms="5" started-at="2018-03-25T13:25:42Z" finished-at="2018-03-25T13:25:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testListarEquipos -->
       </class> <!-- com.mmit.integracion.equipos.EquiposDAONGTest -->
-    </test> <!-- Command line test 4c082f57-e5f9-4a8e-a095-5042c18fd5dc -->
+    </test> <!-- Command line test a8d80a0a-eb2b-45a2-87d4-6246833ca22d -->
   </suite> <!-- com.mmit.integracion.equipos.EquiposDAONGTest -->
-  <suite name="com.mmit.integracion.Conexion.ConexionNGTest" duration-ms="197" started-at="2018-03-24T19:03:24Z" finished-at="2018-03-24T19:03:24Z">
+  <suite name="com.mmit.integracion.Conexion.ConexionNGTest" duration-ms="189" started-at="2018-03-25T11:25:42Z" finished-at="2018-03-25T11:25:42Z">
     <groups>
     </groups>
-    <test name="Command line test e5c8236e-4ee0-4873-888c-b96a729d0c93" duration-ms="197" started-at="2018-03-24T19:03:24Z" finished-at="2018-03-24T19:03:24Z">
+    <test name="Command line test fb838f27-6e7b-4317-9a4c-6c0157c30c03" duration-ms="189" started-at="2018-03-25T11:25:42Z" finished-at="2018-03-25T11:25:42Z">
       <class name="com.mmit.integracion.Conexion.ConexionNGTest">
-        <test-method status="PASS" signature="testAbrir()[pri:0, instance:com.mmit.integracion.Conexion.ConexionNGTest@66048bfd]" name="testAbrir" duration-ms="177" started-at="2018-03-24T20:03:24Z" finished-at="2018-03-24T20:03:24Z">
+        <test-method status="PASS" signature="testAbrir()[pri:0, instance:com.mmit.integracion.Conexion.ConexionNGTest@66048bfd]" name="testAbrir" duration-ms="169" started-at="2018-03-25T13:25:42Z" finished-at="2018-03-25T13:25:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAbrir -->
-        <test-method status="PASS" signature="testCerrar()[pri:0, instance:com.mmit.integracion.Conexion.ConexionNGTest@66048bfd]" name="testCerrar" duration-ms="1" started-at="2018-03-24T20:03:24Z" finished-at="2018-03-24T20:03:24Z">
+        <test-method status="PASS" signature="testCerrar()[pri:0, instance:com.mmit.integracion.Conexion.ConexionNGTest@66048bfd]" name="testCerrar" duration-ms="0" started-at="2018-03-25T13:25:42Z" finished-at="2018-03-25T13:25:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCerrar -->
-        <test-method status="PASS" signature="testGetConexion()[pri:0, instance:com.mmit.integracion.Conexion.ConexionNGTest@66048bfd]" name="testGetConexion" duration-ms="2" started-at="2018-03-24T20:03:24Z" finished-at="2018-03-24T20:03:24Z">
+        <test-method status="PASS" signature="testGetConexion()[pri:0, instance:com.mmit.integracion.Conexion.ConexionNGTest@66048bfd]" name="testGetConexion" duration-ms="2" started-at="2018-03-25T13:25:42Z" finished-at="2018-03-25T13:25:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testGetConexion -->
-        <test-method status="PASS" signature="testGetResource()[pri:0, instance:com.mmit.integracion.Conexion.ConexionNGTest@66048bfd]" name="testGetResource" duration-ms="7" started-at="2018-03-24T20:03:24Z" finished-at="2018-03-24T20:03:24Z">
+        <test-method status="PASS" signature="testGetResource()[pri:0, instance:com.mmit.integracion.Conexion.ConexionNGTest@66048bfd]" name="testGetResource" duration-ms="5" started-at="2018-03-25T13:25:42Z" finished-at="2018-03-25T13:25:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testGetResource -->
       </class> <!-- com.mmit.integracion.Conexion.ConexionNGTest -->
-    </test> <!-- Command line test e5c8236e-4ee0-4873-888c-b96a729d0c93 -->
+    </test> <!-- Command line test fb838f27-6e7b-4317-9a4c-6c0157c30c03 -->
   </suite> <!-- com.mmit.integracion.Conexion.ConexionNGTest -->
 </testng-results>
