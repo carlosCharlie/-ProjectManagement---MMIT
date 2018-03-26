@@ -1,5 +1,6 @@
 package com.mmit.negocio.factoriaNegocio;
 
+import com.mmit.negocio.entrenadores.EntrenadorSA;
 import com.mmit.negocio.equipos.EquiposSA;
 
 abstract public class FactoriaNegocio {
@@ -13,4 +14,6 @@ abstract public class FactoriaNegocio {
     }
     
     abstract public EquiposSA crearEquiposSA();
+
+    abstract public EntrenadorSA crearEntrenadoresSA();
 }

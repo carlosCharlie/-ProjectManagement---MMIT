@@ -5,5 +5,7 @@ public enum Evento {
     //Eventos Comunes
     ErrorSQL,
     //Eventos Equipos
-    ListarEquipos
+    ListarEquipos,
+    //Evento Entrenadores
+    ListarEntrenadores
 }
