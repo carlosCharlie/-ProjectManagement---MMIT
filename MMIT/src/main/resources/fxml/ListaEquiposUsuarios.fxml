@@ -44,6 +44,7 @@
                   <TableColumn fx:id="colPG" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="PG" />
                   <TableColumn fx:id="colPP" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="PP" />
                   <TableColumn fx:id="colPor" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="\%" />
+                  <TableColumn fx:id="colId" prefWidth="75.0" text="Id" visible="false" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

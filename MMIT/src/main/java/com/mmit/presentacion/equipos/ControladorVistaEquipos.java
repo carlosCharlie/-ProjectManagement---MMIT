@@ -28,6 +28,8 @@ public class ControladorVistaEquipos implements Initializable {
     private TableColumn<EquipoTrans, Integer> colPP;
     @FXML
     private TableColumn<EquipoTrans, Double> colPor;
+    @FXML
+    private TableColumn<EquipoTrans, Integer> colId;
 
     /**
      * Initializes the controller class.
@@ -41,6 +43,7 @@ public class ControladorVistaEquipos implements Initializable {
     
     private void rellenarTabla(){
         
+        colId.setCellValueFactory(new PropertyValueFactory<EquipoTrans, Integer>("id"));
         colNombre.setCellValueFactory(new PropertyValueFactory<EquipoTrans, String>("nombre"));
         colPG.setCellValueFactory(new PropertyValueFactory<EquipoTrans, Integer>("victorias"));
         colPP.setCellValueFactory(new PropertyValueFactory<EquipoTrans, Integer>("derrotas"));

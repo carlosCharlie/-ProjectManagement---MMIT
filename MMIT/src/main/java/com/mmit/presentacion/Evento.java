@@ -6,6 +6,8 @@ public enum Evento {
     ErrorSQL,
     //Eventos Equipos
     ListarEquipos,
-    //Evento Entrenadores
-    ListarEntrenadores
+    //Eventos Entrenadores
+    ListarEntrenadores,
+    //Eventos Jugadores
+    ListarJugadores
 }
