@@ -1,5 +1,6 @@
 package com.mmit.integracion.factoriaIntegracion;
 
+import com.mmit.integracion.entrenadores.EntrenadorDAO;
 import com.mmit.integracion.equipos.EquiposDAO;
 import com.mmit.integracion.jugadores.JugadoresDAO;
 
@@ -25,4 +26,10 @@ abstract public class FactoriaIntegracion {
      * @return 
      */
     abstract public JugadoresDAO crearJugadoresDAO();
+    
+    /**
+     * Crea un nuevo DAO de entrenadores
+     * @return 
+     */
+    abstract public EntrenadorDAO crearEntrenadoresDAO(); 
 }
