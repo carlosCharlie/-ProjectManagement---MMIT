@@ -19,11 +19,12 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
             
-            PreparedStatement ps = c.prepareStatement("SELECT * from entrenador");
+            PreparedStatement ps = c.prepareStatement("SELECT e.id, e.nombre, e.apellidos, e.edad, t.nombre FROM entrenador e, equipos t WHERE e.equipo = t.id");
             
             ResultSet rs = ps.executeQuery();
             
             ArrayList<EntrenadorTrans> entrenador = new ArrayList<EntrenadorTrans>();
+      
             
             while(rs.next())
                 entrenador.add(new EntrenadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("edad"),rs.getString("equipo")));
