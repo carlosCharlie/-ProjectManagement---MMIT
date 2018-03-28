@@ -1,7 +1,6 @@
 package com.mmit.presentacion.entrenadores;
 
-import com.mmit.negocio.entrenadores.EntrenadorTrans;
-import com.mmit.negocio.jugadores.JugadorTrans;
+import com.mmit.negocio.entrenadores.TOAEntrenadorEquipo;
 import com.mmit.presentacion.Evento;
 import com.mmit.presentacion.controlador.Contexto;
 import com.mmit.presentacion.controlador.Controlador;
@@ -18,17 +17,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class ControladorVistaEntrenadores implements Initializable {
 
     @FXML
-    private TableView<EntrenadorTrans> tablaEntrenadores;
+    private TableView<TOAEntrenadorEquipo> tablaEntrenadores;
     @FXML
-    private TableColumn<EntrenadorTrans, String> colNombre;
+    private TableColumn<TOAEntrenadorEquipo, String> colNombre;
     @FXML
-    private TableColumn<EntrenadorTrans, String> colApellidos;
+    private TableColumn<TOAEntrenadorEquipo, String> colApellidos;
     @FXML
-    private TableColumn<EntrenadorTrans, Integer> colEdad;
+    private TableColumn<TOAEntrenadorEquipo, Integer> colEdad;
     @FXML
-    private TableColumn<EntrenadorTrans, Integer> colId;
+    private TableColumn<TOAEntrenadorEquipo, Integer> colId;
     @FXML
-    private TableColumn<EntrenadorTrans, String> colEquipo;
+    private TableColumn<TOAEntrenadorEquipo, String> colEquipo;
     /**
      * Initializes the controller class.
      */
@@ -40,19 +39,19 @@ public class ControladorVistaEntrenadores implements Initializable {
     } 
     
     private void rellenarTabla(){
-        colId.setCellValueFactory(new PropertyValueFactory<EntrenadorTrans, Integer>("id"));
-        colNombre.setCellValueFactory(new PropertyValueFactory<EntrenadorTrans, String>("nombre"));
-        colApellidos.setCellValueFactory(new PropertyValueFactory<EntrenadorTrans, String>("apellidos"));
-        colEdad.setCellValueFactory(new PropertyValueFactory<EntrenadorTrans, Integer>("edad"));
-        colEquipo.setCellValueFactory(new PropertyValueFactory<EntrenadorTrans, String>("equipo"));
+        colId.setCellValueFactory(new PropertyValueFactory<TOAEntrenadorEquipo, Integer>("id"));
+        colNombre.setCellValueFactory(new PropertyValueFactory<TOAEntrenadorEquipo, String>("nombre"));
+        colApellidos.setCellValueFactory(new PropertyValueFactory<TOAEntrenadorEquipo, String>("apellidos"));
+        colEdad.setCellValueFactory(new PropertyValueFactory<TOAEntrenadorEquipo, Integer>("edad"));
+        colEquipo.setCellValueFactory(new PropertyValueFactory<TOAEntrenadorEquipo, String>("equipo"));
         
         Contexto contexto = new Contexto(Evento.ListarEntrenadores, null);
         Controlador.obtenerInstancia().accion(contexto);
         
-        ArrayList<EntrenadorTrans> listaEntrenadores = (ArrayList<EntrenadorTrans>) contexto.getDatos();
+        ArrayList<TOAEntrenadorEquipo> listaEntrenadores = (ArrayList<TOAEntrenadorEquipo>) contexto.getDatos();
         
         if (listaEntrenadores != null){
-            for (EntrenadorTrans entrenador : listaEntrenadores){
+            for (TOAEntrenadorEquipo entrenador : listaEntrenadores){
                 tablaEntrenadores.getItems().add(entrenador);
             }
         } else {

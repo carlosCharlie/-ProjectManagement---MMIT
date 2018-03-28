@@ -7,14 +7,14 @@ public class EntrenadorTrans {
     private String nombre;
     private String apellidos;
     private Integer edad;
-    private String equipo;
+    private Integer idEquipo;
     
-    public EntrenadorTrans(Integer id, String nombre, String apellidos, Integer edad, String equipo){
+    public EntrenadorTrans(Integer id, String nombre, String apellidos, Integer edad, Integer idEquipo){
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.edad = edad;
-        this.equipo = equipo;
+        this.idEquipo = idEquipo;
     }
     
     public Integer getId() {
@@ -31,6 +31,10 @@ public class EntrenadorTrans {
 
     public Integer getEdad() {
         return edad;
+    }
+    
+    public Integer getIdEquipo(){
+        return idEquipo;
     }
     
 }

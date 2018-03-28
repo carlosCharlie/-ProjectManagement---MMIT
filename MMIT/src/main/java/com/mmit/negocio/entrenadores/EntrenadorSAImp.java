@@ -1,6 +1,7 @@
 package com.mmit.negocio.entrenadores;
 
 import com.mmit.integracion.entrenadores.EntrenadorDAO;
+import com.mmit.integracion.equipos.EquiposDAO;
 import com.mmit.integracion.factoriaIntegracion.FactoriaIntegracion;
 import java.util.ArrayList;
 
@@ -8,11 +9,26 @@ import java.util.ArrayList;
 public class EntrenadorSAImp implements EntrenadorSA {
 
     @Override
-    public ArrayList<EntrenadorTrans> listarEntrenadores() {
+    public ArrayList<TOAEntrenadorEquipo> listarEntrenadores() {
         FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
         EntrenadorDAO daoe = instancia.crearEntrenadoresDAO();
-       
-        return daoe.listarEntrenadores();
+        EquiposDAO eDao = FactoriaIntegracion.getInstancia().crearEquiposDAO();
+        ArrayList<EntrenadorTrans> entrenadores = daoe.listarEntrenadores();
+        
+        ArrayList<TOAEntrenadorEquipo> entrenadoresConEquipo = new ArrayList<TOAEntrenadorEquipo>();
+       for (EntrenadorTrans j : entrenadores){
+            TOAEntrenadorEquipo jugadorEquipo;
+            
+            if (j.getIdEquipo() != null){
+                jugadorEquipo = new TOAEntrenadorEquipo(j, eDao.readById(j.getIdEquipo()));
+            } else {
+                jugadorEquipo = new TOAEntrenadorEquipo(j, null);
+            }
+            
+            entrenadoresConEquipo.add(jugadorEquipo);
+        }
+   
+        return entrenadoresConEquipo;
     }
     
 }

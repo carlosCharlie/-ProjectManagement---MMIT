@@ -4,5 +4,5 @@ import java.util.ArrayList;
 
 
 public interface EntrenadorSA {
-     public ArrayList<EntrenadorTrans> listarEntrenadores();
+     public ArrayList<TOAEntrenadorEquipo> listarEntrenadores();
 }
