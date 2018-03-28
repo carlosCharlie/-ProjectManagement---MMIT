@@ -12,26 +12,49 @@ import java.util.logging.Logger;
 
 public class EquiposDAOImp implements EquiposDAO{
 
-       public ArrayList<EquipoTrans> listarEquipos() {
+       public ArrayList<EquipoTrans> readAll() {
        
         try {
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
             
-            PreparedStatement ps = c.prepareStatement("SELECT * from equipos");
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM equipos");
             
             ResultSet rs = ps.executeQuery();
             
             ArrayList<EquipoTrans> equipos = new ArrayList<EquipoTrans>();
             
-            while(rs.next())
+            while(rs.next()){
                 equipos.add(new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"),rs.getInt("entrenador_id")));
-            
+            }
             Conexion.getInstancia().cerrar();
             return equipos;
 
         } catch (SQLException ex) {
             Logger.getLogger(EquiposDAOImp.class.getName()).log(Level.SEVERE, null, ex);
+            Conexion.getInstancia().cerrar();
+        }
+        
+        return null;
+    }
+
+    @Override
+    public EquipoTrans readById(Integer id) {
+         try {
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM equipos WHERE id = " + id);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            Conexion.getInstancia().cerrar();
+            
+            if (rs.next()){
+                return new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"),rs.getInt("entrenador_id"));
+            }
+
+        } catch (SQLException ex) {
             Conexion.getInstancia().cerrar();
         }
         

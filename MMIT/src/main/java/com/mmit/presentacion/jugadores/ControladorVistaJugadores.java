@@ -2,6 +2,7 @@ package com.mmit.presentacion.jugadores;
 
 import com.mmit.negocio.equipos.EquipoTrans;
 import com.mmit.negocio.jugadores.JugadorTrans;
+import com.mmit.negocio.jugadores.TOAJugadorEquipo;
 import com.mmit.presentacion.Evento;
 import com.mmit.presentacion.controlador.Contexto;
 import com.mmit.presentacion.controlador.Controlador;
@@ -18,21 +19,21 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class ControladorVistaJugadores implements Initializable {
 
     @FXML
-    private TableView<JugadorTrans> tablaJugadores;
+    private TableView<TOAJugadorEquipo> tablaJugadores;
     @FXML
-    private TableColumn<JugadorTrans, String> colNombre;
+    private TableColumn<TOAJugadorEquipo, String> colNombre;
     @FXML
-    private TableColumn<JugadorTrans, String> colApellidos;
+    private TableColumn<TOAJugadorEquipo, String> colApellidos;
     @FXML
-    private TableColumn<JugadorTrans, Integer> colEdad;
+    private TableColumn<TOAJugadorEquipo, Integer> colEdad;
     @FXML
-    private TableColumn<JugadorTrans, Double> colPeso;
+    private TableColumn<TOAJugadorEquipo, Double> colPeso;
     @FXML
-    private TableColumn<JugadorTrans, Double> colAltura;
+    private TableColumn<TOAJugadorEquipo, Double> colAltura;
     @FXML
-    private TableColumn<JugadorTrans, String> colEquipo;
+    private TableColumn<TOAJugadorEquipo, String> colEquipo;
     @FXML
-    private TableColumn<JugadorTrans, Integer> colId;
+    private TableColumn<TOAJugadorEquipo, Integer> colId;
 
     /**
      * Initializes the controller class.
@@ -45,21 +46,21 @@ public class ControladorVistaJugadores implements Initializable {
     } 
     
     private void rellenarTabla(){
-        colId.setCellValueFactory(new PropertyValueFactory<JugadorTrans, Integer>("id"));
-        colNombre.setCellValueFactory(new PropertyValueFactory<JugadorTrans, String>("nombre"));
-        colApellidos.setCellValueFactory(new PropertyValueFactory<JugadorTrans, String>("apellidos"));
-        colEdad.setCellValueFactory(new PropertyValueFactory<JugadorTrans, Integer>("edad"));
-        colPeso.setCellValueFactory(new PropertyValueFactory<JugadorTrans, Double>("peso"));
-        colAltura.setCellValueFactory(new PropertyValueFactory<JugadorTrans, Double>("altura"));
-        colEquipo.setCellValueFactory(new PropertyValueFactory<JugadorTrans, String>("equipo"));
+        colId.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, Integer>("idJugador"));
+        colNombre.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, String>("nombreJugador"));
+        colApellidos.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, String>("apellidosJugador"));
+        colEdad.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, Integer>("edadJugador"));
+        colPeso.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, Double>("pesoJugador"));
+        colAltura.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, Double>("alturaJugador"));
+        colEquipo.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, String>("nombreEquipo"));
         
         Contexto contexto = new Contexto(Evento.ListarJugadores, null);
         Controlador.obtenerInstancia().accion(contexto);
         
-        ArrayList<JugadorTrans> listaJugadores = (ArrayList<JugadorTrans>) contexto.getDatos();
+        ArrayList<TOAJugadorEquipo> listaJugadores = (ArrayList<TOAJugadorEquipo>) contexto.getDatos();
         
         if (listaJugadores != null){
-            for (JugadorTrans jugador : listaJugadores){
+            for (TOAJugadorEquipo jugador : listaJugadores){
                 tablaJugadores.getItems().add(jugador);
             }
         } else {

@@ -18,6 +18,7 @@ package com.mmit.negocio.jugadores;
 
 import com.mmit.integracion.factoriaIntegracion.FactoriaIntegracion;
 import com.mmit.integracion.jugadores.JugadoresDAO;
+import com.mmit.integracion.equipos.EquiposDAO;
 import java.util.ArrayList;
 
 /**
@@ -31,9 +32,26 @@ public class JugadoresSAImp implements JugadoresSA {
      * @return lista de jugadores
      */
     @Override
-    public ArrayList<JugadorTrans> listarJugadores() {
-        JugadoresDAO j = FactoriaIntegracion.getInstancia().crearJugadoresDAO();
-        return j.listarJugadores();
+    public ArrayList<TOAJugadorEquipo> listarJugadores() {
+        JugadoresDAO jDao = FactoriaIntegracion.getInstancia().crearJugadoresDAO();
+        EquiposDAO eDao = FactoriaIntegracion.getInstancia().crearEquiposDAO();
+        ArrayList<JugadorTrans> jugadores = jDao.listarJugadores();
+        
+        ArrayList<TOAJugadorEquipo> jugadoresConEquipo = new ArrayList<TOAJugadorEquipo>();
+        
+        for (JugadorTrans j : jugadores){
+            TOAJugadorEquipo jugadorEquipo;
+            
+            if (j.getId() != null){
+                jugadorEquipo = new TOAJugadorEquipo(j, eDao.readById(j.getId()));
+            } else {
+                jugadorEquipo = new TOAJugadorEquipo(j, null);
+            }
+            
+            jugadoresConEquipo.add(jugadorEquipo);
+        }
+   
+        return jugadoresConEquipo;
     }
     
 }

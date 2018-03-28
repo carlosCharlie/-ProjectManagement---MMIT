@@ -16,8 +16,17 @@
  */
 package com.mmit.integracion.jugadores;
 
+import com.mmit.integracion.conexion.Conexion;
+import com.mmit.integracion.equipos.EquiposDAOImp;
+import com.mmit.negocio.equipos.EquipoTrans;
 import com.mmit.negocio.jugadores.JugadorTrans;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,8 +35,28 @@ import java.util.ArrayList;
 public class JugadoresDAOImp implements JugadoresDAO {
 
     @Override
-    public ArrayList<JugadorTrans> listarJugadores() {
-       return null;
+    public ArrayList<JugadorTrans> readAll() {
+       try {
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM jugadores");
+            
+            ResultSet rs = ps.executeQuery();
+            
+            ArrayList<JugadorTrans> jugadores = new ArrayList<JugadorTrans>();
+            
+            while(rs.next())
+                jugadores.add(new JugadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"), rs.getDouble("altura"),rs.getInt("edad"),rs.getDouble("peso"),rs.getInt("equipo_id")));
+            
+            Conexion.getInstancia().cerrar();
+            return jugadores;
+        } catch (SQLException ex) {
+            Logger.getLogger(EquiposDAOImp.class.getName()).log(Level.SEVERE, null, ex);
+            Conexion.getInstancia().cerrar();
+        }
+        
+        return null;
     }
     
 }

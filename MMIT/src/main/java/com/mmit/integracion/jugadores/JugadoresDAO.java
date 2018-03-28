@@ -25,6 +25,6 @@ import java.util.ArrayList;
  */
 public interface JugadoresDAO {
 
-    public ArrayList<JugadorTrans> listarJugadores();
+    public ArrayList<JugadorTrans> readAll();
     
 }
