@@ -17,15 +17,15 @@ public class EntrenadorSAImp implements EntrenadorSA {
         
         ArrayList<TOAEntrenadorEquipo> entrenadoresConEquipo = new ArrayList<TOAEntrenadorEquipo>();
        for (EntrenadorTrans j : entrenadores){
-            TOAEntrenadorEquipo jugadorEquipo;
+            TOAEntrenadorEquipo entrenadorEquipo;
             
             if (j.getIdEquipo() != null){
-                jugadorEquipo = new TOAEntrenadorEquipo(j, eDao.readById(j.getIdEquipo()));
+                entrenadorEquipo = new TOAEntrenadorEquipo(j, eDao.readById(j.getIdEquipo()));
             } else {
-                jugadorEquipo = new TOAEntrenadorEquipo(j, null);
+                entrenadorEquipo = new TOAEntrenadorEquipo(j, null);
             }
             
-            entrenadoresConEquipo.add(jugadorEquipo);
+            entrenadoresConEquipo.add(entrenadorEquipo);
         }
    
         return entrenadoresConEquipo;
