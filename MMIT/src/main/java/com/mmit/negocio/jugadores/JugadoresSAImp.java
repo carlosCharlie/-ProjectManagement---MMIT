@@ -35,15 +35,15 @@ public class JugadoresSAImp implements JugadoresSA {
     public ArrayList<TOAJugadorEquipo> listarJugadores() {
         JugadoresDAO jDao = FactoriaIntegracion.getInstancia().crearJugadoresDAO();
         EquiposDAO eDao = FactoriaIntegracion.getInstancia().crearEquiposDAO();
-        ArrayList<JugadorTrans> jugadores = jDao.listarJugadores();
+        ArrayList<JugadorTrans> jugadores = jDao.readAll();
         
         ArrayList<TOAJugadorEquipo> jugadoresConEquipo = new ArrayList<TOAJugadorEquipo>();
         
         for (JugadorTrans j : jugadores){
             TOAJugadorEquipo jugadorEquipo;
             
-            if (j.getId() != null){
-                jugadorEquipo = new TOAJugadorEquipo(j, eDao.readById(j.getId()));
+            if (j.getIdEquipo() != null){
+                jugadorEquipo = new TOAJugadorEquipo(j, eDao.readById(j.getIdEquipo()));
             } else {
                 jugadorEquipo = new TOAJugadorEquipo(j, null);
             }

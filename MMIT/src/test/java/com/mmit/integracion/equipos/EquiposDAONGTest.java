@@ -17,7 +17,7 @@ public class EquiposDAONGTest {
     public void testListarEquipos() {
         System.out.println("listarEquipos");
         EquiposDAO instance = new EquiposDAOImp();
-        ArrayList<EquipoTrans> result = instance.listarEquipos();
+        ArrayList<EquipoTrans> result = instance.readAll();
         EquipoTrans primero = result.get(0);
         
         assertEquals(primero.getId(),0);

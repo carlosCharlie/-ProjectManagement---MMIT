@@ -11,6 +11,6 @@ public class EquiposSAImp implements EquiposSA {
         FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
         EquiposDAO daoe= instancia.crearEquiposDAO();
        
-    return daoe.listarEquipos();
+    return daoe.readAll();
 }
 }

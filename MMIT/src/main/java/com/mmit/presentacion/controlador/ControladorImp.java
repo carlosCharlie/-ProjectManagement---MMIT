@@ -13,12 +13,15 @@ public class ControladorImp extends Controlador{
             case ListarEquipos:
                 EquiposSA equiposSa = FactoriaNegocio.getInstacia().crearEquiposSA();
                 contexto.setDatos(equiposSa.listarEquipos());
+                break;
             case ListarJugadores:
                 JugadoresSA jugadoresSa = FactoriaNegocio.getInstacia().crearJugadoresSA();
                 contexto.setDatos(jugadoresSa.listarJugadores());
+                break;
             case ListarEntrenadores:
                 EntrenadorSA entrenadorSa = FactoriaNegocio.getInstacia().crearEntrenadoresSA();
                 contexto.setDatos(entrenadorSa.listarEntrenadores());
+                break;
         }
     }
     

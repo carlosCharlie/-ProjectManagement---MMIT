@@ -48,11 +48,11 @@ public class EquiposDAOImp implements EquiposDAO{
             
             ResultSet rs = ps.executeQuery();
             
-            Conexion.getInstancia().cerrar();
-            
             if (rs.next()){
                 return new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"),rs.getInt("entrenador_id"));
             }
+            
+            Conexion.getInstancia().cerrar();
 
         } catch (SQLException ex) {
             Conexion.getInstancia().cerrar();
