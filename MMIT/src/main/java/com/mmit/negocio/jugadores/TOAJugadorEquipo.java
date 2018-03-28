@@ -41,6 +41,11 @@ public class TOAJugadorEquipo {
     }
     
     public String getNombreEquipo(){
-        return this.equipo.getNombre();
+        if (this.equipo == null){
+            return "-";
+        } else {
+            return this.equipo.getNombre();
+        }
+        
     }
 }

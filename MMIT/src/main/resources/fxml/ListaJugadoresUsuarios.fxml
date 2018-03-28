@@ -40,7 +40,7 @@
             <TableView fx:id="tablaJugadores" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <columns>
                 <TableColumn fx:id="colNombre" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="169.0" resizable="false" text="Nombre" />
-                <TableColumn fx:id="colApellidos" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="337.0" resizable="false" text="Apellidos" />
+                <TableColumn fx:id="colApellidos" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="335.0" resizable="false" text="Apellidos" />
                   <TableColumn fx:id="colEdad" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="Edad" />
                   <TableColumn fx:id="colPeso" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="Peso" />
                   <TableColumn fx:id="colAltura" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="Altura" />
