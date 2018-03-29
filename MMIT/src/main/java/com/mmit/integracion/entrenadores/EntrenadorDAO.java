@@ -7,4 +7,11 @@ import java.util.ArrayList;
 public interface EntrenadorDAO {
     
      public ArrayList<EntrenadorTrans>listarEntrenadores();
+     
+     /**
+      * Devuelve el entrenador correspondiente al equipo
+      * @param id_Equipo id del equipo
+      * @return  entrenador del equipo
+      */
+     public EntrenadorTrans getByEquipo(int id_Equipo);
 }

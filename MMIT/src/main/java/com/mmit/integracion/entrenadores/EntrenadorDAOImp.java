@@ -39,5 +39,35 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
         
         return null;
     }
+
+    @Override
+    public EntrenadorTrans getByEquipo(int id_Equipo) {
+       
+        
+        try {
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM entrenador");
+            
+            ResultSet rs = ps.executeQuery();
+            
+            EntrenadorTrans entrenador = null;
+            
+            
+            if(rs.next()){
+                entrenador= (new EntrenadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("edad"),rs.getInt("equipo_id")));
+
+            }
+        
+            Conexion.getInstancia().cerrar();
+            return entrenador;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(EntrenadorDAOImp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+    }
     
 }
