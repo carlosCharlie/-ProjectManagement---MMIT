@@ -42,13 +42,14 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
 
     @Override
     public EntrenadorTrans getByEquipo(int id_Equipo) {
-       
+       //No probado
         
         try {
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
             
-            PreparedStatement ps = c.prepareStatement("SELECT * FROM entrenador");
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM entrenador where equipo_id = ?");
+            ps.setInt(1, id_Equipo);
             
             ResultSet rs = ps.executeQuery();
             
