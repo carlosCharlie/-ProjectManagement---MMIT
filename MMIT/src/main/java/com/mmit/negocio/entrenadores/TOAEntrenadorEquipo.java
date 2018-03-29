@@ -27,10 +27,6 @@ public class TOAEntrenadorEquipo {
         return this.entrenador.getApellidos();
     }
     
-    public Integer getEdadEntrenador(){
-        return this.entrenador.getEdad();
-    }
-    
     public Integer getIdEquipo(){
         return this.equipo.getId();
     }

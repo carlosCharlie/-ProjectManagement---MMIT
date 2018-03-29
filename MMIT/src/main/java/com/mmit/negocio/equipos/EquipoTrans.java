@@ -9,12 +9,11 @@ public class EquipoTrans {
     private int entrenador_id;
     private double porcentaje;
     
-    public EquipoTrans(int id, String nombre, Integer victorias, Integer derrotas, Integer entrenador_id){
+    public EquipoTrans(int id, String nombre, Integer victorias, Integer derrotas){
         this.id = id;
         this.nombre = nombre;
         this.victorias = victorias;
         this.derrotas = derrotas;
-        this.entrenador_id = entrenador_id;
         this.jugados = this.victorias + this.derrotas;
         this.porcentaje = (Double.valueOf(this.victorias) / Double.valueOf(this.jugados)) * 100;
     }

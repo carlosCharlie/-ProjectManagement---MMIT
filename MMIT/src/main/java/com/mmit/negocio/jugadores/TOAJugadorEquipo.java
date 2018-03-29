@@ -23,19 +23,7 @@ public class TOAJugadorEquipo {
     public String getApellidosJugador(){
         return this.jugador.getApellidos();
     }
-    
-    public Double getAlturaJugador(){
-        return this.jugador.getAltura();
-    }
-    
-    public Double getPesoJugador(){
-        return this.jugador.getPeso();
-    }
-    
-    public Integer getEdadJugador(){
-        return this.jugador.getEdad();
-    }
-    
+        
     public Integer getIdEquipo(){
         return this.equipo.getId();
     }

@@ -47,7 +47,7 @@ public class JugadoresDAOImp implements JugadoresDAO {
             ArrayList<JugadorTrans> jugadores = new ArrayList<JugadorTrans>();
             
             while(rs.next())
-                jugadores.add(new JugadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"), rs.getDouble("altura"),rs.getInt("edad"),rs.getDouble("peso"),rs.getInt("equipo_id")));
+                jugadores.add(new JugadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo")));
             
             Conexion.getInstancia().cerrar();
             return jugadores;

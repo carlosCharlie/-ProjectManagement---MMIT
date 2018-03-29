@@ -27,7 +27,7 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
       
             
             while(rs.next())
-                entrenador.add(new EntrenadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("edad"),rs.getInt("equipo_id")));
+                entrenador.add(new EntrenadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo")));
             
             Conexion.getInstancia().cerrar();
             return entrenador;
@@ -57,7 +57,7 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
             
             
             if(rs.next()){
-                entrenador= (new EntrenadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("edad"),rs.getInt("equipo_id")));
+                entrenador= (new EntrenadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo")));
 
             }
         

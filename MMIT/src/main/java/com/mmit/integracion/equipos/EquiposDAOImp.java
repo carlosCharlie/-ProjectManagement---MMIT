@@ -25,7 +25,7 @@ public class EquiposDAOImp implements EquiposDAO{
             ArrayList<EquipoTrans> equipos = new ArrayList<EquipoTrans>();
             
             while(rs.next()){
-                equipos.add(new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"),rs.getInt("entrenador_id")));
+                equipos.add(new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas")));
             }
             Conexion.getInstancia().cerrar();
             return equipos;
@@ -49,7 +49,7 @@ public class EquiposDAOImp implements EquiposDAO{
             ResultSet rs = ps.executeQuery();
             
             if (rs.next()){
-                return new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"),rs.getInt("entrenador_id"));
+                return new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"));
             }
             
             Conexion.getInstancia().cerrar();

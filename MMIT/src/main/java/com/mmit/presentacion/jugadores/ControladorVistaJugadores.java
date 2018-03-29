@@ -25,12 +25,6 @@ public class ControladorVistaJugadores implements Initializable {
     @FXML
     private TableColumn<TOAJugadorEquipo, String> colApellidos;
     @FXML
-    private TableColumn<TOAJugadorEquipo, Integer> colEdad;
-    @FXML
-    private TableColumn<TOAJugadorEquipo, Double> colPeso;
-    @FXML
-    private TableColumn<TOAJugadorEquipo, Double> colAltura;
-    @FXML
     private TableColumn<TOAJugadorEquipo, String> colEquipo;
     @FXML
     private TableColumn<TOAJugadorEquipo, Integer> colId;
@@ -49,9 +43,6 @@ public class ControladorVistaJugadores implements Initializable {
         colId.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, Integer>("idJugador"));
         colNombre.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, String>("nombreJugador"));
         colApellidos.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, String>("apellidosJugador"));
-        colEdad.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, Integer>("edadJugador"));
-        colPeso.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, Double>("pesoJugador"));
-        colAltura.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, Double>("alturaJugador"));
         colEquipo.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, String>("nombreEquipo"));
         
         Contexto contexto = new Contexto(Evento.ListarJugadores, null);
