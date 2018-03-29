@@ -39,11 +39,11 @@ public class ControladorVistaEntrenadores implements Initializable {
     } 
     
     private void rellenarTabla(){
-        colId.setCellValueFactory(new PropertyValueFactory<TOAEntrenadorEquipo, Integer>("id"));
-        colNombre.setCellValueFactory(new PropertyValueFactory<TOAEntrenadorEquipo, String>("nombre"));
-        colApellidos.setCellValueFactory(new PropertyValueFactory<TOAEntrenadorEquipo, String>("apellidos"));
-        colEdad.setCellValueFactory(new PropertyValueFactory<TOAEntrenadorEquipo, Integer>("edad"));
-        colEquipo.setCellValueFactory(new PropertyValueFactory<TOAEntrenadorEquipo, String>("equipo"));
+        colId.setCellValueFactory(new PropertyValueFactory<TOAEntrenadorEquipo, Integer>("idEntrenador"));
+        colNombre.setCellValueFactory(new PropertyValueFactory<TOAEntrenadorEquipo, String>("nombreEntrenador"));
+        colApellidos.setCellValueFactory(new PropertyValueFactory<TOAEntrenadorEquipo, String>("apellidosEntrenador"));
+        colEdad.setCellValueFactory(new PropertyValueFactory<TOAEntrenadorEquipo, Integer>("edadEntrenador"));
+        colEquipo.setCellValueFactory(new PropertyValueFactory<TOAEntrenadorEquipo, String>("nombreEquipo"));
         
         Contexto contexto = new Contexto(Evento.ListarEntrenadores, null);
         Controlador.obtenerInstancia().accion(contexto);

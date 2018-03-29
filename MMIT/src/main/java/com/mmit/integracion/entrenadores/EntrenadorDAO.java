@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public interface EntrenadorDAO {
     
-     public ArrayList<EntrenadorTrans>listarEntrenadores();
+     public ArrayList<EntrenadorTrans>readAll();
      
      /**
       * Devuelve el entrenador correspondiente al equipo

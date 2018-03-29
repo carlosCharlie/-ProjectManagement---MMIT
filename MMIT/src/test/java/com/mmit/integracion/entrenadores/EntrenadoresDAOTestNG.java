@@ -42,7 +42,7 @@ public class EntrenadoresDAOTestNG {
         try{
             System.out.println("Listar entrenadores");
             EntrenadorDAO instance = new EntrenadorDAOImp();
-            ArrayList<EntrenadorTrans> result = instance.listarEntrenadores();
+            ArrayList<EntrenadorTrans> result = instance.readAll();
             assertNotNull(result);
         }catch(Exception e){
             Assert.fail();

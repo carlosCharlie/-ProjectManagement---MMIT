@@ -11,23 +11,23 @@ public class EntrenadorSAImp implements EntrenadorSA {
     @Override
     public ArrayList<TOAEntrenadorEquipo> listarEntrenadores() {
         FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
-        EntrenadorDAO daoe = instancia.crearEntrenadoresDAO();
-        EquiposDAO eDao = FactoriaIntegracion.getInstancia().crearEquiposDAO();
-        ArrayList<EntrenadorTrans> entrenadores = daoe.listarEntrenadores();
+        EntrenadorDAO DAOEntrenador = instancia.crearEntrenadoresDAO();
+        EquiposDAO DAOEquipo = FactoriaIntegracion.getInstancia().crearEquiposDAO();
+        ArrayList<EntrenadorTrans> entrenadores = DAOEntrenador.readAll();
         
         ArrayList<TOAEntrenadorEquipo> entrenadoresConEquipo = new ArrayList<TOAEntrenadorEquipo>();
-       for (EntrenadorTrans j : entrenadores){
+        for (EntrenadorTrans j : entrenadores){
             TOAEntrenadorEquipo entrenadorEquipo;
-            
+
             if (j.getIdEquipo() != null){
-                entrenadorEquipo = new TOAEntrenadorEquipo(j, eDao.readById(j.getIdEquipo()));
+                entrenadorEquipo = new TOAEntrenadorEquipo(j, DAOEquipo.readById(j.getIdEquipo()));
             } else {
                 entrenadorEquipo = new TOAEntrenadorEquipo(j, null);
             }
-            
+
             entrenadoresConEquipo.add(entrenadorEquipo);
         }
-   
+
         return entrenadoresConEquipo;
     }
     

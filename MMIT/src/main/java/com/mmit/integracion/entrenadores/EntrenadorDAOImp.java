@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class EntrenadorDAOImp implements EntrenadorDAO{
 
     @Override
-    public ArrayList<EntrenadorTrans> listarEntrenadores() {
+    public ArrayList<EntrenadorTrans> readAll() {
        try {
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
