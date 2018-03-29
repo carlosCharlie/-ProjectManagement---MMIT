@@ -39,9 +39,9 @@
                   </TextField>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <left>
-                        <Button fx:id="botonAtras" mnemonicParsing="false" onMouseClicked="#volverVistaAnterior" prefHeight="29.0" prefWidth="93.0" text="&lt;- Atras" BorderPane.alignment="CENTER">
+                        <Button fx:id="botonAtras" mnemonicParsing="false" onMouseClicked="#volverVistaAnterior" prefHeight="45.0" prefWidth="125.0" style="-fx-background-color: rgba(255, 255, 255, 0.20);" text="&lt;- Atras" BorderPane.alignment="CENTER">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="25.0" />
                            </font>
                         </Button>
                      </left>
