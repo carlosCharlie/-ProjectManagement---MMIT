@@ -31,7 +31,7 @@ public class EquiposDAONGTest {
         try{
             System.out.println("Listar un equipo");
             EquiposDAO instance = new EquiposDAOImp();
-            EquipoTrans result = instance.readById(0);
+            EquipoTrans result = instance.readById(1);
             assertNotNull(result);
         }catch(Exception e){
             Assert.fail();
