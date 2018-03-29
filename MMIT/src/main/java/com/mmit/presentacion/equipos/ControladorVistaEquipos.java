@@ -95,6 +95,7 @@ public class ControladorVistaEquipos implements Initializable {
                
                ControladorVistaInfoEquipos c = new ControladorVistaInfoEquipos();
                
+               c.setEscenaAnterior(root.getCenter());
                
                FXMLLoader loader;
                loader = new FXMLLoader(getClass().getResource("/fxml/InformacionEquiposUsuarios.fxml"));
@@ -112,6 +113,7 @@ public class ControladorVistaEquipos implements Initializable {
                }
                c.setNombre(eq.getNombreEquipo());
            
+               
            } catch (IOException ex) {
                Logger.getLogger(ControladorVistaEquipos.class.getName()).log(Level.SEVERE, null, ex);
            }

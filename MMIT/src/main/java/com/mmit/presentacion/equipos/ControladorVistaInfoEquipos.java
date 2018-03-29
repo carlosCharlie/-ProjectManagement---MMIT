@@ -1,16 +1,29 @@
 package com.mmit.presentacion.equipos;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 
 public class ControladorVistaInfoEquipos {
 
     @FXML
-    private TextArea nombre;
+    private Label nombre;
 
     @FXML
-    private TextArea entrenador;
+    private Label entrenador;
 
+    @FXML
+    private Button botonAtras;
+    
+    private Node anterior;
+    
+    public void setEscenaAnterior(Node anterior)
+    {
+        this.anterior=anterior;
+    }
+    
     public void setNombre(String nombre) {
         this.nombre.setText(nombre);
     }
@@ -22,6 +35,10 @@ public class ControladorVistaInfoEquipos {
      @FXML
     void initialize() {
         
-        System.out.print("prueba");
+        
+    }
+    
+    public void volverVistaAnterior(){
+        ((BorderPane)this.botonAtras.getScene().getRoot()).setCenter(this.anterior);
     }
 }
