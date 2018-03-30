@@ -8,6 +8,7 @@ import com.mmit.presentacion.controlador.Controlador;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
@@ -82,43 +84,45 @@ public class ControladorVistaEquipos implements Initializable {
     }
     
     public void seleccionarEquipo(){
-       int filaSeleccionada = this.tablaEquipos.getSelectionModel().getSelectedIndex();
        
-       if(filaSeleccionada!=-1){
-           
-           try {
-               Contexto contexto = new Contexto(Evento.ObtenerDatosEquipo,this.listaEquipos.get(filaSeleccionada).getId());
-               Controlador.obtenerInstancia().accion(contexto);
-               
-               BorderPane root = (BorderPane) this.tablaEquipos.getScene().getRoot();
-               FXMLLoader fxmlLoader = new FXMLLoader();
-               
-               ControladorVistaInfoEquipos c = new ControladorVistaInfoEquipos();
-               
-               c.setEscenaAnterior(root.getCenter());
-               
-               FXMLLoader loader;
-               loader = new FXMLLoader(getClass().getResource("/fxml/InformacionEquiposUsuarios.fxml"));
-               loader.setController(c);
-               
-               root.setCenter((AnchorPane) loader.load());
-               
-               TOAEntrenadorEquipo eq = (TOAEntrenadorEquipo)contexto.getDatos();
-
-               if(eq.getEntrenador()!= null){
-               c.setEntrenador(eq.getNombreEntrenador()+" "+eq.getApellidosEntrenador());
-               }
-               else{
-                   c.setEntrenador("Entrenador no asignado");
-               }
-               c.setNombre(eq.getNombreEquipo());
-           
-               
-           } catch (IOException ex) {
-               Logger.getLogger(ControladorVistaEquipos.class.getName()).log(Level.SEVERE, null, ex);
-           }
+        TablePosition pos = this.tablaEquipos.getSelectionModel().getSelectedCells().get(0);
+        int row = pos.getRow();
         
-       }
+        if (row != -1){
+            TableColumn col = pos.getTableColumn();
+
+            Integer id = tablaEquipos.getItems().get(row).getId();
+
+            try {
+                Contexto contexto = new Contexto(Evento.ObtenerDatosEquipo, id);
+                Controlador.obtenerInstancia().accion(contexto);
+
+                TOAEntrenadorEquipo eq = (TOAEntrenadorEquipo) contexto.getDatos();
+
+                BorderPane root = (BorderPane) this.tablaEquipos.getScene().getRoot();;
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/InformacionEquiposUsuarios.fxml"));
+
+                loader.setResources(new ResourceBundle() {
+                    @Override
+                    protected Object handleGetObject(String key) {
+                        return eq;
+                    }
+
+                    @Override
+                    public Enumeration<String> getKeys() {
+                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                    }
+                });
+
+                root.setCenter(loader.load());
+
+            } catch (IOException ex) {
+                Logger.getLogger(ControladorVistaEquipos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        }
+
     }
     
 }

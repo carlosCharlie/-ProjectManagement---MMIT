@@ -1,44 +1,31 @@
 package com.mmit.presentacion.equipos;
 
+import com.mmit.negocio.entrenadores.TOAEntrenadorEquipo;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 
-public class ControladorVistaInfoEquipos {
+public class ControladorVistaInfoEquipos implements Initializable {
 
+    private TOAEntrenadorEquipo equipo;
     @FXML
-    private Label nombre;
-
+    private Label nombreEquipo;
     @FXML
-    private Label entrenador;
-
+    private Label nombreEntrenador;
     @FXML
-    private Button botonAtras;
-    
-    private Node anterior;
-    
-    public void setEscenaAnterior(Node anterior)
-    {
-        this.anterior=anterior;
-    }
-    
-    public void setNombre(String nombre) {
-        this.nombre.setText(nombre);
-    }
+    private Label apellidosEntrenador;
 
-    public void setEntrenador(String entrenador) {
-        this.entrenador.setText(entrenador);
-    }
-
-     @FXML
-    void initialize() {
-        
-        
-    }
-    
-    public void volverVistaAnterior(){
-        ((BorderPane)this.botonAtras.getScene().getRoot()).setCenter(this.anterior);
+    @Override
+    public void initialize(URL url, ResourceBundle rb){
+        this.equipo = (TOAEntrenadorEquipo) rb.getObject("");
+        this.nombreEquipo.setText(this.equipo.getNombreEquipo());
+        if (this.equipo.getEntrenador() != null){
+            this.nombreEntrenador.setText(this.equipo.getNombreEntrenador());
+            this.apellidosEntrenador.setText(this.equipo.getApellidosEntrenador());
+        } else {
+            this.nombreEntrenador.setText("-");
+        }   
     }
 }

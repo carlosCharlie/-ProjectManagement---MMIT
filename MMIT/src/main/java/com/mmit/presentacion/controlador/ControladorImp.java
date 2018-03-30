@@ -23,8 +23,7 @@ public class ControladorImp extends Controlador{
                 contexto.setDatos(entrenadorSa.listarEntrenadores());
                 break;
             case ObtenerDatosEquipo:
-                equiposSa = FactoriaNegocio.getInstacia().crearEquiposSA();
-                
+                equiposSa = FactoriaNegocio.getInstacia().crearEquiposSA(); 
                 contexto.setDatos(equiposSa.getById((int) contexto.getDatos()));
                 break;
         }
