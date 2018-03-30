@@ -48,9 +48,7 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
             
-            PreparedStatement ps = c.prepareStatement("SELECT * FROM entrenador where equipo_id = ?");
-            ps.setInt(1, id_Equipo);
-            
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM entrenador where id_equipo = "+ id_Equipo);            
             ResultSet rs = ps.executeQuery();
             
             EntrenadorTrans entrenador = null;
