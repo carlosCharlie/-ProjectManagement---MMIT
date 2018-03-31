@@ -39,7 +39,7 @@ public class EquiposTransTestNG {
     @Test
     public void TestNGEquipoTrans(){
         try{
-            new EquipoTrans(0, "pepe", 10, 10);
+            new EquipoTrans(1, "pepe", 10, 10);
         }catch(Exception e){
             Assert.fail();
         }
