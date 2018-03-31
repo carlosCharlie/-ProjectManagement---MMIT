@@ -22,7 +22,7 @@ public class EquiposSAImp implements EquiposSA {
         EquiposDAO equiposDao = FactoriaIntegracion.getInstancia().crearEquiposDAO();
         EntrenadorDAO entrenadoresDao = FactoriaIntegracion.getInstancia().crearEntrenadoresDAO();
         
-        EquipoTrans equipo= equiposDao.readById(id);
+        EquipoTrans equipo = equiposDao.readById(id);
         
         if(equipo==null){
             return null;
