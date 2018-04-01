@@ -11,5 +11,17 @@ public interface EquiposDAO {
      */
     public ArrayList<EquipoTrans> readAll();
 
+    /**
+     * Devuelve el equipo con un determinado id
+     * @param id del equipo a buscar
+     * @return  datos del equipo
+     */
     public EquipoTrans readById(Integer id);
+    
+    /**
+     * Devuelve el equipo asociado a un determinado entrenador
+     * @param id_Entrenador id del entrenador del equipo
+     * @return equipo con ese entrenador
+     */
+    public EquipoTrans getByEntrenador(Integer id_Entrenador);
 }

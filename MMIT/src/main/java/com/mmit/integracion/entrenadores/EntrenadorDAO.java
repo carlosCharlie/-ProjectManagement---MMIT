@@ -14,4 +14,6 @@ public interface EntrenadorDAO {
       * @return  entrenador del equipo
       */
      public EntrenadorTrans getByEquipo(int id_Equipo);
+     
+     public EntrenadorTrans getById(int id);
 }

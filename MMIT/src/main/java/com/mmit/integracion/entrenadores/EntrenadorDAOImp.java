@@ -2,6 +2,7 @@ package com.mmit.integracion.entrenadores;
 
 import com.mmit.integracion.conexion.Conexion;
 import com.mmit.negocio.entrenadores.EntrenadorTrans;
+import com.mmit.negocio.equipos.EquipoTrans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -64,6 +65,30 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
             
         } catch (SQLException ex) {
             Logger.getLogger(EntrenadorDAOImp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+    }
+
+    @Override
+    public EntrenadorTrans getById(int id) {
+        try {
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM entrenador WHERE id = ?");
+            ps.setInt(1, id);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()){
+                return new EntrenadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("victorias"),rs.getInt("derrotas"),rs.getInt("id_equipo"));
+            }
+            
+            Conexion.getInstancia().cerrar();
+
+        } catch (SQLException ex) {
+            Conexion.getInstancia().cerrar();
         }
         
         return null;

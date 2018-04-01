@@ -100,6 +100,7 @@
                     <additionalClasspathElements>
                         <additionalClasspathElement>${java.home}/lib/jfxrt.jar</additionalClasspathElement>
                     </additionalClasspathElements>
+                    <skipTests>true</skipTests>
                 </configuration>
             </plugin>
         </plugins>

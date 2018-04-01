@@ -49,7 +49,7 @@ public class EquiposDAOImp implements EquiposDAO{
             ResultSet rs = ps.executeQuery();
             
             if (rs.next()){
-                return new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"));
+                return new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("victorias"),rs.getInt("derrotas"),rs.getInt("id_equipo"));
             }
             
             Conexion.getInstancia().cerrar();
@@ -59,6 +59,31 @@ public class EquiposDAOImp implements EquiposDAO{
         }
         
         return null;
+    }
+
+    @Override
+    public EquipoTrans getByEntrenador(Integer id_entrenador) {
+        
+        try {
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM equipos WHERE id_equipo = ?");
+            ps.setInt(1, id_entrenador);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()){
+                return new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("victorias"),rs.getInt("derrotas"),rs.getInt("id_equipo"));
+            }
+            
+            Conexion.getInstancia().cerrar();
+
+        } catch (SQLException ex) {
+            Conexion.getInstancia().cerrar();
+        }
+        
+        return null;
+        
     }
     
 }

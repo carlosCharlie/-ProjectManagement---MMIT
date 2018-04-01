@@ -16,6 +16,15 @@ public class EntrenadorTrans {
         this.apellidos = apellidos;
         this.idEquipo = idEquipo;
     }
+
+    public EntrenadorTrans(Integer id, String nombre, String apellidos, Integer victorias, Integer derrotas, Integer idEquipo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.victorias = victorias;
+        this.derrotas = derrotas;
+        this.idEquipo = idEquipo;
+    }
     
     public Integer getId() {
         return id;
