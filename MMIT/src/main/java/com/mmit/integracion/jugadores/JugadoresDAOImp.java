@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2018 Your Organisation
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package com.mmit.integracion.jugadores;
 
 import com.mmit.integracion.conexion.Conexion;
@@ -28,10 +12,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author carlos
- */
 public class JugadoresDAOImp implements JugadoresDAO {
 
     @Override
@@ -47,7 +27,7 @@ public class JugadoresDAOImp implements JugadoresDAO {
             ArrayList<JugadorTrans> jugadores = new ArrayList<JugadorTrans>();
             
             while(rs.next())
-                jugadores.add(new JugadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo")));
+                jugadores.add(new JugadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo"), rs.getString("posicion"), rs.getInt("partidos"), rs.getInt("minutos"), rs.getInt("campoAnotados"), rs.getInt("campoIntentados"),rs.getInt("dosAnotados"), rs.getInt("dosIntentados"), rs.getInt("tresAnotados"), rs.getInt("tresIntentados"), rs.getInt("libresAnotados"), rs.getInt("libresIntentados"), rs.getInt("rebotesOfensivos"), rs.getInt("rebotesDefensivos"), rs.getInt("asistencias"), rs.getInt("robos"), rs.getInt("faltas"), rs.getInt("puntos"), rs.getInt("tapones"), rs.getInt("perdidas")));
             
             Conexion.getInstancia().cerrar();
             return jugadores;
@@ -58,5 +38,33 @@ public class JugadoresDAOImp implements JugadoresDAO {
         
         return null;
     }
+    /**
+     *Metodo donde se recoge la información de un jugador por un id ya dado
+     * @param id_jugador : ID del jugador a buscar
+     * @return Un transfer con toda la información del jugador o null si no existe
+     * @exception SQLException si hay algun error con la base de datos
+     */
+    @Override
+    public JugadorTrans getByID(int id_jugador){
+        try {
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM jugadores WHERE id = " + id_jugador);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()){
+              return new JugadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo"), rs.getString("posicion"), rs.getInt("partidos"), rs.getInt("minutos"), rs.getInt("campoAnotados"), rs.getInt("campoIntentados"),rs.getInt("dosAnotados"), rs.getInt("dosIntentados"), rs.getInt("tresAnotados"), rs.getInt("tresIntentados"), rs.getInt("libresAnotados"), rs.getInt("libresIntentados"), rs.getInt("rebotesOfensivos"), rs.getInt("rebotesDefensivos"), rs.getInt("asistencias"), rs.getInt("robos"), rs.getInt("faltas"), rs.getInt("puntos"), rs.getInt("tapones"), rs.getInt("perdidas")); 
+            }
+            
+            Conexion.getInstancia().cerrar();
+
+        } catch (SQLException ex) {
+            Conexion.getInstancia().cerrar();
+        }
+        
+        return null;
     
+    }
 }
