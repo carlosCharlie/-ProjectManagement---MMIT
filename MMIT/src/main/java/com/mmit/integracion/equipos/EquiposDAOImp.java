@@ -49,7 +49,7 @@ public class EquiposDAOImp implements EquiposDAO{
             ResultSet rs = ps.executeQuery();
             
             if (rs.next()){
-                return new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("victorias"),rs.getInt("derrotas"),rs.getInt("id_equipo"));
+                return new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"));
             }
             
             Conexion.getInstancia().cerrar();
@@ -73,7 +73,7 @@ public class EquiposDAOImp implements EquiposDAO{
             ResultSet rs = ps.executeQuery();
             
             if (rs.next()){
-                return new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("victorias"),rs.getInt("derrotas"),rs.getInt("id_equipo"));
+                return new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"));
             }
             
             Conexion.getInstancia().cerrar();
