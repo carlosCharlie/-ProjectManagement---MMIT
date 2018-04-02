@@ -13,23 +13,23 @@ import java.util.logging.Logger;
 
 
 public class EntrenadorDAOImp implements EntrenadorDAO{
-
+    /*
+    Buscar entrenador
+    */
     public EntrenadorTrans readByName(String name){
+        EntrenadorTrans entrenador = null;
         Conexion.getInstancia().abrir();
         Connection c = Conexion.getInstancia().getResource();
+       
+       
+        PreparedStatement ps = c.prepareStatement("SELECT nombre FROM entrenador WHERE nombre = " + name);  
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()){
+            entrenador = new EntrenadorTrans(
+                                nombre)
+            
+        }
         
-        if(c !=null) {
-        
-            try{
-                PreparedStatement ps = c.prepareStatement("SELECT nombre FROM entrenador WHERE nombre = " + name);  
-                ResultSet rs = ps.executeQuery();
-                if(rs.next()){
-
-                }
-            }
-            catch(SQLException e){
-                
-            }
         return
     }
     @Override
