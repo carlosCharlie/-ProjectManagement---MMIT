@@ -67,4 +67,33 @@ public class JugadoresDAOImp implements JugadoresDAO {
         return null;
     
     }
+    
+    /**
+     * Esta función nos permite conocer la plantilla de un equipo completo
+     * @param id_equipo :Id del equipo del cual queremos saber su plantilla
+     * @return un ArrayList con la plantilla, se devolvera vacio si no hay ningun jugador
+     */
+    @Override
+    public ArrayList<JugadorTrans> getRoster(Integer id_equipo){
+        ArrayList<JugadorTrans> jugadores = new ArrayList();
+        try {
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM jugadores WHERE id_equipo = " + id_equipo);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()){
+              jugadores.add(new JugadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo"), rs.getString("posicion"), rs.getInt("partidos"), rs.getInt("minutos"), rs.getInt("campoAnotados"), rs.getInt("campoIntentados"),rs.getInt("dosAnotados"), rs.getInt("dosIntentados"), rs.getInt("tresAnotados"), rs.getInt("tresIntentados"), rs.getInt("libresAnotados"), rs.getInt("libresIntentados"), rs.getInt("rebotesOfensivos"), rs.getInt("rebotesDefensivos"), rs.getInt("asistencias"), rs.getInt("robos"), rs.getInt("faltas"), rs.getInt("puntos"), rs.getInt("tapones"), rs.getInt("perdidas"))); 
+            }
+            
+            Conexion.getInstancia().cerrar();
+
+        } catch (SQLException ex) {
+            Conexion.getInstancia().cerrar();
+        }
+        
+        return jugadores;
+    }
 }
