@@ -16,21 +16,28 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
     /*
     Buscar entrenador
     */
-    public EntrenadorTrans readByName(String name){
-        EntrenadorTrans entrenador = null;
-        Conexion.getInstancia().abrir();
-        Connection c = Conexion.getInstancia().getResource();
-       
-       
-        PreparedStatement ps = c.prepareStatement("SELECT nombre FROM entrenador WHERE nombre = " + name);  
-        ResultSet rs = ps.executeQuery();
-        if(rs.next()){
-            entrenador = new EntrenadorTrans(
-                                nombre)
-            
+    public ArrayList<EntrenadorTrans> readByName(String name){
+        ArrayList<EntrenadorTrans> entrenador = null;
+        
+        try{
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+
+            PreparedStatement ps = c.prepareStatement("SELECT"
+                    + " * FROM entrenador WHERE nombre LIKE %" + name +"% OR "
+                    + " apellidos LIKE %" + name +"%");  
+
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+                entrenador.add(new EntrenadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo")));
+            Conexion.getInstancia().cerrar();
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(EntrenadorDAOImp.class.getName()).log(Level.SEVERE, null, ex);
+            Conexion.getInstancia().cerrar();
         }
         
-        return
+        return entrenador;
     }
     @Override
     public ArrayList<EntrenadorTrans> readAll() {
