@@ -16,7 +16,8 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
     /*
     Buscar entrenador
     */
-    public ArrayList<EntrenadorTrans> readByName(String name){
+    public ArrayList<EntrenadorTrans> readByName(String name, String surname){
+        
         ArrayList<EntrenadorTrans> entrenador = null;
         
         try{
