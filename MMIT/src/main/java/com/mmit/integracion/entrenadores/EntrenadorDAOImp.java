@@ -14,6 +14,24 @@ import java.util.logging.Logger;
 
 public class EntrenadorDAOImp implements EntrenadorDAO{
 
+    public EntrenadorTrans readByName(String name){
+        Conexion.getInstancia().abrir();
+        Connection c = Conexion.getInstancia().getResource();
+        
+        if(c !=null) {
+        
+            try{
+                PreparedStatement ps = c.prepareStatement("SELECT nombre FROM entrenador WHERE nombre = " + name);  
+                ResultSet rs = ps.executeQuery();
+                if(rs.next()){
+
+                }
+            }
+            catch(SQLException e){
+                
+            }
+        return
+    }
     @Override
     public ArrayList<EntrenadorTrans> readAll() {
        try {

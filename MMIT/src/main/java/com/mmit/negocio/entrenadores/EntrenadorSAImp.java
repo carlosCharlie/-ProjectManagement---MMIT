@@ -8,6 +8,12 @@ import java.util.ArrayList;
 
 public class EntrenadorSAImp implements EntrenadorSA {
 
+    public boolean buscarEntrenador(){
+        FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
+        EntrenadorDAO DAOEntrenador = instancia.crearEntrenadoresDAO();
+        
+        return true;
+    }
     @Override
     public ArrayList<TOAEntrenadorEquipo> listarEntrenadores() {
         FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
