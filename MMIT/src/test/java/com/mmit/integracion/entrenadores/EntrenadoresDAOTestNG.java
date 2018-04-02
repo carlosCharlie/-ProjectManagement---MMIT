@@ -16,7 +16,11 @@
  */
 package com.mmit.integracion.entrenadores;
 
+import com.mmit.integracion.conexion.Conexion;
 import com.mmit.negocio.entrenadores.EntrenadorTrans;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import org.testng.Assert;
 import static org.testng.Assert.*;
@@ -43,6 +47,25 @@ public class EntrenadoresDAOTestNG {
             System.out.println("Listar entrenadores");
             EntrenadorDAO instance = new EntrenadorDAOImp();
             ArrayList<EntrenadorTrans> result = instance.readAll();
+            assertNotNull(result);
+        }catch(Exception e){
+            Assert.fail();
+        }
+    }
+    @Test
+    public void testReadByName(){
+        try{
+            System.out.println("Buscar Entrenador");
+            EntrenadorDAO instance = new EntrenadorDAOImp();
+           
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+
+            PreparedStatement ps = c.prepareStatement("INSERT INTO ENTRENADOR VALUES"
+                    + "('Kobe','Bryant', 67, 34, 2)");  
+
+            ResultSet rs = ps.executeQuery();
+            ArrayList<EntrenadorTrans> result = instance.readByName("Kobe","Bryant");
             assertNotNull(result);
         }catch(Exception e){
             Assert.fail();
