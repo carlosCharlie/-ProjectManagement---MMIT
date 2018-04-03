@@ -29,4 +29,11 @@ public interface JugadoresSA {
      * @return 
      */
     public ArrayList<TOAJugadorEquipo> listarJugadores();
+    
+    /**
+     * Devuelve la informacion de un jugador dada una id
+     * @param id_jugador id del jugador
+     * @return datos del jugador
+     */
+    public JugadorTrans getById(int id_jugador);
 }

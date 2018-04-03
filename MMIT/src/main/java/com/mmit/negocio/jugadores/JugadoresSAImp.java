@@ -53,5 +53,12 @@ public class JugadoresSAImp implements JugadoresSA {
    
         return jugadoresConEquipo;
     }
+
+    @Override
+    public JugadorTrans getById(int id_jugador) {
+        JugadoresDAO jugadoresDao = FactoriaIntegracion.getInstancia().crearJugadoresDAO();
+        
+        return jugadoresDao.getByID(id_jugador);
+    }
     
 }
