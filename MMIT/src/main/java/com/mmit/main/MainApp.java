@@ -4,6 +4,7 @@ import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -24,6 +25,7 @@ public class MainApp extends Application {
         scene.getStylesheets().add("/styles/Styles.css");
         
         stage.setTitle("MMIT");
+        stage.getIcons().add(new Image("/images/logo_nf.png"));
         stage.centerOnScreen(); 
         stage.setScene(scene);
         stage.show();

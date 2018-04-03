@@ -28,6 +28,8 @@ public class ControladorVistaInfoEquipos implements Initializable {
     private TableColumn<JugadorTrans, String> apellidosJugador;
     @FXML
     private TableView<JugadorTrans> tablaJugadores;
+    @FXML
+    private TableColumn<JugadorTrans, String> posicionJugador;
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -46,6 +48,7 @@ public class ControladorVistaInfoEquipos implements Initializable {
         
         nombreJugador.setCellValueFactory(new PropertyValueFactory<JugadorTrans, String>("nombre"));
         apellidosJugador.setCellValueFactory(new PropertyValueFactory<JugadorTrans, String>("apellidos"));
+        posicionJugador.setCellValueFactory(new PropertyValueFactory<JugadorTrans, String>("posicion"));
         
         ArrayList<JugadorTrans> listaJugadores = (ArrayList<JugadorTrans>) this.equipo.getJugadores();
         
