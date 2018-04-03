@@ -56,7 +56,9 @@ public class JugadoresSAImp implements JugadoresSA {
 
     @Override
     public JugadorTrans getById(int id_jugador) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        JugadoresDAO jugadoresDao = FactoriaIntegracion.getInstancia().crearJugadoresDAO();
+        
+        return jugadoresDao.getByID(id_jugador);
     }
     
 }
