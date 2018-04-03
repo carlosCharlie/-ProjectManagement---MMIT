@@ -68,7 +68,7 @@ public class EquiposDAOImp implements EquiposDAO{
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
             
-            PreparedStatement ps = c.prepareStatement("SELECT * FROM equipos WHERE id_equipo = ?");
+            PreparedStatement ps = c.prepareStatement("Select equipos.* from equipos,entrenador where entrenador.id = ? and equipos.id=entrenador.id;");
             ps.setInt(1, id_entrenador);
             ResultSet rs = ps.executeQuery();
             
