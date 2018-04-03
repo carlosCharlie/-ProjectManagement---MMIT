@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class EntrenadorSAImp implements EntrenadorSA {
 
+    @Override
     public ArrayList<TOAEntrenadorEquipo> buscarEntrenador(String nombre, String apellidos){
         FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
         EntrenadorDAO DAOEntrenador = instancia.crearEntrenadoresDAO();
@@ -50,6 +51,24 @@ public class EntrenadorSAImp implements EntrenadorSA {
         }
 
         return entrenadoresConEquipo;
+    }
+    
+    @Override
+    public TOAEntrenadorEquipo mostrarEntrenador(Integer id){
+         FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
+        EntrenadorDAO DAOEntrenador = instancia.crearEntrenadoresDAO();
+        EquiposDAO DAOEquipo = FactoriaIntegracion.getInstancia().crearEquiposDAO();
+        EntrenadorTrans entrenador = DAOEntrenador.getById(id);
+        TOAEntrenadorEquipo entrenadorEquipo;
+
+            if (entrenador.getIdEquipo() != null){
+                entrenadorEquipo = new TOAEntrenadorEquipo(entrenador, DAOEquipo.readById(entrenador.getIdEquipo()));
+            } else {
+                entrenadorEquipo = new TOAEntrenadorEquipo(entrenador, null);
+            }
+        
+        return entrenadorEquipo;
+        
     }
     
 }
