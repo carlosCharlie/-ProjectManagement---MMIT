@@ -35,7 +35,9 @@ public class TestIntegracionEquipo {
         EntrenadorTrans ent = new EntrenadorTrans(4, "Avery", "Johnson", 7);
         TOAEntrenadorEquipo toae = new TOAEntrenadorEquipo(ent, et);
         controlador.accion(cont);
-        Assert.assertEquals(cont.getDatos(), toae);
+        TOAEntrenadorEquipo nuevo = (TOAEntrenadorEquipo)(cont.getDatos());
+        Assert.assertEquals(nuevo.getIdEquipo(), toae.getIdEquipo());
+        Assert.assertEquals(nuevo.getIdEntrenador(), toae.getIdEntrenador());
         
     }
 
@@ -47,9 +49,9 @@ public class TestIntegracionEquipo {
         Contexto cont = new Contexto(Evento.ObtenerDatosEquipo, 31);
         EquipoTrans et = new EquipoTrans(31, "Brigham Young", 24, 11);
         TOAEntrenadorEquipo toae = new TOAEntrenadorEquipo(null, et);
-        controlador.accion(cont);
-        Assert.assertEquals(cont.getDatos(), toae);
-        
+        TOAEntrenadorEquipo nuevo = (TOAEntrenadorEquipo)(cont.getDatos());
+        Assert.assertEquals(nuevo.getIdEquipo(), toae.getIdEquipo());
+        Assert.assertNull(nuevo.getIdEntrenador());
         
     }
 }
