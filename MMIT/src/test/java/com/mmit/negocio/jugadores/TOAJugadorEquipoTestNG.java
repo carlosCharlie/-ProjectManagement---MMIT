@@ -39,7 +39,8 @@ public class TOAJugadorEquipoTestNG {
     @Test
     public void TestNGTOAJugadorEquipo(){
         try{
-            JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
+            JugadorTrans jt = null;
+            //JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
             EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
             new TOAJugadorEquipo(jt, et);
         }catch(Exception e){
@@ -49,7 +50,8 @@ public class TOAJugadorEquipoTestNG {
     
     @Test
     public void TestNGGetIdJugador(){
-        JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
+        JugadorTrans jt = null;
+            //JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
         EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
         TOAJugadorEquipo instance = new TOAJugadorEquipo(jt, et);
         int result = instance.getIdJugador();
@@ -58,7 +60,8 @@ public class TOAJugadorEquipoTestNG {
     
     @Test
     public void TestNGGetNombreJugador(){
-        JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
+        JugadorTrans jt = null;
+            //JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
         EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
         TOAJugadorEquipo instance = new TOAJugadorEquipo(jt, et);
         String result = instance.getNombreJugador();
@@ -67,7 +70,8 @@ public class TOAJugadorEquipoTestNG {
     
     @Test
     public void TestNGGetApellidosJugador(){
-        JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
+        JugadorTrans jt = null;
+            //JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
         EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
         TOAJugadorEquipo instance = new TOAJugadorEquipo(jt, et);
         String result = instance.getApellidosJugador();
@@ -76,7 +80,8 @@ public class TOAJugadorEquipoTestNG {
     
     @Test
     public void TestNGGetIdEquipo(){
-        JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
+        JugadorTrans jt = null;
+            //JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
         EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
         TOAJugadorEquipo instance = new TOAJugadorEquipo(jt, et);
         int result = instance.getIdEquipo();
@@ -85,7 +90,8 @@ public class TOAJugadorEquipoTestNG {
     
     @Test
     public void TestNGGetNombreEquipo(){
-        JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
+        JugadorTrans jt = null;
+            //JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
         EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
         TOAJugadorEquipo instance = new TOAJugadorEquipo(jt, et);
         String result = instance.getNombreEquipo();
