@@ -12,7 +12,7 @@ public interface EquiposSA {
      * @param id del equipo
      * @return TOA con equipo+entreador
      */
-    public TOAEntrenadorEquipoJugadores getById(int id);
+    public TOAEntrenadorEquipoJugadores obtenerEquipoCompleto(int id);
     
-    public EquipoTrans obtenerEquipoPorId(int id);
+    public EquipoTrans obtenerEquipo(int id);
 }

@@ -62,7 +62,7 @@ public class EquiposDAOImp implements EquiposDAO{
     }
 
     @Override
-    public EquipoTrans getByEntrenador(Integer id_entrenador) {
+    public EquipoTrans readByEntrenador(Integer id_entrenador) {
         
         try {
             Conexion.getInstancia().abrir();

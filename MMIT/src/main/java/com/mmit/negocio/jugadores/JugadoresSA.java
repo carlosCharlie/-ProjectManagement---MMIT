@@ -35,5 +35,5 @@ public interface JugadoresSA {
      * @param id_jugador id del jugador
      * @return datos del jugador
      */
-    public JugadorTrans getById(int id_jugador);
+    public JugadorTrans obtenerJugador(int id_jugador);
 }

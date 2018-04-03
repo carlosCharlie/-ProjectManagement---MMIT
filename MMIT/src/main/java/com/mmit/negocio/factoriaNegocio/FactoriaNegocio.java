@@ -8,7 +8,7 @@ abstract public class FactoriaNegocio {
     
     static private FactoriaNegocio f=null;
     
-    static public FactoriaNegocio getInstacia(){
+    static public FactoriaNegocio getInstancia(){
         if(f==null)
             f=new FactoriaNegocioImp();
         return f;

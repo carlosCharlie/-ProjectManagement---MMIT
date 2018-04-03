@@ -58,7 +58,7 @@ public class EntrenadorSAImp implements EntrenadorSA {
          FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
         EntrenadorDAO DAOEntrenador = instancia.crearEntrenadoresDAO();
         EquiposDAO DAOEquipo = FactoriaIntegracion.getInstancia().crearEquiposDAO();
-        EntrenadorTrans entrenador = DAOEntrenador.getById(id);
+        EntrenadorTrans entrenador = DAOEntrenador.readById(id);
         TOAEntrenadorEquipo entrenadorEquipo;
 
             if (entrenador.getIdEquipo() != null){

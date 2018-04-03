@@ -54,7 +54,7 @@ public class EquiposSATestNG {
         try{
             System.out.println("Sacar equipo segun Id");
             EquiposSA instance = new EquiposSAImp();
-            TOAEntrenadorEquipo result = instance.getById(1);
+            TOAEntrenadorEquipo result = instance.obtenerEquipoCompleto(1);
             assertNotNull(result);
         }catch(Exception e){
             Assert.fail();

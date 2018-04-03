@@ -15,26 +15,28 @@ public class ControladorImp extends Controlador{
     public void accion(Contexto contexto) {
         switch(contexto.getEvento()){
             case ListarEquipos:
-                EquiposSA equiposSa = FactoriaNegocio.getInstacia().crearEquiposSA();
+                EquiposSA equiposSa = FactoriaNegocio.getInstancia().crearEquiposSA();
                 contexto.setDatos(equiposSa.listarEquipos());
                 break;
             case ListarJugadores:
-                JugadoresSA jugadoresSa = FactoriaNegocio.getInstacia().crearJugadoresSA();
+                JugadoresSA jugadoresSa = FactoriaNegocio.getInstancia().crearJugadoresSA();
                 contexto.setDatos(jugadoresSa.listarJugadores());
                 break;
             case ListarEntrenadores:
-                EntrenadorSA entrenadorSa = FactoriaNegocio.getInstacia().crearEntrenadoresSA();
+                EntrenadorSA entrenadorSa = FactoriaNegocio.getInstancia().crearEntrenadoresSA();
                 contexto.setDatos(entrenadorSa.listarEntrenadores());
                 break;
             case ObtenerDatosEquipo:
-                equiposSa = FactoriaNegocio.getInstacia().crearEquiposSA(); 
-                contexto.setDatos(equiposSa.getById((int) contexto.getDatos()));
+                equiposSa = FactoriaNegocio.getInstancia().crearEquiposSA(); 
+                contexto.setDatos(equiposSa.obtenerEquipoCompleto((int) contexto.getDatos()));
                 break;
             case ObtenerDatosJugador:
-                jugadoresSa = FactoriaNegocio.getInstacia().crearJugadoresSA(); 
-                JugadorTrans jug = jugadoresSa.getById((int) contexto.getDatos());
-                equiposSa = FactoriaNegocio.getInstacia().crearEquiposSA();
-                EquipoTrans eq = equiposSa.obtenerEquipoPorId(jug.getIdEquipo());
+                jugadoresSa = FactoriaNegocio.getInstancia().crearJugadoresSA(); 
+                equiposSa = FactoriaNegocio.getInstancia().crearEquiposSA();
+                
+                JugadorTrans jug = jugadoresSa.obtenerJugador((int) contexto.getDatos());
+                EquipoTrans eq = equiposSa.obtenerEquipo(jug.getIdEquipo());
+                
                 contexto.setDatos(new TOAJugadorEquipo(jug, eq));
                 break;
         }

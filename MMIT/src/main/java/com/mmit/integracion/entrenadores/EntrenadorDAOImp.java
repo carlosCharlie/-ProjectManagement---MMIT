@@ -68,7 +68,7 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
     }
 
     @Override
-    public EntrenadorTrans getByEquipo(int id_Equipo) {
+    public EntrenadorTrans readByEquipo(int id_Equipo) {
        //No probado
         
         try {
@@ -97,7 +97,7 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
     }
 
     @Override
-    public EntrenadorTrans getById(int id) {
+    public EntrenadorTrans readById(int id) {
         try {
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();

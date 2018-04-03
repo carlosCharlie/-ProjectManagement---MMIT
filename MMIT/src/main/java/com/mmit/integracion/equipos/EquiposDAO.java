@@ -23,5 +23,5 @@ public interface EquiposDAO {
      * @param id_Entrenador id del entrenador del equipo
      * @return equipo con ese entrenador
      */
-    public EquipoTrans getByEntrenador(Integer id_Entrenador);
+    public EquipoTrans readByEntrenador(Integer id_Entrenador);
 }

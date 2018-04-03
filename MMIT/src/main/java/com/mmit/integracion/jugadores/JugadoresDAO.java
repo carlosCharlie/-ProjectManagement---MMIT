@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public interface JugadoresDAO {
 
     public ArrayList<JugadorTrans> readAll();
-    public JugadorTrans getByID(int id_jugador);
-    public ArrayList<JugadorTrans> getRoster(Integer id_equipo);
+    public JugadorTrans readByID(int id_jugador);
+    public ArrayList<JugadorTrans> readRoster(Integer id_equipo);
     
 }

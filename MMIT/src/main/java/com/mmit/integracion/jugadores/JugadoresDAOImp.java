@@ -45,7 +45,7 @@ public class JugadoresDAOImp implements JugadoresDAO {
      * @exception SQLException si hay algun error con la base de datos
      */
     @Override
-    public JugadorTrans getByID(int id_jugador){
+    public JugadorTrans readByID(int id_jugador){
         try {
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
@@ -74,7 +74,7 @@ public class JugadoresDAOImp implements JugadoresDAO {
      * @return un ArrayList con la plantilla, se devolvera vacio si no hay ningun jugador
      */
     @Override
-    public ArrayList<JugadorTrans> getRoster(Integer id_equipo){
+    public ArrayList<JugadorTrans> readRoster(Integer id_equipo){
         ArrayList<JugadorTrans> jugadores = new ArrayList();
         try {
             Conexion.getInstancia().abrir();

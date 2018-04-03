@@ -96,7 +96,7 @@ public class ControladorVistaEquipos implements Initializable {
 
                 TOAEntrenadorEquipo eq = (TOAEntrenadorEquipo) contexto.getDatos();
 
-                BorderPane root = (BorderPane) this.tablaEquipos.getScene().getRoot();;
+                BorderPane root = (BorderPane) this.tablaEquipos.getScene().getRoot();
 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/InformacionEquiposUsuarios.fxml"));
 
