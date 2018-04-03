@@ -6,6 +6,9 @@ public class JugadorTrans {
     private String nombre;
     private String apellidos;
     private Integer idEquipo;
+    private Integer edad;
+    private double peso;
+    private double altura;
     private String posicion;
     private Integer partidos;
     private Integer minutos;
@@ -51,189 +54,255 @@ public class JugadorTrans {
         this.tapones = tapones;
         this.perdidas = perdidas;
     }
+    
+    
+    
 
-    public Integer getId() {
-        return id;
-    }
+	public JugadorTrans(Integer id, String nombre, String apellidos, Integer idEquipo, Integer edad, double peso,
+			double altura, String posicion, Integer partidos, Integer minutos, Integer campoAnotados,
+			Integer campoIntentados, Integer dosAnotados, Integer dosIntentados, Integer tresAnotados,
+			Integer tresIntentados, Integer libresAnotados, Integer libresIntentados, Integer rebotesOfensivos,
+			Integer rebotesDefensivos, Integer asistencias, Integer robos, Integer faltas, Integer puntos,
+			Integer tapones, Integer perdidas) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.idEquipo = idEquipo;
+		this.edad = edad;
+		this.peso = peso;
+		this.altura = altura;
+		this.posicion = posicion;
+		this.partidos = partidos;
+		this.minutos = minutos;
+		this.campoAnotados = campoAnotados;
+		this.campoIntentados = campoIntentados;
+		this.dosAnotados = dosAnotados;
+		this.dosIntentados = dosIntentados;
+		this.tresAnotados = tresAnotados;
+		this.tresIntentados = tresIntentados;
+		this.libresAnotados = libresAnotados;
+		this.libresIntentados = libresIntentados;
+		this.rebotesOfensivos = rebotesOfensivos;
+		this.rebotesDefensivos = rebotesDefensivos;
+		this.asistencias = asistencias;
+		this.robos = robos;
+		this.faltas = faltas;
+		this.puntos = puntos;
+		this.tapones = tapones;
+		this.perdidas = perdidas;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
 
-    public String getApellidos() {
-        return apellidos;
-    }
 
-    public Integer getIdEquipo() {
-        return idEquipo;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public void setIdEquipo(Integer idEquipo) {
-        this.idEquipo = idEquipo;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public String getPosicion() {
-        return posicion;
-    }
+	public String getApellidos() {
+		return apellidos;
+	}
 
-    public void setPosicion(String posicion) {
-        this.posicion = posicion;
-    }
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
 
-    public Integer getPartidos() {
-        return partidos;
-    }
+	public Integer getIdEquipo() {
+		return idEquipo;
+	}
 
-    public void setPartidos(Integer partidos) {
-        this.partidos = partidos;
-    }
+	public void setIdEquipo(Integer idEquipo) {
+		this.idEquipo = idEquipo;
+	}
 
-    public Integer getMinutos() {
-        return minutos;
-    }
+	public Integer getEdad() {
+		return edad;
+	}
 
-    public void setMinutos(Integer minutos) {
-        this.minutos = minutos;
-    }
+	public void setEdad(Integer edad) {
+		this.edad = edad;
+	}
 
-    public Integer getCampoAnotados() {
-        return campoAnotados;
-    }
+	public double getPeso() {
+		return peso;
+	}
 
-    public void setCampoAnotados(Integer campoAnotados) {
-        this.campoAnotados = campoAnotados;
-    }
+	public void setPeso(double peso) {
+		this.peso = peso;
+	}
 
-    public Integer getCampoIntentados() {
-        return campoIntentados;
-    }
+	public double getAltura() {
+		return altura;
+	}
 
-    public void setCampoIntentados(Integer campoIntentados) {
-        this.campoIntentados = campoIntentados;
-    }
+	public void setAltura(double altura) {
+		this.altura = altura;
+	}
 
-    public Integer getDosAnotados() {
-        return dosAnotados;
-    }
+	public String getPosicion() {
+		return posicion;
+	}
 
-    public void setDosAnotados(Integer dosAnotados) {
-        this.dosAnotados = dosAnotados;
-    }
+	public void setPosicion(String posicion) {
+		this.posicion = posicion;
+	}
 
-    public Integer getDosIntentados() {
-        return dosIntentados;
-    }
+	public Integer getPartidos() {
+		return partidos;
+	}
 
-    public void setDosIntentados(Integer dosIntentados) {
-        this.dosIntentados = dosIntentados;
-    }
+	public void setPartidos(Integer partidos) {
+		this.partidos = partidos;
+	}
 
-    public Integer getTresAnotados() {
-        return tresAnotados;
-    }
+	public Integer getMinutos() {
+		return minutos;
+	}
 
-    public void setTresAnotados(Integer tresAnotados) {
-        this.tresAnotados = tresAnotados;
-    }
+	public void setMinutos(Integer minutos) {
+		this.minutos = minutos;
+	}
 
-    public Integer getTresIntentados() {
-        return tresIntentados;
-    }
+	public Integer getCampoAnotados() {
+		return campoAnotados;
+	}
 
-    public void setTresIntentados(Integer tresIntentados) {
-        this.tresIntentados = tresIntentados;
-    }
+	public void setCampoAnotados(Integer campoAnotados) {
+		this.campoAnotados = campoAnotados;
+	}
 
-    public Integer getLibresAnotados() {
-        return libresAnotados;
-    }
+	public Integer getCampoIntentados() {
+		return campoIntentados;
+	}
 
-    public void setLibresAnotados(Integer libresAnotados) {
-        this.libresAnotados = libresAnotados;
-    }
+	public void setCampoIntentados(Integer campoIntentados) {
+		this.campoIntentados = campoIntentados;
+	}
 
-    public Integer getLibresIntentados() {
-        return libresIntentados;
-    }
+	public Integer getDosAnotados() {
+		return dosAnotados;
+	}
 
-    public void setLibresIntentados(Integer libresIntentados) {
-        this.libresIntentados = libresIntentados;
-    }
+	public void setDosAnotados(Integer dosAnotados) {
+		this.dosAnotados = dosAnotados;
+	}
 
-    public Integer getRebotesOfensivos() {
-        return rebotesOfensivos;
-    }
+	public Integer getDosIntentados() {
+		return dosIntentados;
+	}
 
-    public void setRebotesOfensivos(Integer rebotesOfensivos) {
-        this.rebotesOfensivos = rebotesOfensivos;
-    }
+	public void setDosIntentados(Integer dosIntentados) {
+		this.dosIntentados = dosIntentados;
+	}
 
-    public Integer getRebotesDefensivos() {
-        return rebotesDefensivos;
-    }
+	public Integer getTresAnotados() {
+		return tresAnotados;
+	}
 
-    public void setRebotesDefensivos(Integer rebotesDefensivos) {
-        this.rebotesDefensivos = rebotesDefensivos;
-    }
+	public void setTresAnotados(Integer tresAnotados) {
+		this.tresAnotados = tresAnotados;
+	}
 
-    public Integer getAsistencias() {
-        return asistencias;
-    }
+	public Integer getTresIntentados() {
+		return tresIntentados;
+	}
 
-    public void setAsistencias(Integer asistencias) {
-        this.asistencias = asistencias;
-    }
+	public void setTresIntentados(Integer tresIntentados) {
+		this.tresIntentados = tresIntentados;
+	}
 
-    public Integer getRobos() {
-        return robos;
-    }
+	public Integer getLibresAnotados() {
+		return libresAnotados;
+	}
 
-    public void setRobos(Integer robos) {
-        this.robos = robos;
-    }
+	public void setLibresAnotados(Integer libresAnotados) {
+		this.libresAnotados = libresAnotados;
+	}
 
-    public Integer getFaltas() {
-        return faltas;
-    }
+	public Integer getLibresIntentados() {
+		return libresIntentados;
+	}
 
-    public void setFaltas(Integer faltas) {
-        this.faltas = faltas;
-    }
+	public void setLibresIntentados(Integer libresIntentados) {
+		this.libresIntentados = libresIntentados;
+	}
 
-    public Integer getPuntos() {
-        return puntos;
-    }
+	public Integer getRebotesOfensivos() {
+		return rebotesOfensivos;
+	}
 
-    public void setPuntos(Integer puntos) {
-        this.puntos = puntos;
-    }
+	public void setRebotesOfensivos(Integer rebotesOfensivos) {
+		this.rebotesOfensivos = rebotesOfensivos;
+	}
 
-    public Integer getTapones() {
-        return tapones;
-    }
+	public Integer getRebotesDefensivos() {
+		return rebotesDefensivos;
+	}
 
-    public void setTapones(Integer tapones) {
-        this.tapones = tapones;
-    }
+	public void setRebotesDefensivos(Integer rebotesDefensivos) {
+		this.rebotesDefensivos = rebotesDefensivos;
+	}
 
-    public Integer getPerdidas() {
-        return perdidas;
-    }
+	public Integer getAsistencias() {
+		return asistencias;
+	}
 
-    public void setPerdidas(Integer perdidas) {
-        this.perdidas = perdidas;
-    }
+	public void setAsistencias(Integer asistencias) {
+		this.asistencias = asistencias;
+	}
+
+	public Integer getRobos() {
+		return robos;
+	}
+
+	public void setRobos(Integer robos) {
+		this.robos = robos;
+	}
+
+	public Integer getFaltas() {
+		return faltas;
+	}
+
+	public void setFaltas(Integer faltas) {
+		this.faltas = faltas;
+	}
+
+	public Integer getPuntos() {
+		return puntos;
+	}
+
+	public void setPuntos(Integer puntos) {
+		this.puntos = puntos;
+	}
+
+	public Integer getTapones() {
+		return tapones;
+	}
+
+	public void setTapones(Integer tapones) {
+		this.tapones = tapones;
+	}
+
+	public Integer getPerdidas() {
+		return perdidas;
+	}
+
+	public void setPerdidas(Integer perdidas) {
+		this.perdidas = perdidas;
+	}
+
 
 }
