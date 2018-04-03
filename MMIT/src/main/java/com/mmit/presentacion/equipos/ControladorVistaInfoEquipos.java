@@ -36,6 +36,10 @@ public class ControladorVistaInfoEquipos implements Initializable {
     private Label victorias;
     @FXML
     private Label porcentaje;
+    @FXML
+    private Label anotados;
+    @FXML
+    private Label recibidos;
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -77,5 +81,9 @@ public class ControladorVistaInfoEquipos implements Initializable {
         this.victorias.setText(String.valueOf(this.equipo.getEquipo().getVictorias()) + "V");
         this.derrotas.setText(String.valueOf(this.equipo.getEquipo().getDerrotas()) + "D");
         this.porcentaje.setText("(" + String.valueOf(this.equipo.getEquipo().getPorcentaje()) + ")");
+        this.anotados.setText(String.valueOf(5678));
+        this.recibidos.setText(String.valueOf(1234));
+        //this.anotados.setText(String.valueOf(this.equipo.getEquipo().getAnotados()));
+        //this.recibidos.setText(String.valueOf(this.equipo.getEquipo().getRecibidos()));
     }
 }
