@@ -83,7 +83,7 @@ public class ControladorVistaJugadores implements Initializable {
             Integer id = tablaJugadores.getItems().get(row).getIdJugador();
 
             try {
-                Contexto contexto = new Contexto(Evento.ObtenerDatosEquipo, id);
+                Contexto contexto = new Contexto(Evento.ObtenerDatosJugador, id);
                 Controlador.obtenerInstancia().accion(contexto);
 
                 TOAJugadorEquipo jug = (TOAJugadorEquipo) contexto.getDatos();

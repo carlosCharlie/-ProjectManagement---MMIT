@@ -13,7 +13,8 @@ public enum Evento {
     ListarEntrenadores,
     
     //Eventos Jugadores
-    ListarJugadores
+    ListarJugadores,
+    ObtenerDatosJugador
    
     
 }

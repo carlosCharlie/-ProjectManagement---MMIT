@@ -37,7 +37,7 @@
             </GridPane>
          </top>
          <center>
-            <TableView fx:id="tablaJugadores" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="tablaJugadores" onMouseClicked="#seleccionarJugador" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <columns>
                 <TableColumn fx:id="colNombre" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="206.0" resizable="false" text="Nombre" />
                 <TableColumn fx:id="colApellidos" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="410.0" resizable="false" text="Apellidos" />

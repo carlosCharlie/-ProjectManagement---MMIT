@@ -79,7 +79,7 @@
                                     <Label fx:id="apellidosJugador" styleClass="textoInformacionBasica" />
                                  </children>
                               </FlowPane>
-                              <Label fx:id="nombreEquipo" prefHeight="45.0" prefWidth="0.0" styleClass="textoInformacionBasica" GridPane.rowIndex="3">
+                              <Label fx:id="nombreEquipo" styleClass="textoInformacionBasica" GridPane.rowIndex="3">
                                  <font>
                                     <Font name="System Italic" size="30.0" />
                                  </font>

@@ -18,7 +18,7 @@ public class EquiposSAImp implements EquiposSA {
 }
 
     @Override
-    public TOAEntrenadorEquipo getById(int id) {
+    public TOAEntrenadorEquipoJugadores getById(int id) {
        
         EquiposDAO equiposDao = FactoriaIntegracion.getInstancia().crearEquiposDAO();
         EntrenadorDAO entrenadoresDao = FactoriaIntegracion.getInstancia().crearEntrenadoresDAO();
@@ -33,5 +33,15 @@ public class EquiposSAImp implements EquiposSA {
             
             return new TOAEntrenadorEquipoJugadores(entrenadoresDao.getByEquipo(id),equipo,jugadoresDao.getRoster(id));
          }
+    }
+    
+    @Override
+    public EquipoTrans obtenerEquipoPorId(int id) {
+       
+        EquiposDAO equiposDao = FactoriaIntegracion.getInstancia().crearEquiposDAO();
+        
+        EquipoTrans equipo = equiposDao.readById(id);
+        
+        return equipo;
     }
 }
