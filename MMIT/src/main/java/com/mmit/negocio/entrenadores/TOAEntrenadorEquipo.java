@@ -15,6 +15,11 @@ public class TOAEntrenadorEquipo {
     public EntrenadorTrans getEntrenador(){
         return entrenador;
     }
+    
+    public EquipoTrans getEquipo(){
+        return this.equipo;
+    }
+    
     public Integer getIdEntrenador(){
         return this.entrenador.getId();
     }

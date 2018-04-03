@@ -42,5 +42,4 @@ public class TOAEntrenadorEquipoJugadores extends TOAEntrenadorEquipo {
         return jugadores;
     }
     
-    
 }

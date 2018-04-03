@@ -30,6 +30,12 @@ public class ControladorVistaInfoEquipos implements Initializable {
     private TableView<JugadorTrans> tablaJugadores;
     @FXML
     private TableColumn<JugadorTrans, String> posicionJugador;
+    @FXML
+    private Label derrotas;
+    @FXML
+    private Label victorias;
+    @FXML
+    private Label porcentaje;
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -42,6 +48,7 @@ public class ControladorVistaInfoEquipos implements Initializable {
             this.nombreEntrenador.setText("-");
         }
         rellenarTabla();
+        rellenarEstadisticas();
     }
     
     private void rellenarTabla(){
@@ -64,5 +71,11 @@ public class ControladorVistaInfoEquipos implements Initializable {
                 alert.show();
         }
 
+    }
+    
+    private void rellenarEstadisticas(){
+        this.victorias.setText(String.valueOf(this.equipo.getEquipo().getVictorias()) + "V");
+        this.derrotas.setText(String.valueOf(this.equipo.getEquipo().getDerrotas()) + "D");
+        this.porcentaje.setText("(" + String.valueOf(this.equipo.getEquipo().getPorcentaje()) + ")");
     }
 }
