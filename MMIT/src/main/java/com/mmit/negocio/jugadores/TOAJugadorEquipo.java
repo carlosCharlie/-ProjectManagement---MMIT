@@ -36,4 +36,8 @@ public class TOAJugadorEquipo {
         }
         
     }
+    
+    public EquipoTrans getEquipo() {
+        return this.equipo;
+    }
 }

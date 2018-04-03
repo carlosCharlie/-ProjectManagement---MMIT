@@ -26,6 +26,11 @@
             <Button fx:id="botonEquipos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="botonMenu" text="Equipos" GridPane.rowIndex="1" />
             <Button fx:id="botonJugadores" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="botonMenu" text="Jugadores" GridPane.rowIndex="2" />
             <Button fx:id="botonEntrenadores" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="botonMenu" text="Entrenadores" GridPane.rowIndex="3" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../images/logo_nf.png" />
+               </image>
+            </ImageView>
          </children>
       </GridPane>
    </children>

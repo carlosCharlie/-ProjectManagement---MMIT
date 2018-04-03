@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="escenasContenido" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.presentacion.equipos.ControladorVistaInfoEquipos">
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="escenasContenido" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.presentacion.jugadores.ControladorVistaInfoJugadores">
    <children>
       <BorderPane layoutX="94.0" layoutY="94.0" prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -50,17 +50,9 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Entrenador" GridPane.rowIndex="2">
+                              <Label text="Equipo" GridPane.rowIndex="2">
                                  <font>
                                     <Font size="60.0" />
-                                 </font>
-                                 <GridPane.margin>
-                                    <Insets left="20.0" />
-                                 </GridPane.margin>
-                              </Label>
-                              <Label fx:id="nombreEquipo" styleClass="textoInformacionBasica" GridPane.rowIndex="1">
-                                 <font>
-                                    <Font name="System Italic" size="30.0" />
                                  </font>
                                  <GridPane.margin>
                                     <Insets left="20.0" />
@@ -74,9 +66,9 @@
                                     <Insets left="20.0" />
                                  </GridPane.margin>
                               </Label>
-                              <FlowPane alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+                              <FlowPane alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                                  <children>
-                                    <Label fx:id="nombreEntrenador" styleClass="textoInformacionBasica">
+                                    <Label fx:id="nombreJugador" styleClass="textoInformacionBasica">
                                        <font>
                                           <Font name="System Italic" size="30.0" />
                                        </font>
@@ -84,25 +76,20 @@
                                           <Insets left="20.0" right="5.0" />
                                        </FlowPane.margin>
                                     </Label>
-                                    <Label fx:id="apellidosEntrenador" styleClass="textoInformacionBasica" />
+                                    <Label fx:id="apellidosJugador" styleClass="textoInformacionBasica" />
                                  </children>
                               </FlowPane>
+                              <Label fx:id="nombreEquipo" prefHeight="45.0" prefWidth="0.0" styleClass="textoInformacionBasica" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Italic" size="30.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Label>
                            </children>
                         </GridPane>
                      </content>
-                </Tab>
-                <Tab text="Plantilla">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <TableView fx:id="tablaJugadores" prefHeight="561.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                <columns>
-                                  <TableColumn fx:id="nombreJugador" maxWidth="300.0" minWidth="-1.0" prefWidth="300.0" text="Nombre" />
-                                  <TableColumn fx:id="apellidosJugador" maxWidth="600.0" minWidth="-1.0" prefWidth="600.0" text="Apellidos" />
-                                </columns>
-                              </TableView>
-                           </children></AnchorPane>
-                  </content>
                 </Tab>
                   <Tab text="Estadísticas">
                      <content>
