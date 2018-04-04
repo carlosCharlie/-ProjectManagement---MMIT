@@ -17,6 +17,7 @@
 package com.mmit.integracion.entrenadores;
 
 import com.mmit.integracion.conexion.Conexion;
+import com.mmit.integracion.factoriaIntegracion.FactoriaIntegracion;
 import com.mmit.negocio.entrenadores.EntrenadorTrans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -70,6 +71,21 @@ public class EntrenadoresDAOTestNG {
         }catch(Exception e){
             Assert.fail();
         }
+    }
+    
+    @Test
+    public void informacionBasicaEntrenadorDAO(){
+        int id = 1;
+        EntrenadorDAO entrenadoresDao = FactoriaIntegracion.getInstancia().crearEntrenadoresDAO();
+        EntrenadorTrans entrenador = entrenadoresDao.getById(id);
+        
+        assertNotNull(entrenador);
+        assertTrue(entrenador.getNombre()!=null && entrenador.getNombre().length()>0);
+        assertTrue(entrenador.getApellidos()!= null && entrenador.getApellidos().length()>0);
+        assertTrue(entrenador.getId()==id);
+        assertTrue(entrenador.getIdEquipo()>0);
+        
+        
     }
     
     
