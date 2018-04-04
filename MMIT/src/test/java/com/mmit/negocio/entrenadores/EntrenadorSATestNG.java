@@ -62,10 +62,10 @@ public class EntrenadorSATestNG {
         
         
         if(entrenadorEquipo.getEntrenador()!=null) //no tenemos este caso en cuenta porque puede no estar asignado
-        informacionEntrenador(entrenadorEquipo.getEntrenador());
+            informacionEntrenador(entrenadorEquipo.getEntrenador());
         
     }
-    @Test
+    
     public void informacionEntrenador(EntrenadorTrans entrenador)
     {
         assertNotNull(entrenador);
