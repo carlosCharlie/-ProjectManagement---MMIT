@@ -1,5 +1,7 @@
 package com.mmit.negocio.equipos;
 
+import java.text.DecimalFormat;
+
 public class EquipoTrans {
     private int id;
     private String nombre;
@@ -129,8 +131,10 @@ public class EquipoTrans {
 	}
 
 
-	public double getPorcentaje() {
-		return porcentaje;
+	public Double getPorcentaje() {
+            DecimalFormat df = new DecimalFormat("#,00");
+            Double valor = Double.valueOf(df.format(porcentaje));
+            return valor;
 	}
 
 
