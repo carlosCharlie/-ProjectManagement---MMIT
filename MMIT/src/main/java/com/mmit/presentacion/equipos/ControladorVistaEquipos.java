@@ -72,9 +72,7 @@ public class ControladorVistaEquipos implements Initializable {
         Controlador.obtenerInstancia().accion(contexto);
         
         listaEquipos = FXCollections.observableArrayList((ArrayList<EquipoTrans>)contexto.getDatos());
-        /*for (EquipoTrans equipo : listaEquipos){
-                tablaEquipos.getItems().add(equipo);
-            }*/
+
         if (listaEquipos != null){
             FilteredList<EquipoTrans> filteredData = new FilteredList<>(listaEquipos, p -> true);
         
