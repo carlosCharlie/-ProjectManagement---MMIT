@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -11,7 +15,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.presentacion.equipos.ControladorVistaEquipos">
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.presentacion.equipos.ControladorVistaEquipos">
    <children>
       <BorderPane layoutX="94.0" layoutY="94.0" prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -41,11 +45,11 @@
          <center>
             <TableView fx:id="tablaEquipos" onMouseClicked="#seleccionarEquipo" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn fx:id="colNombre" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="619.0" text="Nombre" />
-                <TableColumn fx:id="colPJ" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="PJ" />
-                  <TableColumn fx:id="colPG" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="PG" />
-                  <TableColumn fx:id="colPP" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="PP" />
-                  <TableColumn fx:id="colPor" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="\%" />
+                <TableColumn fx:id="colNombre" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="600.0" text="Nombre" />
+                <TableColumn fx:id="colPJ" editable="false" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="PJ" />
+                  <TableColumn fx:id="colPG" editable="false" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="PG" />
+                  <TableColumn fx:id="colPP" editable="false" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="PP" />
+                  <TableColumn fx:id="colPor" editable="false" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="\%" />
                   <TableColumn fx:id="colId" prefWidth="75.0" text="Id" visible="false" />
               </columns>
                <columnResizePolicy>

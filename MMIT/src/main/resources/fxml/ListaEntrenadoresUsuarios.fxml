@@ -40,9 +40,9 @@
             <TableView fx:id="tablaEntrenadores" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <columns>
                   <TableColumn fx:id="colId" prefWidth="36.0" text="Id" visible="false" />
-                  <TableColumn fx:id="colNombre" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="206.0" resizable="false" text="Nombre" />
-                <TableColumn fx:id="colApellidos" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="410.0" resizable="false" text="Apellidos" />
-                  <TableColumn fx:id="colEquipo" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="280.0" text="Equipo" />
+                  <TableColumn fx:id="colNombre" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="206.0" resizable="false" text="Nombre" />
+                <TableColumn fx:id="colApellidos" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="410.0" resizable="false" text="Apellidos" />
+                  <TableColumn fx:id="colEquipo" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="280.0" text="Equipo" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
