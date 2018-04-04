@@ -1,10 +1,6 @@
 package com.mmit.negocio.equipos;
 
 import java.text.DecimalFormat;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 
 public class EquipoTrans {
     private int id;
