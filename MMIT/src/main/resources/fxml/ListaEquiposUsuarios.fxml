@@ -34,7 +34,7 @@
                         <Insets right="5.0" />
                      </padding>
                   </Label>
-                  <TextField GridPane.columnIndex="2">
+                  <TextField fx:id="buscar" GridPane.columnIndex="2">
                      <GridPane.margin>
                         <Insets left="2.0" right="10.0" />
                      </GridPane.margin>

@@ -12,6 +12,10 @@ import java.util.Enumeration;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,6 +23,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 
@@ -39,7 +44,9 @@ public class ControladorVistaEquipos implements Initializable {
     @FXML
     private TableColumn<EquipoTrans, Integer> colId;
    
-    private ArrayList<EquipoTrans> listaEquipos=null;
+    private ObservableList<EquipoTrans> listaEquipos = null;
+    @FXML
+    private TextField buscar;
 
     /**
      * Initializes the controller class.
@@ -64,12 +71,34 @@ public class ControladorVistaEquipos implements Initializable {
         Contexto contexto = new Contexto(Evento.ListarEquipos, null);
         Controlador.obtenerInstancia().accion(contexto);
         
-        listaEquipos = (ArrayList<EquipoTrans>) contexto.getDatos();
-        
-        if (listaEquipos != null){
-            for (EquipoTrans equipo : listaEquipos){
+        listaEquipos = FXCollections.observableArrayList((ArrayList<EquipoTrans>)contexto.getDatos());
+        /*for (EquipoTrans equipo : listaEquipos){
                 tablaEquipos.getItems().add(equipo);
-            }
+            }*/
+        if (listaEquipos != null){
+            FilteredList<EquipoTrans> filteredData = new FilteredList<>(listaEquipos, p -> true);
+        
+            buscar.textProperty().addListener((observable, oldValue, newValue) -> {
+                filteredData.setPredicate(nombre-> {
+                    // If filter text is empty, display all persons.
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+
+                    // Compare first name and last name of every person with filter text.
+                    String lowerCaseFilter = newValue.toLowerCase();
+
+                    if (nombre.getNombre().toLowerCase().contains(lowerCaseFilter)) {
+                        return true; // Filter matches first name.
+                    }
+                    return false; // Does not match.
+                });
+            });
+
+            SortedList<EquipoTrans> sortedData = new SortedList<>(filteredData);
+            sortedData.comparatorProperty().bind(tablaEquipos.comparatorProperty());
+
+            tablaEquipos.setItems(sortedData);
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("");
@@ -77,9 +106,10 @@ public class ControladorVistaEquipos implements Initializable {
                 alert.setContentText("Error al obtener los datos de la BBDD");
                 alert.show();
         }
-
     }
+ 
     
+    @FXML
     public void seleccionarEquipo(){
        
         TablePosition pos = this.tablaEquipos.getSelectionModel().getSelectedCells().get(0);

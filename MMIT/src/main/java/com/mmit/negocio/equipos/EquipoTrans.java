@@ -1,8 +1,18 @@
 package com.mmit.negocio.equipos;
 
 import java.text.DecimalFormat;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class EquipoTrans {
+    
+    private final StringProperty propiedadNombre;
+    private final BooleanProperty propiedadVisible;
+    
+    private boolean visible = true;
+
     private int id;
     private String nombre;
     private Integer victorias;
@@ -31,6 +41,8 @@ public class EquipoTrans {
     public EquipoTrans(int id, String nombre, Integer victorias, Integer derrotas){
         this.id = id;
         this.nombre = nombre;
+        this.propiedadNombre = new SimpleStringProperty(this, "Nombre", this.nombre);
+        this.propiedadVisible = new SimpleBooleanProperty(this, "Visible", this.visible);
         this.victorias = victorias;
         this.derrotas = derrotas;
         this.jugados = this.victorias + this.derrotas;
@@ -45,6 +57,8 @@ public class EquipoTrans {
 		super();
 		this.id = id;
 		this.nombre = nombre;
+                this.propiedadNombre = new SimpleStringProperty(this, "Nombre", this.nombre);
+                this.propiedadVisible = new SimpleBooleanProperty(this, "Visible", this.visible);
 		this.victorias = victorias;
 		this.derrotas = derrotas;
 		this.jugados = this.victorias + this.derrotas;
@@ -302,5 +316,19 @@ public class EquipoTrans {
 		this.perdidas = perdidas;
 	}
 
-
+        public StringProperty propiedadNombre(){
+            return this.propiedadNombre;    
+        }
+        
+        public BooleanProperty propiedadVisible(){
+            return this.propiedadVisible;
+        }
+        
+        public Boolean getVisible(){
+            return this.visible;
+        }
+        
+        public void setVisible(boolean b){
+            this.visible = b;
+        }
 }
