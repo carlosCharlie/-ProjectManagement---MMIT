@@ -52,7 +52,7 @@ public class EntrenadorSATestNG {
     @Test
     public void informacionEntreadorEquipo(){
         int id=1;
-        EntrenadorSA entrenadorSa = FactoriaNegocio.getInstacia().crearEntrenadoresSA();
+        EntrenadorSA entrenadorSa = FactoriaNegocio.getInstancia().crearEntrenadoresSA();
         TOAEntrenadorEquipo entrenadorEquipo = entrenadorSa.mostrarEntrenador(id);
         
         assertNotNull(entrenadorEquipo);

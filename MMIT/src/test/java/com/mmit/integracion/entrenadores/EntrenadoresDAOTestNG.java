@@ -77,13 +77,14 @@ public class EntrenadoresDAOTestNG {
     public void informacionBasicaEntrenadorDAO(){
         int id = 1;
         EntrenadorDAO entrenadoresDao = FactoriaIntegracion.getInstancia().crearEntrenadoresDAO();
-        EntrenadorTrans entrenador = entrenadoresDao.getById(id);
+        EntrenadorTrans entrenador = entrenadoresDao.readById(id);
         
         assertNotNull(entrenador);
         assertTrue(entrenador.getNombre()!=null && entrenador.getNombre().length()>0);
         assertTrue(entrenador.getApellidos()!= null && entrenador.getApellidos().length()>0);
         assertTrue(entrenador.getId()==id);
         assertTrue(entrenador.getIdEquipo()>0);
+        
         
         
     }
