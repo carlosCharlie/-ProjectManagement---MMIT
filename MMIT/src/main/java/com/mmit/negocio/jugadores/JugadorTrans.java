@@ -14,12 +14,20 @@ public class JugadorTrans {
     private Integer minutos;
     private Integer campoAnotados;
     private Integer campoIntentados;
+    private Integer campoFallados;
+    private double campoPorcentaje;
     private Integer dosAnotados;
     private Integer dosIntentados;
+    private Integer dosFallados;
+    private double dosPorcentaje;
     private Integer tresAnotados;
     private Integer tresIntentados;
+    private Integer tresFallados;
+    private double tresPorcentaje;
     private Integer libresAnotados;
     private Integer libresIntentados;
+    private Integer libresFallados;
+    private double libresPorcentaje;
     private Integer rebotesOfensivos;
     private Integer rebotesDefensivos;
     private Integer asistencias;
@@ -29,22 +37,33 @@ public class JugadorTrans {
     private Integer tapones;
     private Integer perdidas;
 
-    public JugadorTrans(Integer id, String nombre, String apellidos, Integer idEquipo, String posicion, Integer partidos, Integer minutos, Integer campoAnotados, Integer campoIntentados, Integer dosAnotados, Integer dosIntentados, Integer tresAnotados, Integer tresIntentados, Integer libresAnotados, Integer libresIntentados, Integer rebotesOfensivos, Integer rebotesDefensivos, Integer asistencias, Integer robos, Integer faltas, Integer puntos, Integer tapones, Integer perdidas) {
+    public JugadorTrans(Integer id, String nombre, String apellidos, Integer idEquipo, Integer edad, double peso, double altura, String posicion, Integer partidos, Integer minutos, Integer campoAnotados, Integer campoIntentados, Integer dosAnotados, Integer dosIntentados, Integer tresAnotados, Integer tresIntentados, Integer libresAnotados, Integer libresIntentados, Integer rebotesOfensivos, Integer rebotesDefensivos, Integer asistencias, Integer robos, Integer faltas, Integer puntos, Integer tapones, Integer perdidas) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.idEquipo = idEquipo;
+        this.edad = edad;
+		this.peso = peso;
+		this.altura = altura;
         this.posicion = posicion;
         this.partidos = partidos;
         this.minutos = minutos;
         this.campoAnotados = campoAnotados;
         this.campoIntentados = campoIntentados;
+        this.campoFallados = this.campoIntentados - this.campoAnotados;
+        this.campoPorcentaje = (Double.valueOf(this.campoAnotados) / Double.valueOf(this.campoIntentados)) * 100;
         this.dosAnotados = dosAnotados;
         this.dosIntentados = dosIntentados;
+        this.dosFallados = this.dosIntentados - this.dosAnotados;
+        this.dosPorcentaje = (Double.valueOf(this.dosAnotados) / Double.valueOf(this.dosIntentados)) * 100;
         this.tresAnotados = tresAnotados;
         this.tresIntentados = tresIntentados;
+        this.tresFallados = this.tresIntentados - this.tresAnotados;
+        this.tresPorcentaje = (Double.valueOf(this.tresAnotados) / Double.valueOf(this.tresIntentados)) * 100;
         this.libresAnotados = libresAnotados;
         this.libresIntentados = libresIntentados;
+        this.libresFallados = this.libresIntentados - this.libresAnotados;
+        this.libresPorcentaje = (Double.valueOf(this.libresAnotados) / Double.valueOf(this.libresIntentados)) * 100;
         this.rebotesOfensivos = rebotesOfensivos;
         this.rebotesDefensivos = rebotesOfensivos;
         this.asistencias = asistencias;
@@ -54,47 +73,6 @@ public class JugadorTrans {
         this.tapones = tapones;
         this.perdidas = perdidas;
     }
-    
-    
-    
-
-	public JugadorTrans(Integer id, String nombre, String apellidos, Integer idEquipo, Integer edad, double peso,
-			double altura, String posicion, Integer partidos, Integer minutos, Integer campoAnotados,
-			Integer campoIntentados, Integer dosAnotados, Integer dosIntentados, Integer tresAnotados,
-			Integer tresIntentados, Integer libresAnotados, Integer libresIntentados, Integer rebotesOfensivos,
-			Integer rebotesDefensivos, Integer asistencias, Integer robos, Integer faltas, Integer puntos,
-			Integer tapones, Integer perdidas) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.idEquipo = idEquipo;
-		this.edad = edad;
-		this.peso = peso;
-		this.altura = altura;
-		this.posicion = posicion;
-		this.partidos = partidos;
-		this.minutos = minutos;
-		this.campoAnotados = campoAnotados;
-		this.campoIntentados = campoIntentados;
-		this.dosAnotados = dosAnotados;
-		this.dosIntentados = dosIntentados;
-		this.tresAnotados = tresAnotados;
-		this.tresIntentados = tresIntentados;
-		this.libresAnotados = libresAnotados;
-		this.libresIntentados = libresIntentados;
-		this.rebotesOfensivos = rebotesOfensivos;
-		this.rebotesDefensivos = rebotesDefensivos;
-		this.asistencias = asistencias;
-		this.robos = robos;
-		this.faltas = faltas;
-		this.puntos = puntos;
-		this.tapones = tapones;
-		this.perdidas = perdidas;
-	}
-
-
-
 
 	public Integer getId() {
 		return id;
@@ -192,6 +170,22 @@ public class JugadorTrans {
 		this.campoIntentados = campoIntentados;
 	}
 
+	public Integer getCampoFallados() {
+		return campoFallados;
+	}
+
+	public void setCampoFallados(Integer campoFallados) {
+		this.campoFallados = campoFallados;
+	}
+
+	public double getCampoPorcentaje() {
+		return campoPorcentaje;
+	}
+
+	public void setCampoPorcentaje(double campoPorcentaje) {
+		this.campoPorcentaje = campoPorcentaje;
+	}
+
 	public Integer getDosAnotados() {
 		return dosAnotados;
 	}
@@ -206,6 +200,22 @@ public class JugadorTrans {
 
 	public void setDosIntentados(Integer dosIntentados) {
 		this.dosIntentados = dosIntentados;
+	}
+
+	public Integer getDosFallados() {
+		return dosFallados;
+	}
+
+	public void setDosFallados(Integer dosFallados) {
+		this.dosFallados = dosFallados;
+	}
+
+	public double getDosPorcentaje() {
+		return dosPorcentaje;
+	}
+
+	public void setDosPorcentaje(double dosPorcentaje) {
+		this.dosPorcentaje = dosPorcentaje;
 	}
 
 	public Integer getTresAnotados() {
@@ -224,6 +234,22 @@ public class JugadorTrans {
 		this.tresIntentados = tresIntentados;
 	}
 
+	public Integer getTresFallados() {
+		return tresFallados;
+	}
+
+	public void setTresFallados(Integer tresFallados) {
+		this.tresFallados = tresFallados;
+	}
+
+	public double getTresPorcentaje() {
+		return tresPorcentaje;
+	}
+
+	public void setTresPorcentaje(double tresPorcentaje) {
+		this.tresPorcentaje = tresPorcentaje;
+	}
+
 	public Integer getLibresAnotados() {
 		return libresAnotados;
 	}
@@ -238,6 +264,22 @@ public class JugadorTrans {
 
 	public void setLibresIntentados(Integer libresIntentados) {
 		this.libresIntentados = libresIntentados;
+	}
+
+	public Integer getLibresFallados() {
+		return libresFallados;
+	}
+
+	public void setLibresFallados(Integer libresFallados) {
+		this.libresFallados = libresFallados;
+	}
+
+	public double getLibresPorcentaje() {
+		return libresPorcentaje;
+	}
+
+	public void setLibresPorcentaje(double libresPorcentaje) {
+		this.libresPorcentaje = libresPorcentaje;
 	}
 
 	public Integer getRebotesOfensivos() {
@@ -303,6 +345,5 @@ public class JugadorTrans {
 	public void setPerdidas(Integer perdidas) {
 		this.perdidas = perdidas;
 	}
-        
-
+    
 }
