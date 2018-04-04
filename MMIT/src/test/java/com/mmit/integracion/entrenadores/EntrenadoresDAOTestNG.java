@@ -68,6 +68,10 @@ public class EntrenadoresDAOTestNG {
             ResultSet rs = ps.executeQuery();
             ArrayList<EntrenadorTrans> result = instance.readByName("Kobe","Bryant");
             assertNotNull(result);
+            ps = c.prepareStatement("DELETE FROM ENTRENADOR"
+                    + "WHERE nombre LIKE Kobe AND apellidos LIKE Bryant");  
+
+            rs = ps.executeQuery();
         }catch(Exception e){
             Assert.fail();
         }
