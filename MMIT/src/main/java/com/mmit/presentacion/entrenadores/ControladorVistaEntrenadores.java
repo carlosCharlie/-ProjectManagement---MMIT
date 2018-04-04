@@ -1,18 +1,27 @@
 package com.mmit.presentacion.entrenadores;
 
 import com.mmit.negocio.entrenadores.TOAEntrenadorEquipo;
+import com.mmit.negocio.jugadores.TOAJugadorEquipo;
 import com.mmit.presentacion.Evento;
 import com.mmit.presentacion.controlador.Contexto;
 import com.mmit.presentacion.controlador.Controlador;
+import com.mmit.presentacion.equipos.ControladorVistaEquipos;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 
 public class ControladorVistaEntrenadores implements Initializable {
 
@@ -58,6 +67,48 @@ public class ControladorVistaEntrenadores implements Initializable {
                 alert.setContentText("Error al obtener los datos de la BBDD");
                 alert.show();
         }
+    }
+    
+    public void seleccionarEntrenador(){
+       
+        TablePosition pos = this.tablaEntrenadores.getSelectionModel().getSelectedCells().get(0);
+        int row = pos.getRow();
+        
+        if (row != -1){
+            TableColumn col = pos.getTableColumn();
+
+            Integer id = tablaEntrenadores.getItems().get(row).getIdEntrenador();
+
+            try {
+                Contexto contexto = new Contexto(Evento.ObtenerDatosEntrenador, id);
+                Controlador.obtenerInstancia().accion(contexto);
+
+                TOAEntrenadorEquipo ent = (TOAEntrenadorEquipo) contexto.getDatos();
+
+                BorderPane root = (BorderPane) this.tablaEntrenadores.getScene().getRoot();
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/InformacionEntrenadoresUsuarios.fxml"));
+
+                loader.setResources(new ResourceBundle() {
+                    @Override
+                    protected Object handleGetObject(String key) {
+                        return ent;
+                    }
+
+                    @Override
+                    public Enumeration<String> getKeys() {
+                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                    }
+                });
+
+                root.setCenter(loader.load());
+
+            } catch (IOException ex) {
+                Logger.getLogger(ControladorVistaEquipos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        }
+
     }
     
 }

@@ -54,7 +54,7 @@ public class EntrenadorSAImp implements EntrenadorSA {
     }
     
     @Override
-    public TOAEntrenadorEquipo mostrarEntrenador(Integer id){
+    public TOAEntrenadorEquipo mostrarEntrenadorCompleto(Integer id){
          FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
         EntrenadorDAO DAOEntrenador = instancia.crearEntrenadoresDAO();
         EquiposDAO DAOEquipo = FactoriaIntegracion.getInstancia().crearEquiposDAO();
@@ -70,5 +70,15 @@ public class EntrenadorSAImp implements EntrenadorSA {
         return entrenadorEquipo;
         
     }
+    
+    @Override
+    public EntrenadorTrans mostrarEntrenador(Integer id){
+        FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
+        EntrenadorDAO DAOEntrenador = instancia.crearEntrenadoresDAO();
+        EntrenadorTrans entrenador = DAOEntrenador.readById(id);
+        return entrenador;
+        
+    }
+    
     
 }

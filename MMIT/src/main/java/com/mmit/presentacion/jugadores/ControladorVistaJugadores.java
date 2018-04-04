@@ -1,8 +1,5 @@
 package com.mmit.presentacion.jugadores;
 
-import com.mmit.negocio.entrenadores.TOAEntrenadorEquipo;
-import com.mmit.negocio.equipos.EquipoTrans;
-import com.mmit.negocio.jugadores.JugadorTrans;
 import com.mmit.negocio.jugadores.TOAJugadorEquipo;
 import com.mmit.presentacion.Evento;
 import com.mmit.presentacion.controlador.Contexto;

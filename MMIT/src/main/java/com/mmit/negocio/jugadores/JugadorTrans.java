@@ -303,6 +303,6 @@ public class JugadorTrans {
 	public void setPerdidas(Integer perdidas) {
 		this.perdidas = perdidas;
 	}
-
+        
 
 }

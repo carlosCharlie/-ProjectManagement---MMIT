@@ -12,6 +12,14 @@ public class TOAJugadorEquipo {
         this.jugador = jugador;
     }
     
+    public EquipoTrans getEquipo(){
+        return this.equipo;
+    }
+    
+    public JugadorTrans getJugador(){
+        return this.jugador;
+    }
+    
     public Integer getIdJugador(){
         return this.jugador.getId();
     }
@@ -35,9 +43,5 @@ public class TOAJugadorEquipo {
             return this.equipo.getNombre();
         }
         
-    }
-    
-    public EquipoTrans getEquipo() {
-        return this.equipo;
     }
 }

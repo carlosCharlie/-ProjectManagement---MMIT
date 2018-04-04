@@ -1,6 +1,7 @@
 package com.mmit.presentacion.controlador;
 
 import com.mmit.negocio.entrenadores.EntrenadorSA;
+import com.mmit.negocio.entrenadores.EntrenadorTrans;
 import com.mmit.negocio.entrenadores.TOAEntrenadorEquipo;
 import com.mmit.negocio.equipos.EquipoTrans;
 import com.mmit.negocio.factoriaNegocio.FactoriaNegocio;
@@ -39,7 +40,15 @@ public class ControladorImp extends Controlador{
                 
                 contexto.setDatos(new TOAJugadorEquipo(jug, eq));
                 break;
+            case ObtenerDatosEntrenador:
+                entrenadorSa = FactoriaNegocio.getInstancia().crearEntrenadoresSA(); 
+                equiposSa = FactoriaNegocio.getInstancia().crearEquiposSA();
+                
+                EntrenadorTrans ent = entrenadorSa.mostrarEntrenador((int) contexto.getDatos());
+                eq = equiposSa.obtenerEquipo(ent.getIdEquipo());
+                
+                contexto.setDatos(new TOAEntrenadorEquipo(ent, eq));
+                break;
         }
     }
-    
 }

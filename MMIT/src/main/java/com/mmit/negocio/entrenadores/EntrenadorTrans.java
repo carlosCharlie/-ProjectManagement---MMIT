@@ -9,6 +9,7 @@ public class EntrenadorTrans {
     private Integer victorias;
     private Integer derrotas;
     private Integer idEquipo;
+    private Integer edad;
     
     public EntrenadorTrans(Integer id, String nombre, String apellidos, Integer idEquipo){
         this.id = id;
@@ -40,6 +41,10 @@ public class EntrenadorTrans {
     
     public Integer getIdEquipo(){
         return idEquipo;
+    }
+
+    public Integer getEdad() {
+        return edad;
     }
     
 }

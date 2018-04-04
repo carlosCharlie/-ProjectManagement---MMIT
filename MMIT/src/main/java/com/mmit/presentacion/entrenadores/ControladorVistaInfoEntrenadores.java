@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.mmit.presentacion.jugadores;
+package com.mmit.presentacion.entrenadores;
 
-import com.mmit.negocio.jugadores.TOAJugadorEquipo;
+import com.mmit.negocio.entrenadores.TOAEntrenadorEquipo;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -28,39 +28,33 @@ import javafx.scene.control.Label;
  *
  * @author crash
  */
-public class ControladorVistaInfoJugadores implements Initializable {
-    
-    private TOAJugadorEquipo jugador;
-    @FXML
-    private Label nombreJugador;
-    @FXML
-    private Label apellidosJugador;
+public class ControladorVistaInfoEntrenadores implements Initializable {
+
+    private TOAEntrenadorEquipo entrenador;
     @FXML
     private Label nombreEquipo;
     @FXML
+    private Label nombreEntrenador;
+    @FXML
+    private Label apellidosEntrenador;
+    @FXML
     private Label edad;
-    @FXML
-    private Label peso;
-    @FXML
-    private Label altura;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.jugador = (TOAJugadorEquipo) rb.getObject("");
+        this.entrenador = (TOAEntrenadorEquipo) rb.getObject("");
         rellenarInformacionBasica();
-    }   
+    }    
     
     private void rellenarInformacionBasica(){
-        this.nombreJugador.setText(this.jugador.getNombreJugador());
-        this.apellidosJugador.setText(this.jugador.getApellidosJugador());
-        this.edad.setText(String.valueOf(this.jugador.getJugador().getEdad()));
-        this.peso.setText(String.valueOf(this.jugador.getJugador().getPeso()));
-        this.altura.setText(String.valueOf(this.jugador.getJugador().getAltura()));
-        if (this.jugador.getEquipo() != null){
-            this.nombreEquipo.setText(this.jugador.getEquipo().getNombre());
+        this.nombreEntrenador.setText(this.entrenador.getNombreEntrenador());
+        this.apellidosEntrenador.setText(this.entrenador.getApellidosEntrenador());
+        this.edad.setText(String.valueOf(this.entrenador.getEntrenador().getEdad()));
+        if (this.entrenador.getEquipo() != null){
+            this.nombreEquipo.setText(this.entrenador.getEquipo().getNombre());
         } else {
             this.nombreEquipo.setText("-");
         }
