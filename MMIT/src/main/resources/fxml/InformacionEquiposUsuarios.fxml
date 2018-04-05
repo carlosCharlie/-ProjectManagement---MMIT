@@ -88,10 +88,10 @@
                                        <children>
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Tiros de Campo" GridPane.columnSpan="3" />
                                           <Label styleClass="textoDestacadoInformacionBasica" text="Anotados" GridPane.rowIndex="1" />
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="Fallados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label styleClass="textoDestacadoInformacionBasica" text="Intentados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                           <Label styleClass="textoDestacadoInformacionBasica" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                           <Label fx:id="campoAnotados" GridPane.rowIndex="2" />
-                                          <Label fx:id="campoFallados" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label fx:id="campoIntentados" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <Label fx:id="porcentajeCampo" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                        </children>
                                     </GridPane>
@@ -109,20 +109,20 @@
                                        <children>
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Triples" GridPane.columnSpan="3" GridPane.halignment="CENTER" />
                                           <Label styleClass="textoDestacadoInformacionBasica" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="Fallados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label styleClass="textoDestacadoInformacionBasica" text="Intentados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                           <Label styleClass="textoDestacadoInformacionBasica" text="Anotados" GridPane.rowIndex="1" />
                                           <Label fx:id="triplesAnotados" GridPane.rowIndex="2" />
-                                          <Label fx:id="triplesFallados" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label fx:id="triplesIntentados" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <Label fx:id="porcentajeTriples" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                        </children>
                                     </GridPane>
                                     <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
                                        <children>
                                           <Label styleClass="textoDestacadoInformacionBasica" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="Fallados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label styleClass="textoDestacadoInformacionBasica" text="Intentados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                           <Label styleClass="textoDestacadoInformacionBasica" text="Anotados" GridPane.rowIndex="1" />
                                           <Label fx:id="libresAnotados" GridPane.rowIndex="2" />
-                                          <Label fx:id="libresFallados" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label fx:id="libresIntentados" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <Label fx:id="porcentajeLibres" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Tiros Libres" GridPane.columnSpan="3" />
                                        </children>
@@ -151,8 +151,6 @@
                                     <GridPane GridPane.columnIndex="1">
                                        <children>
                                           <Label fx:id="perdidas" styleClass="textoDestacadoInformacionBasica" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                          <Label fx:id="anotados1" GridPane.rowIndex="2" />
-                                          <Label fx:id="recibidos1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Perdidas" GridPane.columnSpan="2" />
                                        </children>
                                        <columnConstraints>
@@ -168,9 +166,9 @@
                                     <GridPane>
                                        <children>
                                           <Label styleClass="textoDestacadoInformacionBasica" text="Ofensivos" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="Defensivos" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <Label styleClass="textoDestacadoInformacionBasica" text="Totales" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                                           <Label fx:id="rebotesOfensivos" GridPane.rowIndex="2" />
-                                          <Label fx:id="rebotesDefensivos" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label fx:id="rebotesTotales" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Rebotes" GridPane.columnSpan="2" />
                                        </children>
                                        <columnConstraints>
@@ -186,8 +184,6 @@
                                     <GridPane GridPane.columnIndex="2">
                                        <children>
                                           <Label fx:id="tapones" styleClass="textoDestacadoInformacionBasica" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                          <Label fx:id="anotados12" GridPane.rowIndex="2" />
-                                          <Label fx:id="recibidos12" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Tapones" GridPane.columnSpan="2" />
                                        </children>
                                        <columnConstraints>
@@ -203,8 +199,6 @@
                                     <GridPane GridPane.rowIndex="1">
                                        <children>
                                           <Label fx:id="asistencias" styleClass="textoDestacadoInformacionBasica" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                          <Label fx:id="anotados13" GridPane.rowIndex="2" />
-                                          <Label fx:id="recibidos13" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Asistencias" GridPane.columnSpan="2" />
                                        </children>
                                        <columnConstraints>
@@ -220,8 +214,6 @@
                                     <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <children>
                                           <Label fx:id="faltas" styleClass="textoDestacadoInformacionBasica" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                          <Label fx:id="anotados14" GridPane.rowIndex="2" />
-                                          <Label fx:id="recibidos14" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Faltas" GridPane.columnSpan="2" />
                                        </children>
                                        <columnConstraints>
@@ -237,8 +229,6 @@
                                     <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
                                        <children>
                                           <Label fx:id="robos" styleClass="textoDestacadoInformacionBasica" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                          <Label fx:id="anotados15" GridPane.rowIndex="2" />
-                                          <Label fx:id="recibidos15" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Robos" GridPane.columnSpan="2" />
                                        </children>
                                        <columnConstraints>

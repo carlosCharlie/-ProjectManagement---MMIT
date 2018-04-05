@@ -43,27 +43,19 @@ public class ControladorVistaInfoEquipos implements Initializable {
     @FXML
     private Label campoAnotados;
     @FXML
-    private Label campoFallados;
-    @FXML
     private Label porcentajeCampo;
     @FXML
     private Label triplesAnotados;
     @FXML
-    private Label triplesFallados;
-    @FXML
     private Label porcentajeTriples;
     @FXML
     private Label libresAnotados;
-    @FXML
-    private Label libresFallados;
     @FXML
     private Label porcentajeLibres;
     @FXML
     private Label perdidas;
     @FXML
     private Label rebotesOfensivos;
-    @FXML
-    private Label rebotesDefensivos;
     @FXML
     private Label tapones;
     @FXML
@@ -72,6 +64,14 @@ public class ControladorVistaInfoEquipos implements Initializable {
     private Label faltas;
     @FXML
     private Label robos;
+    @FXML
+    private Label campoIntentados;
+    @FXML
+    private Label triplesIntentados;
+    @FXML
+    private Label libresIntentados;
+    @FXML
+    private Label rebotesTotales;
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -120,16 +120,16 @@ public class ControladorVistaInfoEquipos implements Initializable {
         this.puntosAnotados.setText(String.valueOf(this.equipo.getEquipo().getAnotados()));
         this.puntosRecibidos.setText(String.valueOf(this.equipo.getEquipo().getRecibidos()));
         this.campoAnotados.setText(String.valueOf(this.equipo.getEquipo().getCampoAnotados()));
-        this.campoFallados.setText(String.valueOf(this.equipo.getEquipo().getCampoIntentados()));
-        this.porcentajeCampo.setText("-");
+        this.campoIntentados.setText(String.valueOf(this.equipo.getEquipo().getCampoIntentados()));
+        this.porcentajeCampo.setText(String.valueOf(this.equipo.getEquipo().getCampoPorcentaje()));
         this.triplesAnotados.setText(String.valueOf(this.equipo.getEquipo().getTresAnotados()));
-        this.triplesFallados.setText(String.valueOf(this.equipo.getEquipo().getTresIntentados()));
-        this.porcentajeTriples.setText("-");
+        this.triplesIntentados.setText(String.valueOf(this.equipo.getEquipo().getTresIntentados()));
+        this.porcentajeTriples.setText(String.valueOf(this.equipo.getEquipo().getTresPorcentaje()));
         this.libresAnotados.setText(String.valueOf(this.equipo.getEquipo().getTresAnotados()));
-        this.libresFallados.setText(String.valueOf(this.equipo.getEquipo().getTresIntentados()));
-        this.porcentajeLibres.setText("-");
+        this.libresIntentados.setText(String.valueOf(this.equipo.getEquipo().getTresIntentados()));
+        this.porcentajeLibres.setText(String.valueOf(this.equipo.getEquipo().getLibresPorcentaje()));
         this.rebotesOfensivos.setText(String.valueOf(this.equipo.getEquipo().getRebotesOfensivos()));
-        this.rebotesDefensivos.setText("-");
+        this.rebotesTotales.setText(String.valueOf(this.equipo.getEquipo().getRebotesTotales()));
         this.asistencias.setText(String.valueOf(this.equipo.getEquipo().getAsistencias()));
         this.faltas.setText(String.valueOf(this.equipo.getEquipo().getFaltas()));
         this.perdidas.setText(String.valueOf(this.equipo.getEquipo().getPerdidas()));
