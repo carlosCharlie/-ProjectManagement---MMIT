@@ -14,22 +14,21 @@ public class JugadorTrans {
     private Integer minutos;
     private Integer campoAnotados;
     private Integer campoIntentados;
-    private Integer campoFallados;
     private double campoPorcentaje;
     private Integer dosAnotados;
     private Integer dosIntentados;
-    private Integer dosFallados;
     private double dosPorcentaje;
     private Integer tresAnotados;
     private Integer tresIntentados;
-    private Integer tresFallados;
     private double tresPorcentaje;
     private Integer libresAnotados;
     private Integer libresIntentados;
-    private Integer libresFallados;
     private double libresPorcentaje;
+    private int tirosTotales;
+	private int tirosAnotados;
     private Integer rebotesOfensivos;
     private Integer rebotesDefensivos;
+	private int rebotesTotales;
     private Integer asistencias;
     private Integer robos;
     private Integer faltas;
@@ -43,29 +42,28 @@ public class JugadorTrans {
         this.apellidos = apellidos;
         this.idEquipo = idEquipo;
         this.edad = edad;
-	this.peso = peso;
-	this.altura = altura;
+        this.peso = peso;
+        this.altura = altura;
         this.posicion = posicion;
         this.partidos = partidos;
         this.minutos = minutos;
         this.campoAnotados = campoAnotados;
         this.campoIntentados = campoIntentados;
-        this.campoFallados = this.campoIntentados - this.campoAnotados;
         this.campoPorcentaje = (Double.valueOf(this.campoAnotados) / Double.valueOf(this.campoIntentados)) * 100;
         this.dosAnotados = dosAnotados;
         this.dosIntentados = dosIntentados;
-        this.dosFallados = this.dosIntentados - this.dosAnotados;
         this.dosPorcentaje = (Double.valueOf(this.dosAnotados) / Double.valueOf(this.dosIntentados)) * 100;
         this.tresAnotados = tresAnotados;
         this.tresIntentados = tresIntentados;
-        this.tresFallados = this.tresIntentados - this.tresAnotados;
         this.tresPorcentaje = (Double.valueOf(this.tresAnotados) / Double.valueOf(this.tresIntentados)) * 100;
         this.libresAnotados = libresAnotados;
         this.libresIntentados = libresIntentados;
-        this.libresFallados = this.libresIntentados - this.libresAnotados;
         this.libresPorcentaje = (Double.valueOf(this.libresAnotados) / Double.valueOf(this.libresIntentados)) * 100;
+        this.tirosTotales = this.campoIntentados + this.dosIntentados + this.tresIntentados + this.libresIntentados;
+        this.tirosAnotados = this.campoAnotados + this.dosAnotados + this.tresAnotados + this.libresAnotados;
         this.rebotesOfensivos = rebotesOfensivos;
-        this.rebotesDefensivos = rebotesOfensivos;
+        this.rebotesDefensivos = rebotesDefensivos;
+        this.rebotesTotales = this.rebotesOfensivos + this.rebotesDefensivos;
         this.asistencias = asistencias;
         this.robos = robos;
         this.faltas = faltas;
@@ -170,14 +168,6 @@ public class JugadorTrans {
 		this.campoIntentados = campoIntentados;
 	}
 
-	public Integer getCampoFallados() {
-		return campoFallados;
-	}
-
-	public void setCampoFallados(Integer campoFallados) {
-		this.campoFallados = campoFallados;
-	}
-
 	public double getCampoPorcentaje() {
 		return campoPorcentaje;
 	}
@@ -200,14 +190,6 @@ public class JugadorTrans {
 
 	public void setDosIntentados(Integer dosIntentados) {
 		this.dosIntentados = dosIntentados;
-	}
-
-	public Integer getDosFallados() {
-		return dosFallados;
-	}
-
-	public void setDosFallados(Integer dosFallados) {
-		this.dosFallados = dosFallados;
 	}
 
 	public double getDosPorcentaje() {
@@ -234,14 +216,6 @@ public class JugadorTrans {
 		this.tresIntentados = tresIntentados;
 	}
 
-	public Integer getTresFallados() {
-		return tresFallados;
-	}
-
-	public void setTresFallados(Integer tresFallados) {
-		this.tresFallados = tresFallados;
-	}
-
 	public double getTresPorcentaje() {
 		return tresPorcentaje;
 	}
@@ -266,20 +240,28 @@ public class JugadorTrans {
 		this.libresIntentados = libresIntentados;
 	}
 
-	public Integer getLibresFallados() {
-		return libresFallados;
-	}
-
-	public void setLibresFallados(Integer libresFallados) {
-		this.libresFallados = libresFallados;
-	}
-
 	public double getLibresPorcentaje() {
 		return libresPorcentaje;
 	}
 
 	public void setLibresPorcentaje(double libresPorcentaje) {
 		this.libresPorcentaje = libresPorcentaje;
+	}
+
+	public int getTirosTotales() {
+		return tirosTotales;
+	}
+
+	public void setTirosTotales(int tirosTotales) {
+		this.tirosTotales = tirosTotales;
+	}
+
+	public int getTirosAnotados() {
+		return tirosAnotados;
+	}
+
+	public void setTirosAnotados(int tirosAnotados) {
+		this.tirosAnotados = tirosAnotados;
 	}
 
 	public Integer getRebotesOfensivos() {
@@ -296,6 +278,14 @@ public class JugadorTrans {
 
 	public void setRebotesDefensivos(Integer rebotesDefensivos) {
 		this.rebotesDefensivos = rebotesDefensivos;
+	}
+
+	public int getRebotesTotales() {
+		return rebotesTotales;
+	}
+
+	public void setRebotesTotales(int rebotesTotales) {
+		this.rebotesTotales = rebotesTotales;
 	}
 
 	public Integer getAsistencias() {
