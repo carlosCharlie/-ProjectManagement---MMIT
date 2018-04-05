@@ -48,4 +48,14 @@ public class JugadoresSATestNG {
         }
     }
     
+    @Test
+    public void probarJugador(){
+       JugadoresSA jugadoresSa=new JugadoresSAImp();
+       JugadorTrans j = jugadoresSa.obtenerJugador(1);
+       assertNotNull(j);
+       assertNotNull(j.getNombre());
+       assertNotNull(j.getApellidos());
+       assertTrue(j.getNombre().length()>0 && j.getApellidos().length()>0);
+    }
+    
 }
