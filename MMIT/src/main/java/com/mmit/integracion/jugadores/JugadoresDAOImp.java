@@ -27,7 +27,7 @@ public class JugadoresDAOImp implements JugadoresDAO {
             ArrayList<JugadorTrans> jugadores = new ArrayList<JugadorTrans>();
             
             while(rs.next())
-                jugadores.add(new JugadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo"), rs.getString("posicion"), rs.getInt("partidos"), rs.getInt("minutos"), rs.getInt("campoAnotados"), rs.getInt("campoIntentados"),rs.getInt("dosAnotados"), rs.getInt("dosIntentados"), rs.getInt("tresAnotados"), rs.getInt("tresIntentados"), rs.getInt("libresAnotados"), rs.getInt("libresIntentados"), rs.getInt("rebotesOfensivos"), rs.getInt("rebotesDefensivos"), rs.getInt("asistencias"), rs.getInt("robos"), rs.getInt("faltas"), rs.getInt("puntos"), rs.getInt("tapones"), rs.getInt("perdidas")));
+                jugadores.add(new JugadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo"),rs.getInt("edad"),rs.getDouble("peso"),rs.getDouble("altura"),rs.getString("posicion"),rs.getInt("partidos"),rs.getInt("minutos"),rs.getInt("campoAnotados"), rs.getInt("campoIntentados"),rs.getInt("dosAnotados"),rs.getInt("dosIntentados"),rs.getInt("tresAnotados"),rs.getInt("tresIntentados"),rs.getInt("libresAnotados"),rs.getInt("libresIntentados"),rs.getInt("rebotesOfensivos"),rs.getInt("rebotesDefensivos"),rs.getInt("asistencias"),rs.getInt("robos"),rs.getInt("faltas"),rs.getInt("puntos"),rs.getInt("tapones"),rs.getInt("perdidas")));
             
             Conexion.getInstancia().cerrar();
             return jugadores;
@@ -55,7 +55,7 @@ public class JugadoresDAOImp implements JugadoresDAO {
             ResultSet rs = ps.executeQuery();
             
             if (rs.next()){
-              return new JugadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo"), rs.getString("posicion"), rs.getInt("partidos"), rs.getInt("minutos"), rs.getInt("campoAnotados"), rs.getInt("campoIntentados"),rs.getInt("dosAnotados"), rs.getInt("dosIntentados"), rs.getInt("tresAnotados"), rs.getInt("tresIntentados"), rs.getInt("libresAnotados"), rs.getInt("libresIntentados"), rs.getInt("rebotesOfensivos"), rs.getInt("rebotesDefensivos"), rs.getInt("asistencias"), rs.getInt("robos"), rs.getInt("faltas"), rs.getInt("puntos"), rs.getInt("tapones"), rs.getInt("perdidas")); 
+              return new JugadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo"),rs.getInt("edad"),rs.getDouble("peso"),rs.getDouble("altura"),rs.getString("posicion"),rs.getInt("partidos"),rs.getInt("minutos"),rs.getInt("campoAnotados"), rs.getInt("campoIntentados"),rs.getInt("dosAnotados"),rs.getInt("dosIntentados"),rs.getInt("tresAnotados"),rs.getInt("tresIntentados"),rs.getInt("libresAnotados"),rs.getInt("libresIntentados"),rs.getInt("rebotesOfensivos"),rs.getInt("rebotesDefensivos"),rs.getInt("asistencias"),rs.getInt("robos"),rs.getInt("faltas"),rs.getInt("puntos"),rs.getInt("tapones"),rs.getInt("perdidas"));
             }
             
             Conexion.getInstancia().cerrar();
@@ -85,7 +85,7 @@ public class JugadoresDAOImp implements JugadoresDAO {
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()){
-              jugadores.add(new JugadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo"), rs.getString("posicion"), rs.getInt("partidos"), rs.getInt("minutos"), rs.getInt("campoAnotados"), rs.getInt("campoIntentados"),rs.getInt("dosAnotados"), rs.getInt("dosIntentados"), rs.getInt("tresAnotados"), rs.getInt("tresIntentados"), rs.getInt("libresAnotados"), rs.getInt("libresIntentados"), rs.getInt("rebotesOfensivos"), rs.getInt("rebotesDefensivos"), rs.getInt("asistencias"), rs.getInt("robos"), rs.getInt("faltas"), rs.getInt("puntos"), rs.getInt("tapones"), rs.getInt("perdidas"))); 
+              jugadores.add(new JugadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo"),rs.getInt("edad"),rs.getDouble("peso"),rs.getDouble("altura"),rs.getString("posicion"),rs.getInt("partidos"),rs.getInt("minutos"),rs.getInt("campoAnotados"), rs.getInt("campoIntentados"),rs.getInt("dosAnotados"),rs.getInt("dosIntentados"),rs.getInt("tresAnotados"),rs.getInt("tresIntentados"),rs.getInt("libresAnotados"),rs.getInt("libresIntentados"),rs.getInt("rebotesOfensivos"),rs.getInt("rebotesDefensivos"),rs.getInt("asistencias"),rs.getInt("robos"),rs.getInt("faltas"),rs.getInt("puntos"),rs.getInt("tapones"),rs.getInt("perdidas"))); 
             }
             
             Conexion.getInstancia().cerrar();

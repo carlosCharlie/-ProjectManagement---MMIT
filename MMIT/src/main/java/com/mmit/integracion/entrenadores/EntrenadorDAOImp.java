@@ -108,7 +108,7 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
             ResultSet rs = ps.executeQuery();
             
             if (rs.next()){
-                return new EntrenadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("victorias"),rs.getInt("derrotas"),rs.getInt("id_equipo"));
+                return new EntrenadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("victorias"),rs.getInt("derrotas"),rs.getInt("edad"),rs.getInt("id_equipo"));
             }
             
             Conexion.getInstancia().cerrar();

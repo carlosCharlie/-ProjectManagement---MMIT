@@ -43,8 +43,8 @@ public class JugadorTrans {
         this.apellidos = apellidos;
         this.idEquipo = idEquipo;
         this.edad = edad;
-		this.peso = peso;
-		this.altura = altura;
+	this.peso = peso;
+	this.altura = altura;
         this.posicion = posicion;
         this.partidos = partidos;
         this.minutos = minutos;
