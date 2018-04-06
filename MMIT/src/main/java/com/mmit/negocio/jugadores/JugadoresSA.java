@@ -8,7 +8,7 @@ public interface JugadoresSA {
      * Devuelve la lista de todos los jugadores
      * @return 
      */
-    public ArrayList<TOAJugadorEquipo> listarJugadores();
+    public ArrayList<TOAJugadorEquipo> listarJugadores() throws Exception;
     
     /**
      * Devuelve la informacion de un jugador dada una id

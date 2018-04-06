@@ -1,13 +1,16 @@
 package com.mmit.presentacion.jugadores;
 
 import com.mmit.negocio.jugadores.TOAJugadorEquipo;
+import com.mmit.presentacion.ControladorVista;
+import com.mmit.presentacion.controlador.Contexto;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 
-public class ControladorVistaInfoJugadores implements Initializable {
+public class ControladorVistaInfoJugadores implements Initializable, ControladorVista {
     
     private TOAJugadorEquipo jugador;
     @FXML
@@ -72,10 +75,28 @@ public class ControladorVistaInfoJugadores implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.jugador = (TOAJugadorEquipo) rb.getObject("");
-        rellenarInformacionBasica();
-        rellenarEstadisticas();
+
     }   
+    
+    @Override
+    public void Actualizar(Contexto contexto) {
+        switch(contexto.getEvento()){
+            case AbrirMostrarJugador:
+                this.jugador = (TOAJugadorEquipo) contexto.getDatos();
+                rellenarInformacionBasica();
+                rellenarEstadisticas();
+                break;
+            case ErrorSQL:
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("");
+                alert.setHeaderText("Error");
+                alert.setContentText("Error al obtener los datos de la BBDD");
+                alert.show();
+                break;
+            default:
+                break;
+        }
+    }
     
     private void rellenarInformacionBasica(){
         this.nombreJugador.setText(this.jugador.getNombreJugador());
@@ -114,4 +135,5 @@ public class ControladorVistaInfoJugadores implements Initializable {
         this.faltas.setText(String.valueOf(this.jugador.getJugador().getFaltas()));
         this.perdidas.setText(String.valueOf(this.jugador.getJugador().getPerdidas()));
     }
+
 }

@@ -20,6 +20,8 @@ import com.mmit.integracion.factoriaIntegracion.FactoriaIntegracion;
 import com.mmit.integracion.jugadores.JugadoresDAO;
 import com.mmit.integracion.equipos.EquiposDAO;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -32,7 +34,7 @@ public class JugadoresSAImp implements JugadoresSA {
      * @return lista de jugadores
      */
     @Override
-    public ArrayList<TOAJugadorEquipo> listarJugadores() {
+    public ArrayList<TOAJugadorEquipo> listarJugadores() throws Exception{
         JugadoresDAO jDao = FactoriaIntegracion.getInstancia().crearJugadoresDAO();
         EquiposDAO eDao = FactoriaIntegracion.getInstancia().crearEquiposDAO();
         ArrayList<JugadorTrans> jugadores = jDao.readAll();
@@ -55,10 +57,15 @@ public class JugadoresSAImp implements JugadoresSA {
     }
 
     @Override
-    public JugadorTrans obtenerJugador(int id_jugador) {
-        JugadoresDAO jugadoresDao = FactoriaIntegracion.getInstancia().crearJugadoresDAO();
-        
-        return jugadoresDao.readByID(id_jugador);
+    public JugadorTrans obtenerJugador(int id_jugador){
+        try {
+            JugadoresDAO jugadoresDao = FactoriaIntegracion.getInstancia().crearJugadoresDAO();
+            
+            return jugadoresDao.readByID(id_jugador);
+        } catch (Exception ex) {
+            Logger.getLogger(JugadoresSAImp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
 }

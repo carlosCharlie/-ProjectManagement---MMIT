@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public interface JugadoresDAO {
 
-    public ArrayList<JugadorTrans> readAll();
-    public JugadorTrans readByID(int id_jugador);
-    public ArrayList<JugadorTrans> readRoster(Integer id_equipo);
+    public ArrayList<JugadorTrans> readAll() throws Exception;
+    public JugadorTrans readByID(int id_jugador) throws Exception;
+    public ArrayList<JugadorTrans> readRoster(Integer id_equipo) throws Exception;
     
 }

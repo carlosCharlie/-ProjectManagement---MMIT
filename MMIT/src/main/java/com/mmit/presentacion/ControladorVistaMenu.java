@@ -1,5 +1,7 @@
 package com.mmit.presentacion;
 
+import com.mmit.presentacion.controlador.Contexto;
+import com.mmit.presentacion.controlador.Controlador;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -9,13 +11,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
-public class ControladorVistaMenu implements Initializable {
+public class ControladorVistaMenu implements Initializable, ControladorVista {
 
     @FXML
     private Button botonEquipos;
@@ -35,27 +36,18 @@ public class ControladorVistaMenu implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         if (event.getSource() == botonEquipos){
-            try {
-                BorderPane root = (BorderPane) botonEquipos.getScene().getRoot();
-                root.setCenter((AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/ListaEquiposUsuarios.fxml")));
-            } catch (IOException ex) {
-                Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEquipos, null));
         } else if (event.getSource() == botonJugadores){
-            try {
-                BorderPane root = (BorderPane) botonEquipos.getScene().getRoot();
-                root.setCenter((AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/ListaJugadoresUsuarios.fxml")));
-            } catch (IOException ex) {
-                Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarJugadores, null));
         } else if (event.getSource() == botonEntrenadores){
-            try {
-                BorderPane root = (BorderPane) botonEquipos.getScene().getRoot();
-                root.setCenter((AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/ListaEntrenadoresUsuarios.fxml")));
-            } catch (IOException ex) {
-                Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEntrenadores, null));
+                   
         }
+    }
+
+    @Override
+    public void Actualizar(Contexto contexto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

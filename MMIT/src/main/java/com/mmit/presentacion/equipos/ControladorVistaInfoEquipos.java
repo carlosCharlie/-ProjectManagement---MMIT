@@ -2,6 +2,8 @@ package com.mmit.presentacion.equipos;
 
 import com.mmit.negocio.equipos.TOAEntrenadorEquipoJugadores;
 import com.mmit.negocio.jugadores.JugadorTrans;
+import com.mmit.presentacion.ControladorVista;
+import com.mmit.presentacion.controlador.Contexto;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -13,7 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class ControladorVistaInfoEquipos implements Initializable {
+public class ControladorVistaInfoEquipos implements Initializable, ControladorVista {
 
     private TOAEntrenadorEquipoJugadores equipo;
     @FXML
@@ -75,10 +77,28 @@ public class ControladorVistaInfoEquipos implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
-        this.equipo = (TOAEntrenadorEquipoJugadores) rb.getObject("");
-        rellenarInformacionBasica();
-        rellenarTabla();
-        rellenarEstadisticas();
+        
+    }
+    
+    @Override
+    public void Actualizar(Contexto contexto) {
+        switch(contexto.getEvento()){
+            case AbrirMostrarEquipo:
+                this.equipo = (TOAEntrenadorEquipoJugadores) contexto.getDatos();
+                rellenarInformacionBasica();
+                rellenarTabla();
+                rellenarEstadisticas();
+                break;
+            case ErrorSQL:
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("");
+                alert.setHeaderText("Error");
+                alert.setContentText("Error al obtener los datos de la BBDD");
+                alert.show();
+                break;
+            default:
+                break;
+        }
     }
     
     private void rellenarInformacionBasica(){

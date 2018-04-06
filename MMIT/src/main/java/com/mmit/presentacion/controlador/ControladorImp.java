@@ -1,54 +1,15 @@
 package com.mmit.presentacion.controlador;
 
-import com.mmit.negocio.entrenadores.EntrenadorSA;
-import com.mmit.negocio.entrenadores.EntrenadorTrans;
-import com.mmit.negocio.entrenadores.TOAEntrenadorEquipo;
-import com.mmit.negocio.equipos.EquipoTrans;
-import com.mmit.negocio.factoriaNegocio.FactoriaNegocio;
-import com.mmit.negocio.equipos.EquiposSA;
-import com.mmit.negocio.jugadores.JugadorTrans;
-import com.mmit.negocio.jugadores.JugadoresSA;
-import com.mmit.negocio.jugadores.TOAJugadorEquipo;
+import com.mmit.presentacion.comando.Comando;
+import com.mmit.presentacion.despachadorVista.DespachadorVista;
+import com.mmit.presentacion.factoriaComandos.FactoriaComandos;
 
 public class ControladorImp extends Controlador{
 
     @Override
     public void accion(Contexto contexto) {
-        switch(contexto.getEvento()){
-            case ListarEquipos:
-                EquiposSA equiposSa = FactoriaNegocio.getInstancia().crearEquiposSA();
-                contexto.setDatos(equiposSa.listarEquipos());
-                break;
-            case ListarJugadores:
-                JugadoresSA jugadoresSa = FactoriaNegocio.getInstancia().crearJugadoresSA();
-                contexto.setDatos(jugadoresSa.listarJugadores());
-                break;
-            case ListarEntrenadores:
-                EntrenadorSA entrenadorSa = FactoriaNegocio.getInstancia().crearEntrenadoresSA();
-                contexto.setDatos(entrenadorSa.listarEntrenadores());
-                break;
-            case ObtenerDatosEquipo:
-                equiposSa = FactoriaNegocio.getInstancia().crearEquiposSA(); 
-                contexto.setDatos(equiposSa.obtenerEquipoCompleto((int) contexto.getDatos()));
-                break;
-            case ObtenerDatosJugador:
-                jugadoresSa = FactoriaNegocio.getInstancia().crearJugadoresSA(); 
-                equiposSa = FactoriaNegocio.getInstancia().crearEquiposSA();
-                
-                JugadorTrans jug = jugadoresSa.obtenerJugador((int) contexto.getDatos());
-                EquipoTrans eq = equiposSa.obtenerEquipo(jug.getIdEquipo());
-                
-                contexto.setDatos(new TOAJugadorEquipo(jug, eq));
-                break;
-            case ObtenerDatosEntrenador:
-                entrenadorSa = FactoriaNegocio.getInstancia().crearEntrenadoresSA(); 
-                equiposSa = FactoriaNegocio.getInstancia().crearEquiposSA();
-                
-                EntrenadorTrans ent = entrenadorSa.obtenerEntrenador((int) contexto.getDatos());
-                eq = equiposSa.obtenerEquipo(ent.getIdEquipo());
-                
-                contexto.setDatos(new TOAEntrenadorEquipo(ent, eq));
-                break;
-        }
+        Comando comando = FactoriaComandos.obtenerInstancia().obtenerComando(contexto.getEvento());
+        contexto = comando.execute(contexto.getDatos());
+        DespachadorVista.obtenerInstancia().crearVista(contexto);    
     }
 }

@@ -1,21 +1,17 @@
 package com.mmit.integracion.jugadores;
 
 import com.mmit.integracion.conexion.Conexion;
-import com.mmit.integracion.equipos.EquiposDAOImp;
-import com.mmit.negocio.equipos.EquipoTrans;
 import com.mmit.negocio.jugadores.JugadorTrans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class JugadoresDAOImp implements JugadoresDAO {
 
     @Override
-    public ArrayList<JugadorTrans> readAll() {
+    public ArrayList<JugadorTrans> readAll() throws Exception{
        try {
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
@@ -31,12 +27,10 @@ public class JugadoresDAOImp implements JugadoresDAO {
             
             Conexion.getInstancia().cerrar();
             return jugadores;
-        } catch (SQLException ex) {
-            Logger.getLogger(EquiposDAOImp.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
             Conexion.getInstancia().cerrar();
+            throw ex;
         }
-        
-        return null;
     }
     /**
      *Metodo donde se recoge la información de un jugador por un id ya dado
@@ -45,7 +39,7 @@ public class JugadoresDAOImp implements JugadoresDAO {
      * @exception SQLException si hay algun error con la base de datos
      */
     @Override
-    public JugadorTrans readByID(int id_jugador){
+    public JugadorTrans readByID(int id_jugador) throws Exception{
         try {
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
@@ -60,8 +54,9 @@ public class JugadoresDAOImp implements JugadoresDAO {
             
             Conexion.getInstancia().cerrar();
 
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Conexion.getInstancia().cerrar();
+            throw ex;
         }
         
         return null;
@@ -74,7 +69,7 @@ public class JugadoresDAOImp implements JugadoresDAO {
      * @return un ArrayList con la plantilla, se devolvera vacio si no hay ningun jugador
      */
     @Override
-    public ArrayList<JugadorTrans> readRoster(Integer id_equipo){
+    public ArrayList<JugadorTrans> readRoster(Integer id_equipo) throws Exception{
         ArrayList<JugadorTrans> jugadores = new ArrayList();
         try {
             Conexion.getInstancia().abrir();
@@ -90,8 +85,9 @@ public class JugadoresDAOImp implements JugadoresDAO {
             
             Conexion.getInstancia().cerrar();
 
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Conexion.getInstancia().cerrar();
+            throw ex;
         }
         
         return jugadores;

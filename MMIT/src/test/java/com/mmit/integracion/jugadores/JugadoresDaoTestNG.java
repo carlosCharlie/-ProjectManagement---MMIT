@@ -169,6 +169,8 @@ public class JugadoresDaoTestNG {
             Logger.getLogger(JugadoresDaoTestNG.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalArgumentException ex) {
             Logger.getLogger(JugadoresDaoTestNG.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(JugadoresDaoTestNG.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }

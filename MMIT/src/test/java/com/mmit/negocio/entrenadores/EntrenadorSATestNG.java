@@ -18,6 +18,8 @@ package com.mmit.negocio.entrenadores;
 
 import com.mmit.negocio.factoriaNegocio.FactoriaNegocio;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import junit.framework.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
@@ -51,18 +53,22 @@ public class EntrenadorSATestNG {
     
     @Test
     public void informacionEntreadorEquipo(){
-        int id=1;
-        EntrenadorSA entrenadorSa = FactoriaNegocio.getInstancia().crearEntrenadoresSA();
-        TOAEntrenadorEquipo entrenadorEquipo = entrenadorSa.obtenerEntrenadorCompleto(id);
-        
-        assertNotNull(entrenadorEquipo);
-        assertTrue(entrenadorEquipo.getApellidosEntrenador()!=null && entrenadorEquipo.getApellidosEntrenador().length()>0);
-        assertTrue(entrenadorEquipo.getEntrenador()!=null);
-        //assertTrue(entrenadorEquipo.getNombreEquipo()!= null && entrenadorEquipo.getNombreEquipo().length()>0);
-        
-        
-        if(entrenadorEquipo.getEntrenador()!=null) //no tenemos este caso en cuenta porque puede no estar asignado
-            informacionEntrenador(entrenadorEquipo.getEntrenador());
+        try {
+            int id=1;
+            EntrenadorSA entrenadorSa = FactoriaNegocio.getInstancia().crearEntrenadoresSA();
+            TOAEntrenadorEquipo entrenadorEquipo = entrenadorSa.obtenerEntrenadorCompleto(id);
+            
+            assertNotNull(entrenadorEquipo);
+            assertTrue(entrenadorEquipo.getApellidosEntrenador()!=null && entrenadorEquipo.getApellidosEntrenador().length()>0);
+            assertTrue(entrenadorEquipo.getEntrenador()!=null);
+            //assertTrue(entrenadorEquipo.getNombreEquipo()!= null && entrenadorEquipo.getNombreEquipo().length()>0);
+            
+            
+            if(entrenadorEquipo.getEntrenador()!=null) //no tenemos este caso en cuenta porque puede no estar asignado
+                informacionEntrenador(entrenadorEquipo.getEntrenador());
+        } catch (Exception ex) {
+            Assert.fail();
+        }
         
     }
     

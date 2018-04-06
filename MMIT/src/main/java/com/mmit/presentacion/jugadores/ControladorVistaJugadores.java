@@ -1,6 +1,7 @@
 package com.mmit.presentacion.jugadores;
 
 import com.mmit.negocio.jugadores.TOAJugadorEquipo;
+import com.mmit.presentacion.ControladorVista;
 import com.mmit.presentacion.Evento;
 import com.mmit.presentacion.controlador.Contexto;
 import com.mmit.presentacion.controlador.Controlador;
@@ -27,7 +28,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 
-public class ControladorVistaJugadores implements Initializable {
+public class ControladorVistaJugadores implements Initializable, ControladorVista {
 
     @FXML
     private TableView<TOAJugadorEquipo> tablaJugadores;
@@ -49,55 +50,60 @@ public class ControladorVistaJugadores implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        if (tablaJugadores != null){
-            rellenarTabla();
-        }       
+      
     } 
     
-    private void rellenarTabla(){
+    @Override
+    public void Actualizar(Contexto contexto) {
+        switch(contexto.getEvento()){
+            case AbrirListarJugadores:
+                rellenarTabla(contexto.getDatos());
+                break;
+            case ErrorSQL:
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("");
+                alert.setHeaderText("Error");
+                alert.setContentText("Error al obtener los datos de la BBDD");
+                alert.show();
+                break;
+            default:
+                break;
+        }
+    }
+    
+    private void rellenarTabla(Object datos){
         colId.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, Integer>("idJugador"));
         colNombre.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, String>("nombreJugador"));
         colApellidos.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, String>("apellidosJugador"));
         colEquipo.setCellValueFactory(new PropertyValueFactory<TOAJugadorEquipo, String>("nombreEquipo"));
         
-        Contexto contexto = new Contexto(Evento.ListarJugadores, null);
-        Controlador.obtenerInstancia().accion(contexto);
-        
-        listaJugadores = FXCollections.observableArrayList((ArrayList<TOAJugadorEquipo>) contexto.getDatos());
-        
-        if (listaJugadores != null){
-            FilteredList<TOAJugadorEquipo> filteredData = new FilteredList<>(listaJugadores, p -> true);
-        
-            buscar.textProperty().addListener((observable, oldValue, newValue) -> {
-                filteredData.setPredicate(jugador-> {
-                    // If filter text is empty, display all persons.
-                    if (newValue == null || newValue.isEmpty()) {
-                        return true;
-                    }
+        listaJugadores = FXCollections.observableArrayList((ArrayList<TOAJugadorEquipo>) datos);
 
-                    // Compare first name and last name of every person with filter text.
-                    String lowerCaseFilter = newValue.toLowerCase();
+        FilteredList<TOAJugadorEquipo> filteredData = new FilteredList<>(listaJugadores, p -> true);
 
-                    if (jugador.getNombreJugador().toLowerCase().contains(lowerCaseFilter)) {
-                        return true; // Filter matches first name.
-                    } else if (jugador.getApellidosJugador().toLowerCase().contains(lowerCaseFilter)) {
-                        return true; // Filter matches first name.
-                    }
-                    return false; // Does not match.
-                });
+        buscar.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(jugador-> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (jugador.getNombreJugador().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                } else if (jugador.getApellidosJugador().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                }
+                return false; // Does not match.
             });
+        });
 
-            SortedList<TOAJugadorEquipo> sortedData = new SortedList<>(filteredData);
-            sortedData.comparatorProperty().bind(tablaJugadores.comparatorProperty());
+        SortedList<TOAJugadorEquipo> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(tablaJugadores.comparatorProperty());
 
-            tablaJugadores.setItems(sortedData);
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("");
-                alert.setHeaderText("Error");
-                alert.setContentText("Error al obtener los datos de la BBDD");
-                alert.show();
-        }
+        tablaJugadores.setItems(sortedData);
     }
     
     @FXML
@@ -106,40 +112,13 @@ public class ControladorVistaJugadores implements Initializable {
         TablePosition pos = this.tablaJugadores.getSelectionModel().getSelectedCells().get(0);
         int row = pos.getRow();
         
-        if (row != -1){
-            TableColumn col = pos.getTableColumn();
+        TableColumn col = pos.getTableColumn();
 
-            Integer id = tablaJugadores.getItems().get(row).getIdJugador();
+        Integer id = tablaJugadores.getItems().get(row).getIdJugador();
 
-            try {
-                Contexto contexto = new Contexto(Evento.ObtenerDatosJugador, id);
-                Controlador.obtenerInstancia().accion(contexto);
+        Contexto contexto = new Contexto(Evento.AbrirMostrarJugador, id);
 
-                TOAJugadorEquipo jug = (TOAJugadorEquipo) contexto.getDatos();
-
-                BorderPane root = (BorderPane) this.tablaJugadores.getScene().getRoot();
-
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/InformacionJugadoresUsuarios.fxml"));
-
-                loader.setResources(new ResourceBundle() {
-                    @Override
-                    protected Object handleGetObject(String key) {
-                        return jug;
-                    }
-
-                    @Override
-                    public Enumeration<String> getKeys() {
-                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                    }
-                });
-
-                root.setCenter(loader.load());
-
-            } catch (IOException ex) {
-                Logger.getLogger(ControladorVistaEquipos.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
-        }
+        Controlador.obtenerInstancia().accion(contexto);
 
     }
     

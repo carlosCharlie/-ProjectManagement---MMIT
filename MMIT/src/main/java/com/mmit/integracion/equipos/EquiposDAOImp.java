@@ -7,12 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class EquiposDAOImp implements EquiposDAO{
 
-       public ArrayList<EquipoTrans> readAll() {
+       public ArrayList<EquipoTrans> readAll() throws Exception {
        
         try {
             Conexion.getInstancia().abrir();
@@ -31,15 +29,13 @@ public class EquiposDAOImp implements EquiposDAO{
             return equipos;
 
         } catch (SQLException ex) {
-            Logger.getLogger(EquiposDAOImp.class.getName()).log(Level.SEVERE, null, ex);
             Conexion.getInstancia().cerrar();
+            throw new Exception("Error al conectarse a la BBDD");
         }
-        
-        return null;
     }
 
     @Override
-    public EquipoTrans readById(Integer id) {
+    public EquipoTrans readById(Integer id) throws Exception{
          try {
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
@@ -56,6 +52,7 @@ public class EquiposDAOImp implements EquiposDAO{
 
         } catch (SQLException ex) {
             Conexion.getInstancia().cerrar();
+            throw new Exception("Error al conectarse a la BBDD");
         }
         
         return null;

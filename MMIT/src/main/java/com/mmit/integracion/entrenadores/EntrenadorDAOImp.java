@@ -2,14 +2,11 @@ package com.mmit.integracion.entrenadores;
 
 import com.mmit.integracion.conexion.Conexion;
 import com.mmit.negocio.entrenadores.EntrenadorTrans;
-import com.mmit.negocio.equipos.EquipoTrans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 public class EntrenadorDAOImp implements EntrenadorDAO{
@@ -18,7 +15,7 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
     /*
     Devuelve el historico de equipos de cada entrenador
     */
-    public ArrayList<EntrenadorTrans> equiposEntrenador(int id){
+    public ArrayList<EntrenadorTrans> equiposEntrenador(int id) throws Exception{
         ArrayList<EntrenadorTrans> entrenador = null;
         
         try{
@@ -34,8 +31,8 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
             Conexion.getInstancia().cerrar();
         }
         catch (SQLException ex) {
-            Logger.getLogger(EntrenadorDAOImp.class.getName()).log(Level.SEVERE, null, ex);
             Conexion.getInstancia().cerrar();
+            throw ex;
         }
         
         return entrenador;
@@ -43,7 +40,7 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
     /*
     Buscar entrenador
     */
-    public ArrayList<EntrenadorTrans> readByName(String name, String surname){
+    public ArrayList<EntrenadorTrans> readByName(String name, String surname) throws Exception{
         
         ArrayList<EntrenadorTrans> entrenador = null;
         
@@ -61,14 +58,14 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
             Conexion.getInstancia().cerrar();
         }
         catch (SQLException ex) {
-            Logger.getLogger(EntrenadorDAOImp.class.getName()).log(Level.SEVERE, null, ex);
             Conexion.getInstancia().cerrar();
+            throw ex;
         }
         
         return entrenador;
     }
     @Override
-    public ArrayList<EntrenadorTrans> readAll() {
+    public ArrayList<EntrenadorTrans> readAll() throws Exception{
        try {
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
@@ -87,15 +84,13 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
             return entrenador;
 
         } catch (SQLException ex) {
-            Logger.getLogger(EntrenadorDAOImp.class.getName()).log(Level.SEVERE, null, ex);
             Conexion.getInstancia().cerrar();
+            throw ex;
         }
-        
-        return null;
     }
 
     @Override
-    public EntrenadorTrans readByEquipo(int id_Equipo) {
+    public EntrenadorTrans readByEquipo(int id_Equipo) throws Exception{
        //No probado
         
         try {
@@ -117,14 +112,13 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
             return entrenador;
             
         } catch (SQLException ex) {
-            Logger.getLogger(EntrenadorDAOImp.class.getName()).log(Level.SEVERE, null, ex);
+            Conexion.getInstancia().cerrar();
+            throw ex;
         }
-        
-        return null;
     }
 
     @Override
-    public EntrenadorTrans readById(int id) {
+    public EntrenadorTrans readById(int id) throws Exception{
         try {
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
@@ -142,6 +136,7 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
 
         } catch (SQLException ex) {
             Conexion.getInstancia().cerrar();
+            throw ex;
         }
         
         return null;

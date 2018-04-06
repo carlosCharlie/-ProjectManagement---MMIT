@@ -19,6 +19,10 @@ public class Contexto {
 		this.datos = datos;
 	}
 	
+        public void setEvento(Evento evento){
+            this.evento = evento;
+        }
+        
 	public Evento getEvento() {
 		return evento;	
 	}
