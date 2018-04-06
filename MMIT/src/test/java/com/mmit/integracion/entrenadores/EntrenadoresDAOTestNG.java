@@ -53,30 +53,7 @@ public class EntrenadoresDAOTestNG {
             Assert.fail();
         }
     }
-    @Test
-    public void testReadByName(){
-        try{
-            System.out.println("Buscar Entrenador");
-            EntrenadorDAO instance = new EntrenadorDAOImp();
-           
-            Conexion.getInstancia().abrir();
-            Connection c = Conexion.getInstancia().getResource();
 
-            PreparedStatement ps = c.prepareStatement("INSERT INTO ENTRENADOR VALUES"
-                    + "('Kobe','Bryant', 67, 34, 2)");  
-
-            ResultSet rs = ps.executeQuery();
-            ArrayList<EntrenadorTrans> result = instance.readByName("Kobe","Bryant");
-            assertNotNull(result);
-            ps = c.prepareStatement("DELETE FROM ENTRENADOR"
-                    + "WHERE nombre LIKE Kobe AND apellidos LIKE Bryant");  
-
-            rs = ps.executeQuery();
-        }catch(Exception e){
-            Assert.fail();
-        }
-    }
-    
     @Test
     public void informacionBasicaEntrenadorDAO(){
         int id = 1;

@@ -13,7 +13,7 @@ public class EquipoTrans {
     private Integer campoAnotados;
     private Integer campoIntentados;
     private Integer campoFallados;
-	private double campoPorcentaje;
+    private double campoPorcentaje;
     private Integer tresAnotados;
     private Integer tresIntentados;
     private Integer tresFallados;

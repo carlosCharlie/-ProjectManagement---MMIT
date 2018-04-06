@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public interface EntrenadorSA {
     public ArrayList<TOAEntrenadorEquipo> listarEntrenadores();
-    public ArrayList<TOAEntrenadorEquipo> buscarEntrenador(String nombre, String Apellidos);
-    public TOAEntrenadorEquipo mostrarEntrenadorCompleto(Integer id);
-    public EntrenadorTrans mostrarEntrenador(Integer id);
+    public TOAEntrenadorEquipo obtenerEntrenadorCompleto(Integer id);
+    public EntrenadorTrans obtenerEntrenador(Integer id);
 }

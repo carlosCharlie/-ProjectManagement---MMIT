@@ -60,30 +60,5 @@ public class EquiposDAOImp implements EquiposDAO{
         
         return null;
     }
-
-    @Override
-    public EquipoTrans readByEntrenador(Integer id_entrenador) {
-        
-        try {
-            Conexion.getInstancia().abrir();
-            Connection c = Conexion.getInstancia().getResource();
-            
-            PreparedStatement ps = c.prepareStatement("Select equipos.* from equipos,entrenador where entrenador.id = ? and equipos.id=entrenador.id;");
-            ps.setInt(1, id_entrenador);
-            ResultSet rs = ps.executeQuery();
-            
-            if (rs.next()){
-                return new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"));
-            }
-            
-            Conexion.getInstancia().cerrar();
-
-        } catch (SQLException ex) {
-            Conexion.getInstancia().cerrar();
-        }
-        
-        return null;
-        
-    }
     
 }

@@ -44,7 +44,7 @@ public class ControladorImp extends Controlador{
                 entrenadorSa = FactoriaNegocio.getInstancia().crearEntrenadoresSA(); 
                 equiposSa = FactoriaNegocio.getInstancia().crearEquiposSA();
                 
-                EntrenadorTrans ent = entrenadorSa.mostrarEntrenador((int) contexto.getDatos());
+                EntrenadorTrans ent = entrenadorSa.obtenerEntrenador((int) contexto.getDatos());
                 eq = equiposSa.obtenerEquipo(ent.getIdEquipo());
                 
                 contexto.setDatos(new TOAEntrenadorEquipo(ent, eq));

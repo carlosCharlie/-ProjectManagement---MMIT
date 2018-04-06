@@ -16,6 +16,4 @@ public interface EntrenadorDAO {
      public EntrenadorTrans readByEquipo(int id_Equipo);
      
      public EntrenadorTrans readById(int id);
-     
-     public ArrayList<EntrenadorTrans> readByName(String name, String surname);
 }

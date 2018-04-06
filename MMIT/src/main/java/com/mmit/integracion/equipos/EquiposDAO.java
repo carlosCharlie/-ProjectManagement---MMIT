@@ -17,11 +17,4 @@ public interface EquiposDAO {
      * @return  datos del equipo
      */
     public EquipoTrans readById(Integer id);
-    
-    /**
-     * Devuelve el equipo asociado a un determinado entrenador
-     * @param id_Entrenador id del entrenador del equipo
-     * @return equipo con ese entrenador
-     */
-    public EquipoTrans readByEntrenador(Integer id_Entrenador);
 }

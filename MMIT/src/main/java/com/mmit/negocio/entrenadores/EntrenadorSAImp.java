@@ -9,28 +9,6 @@ import java.util.ArrayList;
 public class EntrenadorSAImp implements EntrenadorSA {
 
     @Override
-    public ArrayList<TOAEntrenadorEquipo> buscarEntrenador(String nombre, String apellidos){
-        FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
-        EntrenadorDAO DAOEntrenador = instancia.crearEntrenadoresDAO();
-        EquiposDAO DAOEquipo = FactoriaIntegracion.getInstancia().crearEquiposDAO();
-        ArrayList<EntrenadorTrans> entrenadores = DAOEntrenador.readByName(nombre, apellidos);
-        
-        ArrayList<TOAEntrenadorEquipo> entrenadoresConEquipo = new ArrayList<TOAEntrenadorEquipo>();
-        for (EntrenadorTrans j : entrenadores){
-            TOAEntrenadorEquipo entrenadorEquipo;
-
-            if (j.getIdEquipo() != null){
-                entrenadorEquipo = new TOAEntrenadorEquipo(j, DAOEquipo.readById(j.getIdEquipo()));
-            } else {
-                entrenadorEquipo = new TOAEntrenadorEquipo(j, null);
-            }
-
-            entrenadoresConEquipo.add(entrenadorEquipo);
-        }
-
-        return entrenadoresConEquipo;
-    }
-    @Override
     public ArrayList<TOAEntrenadorEquipo> listarEntrenadores() {
         FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
         EntrenadorDAO DAOEntrenador = instancia.crearEntrenadoresDAO();
@@ -54,7 +32,7 @@ public class EntrenadorSAImp implements EntrenadorSA {
     }
     
     @Override
-    public TOAEntrenadorEquipo mostrarEntrenadorCompleto(Integer id){
+    public TOAEntrenadorEquipo obtenerEntrenadorCompleto(Integer id){
          FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
         EntrenadorDAO DAOEntrenador = instancia.crearEntrenadoresDAO();
         EquiposDAO DAOEquipo = FactoriaIntegracion.getInstancia().crearEquiposDAO();
@@ -72,7 +50,7 @@ public class EntrenadorSAImp implements EntrenadorSA {
     }
     
     @Override
-    public EntrenadorTrans mostrarEntrenador(Integer id){
+    public EntrenadorTrans obtenerEntrenador(Integer id){
         FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
         EntrenadorDAO DAOEntrenador = instancia.crearEntrenadoresDAO();
         EntrenadorTrans entrenador = DAOEntrenador.readById(id);
