@@ -1,5 +1,7 @@
 package com.mmit.negocio.jugadores;
 
+import java.text.DecimalFormat;
+
 public class JugadorTrans {
 
     private Integer id;
@@ -170,7 +172,9 @@ public class JugadorTrans {
 	}
 
 	public double getCampoPorcentaje() {
-		return campoPorcentaje;
+		DecimalFormat df = new DecimalFormat("#,00");
+            Double valor = Double.valueOf(df.format(campoPorcentaje));
+		return valor;
 	}
 
 	public void setCampoPorcentaje(double campoPorcentaje) {
@@ -194,7 +198,9 @@ public class JugadorTrans {
 	}
 
 	public double getDosPorcentaje() {
-		return dosPorcentaje;
+		DecimalFormat df = new DecimalFormat("#,00");
+            Double valor = Double.valueOf(df.format(dosPorcentaje));
+		return valor;
 	}
 
 	public void setDosPorcentaje(double dosPorcentaje) {
@@ -218,7 +224,9 @@ public class JugadorTrans {
 	}
 
 	public double getTresPorcentaje() {
-		return tresPorcentaje;
+		DecimalFormat df = new DecimalFormat("#,00");
+            Double valor = Double.valueOf(df.format(tresPorcentaje));
+		return valor;
 	}
 
 	public void setTresPorcentaje(double tresPorcentaje) {
@@ -242,11 +250,13 @@ public class JugadorTrans {
 	}
 
 	public double getLibresPorcentaje() {
-		return libresPorcentaje;
+            DecimalFormat df = new DecimalFormat("#,00");
+            Double valor = Double.valueOf(df.format(libresPorcentaje));
+		return valor;
 	}
 
 	public void setLibresPorcentaje(double libresPorcentaje) {
-		this.libresPorcentaje = libresPorcentaje;
+            this.libresPorcentaje = libresPorcentaje;
 	}
 
 	public int getTirosTotales() {

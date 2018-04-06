@@ -60,6 +60,12 @@ public class ControladorVistaInfoJugadores implements Initializable {
     private Label robos;
     @FXML
     private Label porcentajeCampo;
+    @FXML
+    private Label dosAnotados;
+    @FXML
+    private Label dosIntentados;
+    @FXML
+    private Label porcentajeDos;
 
     /**
      * Initializes the controller class.
@@ -91,6 +97,9 @@ public class ControladorVistaInfoJugadores implements Initializable {
         this.campoAnotados.setText(String.valueOf(this.jugador.getJugador().getCampoAnotados()));
         this.campoIntentados.setText(String.valueOf(this.jugador.getJugador().getCampoIntentados()));
         this.porcentajeCampo.setText(String.valueOf(this.jugador.getJugador().getCampoPorcentaje()));
+        this.dosAnotados.setText(String.valueOf(this.jugador.getJugador().getDosAnotados()));
+        this.dosIntentados.setText(String.valueOf(this.jugador.getJugador().getDosIntentados()));
+        this.porcentajeDos.setText(String.valueOf(this.jugador.getJugador().getDosPorcentaje()));
         this.triplesAnotados.setText(String.valueOf(this.jugador.getJugador().getTresAnotados()));
         this.triplesIntentados.setText(String.valueOf(this.jugador.getJugador().getTresIntentados()));
         this.porcentajeTriples.setText(String.valueOf(this.jugador.getJugador().getTresPorcentaje()));

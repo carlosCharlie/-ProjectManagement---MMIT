@@ -1,5 +1,7 @@
 package com.mmit.negocio.equipos;
 
+import java.text.DecimalFormat;
+
 public class EquipoTrans {
     private int id;
     private String nombre;
@@ -128,7 +130,9 @@ public class EquipoTrans {
 	}
 
 	public double getPorcentaje() {
-		return porcentaje;
+		DecimalFormat df = new DecimalFormat("#,00");
+            Double valor = Double.valueOf(df.format(porcentaje));
+		return valor;
 	}
 
 	public void setPorcentaje(double porcentaje) {
@@ -176,7 +180,9 @@ public class EquipoTrans {
 	}
 
 	public double getCampoPorcentaje() {
-		return campoPorcentaje;
+		DecimalFormat df = new DecimalFormat("#,00");
+            Double valor = Double.valueOf(df.format(campoPorcentaje));
+		return valor;
 	}
 
 	public void setCampoPorcentaje(double campoPorcentaje) {
@@ -208,7 +214,9 @@ public class EquipoTrans {
 	}
 
 	public double getTresPorcentaje() {
-		return tresPorcentaje;
+		DecimalFormat df = new DecimalFormat("#,00");
+            Double valor = Double.valueOf(df.format(tresPorcentaje));
+		return valor;
 	}
 
 	public void setTresPorcentaje(double tresPorcentaje) {
@@ -240,7 +248,9 @@ public class EquipoTrans {
 	}
 
 	public double getLibresPorcentaje() {
-		return libresPorcentaje;
+		DecimalFormat df = new DecimalFormat("#,00");
+            Double valor = Double.valueOf(df.format(libresPorcentaje));
+		return valor;
 	}
 
 	public void setLibresPorcentaje(double libresPorcentaje) {
