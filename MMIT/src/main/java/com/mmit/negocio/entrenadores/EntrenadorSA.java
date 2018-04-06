@@ -7,4 +7,5 @@ public interface EntrenadorSA {
     public ArrayList<TOAEntrenadorEquipo> listarEntrenadores();
     public TOAEntrenadorEquipo obtenerEntrenadorCompleto(Integer id);
     public EntrenadorTrans obtenerEntrenador(Integer id);
+    public ArrayList<TOAEntrenadorEquipo> equiposEntrenador(int id);
 }

@@ -13,6 +13,33 @@ import java.util.logging.Logger;
 
 
 public class EntrenadorDAOImp implements EntrenadorDAO{
+    
+    
+    /*
+    Devuelve el historico de equipos de cada entrenador
+    */
+    public ArrayList<EntrenadorTrans> equiposEntrenador(int id){
+        ArrayList<EntrenadorTrans> entrenador = null;
+        
+        try{
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+
+            PreparedStatement ps = c.prepareStatement(
+                    "SELECT * FROM entrenadorEquipo WHERE entrenador_id = " + id);  
+
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+                entrenador.add(new EntrenadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo")));
+            Conexion.getInstancia().cerrar();
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(EntrenadorDAOImp.class.getName()).log(Level.SEVERE, null, ex);
+            Conexion.getInstancia().cerrar();
+        }
+        
+        return entrenador;
+    }
     /*
     Buscar entrenador
     */
