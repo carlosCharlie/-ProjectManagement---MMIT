@@ -35,8 +35,9 @@ public class JugadorTrans {
     private Integer puntos;
     private Integer tapones;
     private Integer perdidas;
+    private String mano;
 
-    public JugadorTrans(Integer id, String nombre, String apellidos, Integer idEquipo, Integer edad, double peso, double altura, String posicion, Integer partidos, Integer minutos, Integer campoAnotados, Integer campoIntentados, Integer dosAnotados, Integer dosIntentados, Integer tresAnotados, Integer tresIntentados, Integer libresAnotados, Integer libresIntentados, Integer rebotesOfensivos, Integer rebotesDefensivos, Integer asistencias, Integer robos, Integer faltas, Integer puntos, Integer tapones, Integer perdidas) {
+    public JugadorTrans(Integer id, String nombre, String apellidos, Integer idEquipo, Integer edad, double peso, double altura, String posicion, Integer partidos, Integer minutos, Integer campoAnotados, Integer campoIntentados, Integer dosAnotados, Integer dosIntentados, Integer tresAnotados, Integer tresIntentados, Integer libresAnotados, Integer libresIntentados, Integer rebotesOfensivos, Integer rebotesDefensivos, Integer asistencias, Integer robos, Integer faltas, Integer puntos, Integer tapones, Integer perdidas, String mano) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -335,5 +336,17 @@ public class JugadorTrans {
 	public void setPerdidas(Integer perdidas) {
 		this.perdidas = perdidas;
 	}
+        
+        public String getMano(){
+            if (this.mano != null){
+                return this.mano;
+            } else {
+                return "-";
+            }
+            
+        }
     
+        public void setMano(String mano){
+            this.mano = mano;
+        }
 }

@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2018 Your Organisation
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package com.mmit.presentacion.jugadores;
 
 import com.mmit.negocio.jugadores.TOAJugadorEquipo;
@@ -23,11 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
-/**
- * FXML Controller class
- *
- * @author crash
- */
 public class ControladorVistaInfoJugadores implements Initializable {
     
     private TOAJugadorEquipo jugador;
@@ -43,6 +22,44 @@ public class ControladorVistaInfoJugadores implements Initializable {
     private Label peso;
     @FXML
     private Label altura;
+    @FXML
+    private Label mano;
+    @FXML
+    private Label posicion;
+    @FXML
+    private Label puntos;
+    @FXML
+    private Label campoAnotados;
+    @FXML
+    private Label campoIntentados;
+    @FXML
+    private Label triplesAnotados;
+    @FXML
+    private Label triplesIntentados;
+    @FXML
+    private Label porcentajeTriples;
+    @FXML
+    private Label libresAnotados;
+    @FXML
+    private Label libresIntentados;
+    @FXML
+    private Label porcentajeLibres;
+    @FXML
+    private Label perdidas;
+    @FXML
+    private Label rebotesOfensivos;
+    @FXML
+    private Label rebotesDefensivos;
+    @FXML
+    private Label tapones;
+    @FXML
+    private Label asistencias;
+    @FXML
+    private Label faltas;
+    @FXML
+    private Label robos;
+    @FXML
+    private Label porcentajeCampo;
 
     /**
      * Initializes the controller class.
@@ -51,6 +68,7 @@ public class ControladorVistaInfoJugadores implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         this.jugador = (TOAJugadorEquipo) rb.getObject("");
         rellenarInformacionBasica();
+        rellenarEstadisticas();
     }   
     
     private void rellenarInformacionBasica(){
@@ -64,6 +82,27 @@ public class ControladorVistaInfoJugadores implements Initializable {
         } else {
             this.nombreEquipo.setText("-");
         }
+        this.posicion.setText(this.jugador.getJugador().getPosicion());
+        this.mano.setText(this.jugador.getJugador().getMano());
     }
     
+    private void rellenarEstadisticas(){
+        this.puntos.setText(String.valueOf(this.jugador.getJugador().getPuntos()));
+        this.campoAnotados.setText(String.valueOf(this.jugador.getJugador().getCampoAnotados()));
+        this.campoIntentados.setText(String.valueOf(this.jugador.getJugador().getCampoIntentados()));
+        this.porcentajeCampo.setText(String.valueOf(this.jugador.getJugador().getCampoPorcentaje()));
+        this.triplesAnotados.setText(String.valueOf(this.jugador.getJugador().getTresAnotados()));
+        this.triplesIntentados.setText(String.valueOf(this.jugador.getJugador().getTresIntentados()));
+        this.porcentajeTriples.setText(String.valueOf(this.jugador.getJugador().getTresPorcentaje()));
+        this.libresAnotados.setText(String.valueOf(this.jugador.getJugador().getLibresAnotados()));
+        this.libresIntentados.setText(String.valueOf(this.jugador.getJugador().getLibresIntentados()));
+        this.porcentajeLibres.setText(String.valueOf(this.jugador.getJugador().getLibresPorcentaje()));
+        this.rebotesOfensivos.setText(String.valueOf(this.jugador.getJugador().getRebotesOfensivos()));
+        this.rebotesDefensivos.setText(String.valueOf(this.jugador.getJugador().getRebotesDefensivos()));
+        this.asistencias.setText(String.valueOf(this.jugador.getJugador().getAsistencias()));
+        this.robos.setText(String.valueOf(this.jugador.getJugador().getRobos()));
+        this.tapones.setText(String.valueOf(this.jugador.getJugador().getTapones()));
+        this.faltas.setText(String.valueOf(this.jugador.getJugador().getFaltas()));
+        this.perdidas.setText(String.valueOf(this.jugador.getJugador().getPerdidas()));
+    }
 }
