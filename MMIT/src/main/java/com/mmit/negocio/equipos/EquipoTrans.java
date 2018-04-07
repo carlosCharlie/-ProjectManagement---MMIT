@@ -8,7 +8,6 @@ public class EquipoTrans {
     private Integer victorias;
     private Integer derrotas;
     private Integer jugados;
-    private int entrenador_id;
     private double porcentaje;
     private Integer anotados;
     private Integer recibidos;
@@ -48,7 +47,7 @@ public class EquipoTrans {
         this.porcentaje = (Double.valueOf(this.victorias) / Double.valueOf(this.jugados)) * 100;
     }
 
-    public EquipoTrans(int id, String nombre, Integer victorias, Integer derrotas, int entrenador_id,
+    public EquipoTrans(int id, String nombre, Integer victorias, Integer derrotas,
 			Integer anotados, Integer recibidos, Integer campoAnotados, Integer campoIntentados,
 			Integer tresAnotados, Integer tresIntentados, Integer libresAnotados, Integer libresIntentados,
 			Integer rebotesOfensivos, Integer rebotesTotales, Integer asistencias, Integer robos, Integer faltas,
@@ -58,7 +57,6 @@ public class EquipoTrans {
 		this.victorias = victorias;
 		this.derrotas = derrotas;
 		this.jugados = this.victorias + this.derrotas;
-		this.entrenador_id = entrenador_id;
 		this.porcentaje = (Double.valueOf(this.victorias) / Double.valueOf(this.jugados)) * 100;
 		this.anotados = anotados;
 		this.recibidos = recibidos;
@@ -125,13 +123,7 @@ public class EquipoTrans {
 		this.jugados = jugados;
 	}
 
-	public int getEntrenador_id() {
-		return entrenador_id;
-	}
 
-	public void setEntrenador_id(int entrenador_id) {
-		this.entrenador_id = entrenador_id;
-	}
 
 	public double getPorcentaje() {
 		DecimalFormat df = new DecimalFormat("#,00");
