@@ -7,6 +7,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,19 +36,39 @@ public class ControladorVistaMenu implements Initializable, ControladorVista {
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        if (event.getSource() == botonEquipos){
-            Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEquipos, null));
-        } else if (event.getSource() == botonJugadores){
-            Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarJugadores, null));
-        } else if (event.getSource() == botonEntrenadores){
-            Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEntrenadores, null));
-                   
-        }
+
+        Controlador.obtenerInstancia().accion(new Contexto(Evento.Preloader, null));
+        
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(500);
+                    Platform.runLater(new Runnable() {
+                        
+                        @Override
+                        public void run() {
+                            if (event.getSource() == botonEquipos){
+                                Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEquipos, null));
+                            } else if (event.getSource() == botonJugadores){
+                                Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarJugadores, null));
+                            } else if (event.getSource() == botonEntrenadores){
+                                Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEntrenadores, null));
+                            }
+                        }
+                    });
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }).start();
+        
     }
 
     @Override
     public void Actualizar(Contexto contexto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
 }

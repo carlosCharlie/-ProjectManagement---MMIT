@@ -5,6 +5,7 @@ public enum Evento {
     //Eventos Comunes
     ErrorSQL,
     AbrirMenuPrincipal,
+    Preloader,
     
     //Eventos Equipos
     ListarEquipos,

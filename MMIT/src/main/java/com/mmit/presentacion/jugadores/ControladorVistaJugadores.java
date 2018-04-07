@@ -27,6 +27,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 
 public class ControladorVistaJugadores implements Initializable, ControladorVista {
 
@@ -44,17 +45,20 @@ public class ControladorVistaJugadores implements Initializable, ControladorVist
     private ObservableList<TOAJugadorEquipo> listaJugadores;
     @FXML
     private TextField buscar;
+    @FXML
+    private FlowPane cargando;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      
+        
     } 
     
     @Override
     public void Actualizar(Contexto contexto) {
+        cargando.setVisible(false);
         switch(contexto.getEvento()){
             case AbrirListarJugadores:
                 rellenarTabla(contexto.getDatos());

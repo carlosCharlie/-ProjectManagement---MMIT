@@ -22,7 +22,6 @@ public class DespachadorVistaImp extends DespachadorVista {
 
     @Override
     public void crearVista(Contexto contexto) {
-
         switch(contexto.getEvento()) {
             case AbrirMenuPrincipal:
                 try{
@@ -120,6 +119,16 @@ public class DespachadorVistaImp extends DespachadorVista {
                     root.setCenter((AnchorPane) loaderContenido.load());
                     controladorContenido = loaderContenido.getController();
                     controladorContenido.Actualizar(contexto);
+                } catch (IOException ex) {
+                    Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                break;
+            case Preloader:
+                try {
+                    BorderPane root = (BorderPane) stage.getScene().getRoot();
+                    FXMLLoader loaderContenido = new FXMLLoader(getClass().getResource("/fxml/Preloader.fxml"));
+                             
+                    root.setCenter((AnchorPane) loaderContenido.load());
                 } catch (IOException ex) {
                     Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
                 }

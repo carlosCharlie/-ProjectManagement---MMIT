@@ -3,6 +3,7 @@ package com.mmit.presentacion.factoriaComandos;
 import com.mmit.presentacion.Evento;
 import com.mmit.presentacion.comando.Comando;
 import com.mmit.presentacion.comando.ComandoAbrirMenuPrincipal;
+import com.mmit.presentacion.comando.ComandoPreloader;
 import com.mmit.presentacion.comando.entrenadores.ComandoAbrirListarEntrenadores;
 import com.mmit.presentacion.comando.entrenadores.ComandoAbrirMostrarEntrenador;
 import com.mmit.presentacion.comando.equipos.ComandoAbrirListarEquipos;
@@ -29,6 +30,8 @@ public class FactoriaComandosImp extends FactoriaComandos{
                 return new ComandoAbrirMostrarEquipo();
             case AbrirMostrarEntrenador:
                 return new ComandoAbrirMostrarEntrenador();
+            case Preloader:
+                return new ComandoPreloader();
             default:
                 return null;
         }
