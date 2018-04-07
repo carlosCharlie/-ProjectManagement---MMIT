@@ -103,9 +103,9 @@
             </GridPane>
          </top>
          <center>
-            <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="historicoEquipos" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="900.0" resizable="false" text="Equipos Anteriores" />
+                <TableColumn fx:id="nombreEquipos" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="900.0" resizable="false" text="Historico Equipos" />
               </columns>
             </TableView>
          </center>

@@ -3,6 +3,7 @@ package com.mmit.negocio.entrenadores;
 import com.mmit.integracion.entrenadores.EntrenadorDAO;
 import com.mmit.integracion.equipos.EquiposDAO;
 import com.mmit.integracion.factoriaIntegracion.FactoriaIntegracion;
+import com.mmit.negocio.equipos.EquipoTrans;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -10,27 +11,18 @@ import java.util.logging.Logger;
 
 public class EntrenadorSAImp implements EntrenadorSA { 
     
-     public ArrayList<TOAEntrenadorEquipo> equiposEntrenador(int id) throws Exception{
-         
-        FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
-        EntrenadorDAO DAOEntrenador = instancia.crearEntrenadoresDAO();
-        EquiposDAO DAOEquipo = FactoriaIntegracion.getInstancia().crearEquiposDAO();
-        ArrayList<EntrenadorTrans> entrenadores = DAOEntrenador.equiposEntrenador(id);
-        
-        ArrayList<TOAEntrenadorEquipo> entrenadoresConEquipo = new ArrayList<TOAEntrenadorEquipo>();
-        try {
-        for (EntrenadorTrans j : entrenadores){
-            
-                TOAEntrenadorEquipo entrenadorEquipo;
-                
-                entrenadorEquipo = new TOAEntrenadorEquipo(j, DAOEquipo.readById(j.getIdEquipo()));
-            
-        }
-        } catch (Exception ex) {
-                Logger.getLogger(EntrenadorSAImp.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        return entrenadoresConEquipo;
-     }
+    @Override
+    public ArrayList<EquipoTrans> obtenerHistoricoEquipos(int id) throws Exception{
+       ArrayList<EquipoTrans> equipos;
+       try { 
+           FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
+           EntrenadorDAO DAOEntrenador = instancia.crearEntrenadoresDAO();
+           equipos = DAOEntrenador.readHistoricoByEntrenador(id);
+       } catch (Exception ex) {
+           throw ex;
+       }
+       return equipos;
+    }
 
     @Override
     public ArrayList<TOAEntrenadorEquipo> listarEntrenadores() throws Exception{
@@ -53,7 +45,7 @@ public class EntrenadorSAImp implements EntrenadorSA {
                 entrenadoresConEquipo.add(entrenadorEquipo);
             }
         } catch (Exception ex){
-            
+            throw ex;
         }
 
         return entrenadoresConEquipo;
@@ -74,7 +66,7 @@ public class EntrenadorSAImp implements EntrenadorSA {
                 entrenadorEquipo = new TOAEntrenadorEquipo(entrenador, null);
             }
         }catch (Exception ex){
-           
+           throw ex;
         }
         return entrenadorEquipo;
         

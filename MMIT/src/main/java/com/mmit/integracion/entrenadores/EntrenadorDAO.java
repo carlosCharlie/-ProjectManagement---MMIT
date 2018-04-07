@@ -1,6 +1,7 @@
 package com.mmit.integracion.entrenadores;
 
 import com.mmit.negocio.entrenadores.EntrenadorTrans;
+import com.mmit.negocio.equipos.EquipoTrans;
 import java.util.ArrayList;
 
 
@@ -17,5 +18,5 @@ public interface EntrenadorDAO {
      
      public EntrenadorTrans readById(int id) throws Exception;
      
-     public ArrayList<EntrenadorTrans> equiposEntrenador(int id) throws Exception;
+     public ArrayList<EquipoTrans> readHistoricoByEntrenador(int id) throws Exception;
 }

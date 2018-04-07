@@ -1,11 +1,13 @@
 package com.mmit.negocio.entrenadores;
 
 import com.mmit.negocio.equipos.EquipoTrans;
+import java.util.ArrayList;
 
 public class TOAEntrenadorEquipo {
     
     private EquipoTrans equipo;
     private EntrenadorTrans entrenador;
+    private ArrayList<EquipoTrans> historicoEquipos;
     
     public TOAEntrenadorEquipo(EntrenadorTrans entrenador, EquipoTrans equipo){
         this.equipo = equipo;
@@ -43,5 +45,13 @@ public class TOAEntrenadorEquipo {
             return this.equipo.getNombre();
         }
         
+    }
+    
+    public ArrayList<EquipoTrans> getHistoricoEquipos(){
+        return this.historicoEquipos;
+    }
+    
+    public void setHistoricoEquipos(ArrayList<EquipoTrans> equipos){
+        this.historicoEquipos = equipos;
     }
 }

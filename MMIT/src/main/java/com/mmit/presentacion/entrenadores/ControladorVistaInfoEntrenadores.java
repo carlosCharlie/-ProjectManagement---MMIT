@@ -1,15 +1,21 @@
 package com.mmit.presentacion.entrenadores;
 
 import com.mmit.negocio.entrenadores.TOAEntrenadorEquipo;
+import com.mmit.negocio.equipos.EquipoTrans;
 import com.mmit.negocio.equipos.TOAEntrenadorEquipoJugadores;
+import com.mmit.negocio.jugadores.JugadorTrans;
 import com.mmit.presentacion.ControladorVista;
 import com.mmit.presentacion.controlador.Contexto;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ControladorVistaInfoEntrenadores implements Initializable,ControladorVista {
 
@@ -22,6 +28,10 @@ public class ControladorVistaInfoEntrenadores implements Initializable,Controlad
     private Label apellidosEntrenador;
     @FXML
     private Label edad;
+    @FXML
+    private TableView<EquipoTrans> historicoEquipos;
+    @FXML
+    private TableColumn<EquipoTrans, String> nombreEquipos;
 
     /**
      * Initializes the controller class.
@@ -37,6 +47,7 @@ public class ControladorVistaInfoEntrenadores implements Initializable,Controlad
             case AbrirMostrarEntrenador:
                 this.entrenador = (TOAEntrenadorEquipo) contexto.getDatos();
                 rellenarInformacionBasica();
+                rellenarHistoricoEquipos();
                 break;
             case ErrorSQL:
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -61,4 +72,17 @@ public class ControladorVistaInfoEntrenadores implements Initializable,Controlad
         }
     }
     
+    private void rellenarHistoricoEquipos(){
+        
+        nombreEquipos.setCellValueFactory(new PropertyValueFactory<EquipoTrans, String>("nombre"));
+        
+        ArrayList<EquipoTrans> listaEquipos = this.entrenador.getHistoricoEquipos();
+        
+        if (listaEquipos != null){
+            for (EquipoTrans equipo : listaEquipos){
+                historicoEquipos.getItems().add(equipo);
+            }
+        }
+
+    }
 }

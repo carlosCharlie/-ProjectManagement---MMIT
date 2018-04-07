@@ -2,6 +2,7 @@ package com.mmit.integracion.entrenadores;
 
 import com.mmit.integracion.conexion.Conexion;
 import com.mmit.negocio.entrenadores.EntrenadorTrans;
+import com.mmit.negocio.equipos.EquipoTrans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,19 +16,19 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
     /*
     Devuelve el historico de equipos de cada entrenador
     */
-    public ArrayList<EntrenadorTrans> equiposEntrenador(int id) throws Exception{
-        ArrayList<EntrenadorTrans> entrenador = null;
+    public ArrayList<EquipoTrans> readHistoricoByEntrenador(int id) throws Exception{
+        ArrayList<EquipoTrans> equipos = new ArrayList<EquipoTrans>();
         
         try{
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
 
             PreparedStatement ps = c.prepareStatement(
-                    "SELECT * FROM entrenadorEquipo WHERE entrenador_id = " + id);  
+                    "SELECT * FROM entrenadorEquipo JOIN equipos on equipos.id = entrenadorEquipo.equipo_id WHERE entrenador_id = " + id);  
 
             ResultSet rs = ps.executeQuery();
             while(rs.next())
-                entrenador.add(new EntrenadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo")));
+                equipos.add(new EquipoTrans(rs.getInt("id"),rs.getString("nombre")));
             Conexion.getInstancia().cerrar();
         }
         catch (SQLException ex) {
@@ -35,7 +36,7 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
             throw ex;
         }
         
-        return entrenador;
+        return equipos;
     }
     /*
     Buscar entrenador

@@ -34,7 +34,11 @@ public class EquipoTrans {
     private Integer tapones;
     private Integer perdidas;
 	
-    
+    public EquipoTrans(int id, String nombre){
+        this.id = id;
+        this.nombre = nombre;
+    }
+     
     public EquipoTrans(int id, String nombre, Integer victorias, Integer derrotas){
         this.id = id;
         this.nombre = nombre;
