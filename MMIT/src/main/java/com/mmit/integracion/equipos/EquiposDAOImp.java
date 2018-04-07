@@ -23,7 +23,7 @@ public class EquiposDAOImp implements EquiposDAO{
             ArrayList<EquipoTrans> equipos = new ArrayList<EquipoTrans>();
             
             while(rs.next()){
-                equipos.add(new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"), rs.getInt("entrenador_id"), rs.getInt("anotados"), rs.getInt("recibidos"), rs.getInt("campoAnotados"), rs.getInt("campoIntentados"), rs.getInt("tresAnotados"), rs.getInt("tresIntentados"), rs.getInt("libresAnotados"), rs.getInt("libresIntentados"), rs.getInt("rebotesOfensivos"), rs.getInt("rebotesTotales"), rs.getInt("asistencias"), rs.getInt("robos"), rs.getInt("faltas"), rs.getInt("puntos"), rs.getInt("tapones"), rs.getInt("perdidas")));
+                equipos.add(new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"), rs.getInt("anotados"), rs.getInt("recibidos"), rs.getInt("campoAnotados"), rs.getInt("campoIntentados"), rs.getInt("tresAnotados"), rs.getInt("tresIntentados"), rs.getInt("libresAnotados"), rs.getInt("libresIntentados"), rs.getInt("rebotesOfensivos"), rs.getInt("rebotesTotales"), rs.getInt("asistencias"), rs.getInt("robos"), rs.getInt("faltas"), rs.getInt("puntos"), rs.getInt("tapones"), rs.getInt("perdidas")));
             }
             Conexion.getInstancia().cerrar();
             return equipos;
@@ -45,7 +45,7 @@ public class EquiposDAOImp implements EquiposDAO{
             ResultSet rs = ps.executeQuery();
             
             if (rs.next()){
-                return new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"), rs.getInt("entrenador_id"), rs.getInt("anotados"), rs.getInt("recibidos"), rs.getInt("campoAnotados"), rs.getInt("campoIntentados"), rs.getInt("tresAnotados"), rs.getInt("tresIntentados"), rs.getInt("libresAnotados"), rs.getInt("libresIntentados"), rs.getInt("rebotesOfensivos"), rs.getInt("rebotesTotales"), rs.getInt("asistencias"), rs.getInt("robos"), rs.getInt("faltas"), rs.getInt("puntos"), rs.getInt("tapones"), rs.getInt("perdidas"));
+                return new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"), rs.getInt("anotados"), rs.getInt("recibidos"), rs.getInt("campoAnotados"), rs.getInt("campoIntentados"), rs.getInt("tresAnotados"), rs.getInt("tresIntentados"), rs.getInt("libresAnotados"), rs.getInt("libresIntentados"), rs.getInt("rebotesOfensivos"), rs.getInt("rebotesTotales"), rs.getInt("asistencias"), rs.getInt("robos"), rs.getInt("faltas"), rs.getInt("puntos"), rs.getInt("tapones"), rs.getInt("perdidas"));
             }
             
             Conexion.getInstancia().cerrar();
