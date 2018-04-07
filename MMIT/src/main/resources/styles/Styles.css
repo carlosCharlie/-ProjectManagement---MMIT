@@ -45,3 +45,8 @@
 .botonMenu:hover {
     -fx-background-color: #e59400;
 }
+.botonMenuPulsado {
+    -fx-font-weight: bold;
+    font-size: 50px;
+    -fx-background-color: #b27300;
+}

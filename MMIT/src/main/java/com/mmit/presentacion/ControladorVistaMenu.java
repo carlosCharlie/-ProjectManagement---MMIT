@@ -16,6 +16,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 
 public class ControladorVistaMenu implements Initializable, ControladorVista {
 
@@ -38,7 +39,19 @@ public class ControladorVistaMenu implements Initializable, ControladorVista {
     private void handleButtonAction(ActionEvent event) {
 
         Controlador.obtenerInstancia().accion(new Contexto(Evento.Preloader, null));
-        
+        if (event.getSource() == botonEquipos){
+            botonJugadores.getStyleClass().remove("botonMenuPulsado");
+            botonEntrenadores.getStyleClass().remove("botonMenuPulsado");
+            botonEquipos.getStyleClass().add("botonMenuPulsado");
+        } else if (event.getSource() == botonJugadores){;
+            botonJugadores.getStyleClass().add("botonMenuPulsado");
+            botonEntrenadores.getStyleClass().remove("botonMenuPulsado");
+            botonEquipos.getStyleClass().remove("botonMenuPulsado");
+        } else if (event.getSource() == botonEntrenadores){
+            botonJugadores.getStyleClass().remove("botonMenuPulsado");
+            botonEntrenadores.getStyleClass().add("botonMenuPulsado");
+            botonEquipos.getStyleClass().remove("botonMenuPulsado");
+        }
         new Thread(new Runnable() {
 
             @Override
@@ -51,7 +64,7 @@ public class ControladorVistaMenu implements Initializable, ControladorVista {
                         public void run() {
                             if (event.getSource() == botonEquipos){
                                 Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEquipos, null));
-                            } else if (event.getSource() == botonJugadores){
+                            } else if (event.getSource() == botonJugadores){;
                                 Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarJugadores, null));
                             } else if (event.getSource() == botonEntrenadores){
                                 Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEntrenadores, null));
