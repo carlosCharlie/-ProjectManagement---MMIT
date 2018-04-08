@@ -64,7 +64,7 @@ public class ControladorVistaMenu implements Initializable, ControladorVista {
                         public void run() {
                             if (event.getSource() == botonEquipos){
                                 Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEquipos, null));
-                            } else if (event.getSource() == botonJugadores){;
+                            } else if (event.getSource() == botonJugadores){
                                 Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarJugadores, null));
                             } else if (event.getSource() == botonEntrenadores){
                                 Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEntrenadores, null));

@@ -8,10 +8,28 @@ import javafx.application.Platform;
 
 public class ControladorImp extends Controlador{
 
+    private static Contexto contexto;
+    private static Contexto contextoRetorno;
+    
     @Override
     public void accion(Contexto contexto) {
-        Comando comando = FactoriaComandos.obtenerInstancia().obtenerComando(contexto.getEvento());
-        contexto = comando.execute(contexto.getDatos());
-        DespachadorVista.obtenerInstancia().crearVista(contexto);    
+        this.contexto = contexto;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Comando comando = FactoriaComandos.obtenerInstancia().obtenerComando(contexto.getEvento());
+                contexto.getDatos();
+                contextoRetorno = comando.execute(contexto.getDatos());
+                Platform.runLater(new Runnable() {
+                        
+                    @Override
+                    public void run() {
+                        DespachadorVista.obtenerInstancia().crearVista(contextoRetorno);  
+                    }
+                });
+                  
+            }
+        }).start();
+        
     }
 }

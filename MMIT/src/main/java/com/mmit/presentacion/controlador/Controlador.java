@@ -1,6 +1,8 @@
 package com.mmit.presentacion.controlador;
 
-public abstract class Controlador {
+import javafx.concurrent.Task;
+
+public abstract class Controlador{
 	private static Controlador instancia;
 
 	public static Controlador obtenerInstancia() {
