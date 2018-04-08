@@ -29,6 +29,7 @@ public class Login {
     static private String nombre="user";
     static private String password="user";
     static private Permisos permiso=Permisos.user;
+    static private Integer id;
 
     /**
      * Inicia una nueva sesion
@@ -36,8 +37,9 @@ public class Login {
      * @param password password del usuario
      * @param permiso permisos del usuario
      */
-    public static void setNuevaSesion(String nombre,String password,Permisos permiso)
+    public static void setNuevaSesion(int id,String nombre,String password,Permisos permiso)
     {
+        Login.id=id;
         Login.nombre=nombre;
         Login.password=password;
         Login.permiso=permiso;
