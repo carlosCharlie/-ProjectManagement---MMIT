@@ -69,7 +69,7 @@ public class EquiposSATestNG {
     @Test
     public void TestObtenerEquipoCompleto(){
         try{
-            System.out.println("Obtener plantilla sin entrenador con el id");
+            System.out.println("Obtener plantilla con entrenador con el id");
             EquiposSA instance = new EquiposSAImp();
             EntrenadorTrans ent = new EntrenadorTrans(1, "juan", "ramirez", 1);
             EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);

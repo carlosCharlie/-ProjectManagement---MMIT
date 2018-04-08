@@ -62,6 +62,18 @@ public class JugadoresDaoTestNG {
     }
     
     @Test
+    public void TestGetRoaster(){
+        try{
+            System.out.println("Mostar plantilla");
+            JugadoresDAO instance = new JugadoresDAOImp();
+            ArrayList<JugadorTrans> result = instance.readRoster(1);
+            assertNotNull(result);
+        }catch(Exception e){
+            Assert.fail();
+        }
+    }
+    
+    @Test
     public void informacionJugador(){
         try {
             Conexion.getInstancia().abrir();

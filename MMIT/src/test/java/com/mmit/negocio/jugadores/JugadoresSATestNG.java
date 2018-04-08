@@ -21,10 +21,7 @@ import junit.framework.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
-/**
- *
- * @author Fernando
- */
+
 public class JugadoresSATestNG {
     
     public JugadoresSATestNG() {
@@ -49,13 +46,34 @@ public class JugadoresSATestNG {
     }
     
     @Test
-    public void probarJugador(){
+    public void TestEstadisticasJugador(){
+       System.out.print("Estadisticas Jugador");
        JugadoresSA jugadoresSa=new JugadoresSAImp();
        JugadorTrans j = jugadoresSa.obtenerJugador(1);
        assertNotNull(j);
        assertNotNull(j.getNombre());
        assertNotNull(j.getApellidos());
-       assertTrue(j.getNombre().length()>0 && j.getApellidos().length()>0);
+       assertNotNull(j.getEdad());
+       assertNotNull(j.getPeso());
+       assertNotNull(j.getAltura());
+       assertNotNull(j.getPosicion());
+       assertNotNull(j.getPartidos());
+       assertNotNull(j.getMinutos());
+       assertNotNull(j.getTirosAnotados());
+       assertNotNull(j.getTirosTotales());
+       assertNotNull(j.getTirosPorcentaje());
+       assertNotNull(j.getRebotesDefensivos());
+       assertNotNull(j.getRebotesOfensivos());
+       assertNotNull(j.getRebotesTotales());
+       assertNotNull(j.getRobos());
+       assertNotNull(j.getAsistencias());
+       assertNotNull(j.getTapones());
+       assertNotNull(j.getPuntos());
+       assertNotNull(j.getPerdidas());
+       assertNotNull(j.getLibresAnotados());
+       assertNotNull(j.getLibresIntentados());
+       assertNotNull(j.getLibresPorcentaje());
+       
     }
     
 }

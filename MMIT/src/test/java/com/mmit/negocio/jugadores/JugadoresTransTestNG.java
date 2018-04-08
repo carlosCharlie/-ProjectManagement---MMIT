@@ -21,10 +21,7 @@ import org.testng.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
-/**
- *
- * @author Fernando
- */
+
 public class JugadoresTransTestNG {
     
     public JugadoresTransTestNG() {

@@ -21,10 +21,7 @@ import junit.framework.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
-/**
- *
- * @author Fernando
- */
+
 public class TOAJugadorEquipoTestNG {
     
     public TOAJugadorEquipoTestNG() {
@@ -39,8 +36,7 @@ public class TOAJugadorEquipoTestNG {
     @Test
     public void TestNGTOAJugadorEquipo(){
         try{
-            JugadorTrans jt = null;
-            //JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
+            JugadorTrans jt = new JugadorTrans(1, "manolo", "juarez", 1, 18, 80.68, 180.5, "Alero", 34, 360, 28, 30, 34, 86, 38, 78, 65, 20, 30, 1000, 30, 28, "derecha");
             EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
             new TOAJugadorEquipo(jt, et);
         }catch(Exception e){
@@ -50,8 +46,7 @@ public class TOAJugadorEquipoTestNG {
     
     @Test
     public void TestNGGetIdJugador(){
-        JugadorTrans jt = null;
-            //JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
+        JugadorTrans jt = new JugadorTrans(1, "manolo", "juarez", 1, 18, 80.68, 180.5, "Alero", 34, 360, 28, 30, 34, 86, 38, 78, 65, 20, 30, 1000, 30, 28, "derecha");
         EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
         TOAJugadorEquipo instance = new TOAJugadorEquipo(jt, et);
         int result = instance.getIdJugador();
@@ -60,28 +55,25 @@ public class TOAJugadorEquipoTestNG {
     
     @Test
     public void TestNGGetNombreJugador(){
-        JugadorTrans jt = null;
-            //JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
+        JugadorTrans jt = new JugadorTrans(1, "manolo", "juarez", 1, 18, 80.68, 180.5, "Alero", 34, 360, 28, 30, 34, 86, 38, 78, 65, 20, 30, 1000, 30, 28, "derecha");
         EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
         TOAJugadorEquipo instance = new TOAJugadorEquipo(jt, et);
         String result = instance.getNombreJugador();
-        assertEquals(result, "fulgencio");
+        assertEquals(result, "manolo");
     }
     
     @Test
     public void TestNGGetApellidosJugador(){
-        JugadorTrans jt = null;
-            //JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
+        JugadorTrans jt = new JugadorTrans(1, "manolo", "juarez", 1, 18, 80.68, 180.5, "Alero", 34, 360, 28, 30, 34, 86, 38, 78, 65, 20, 30, 1000, 30, 28, "derecha");
         EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
         TOAJugadorEquipo instance = new TOAJugadorEquipo(jt, et);
         String result = instance.getApellidosJugador();
-        assertEquals(result, "de la cruz");
+        assertEquals(result, "juarez");
     }
     
     @Test
     public void TestNGGetIdEquipo(){
-        JugadorTrans jt = null;
-            //JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
+        JugadorTrans jt = new JugadorTrans(1, "manolo", "juarez", 1, 18, 80.68, 180.5, "Alero", 34, 360, 28, 30, 34, 86, 38, 78, 65, 20, 30, 1000, 30, 28, "derecha");
         EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
         TOAJugadorEquipo instance = new TOAJugadorEquipo(jt, et);
         int result = instance.getIdEquipo();
@@ -90,8 +82,7 @@ public class TOAJugadorEquipoTestNG {
     
     @Test
     public void TestNGGetNombreEquipo(){
-        JugadorTrans jt = null;
-            //JugadorTrans jt = new JugadorTrans(1, "fulgencio", "de la cruz", 1);
+        JugadorTrans jt = new JugadorTrans(1, "manolo", "juarez", 1, 18, 80.68, 180.5, "Alero", 34, 360, 28, 30, 34, 86, 38, 78, 65, 20, 30, 1000, 30, 28, "derecha");
         EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
         TOAJugadorEquipo instance = new TOAJugadorEquipo(jt, et);
         String result = instance.getNombreEquipo();
