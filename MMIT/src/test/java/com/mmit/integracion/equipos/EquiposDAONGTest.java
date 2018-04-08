@@ -1,6 +1,9 @@
 package com.mmit.integracion.equipos;
 
+import com.mmit.integracion.jugadores.JugadoresDAO;
+import com.mmit.integracion.jugadores.JugadoresDAOImp;
 import com.mmit.negocio.equipos.EquipoTrans;
+import com.mmit.negocio.jugadores.JugadorTrans;
 import java.util.ArrayList;
 import org.junit.Assert;
 import static org.testng.Assert.*;
@@ -32,6 +35,18 @@ public class EquiposDAONGTest {
             System.out.println("Listar un equipo");
             EquiposDAO instance = new EquiposDAOImp();
             EquipoTrans result = instance.readById(1);
+            assertNotNull(result);
+        }catch(Exception e){
+            Assert.fail();
+        }
+    }
+    
+    @Test
+    public void testGetRoaster(){
+        try{
+            System.out.println("Mostar plantilla");
+            JugadoresDAO instance = new JugadoresDAOImp();
+            ArrayList<JugadorTrans> result = instance.readRoster(1);
             assertNotNull(result);
         }catch(Exception e){
             Assert.fail();
