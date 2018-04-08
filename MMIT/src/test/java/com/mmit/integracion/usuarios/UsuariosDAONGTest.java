@@ -14,24 +14,33 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.mmit.negocio.usuarios;
+package com.mmit.integracion.usuarios;
+
+import com.mmit.negocio.usuarios.UsuarioTrans;
+import static org.testng.Assert.*;
+import org.testng.annotations.Test;
 
 /**
  *
  * @author carlos
  */
-public enum Permisos {
-    admin,
-    user;
+public class UsuariosDAONGTest {
     
-    public static Permisos stringToPermisosParser(String permiso)
-    {
-        if(permiso.equals("admin")){
-            return admin;
-        }
-        else
-        {
-            return user;
-        }
+    public UsuariosDAONGTest() {
+    }
+
+    /**
+     * Test of readByNombre method, of class UsuariosDAO.
+     */
+    @Test
+    public void testReadByNombre() {
+        System.out.println("readByNombre");
+        String nombre = "admin";
+        UsuariosDAO instance = new UsuariosDAOImp();
+        UsuarioTrans result = instance.readByNombre(nombre);
+        assertEquals(result.getAdmin(), true);
+        assertEquals(result.getNombre(),"admin");
+        assertEquals(result.getPassword(),"adminP");
+        
     }
 }

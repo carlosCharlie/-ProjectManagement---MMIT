@@ -22,7 +22,7 @@ public class UsuarioTrans {
         this.password = password;
     }
     
-    public void UsuarioTrans(int id,String nombre,String password,boolean admin)
+    public UsuarioTrans(int id,String nombre,String password,boolean admin)
     {
         this.id = id;
         this.nombre=nombre;
