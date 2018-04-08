@@ -153,6 +153,10 @@ public class DespachadorVistaImp extends DespachadorVista {
                     Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 break;
+            case ErrorUsuario:
+            case ErrorContrasena:
+                controladorContenido.Actualizar(contexto);
+                break;
             case Preloader:
                 try {
                     BorderPane root = (BorderPane) stage.getScene().getRoot();

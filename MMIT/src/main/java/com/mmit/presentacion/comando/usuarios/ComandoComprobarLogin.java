@@ -12,7 +12,7 @@ public class ComandoComprobarLogin implements Comando {
     @Override
     public Contexto execute(Object datos) {
         int respuesta = 0;
-        
+        //respuesta = FactoriaNegocio.obtenerInstancia().crearSAUsuarios().comprobarLogin();
         switch(respuesta){
             case 0:
                 Login.setNuevaSesion((UsuarioTrans) datos);
