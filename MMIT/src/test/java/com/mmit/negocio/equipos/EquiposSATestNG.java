@@ -16,7 +16,9 @@
  */
 package com.mmit.negocio.equipos;
 
+import com.mmit.negocio.entrenadores.EntrenadorTrans;
 import com.mmit.negocio.entrenadores.TOAEntrenadorEquipo;
+import com.mmit.negocio.jugadores.JugadorTrans;
 import java.util.ArrayList;
 import junit.framework.Assert;
 import static org.testng.Assert.*;
@@ -27,15 +29,6 @@ import org.testng.annotations.Test;
  * @author Fernando
  */
 public class EquiposSATestNG {
-    
-    public EquiposSATestNG() {
-    }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
     
     @Test
     public void TestListarEquipos(){
@@ -61,7 +54,8 @@ public class EquiposSATestNG {
         }
     }
     
-    public void obtenerEquipo(){
+    @Test
+    public void TestObtenerEquipo(){
          try{
             System.out.println("Obtener plantilla sin entrenador con el id");
             EquiposSA instance = new EquiposSAImp();
@@ -72,4 +66,24 @@ public class EquiposSATestNG {
         }
     }
     
+    @Test
+    public void TestObtenerEquipoCompleto(){
+        try{
+            System.out.println("Obtener plantilla sin entrenador con el id");
+            EquiposSA instance = new EquiposSAImp();
+            EntrenadorTrans ent = new EntrenadorTrans(1, "juan", "ramirez", 1);
+            EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
+            ArrayList<JugadorTrans> jugadores  = new ArrayList();
+            jugadores.add(new JugadorTrans(1, "manolo", "juarez", 1, 18, 80.68, 180.5, "Alero", 34, 360, 28, 30, 34, 86, 38, 78, 65, 20, 30, 1000, 30, 28, "derecha"));
+            TOAEntrenadorEquipoJugadores result = new TOAEntrenadorEquipoJugadores(ent, et, jugadores);
+            result = instance.obtenerEquipoCompleto(1);
+            assertNotNull(result);
+        }catch(Exception e){
+             Assert.fail();
+        }
+            
+    }
 }
+    
+
+

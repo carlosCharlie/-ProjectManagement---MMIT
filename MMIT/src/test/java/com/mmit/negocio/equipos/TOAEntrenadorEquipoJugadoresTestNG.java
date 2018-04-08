@@ -28,10 +28,10 @@ import org.testng.annotations.Test;
  *
  * @author dielam
  */
-public class TOAEquiposEntrenadorJugadoresTestNG {
+public class TOAEntrenadorEquipoJugadoresTestNG {
     
     @Test
-    public void testNGTOAEntrenadorEquipo(){
+    public void testNGTOAEntrenadorEquipoJugadores(){
         try{
             EntrenadorTrans ent = new EntrenadorTrans(1, "juan", "ramirez", 1);
             EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
