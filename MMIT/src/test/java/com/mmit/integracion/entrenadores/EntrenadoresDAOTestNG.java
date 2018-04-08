@@ -18,7 +18,10 @@ package com.mmit.integracion.entrenadores;
 
 import com.mmit.integracion.conexion.Conexion;
 import com.mmit.integracion.factoriaIntegracion.FactoriaIntegracion;
+import com.mmit.negocio.entrenadores.EntrenadorSA;
 import com.mmit.negocio.entrenadores.EntrenadorTrans;
+import com.mmit.negocio.equipos.EquipoTrans;
+import com.mmit.negocio.factoriaNegocio.FactoriaNegocio;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -55,7 +58,22 @@ public class EntrenadoresDAOTestNG {
             Assert.fail();
         }
     }
-
+    
+    @Test
+    public void equiposEntrenador(EntrenadorTrans entrenador)
+    {
+        int id = 1;
+        try{
+          
+            System.out.println("Historico de equipos");
+            EntrenadorDAO instance = new EntrenadorDAOImp();
+            ArrayList<EquipoTrans> result = instance.readHistoricoByEntrenador(id);
+            assertNotNull(result);
+        }catch(Exception e){
+            Assert.fail();
+        }
+        
+    }
     @Test
     public void informacionBasicaEntrenadorDAO(){
         try {

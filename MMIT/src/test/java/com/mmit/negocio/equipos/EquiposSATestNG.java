@@ -61,4 +61,15 @@ public class EquiposSATestNG {
         }
     }
     
+    public void obtenerEquipo(){
+         try{
+            System.out.println("Obtener plantilla sin entrenador con el id");
+            EquiposSA instance = new EquiposSAImp();
+            EquipoTrans result = instance.obtenerEquipo(1);
+            assertNotNull(result);
+        }catch(Exception e){
+            Assert.fail();
+        }
+    }
+    
 }

@@ -16,6 +16,7 @@
  */
 package com.mmit.negocio.entrenadores;
 
+import com.mmit.negocio.equipos.EquipoTrans;
 import com.mmit.negocio.factoriaNegocio.FactoriaNegocio;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -66,6 +67,20 @@ public class EntrenadorSATestNG {
             
             if(entrenadorEquipo.getEntrenador()!=null) //no tenemos este caso en cuenta porque puede no estar asignado
                 informacionEntrenador(entrenadorEquipo.getEntrenador());
+        } catch (Exception ex) {
+            Assert.fail();
+        }
+        
+    }
+    @Test
+    public void equiposEntrenador(EntrenadorTrans entrenador){
+       try {
+            int id=1;
+            EntrenadorSA entrenadorSa = FactoriaNegocio.getInstancia().crearEntrenadoresSA();
+            ArrayList<EquipoTrans> equipos = entrenadorSa.obtenerHistoricoEquipos(id);
+            
+            assertNotNull(equipos);
+
         } catch (Exception ex) {
             Assert.fail();
         }
