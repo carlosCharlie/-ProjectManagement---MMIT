@@ -38,6 +38,8 @@ public class UsuariosDAOImp implements UsuariosDAO{
             Connection c = Conexion.getInstancia().getResource();
           
             PreparedStatement ps =  c.prepareStatement("Select * from usuarios where nombre = ?");
+            ps.setString(1,nombre);
+            
             ResultSet rs = ps.executeQuery();
             
             if(!rs.next()){

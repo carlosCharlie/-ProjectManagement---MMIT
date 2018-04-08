@@ -1,7 +1,6 @@
 package com.mmit.presentacion.comando.usuarios;
 
 import com.mmit.negocio.usuarios.Login;
-import com.mmit.negocio.usuarios.Permisos;
 import com.mmit.negocio.usuarios.UsuarioTrans;
 import com.mmit.presentacion.Evento;
 import com.mmit.presentacion.comando.Comando;
