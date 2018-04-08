@@ -3,6 +3,7 @@ package com.mmit.negocio.factoriaNegocio;
 import com.mmit.negocio.entrenadores.EntrenadorSA;
 import com.mmit.negocio.equipos.EquiposSA;
 import com.mmit.negocio.jugadores.JugadoresSA;
+import com.mmit.negocio.usuarios.UsuariosSA;
 
 abstract public class FactoriaNegocio {
     
@@ -19,4 +20,6 @@ abstract public class FactoriaNegocio {
     abstract public JugadoresSA crearJugadoresSA();
     
     abstract public EntrenadorSA crearEntrenadoresSA();
+    
+    abstract public UsuariosSA crearUsuariosSA();
 }

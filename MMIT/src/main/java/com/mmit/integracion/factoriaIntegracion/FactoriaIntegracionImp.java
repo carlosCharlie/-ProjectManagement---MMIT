@@ -6,6 +6,8 @@ import com.mmit.integracion.equipos.EquiposDAO;
 import com.mmit.integracion.equipos.EquiposDAOImp;
 import com.mmit.integracion.jugadores.JugadoresDAO;
 import com.mmit.integracion.jugadores.JugadoresDAOImp;
+import com.mmit.integracion.usuarios.UsuariosDAO;
+import com.mmit.integracion.usuarios.UsuariosDAOImp;
 
 class FactoriaIntegracionImp extends FactoriaIntegracion {
 
@@ -24,4 +26,8 @@ class FactoriaIntegracionImp extends FactoriaIntegracion {
         return new EntrenadorDAOImp();
     }
     
+    @Override
+    public UsuariosDAO crearUsuariosDAO(){
+    	return new UsuariosDAOImp();
+    }
 }

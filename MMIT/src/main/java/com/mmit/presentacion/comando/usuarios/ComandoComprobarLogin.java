@@ -1,5 +1,6 @@
 package com.mmit.presentacion.comando.usuarios;
 
+import com.mmit.negocio.factoriaNegocio.FactoriaNegocio;
 import com.mmit.negocio.usuarios.Login;
 import com.mmit.negocio.usuarios.UsuarioTrans;
 import com.mmit.presentacion.Evento;
@@ -11,8 +12,9 @@ public class ComandoComprobarLogin implements Comando {
     @Override
     public Contexto execute(Object datos) {
         int respuesta = 0;
-        //respuesta = FactoriaNegocio.obtenerInstancia().crearSAUsuarios().comprobarLogin();
-        switch(respuesta){
+        UsuarioTrans TUsuario = (UsuarioTrans) datos;
+			respuesta = FactoriaNegocio.getInstancia().crearUsuariosSA().comprobarLogin(TUsuario.getNombre(), TUsuario.getPassword());
+		switch(respuesta){
             case 0:
                 Login.setNuevaSesion((UsuarioTrans) datos);
                 return new Contexto(Evento.UsuarioCorrecto, null);
@@ -24,7 +26,7 @@ public class ComandoComprobarLogin implements Comando {
                 return new Contexto(Evento.ErrorSQL, null);
             default:
                 return null;
-        }
+        
     }
-    
+    }
 }
