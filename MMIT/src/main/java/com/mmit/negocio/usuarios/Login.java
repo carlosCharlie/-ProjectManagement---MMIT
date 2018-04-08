@@ -14,7 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.mmit.negocio.Registros;
+package com.mmit.negocio.usuarios;
+
+
 
 /**
  *
@@ -28,6 +30,27 @@ public class Login {
     static private String password="user";
     static private Permisos permiso=Permisos.user;
 
+    /**
+     * Inicia una nueva sesion
+     * @param nombre nombre del usuario
+     * @param password password del usuario
+     * @param permiso permisos del usuario
+     */
+    public static void setNuevaSesion(String nombre,String password,Permisos permiso)
+    {
+        Login.nombre=nombre;
+        Login.password=password;
+        Login.permiso=permiso;
+    }
+    
+    /**
+     * Pone la sesion por defecto
+     */
+    public static void SetSesionInicial(){
+        nombre="user";
+        password="user";
+        permiso=Permisos.user;
+    }
     /**
      * Devuelve el permiso de la sesion actual
      * @return permiso actual
@@ -60,40 +83,7 @@ public class Login {
         return password;
     }
     
-    /**
-     * Finaliza la sesion y vuelve a la sesion por defecto
-     */
-    static public void salirSesion(){
-        nombre="user";
-        password="user";
-        permiso=Permisos.user;
-    }
     
-    /**
-     * Inicia una nueva sesion, en caso de que no se pueda, se iniciara como un usuario normal
-     * @param nombre nombre de la sesion
-     * @param password password
-     * @return True si se ha podido iniciar, False si no
-     */
-    static public boolean iniciarSesion(String nombre,String password){
     
-        SesionQuery sq = new SesionQuery();
-
-        Permisos p=sq.comprobar(nombre, password);
-        
-        if(p!=null){
-            Login.nombre=nombre;
-            Login.password=password;
-            Login.permiso=p;
-            return true;
-        }
-        else{
-            //Si no se ha podido registrar, sigue como un usuario normal
-            Login.nombre="user";
-            Login.password="user";
-            permiso=Permisos.user;
-            return false;
-        }
-    };
     
 }
