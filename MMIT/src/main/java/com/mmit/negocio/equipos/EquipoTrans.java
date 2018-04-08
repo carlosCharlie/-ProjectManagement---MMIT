@@ -29,7 +29,6 @@ public class EquipoTrans {
     private Integer asistencias;
     private Integer robos;
     private Integer faltas;
-    private Integer puntos;
     private Integer tapones;
     private Integer perdidas;
 	
@@ -51,7 +50,7 @@ public class EquipoTrans {
 			Integer anotados, Integer recibidos, Integer campoAnotados, Integer campoIntentados,
 			Integer tresAnotados, Integer tresIntentados, Integer libresAnotados, Integer libresIntentados,
 			Integer rebotesOfensivos, Integer rebotesTotales, Integer asistencias, Integer robos, Integer faltas,
-			Integer puntos, Integer tapones, Integer perdidas) {
+			Integer tapones, Integer perdidas) {
 		this.id = id;
 		this.nombre = nombre;
 		this.victorias = victorias;
@@ -78,7 +77,6 @@ public class EquipoTrans {
 		this.asistencias = asistencias;
 		this.robos = robos;
 		this.faltas = faltas;
-		this.puntos = puntos;
 		this.tapones = tapones;
 		this.perdidas = perdidas;
 	}
@@ -299,14 +297,6 @@ public class EquipoTrans {
 
 	public void setFaltas(Integer faltas) {
 		this.faltas = faltas;
-	}
-
-	public Integer getPuntos() {
-		return puntos;
-	}
-
-	public void setPuntos(Integer puntos) {
-		this.puntos = puntos;
 	}
 
 	public Integer getTapones() {
