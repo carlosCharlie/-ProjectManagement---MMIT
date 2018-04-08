@@ -28,7 +28,7 @@ public class Login {
     
     static private String nombre="user";
     static private String password="user";
-    static private Permisos permiso=Permisos.user;
+    static private boolean admin=false;
     static private Integer id;
 
     /**
@@ -37,12 +37,12 @@ public class Login {
      * @param password password del usuario
      * @param permiso permisos del usuario
      */
-    public static void setNuevaSesion(int id,String nombre,String password,Permisos permiso)
+    public static void setNuevaSesion(int id,String nombre,String password,boolean admin)
     {
         Login.id=id;
         Login.nombre=nombre;
         Login.password=password;
-        Login.permiso=permiso;
+        Login.admin=admin;
     }
     
     /**
@@ -51,22 +51,18 @@ public class Login {
     public static void SetSesionInicial(){
         nombre="user";
         password="user";
-        permiso=Permisos.user;
-    }
-    /**
-     * Devuelve el permiso de la sesion actual
-     * @return permiso actual
-     */
-    public static Permisos getPermiso() {
-        return permiso;
+        admin=false;
     }
     
+    public static Integer getId(){
+        return id;
+    }
     /**
      * Indica si la sesion actual tiene permisos de administrador 
      * @return true si es administrador, false si no
      */
-    public static boolean EsAdmin(){
-        return permiso==Permisos.admin;
+    public static boolean getAdmin() {
+        return admin;
     }
     
     /**

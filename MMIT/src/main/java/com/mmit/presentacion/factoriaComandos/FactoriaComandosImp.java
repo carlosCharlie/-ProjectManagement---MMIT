@@ -11,6 +11,7 @@ import com.mmit.presentacion.comando.equipos.ComandoAbrirListarEquipos;
 import com.mmit.presentacion.comando.equipos.ComandoAbrirMostrarEquipo;
 import com.mmit.presentacion.comando.jugadores.ComandoAbrirListarJugadores;
 import com.mmit.presentacion.comando.jugadores.ComandoAbrirMostrarJugador;
+import com.mmit.presentacion.comando.usuarios.ComandoComprobarLogin;
 
 public class FactoriaComandosImp extends FactoriaComandos{
 
@@ -33,6 +34,8 @@ public class FactoriaComandosImp extends FactoriaComandos{
                 return new ComandoAbrirMostrarEquipo();
             case AbrirMostrarEntrenador:
                 return new ComandoAbrirMostrarEntrenador();
+            case ComprobarLogin:
+                return new ComandoComprobarLogin();
             case Preloader:
                 return new ComandoPreloader();
             default:

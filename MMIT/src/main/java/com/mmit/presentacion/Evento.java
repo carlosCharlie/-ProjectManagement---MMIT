@@ -25,6 +25,12 @@ public enum Evento {
     ListarJugadores,
     ObtenerDatosJugador,
     AbrirListarJugadores,
-    AbrirMostrarJugador
+    AbrirMostrarJugador, 
+    
+    //Eventos Usuarios
+    ComprobarLogin,
+    UsuarioCorrecto,
+    ErrorUsuario,
+    ErrorContrasena
     
 }
