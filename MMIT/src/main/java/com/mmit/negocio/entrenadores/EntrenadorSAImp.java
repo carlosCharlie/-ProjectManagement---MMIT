@@ -15,9 +15,11 @@ public class EntrenadorSAImp implements EntrenadorSA {
     public ArrayList<EquipoTrans> obtenerHistoricoEquipos(int id) throws Exception{
        ArrayList<EquipoTrans> equipos;
        try { 
+           
            FactoriaIntegracion instancia =  FactoriaIntegracion.getInstancia();
            EntrenadorDAO DAOEntrenador = instancia.crearEntrenadoresDAO();
            equipos = DAOEntrenador.readHistoricoByEntrenador(id);
+           
        } catch (Exception ex) {
            throw ex;
        }
