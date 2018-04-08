@@ -2,21 +2,13 @@ package com.mmit.presentacion;
 
 import com.mmit.presentacion.controlador.Contexto;
 import com.mmit.presentacion.controlador.Controlador;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.GridPane;
 
 public class ControladorVistaMenu implements Initializable, ControladorVista {
 
@@ -26,6 +18,8 @@ public class ControladorVistaMenu implements Initializable, ControladorVista {
     private Button botonJugadores;
     @FXML
     private Button botonEntrenadores;
+    @FXML
+    private GridPane menu;
     
     /**
      * Initializes the controller class.
@@ -37,7 +31,7 @@ public class ControladorVistaMenu implements Initializable, ControladorVista {
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
-
+        this.menu.setDisable(true);
         Controlador.obtenerInstancia().accion(new Contexto(Evento.Preloader, null));
         if (event.getSource() == botonEquipos){
             botonJugadores.getStyleClass().remove("botonMenuPulsado");
@@ -59,7 +53,11 @@ public class ControladorVistaMenu implements Initializable, ControladorVista {
 
     @Override
     public void Actualizar(Contexto contexto) {
-        
+        switch(contexto.getEvento()){
+            case HabilitarMenu:
+                this.menu.setDisable(false);
+                break;
+        }
     }
     
 }

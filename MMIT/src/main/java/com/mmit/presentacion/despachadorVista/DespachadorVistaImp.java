@@ -3,6 +3,7 @@ package com.mmit.presentacion.despachadorVista;
 
 import com.mmit.presentacion.ControladorVista;
 import com.mmit.presentacion.ControladorVistaMenu;
+import com.mmit.presentacion.Evento;
 import com.mmit.presentacion.controlador.Contexto;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -25,7 +26,8 @@ public class DespachadorVistaImp extends DespachadorVista {
         switch(contexto.getEvento()) {
             case AbrirMenuPrincipal:
                 try{
-                    stage = (Stage) contexto.getDatos();
+                    stage.close();
+                    stage = new Stage();
                     FXMLLoader loaderMenu = new FXMLLoader(getClass().getResource("/fxml/MenuNoLog.fxml"));
                     FXMLLoader loaderContenido = new FXMLLoader(getClass().getResource("/fxml/Index.fxml"));
 
@@ -51,6 +53,31 @@ public class DespachadorVistaImp extends DespachadorVista {
                     Logger.getLogger(DespachadorVistaImp.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 break;
+            case AbrirLogin:
+                try{
+                    stage = (Stage) contexto.getDatos();
+                    FXMLLoader loaderContenido = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
+
+                    AnchorPane index = (AnchorPane) loaderContenido.load();
+                    
+                    controladorContenido = loaderContenido.getController();
+
+                    BorderPane borderPane = new BorderPane();
+                    borderPane.setCenter(index);
+
+                    Scene scene = new Scene(borderPane);
+                    scene.getStylesheets().add("/styles/Styles.css");
+
+                    stage.setTitle("MMIT");
+                    stage.getIcons().add(new Image("/images/logo_nf.png"));
+                    stage.centerOnScreen(); 
+                    stage.setResizable(false);
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException ex) {
+                    Logger.getLogger(DespachadorVistaImp.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                break;
             case AbrirListarEntrenadores:
                 try {
                     BorderPane root = (BorderPane) stage.getScene().getRoot();
@@ -59,6 +86,7 @@ public class DespachadorVistaImp extends DespachadorVista {
                     root.setCenter((AnchorPane) loaderContenido.load());
                     controladorContenido = loaderContenido.getController();
                     controladorContenido.Actualizar(contexto);
+                    controladorMenu.Actualizar(new Contexto(Evento.HabilitarMenu, null));
                 } catch (IOException ex) {
                     Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -71,6 +99,7 @@ public class DespachadorVistaImp extends DespachadorVista {
                     root.setCenter((AnchorPane) loaderContenido.load());
                     controladorContenido = loaderContenido.getController();
                     controladorContenido.Actualizar(contexto);
+                    controladorMenu.Actualizar(new Contexto(Evento.HabilitarMenu, null));
                 } catch (IOException ex) {
                     Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -83,6 +112,7 @@ public class DespachadorVistaImp extends DespachadorVista {
                     root.setCenter((AnchorPane) loaderContenido.load());
                     controladorContenido = loaderContenido.getController();
                     controladorContenido.Actualizar(contexto);
+                    controladorMenu.Actualizar(new Contexto(Evento.HabilitarMenu, null));
                 } catch (IOException ex) {
                     Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
                 }

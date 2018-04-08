@@ -2,6 +2,10 @@
     -fx-font-family: "Helvetica";
 }
 
+.escenaLogin {
+    -fx-background-color: orange;
+}
+
 .escenaMenu {
     -fx-border-style: solid;
     -fx-border-width: 0px 2px 0px 0px;

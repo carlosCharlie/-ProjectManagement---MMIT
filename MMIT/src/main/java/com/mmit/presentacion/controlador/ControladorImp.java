@@ -10,11 +10,14 @@ public class ControladorImp extends Controlador{
 
     private static Contexto contexto;
     private static Contexto contextoRetorno;
+    private Thread t;
     
     @Override
     public void accion(Contexto contexto) {
+
         this.contexto = contexto;
-        new Thread(new Runnable() {
+        t = new Thread(new Runnable() {
+    
             @Override
             public void run() {
                 Comando comando = FactoriaComandos.obtenerInstancia().obtenerComando(contexto.getEvento());
@@ -27,9 +30,10 @@ public class ControladorImp extends Controlador{
                         DespachadorVista.obtenerInstancia().crearVista(contextoRetorno);  
                     }
                 });
-                  
             }
-        }).start();
+        });
+        
+        t.start();
         
     }
 }

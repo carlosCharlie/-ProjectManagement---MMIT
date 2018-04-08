@@ -2,6 +2,7 @@ package com.mmit.presentacion.factoriaComandos;
 
 import com.mmit.presentacion.Evento;
 import com.mmit.presentacion.comando.Comando;
+import com.mmit.presentacion.comando.ComandoAbrirLogin;
 import com.mmit.presentacion.comando.ComandoAbrirMenuPrincipal;
 import com.mmit.presentacion.comando.ComandoPreloader;
 import com.mmit.presentacion.comando.entrenadores.ComandoAbrirListarEntrenadores;
@@ -18,6 +19,8 @@ public class FactoriaComandosImp extends FactoriaComandos{
        switch(evento){
             case AbrirMenuPrincipal:
                 return new ComandoAbrirMenuPrincipal();
+            case AbrirLogin:
+                return new ComandoAbrirLogin();
             case AbrirListarJugadores:
                 return new ComandoAbrirListarJugadores();
             case AbrirListarEquipos:
