@@ -63,8 +63,8 @@ public class JugadorTrans {
         this.libresAnotados = libresAnotados;
         this.libresIntentados = libresIntentados;
         this.libresPorcentaje = (Double.valueOf(this.libresAnotados) / Double.valueOf(this.libresIntentados)) * 100;
-        this.tirosTotales = this.campoIntentados + this.dosIntentados + this.tresIntentados + this.libresIntentados;
-        this.tirosAnotados = this.campoAnotados + this.dosAnotados + this.tresAnotados + this.libresAnotados;
+        this.tirosTotales = this.campoIntentados + this.dosIntentados + this.tresIntentados;
+        this.tirosAnotados = this.campoAnotados + this.dosAnotados + this.tresAnotados;
         this.tirosPorcentaje = (Double.valueOf(this.tirosAnotados) / Double.valueOf(this.tirosTotales)) * 100;
         this.rebotesOfensivos = rebotesOfensivos;
         this.rebotesDefensivos = rebotesDefensivos;
@@ -80,7 +80,7 @@ public class JugadorTrans {
 
     
 	public JugadorTrans(Integer id, String nombre, String apellidos, Integer idEquipo, Integer edad, double peso,
-			double altura, String posicion, Integer partidos, Integer minutos, int tirosTotales, int tirosAnotados,
+			double altura, String posicion, Integer partidos, Integer minutos, Integer libresAnotados, Integer libresIntentados, Integer tirosTotales, Integer tirosAnotados,
 			Integer rebotesOfensivos, int rebotesTotales, Integer asistencias, Integer robos, Integer faltas,
 			Integer puntos, Integer tapones, Integer perdidas, String mano) {
 		this.id = id;
@@ -93,6 +93,9 @@ public class JugadorTrans {
 		this.posicion = posicion;
 		this.partidos = partidos;
 		this.minutos = minutos;
+		this.libresAnotados = libresAnotados;
+		this.libresIntentados = libresIntentados;
+        this.libresPorcentaje = (Double.valueOf(this.libresAnotados) / Double.valueOf(this.libresIntentados)) * 100;
 		this.tirosTotales = tirosTotales;
 		this.tirosAnotados = tirosAnotados;
         this.tirosPorcentaje = (Double.valueOf(this.tirosAnotados) / Double.valueOf(this.tirosTotales)) * 100;
