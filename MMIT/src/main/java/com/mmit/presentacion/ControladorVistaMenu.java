@@ -43,40 +43,18 @@ public class ControladorVistaMenu implements Initializable, ControladorVista {
             botonJugadores.getStyleClass().remove("botonMenuPulsado");
             botonEntrenadores.getStyleClass().remove("botonMenuPulsado");
             botonEquipos.getStyleClass().add("botonMenuPulsado");
+            Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEquipos, null));
         } else if (event.getSource() == botonJugadores){;
             botonJugadores.getStyleClass().add("botonMenuPulsado");
             botonEntrenadores.getStyleClass().remove("botonMenuPulsado");
             botonEquipos.getStyleClass().remove("botonMenuPulsado");
+            Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarJugadores, null));
         } else if (event.getSource() == botonEntrenadores){
             botonJugadores.getStyleClass().remove("botonMenuPulsado");
             botonEntrenadores.getStyleClass().add("botonMenuPulsado");
             botonEquipos.getStyleClass().remove("botonMenuPulsado");
+            Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEntrenadores, null));
         }
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(500);
-                    Platform.runLater(new Runnable() {
-                        
-                        @Override
-                        public void run() {
-                            if (event.getSource() == botonEquipos){
-                                Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEquipos, null));
-                            } else if (event.getSource() == botonJugadores){
-                                Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarJugadores, null));
-                            } else if (event.getSource() == botonEntrenadores){
-                                Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEntrenadores, null));
-                            }
-                        }
-                    });
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }).start();
-        
     }
 
     @Override
