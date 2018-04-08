@@ -25,63 +25,19 @@ package com.mmit.negocio.usuarios;
 public class Login {
     //En la base de datos hay insertado un admin por defecto: nombre="admin" password="adminP"
     
-    
-    static private String nombre="user";
-    static private String password="user";
-    static private boolean admin=false;
-    static private Integer id;
+    static private UsuarioTrans usuario;
+
 
     /**
      * Inicia una nueva sesion
-     * @param nombre nombre del usuario
-     * @param password password del usuario
-     * @param permiso permisos del usuario
+     * @param usuario transfer del usuario
      */
-    public static void setNuevaSesion(int id,String nombre,String password,boolean admin)
-    {
-        Login.id=id;
-        Login.nombre=nombre;
-        Login.password=password;
-        Login.admin=admin;
+    public static void setNuevaSesion(UsuarioTrans usuario){
+        Login.usuario = usuario;
     }
     
-    /**
-     * Pone la sesion por defecto
-     */
-    public static void SetSesionInicial(){
-        nombre="user";
-        password="user";
-        admin=false;
+    public static UsuarioTrans getUsuario(){
+        return usuario;
     }
-    
-    public static Integer getId(){
-        return id;
-    }
-    /**
-     * Indica si la sesion actual tiene permisos de administrador 
-     * @return true si es administrador, false si no
-     */
-    public static boolean getAdmin() {
-        return admin;
-    }
-    
-    /**
-     * Devuelve el nombre de la sesion actual
-     * @return nombre
-     */
-    public static String getNombre() {
-        return nombre;
-    }
-
-    /**
-     * Devuelve la password de la sesion actual
-     * @return password
-     */
-    public static String getPassword() {
-        return password;
-    }
-    
-    
-    
-    
+  
 }

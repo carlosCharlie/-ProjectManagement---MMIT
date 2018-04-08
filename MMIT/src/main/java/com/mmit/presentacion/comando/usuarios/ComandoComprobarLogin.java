@@ -15,7 +15,7 @@ public class ComandoComprobarLogin implements Comando {
         
         switch(respuesta){
             case 0:
-                Login.setNuevaSesion(((UsuarioTrans) datos).getId(), ((UsuarioTrans) datos).getNombre(), ((UsuarioTrans) datos).getPassword(), ((UsuarioTrans) datos).getAdmin());
+                Login.setNuevaSesion((UsuarioTrans) datos);
                 return new Contexto(Evento.UsuarioCorrecto, null);
             case -1:
                 return new Contexto(Evento.ErrorUsuario, datos);
