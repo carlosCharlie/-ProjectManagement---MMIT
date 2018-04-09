@@ -7,6 +7,11 @@ import java.util.ArrayList;
 
 public interface EntrenadorDAO {
     
+    /**
+     * Devuelve una lista de todos los entrenadores
+     * @return lista de todos los entrenadores en la base de datos
+     * @throws Exception 
+     */
      public ArrayList<EntrenadorTrans>readAll() throws Exception;
      
      /**
@@ -16,7 +21,19 @@ public interface EntrenadorDAO {
       */
      public EntrenadorTrans readByEquipo(int id_Equipo) throws Exception;
      
+     /**
+      * Devuelve el transfer de un entrenador dada su id
+      * @param id id del entrenador
+      * @return transfer con los datos del entrenador
+      * @throws Exception 
+      */
      public EntrenadorTrans readById(int id) throws Exception;
      
+     /**
+      * Devuelve los equipos con los que ha trabajado un entrenador
+      * @param id id del entrenador
+      * @return lista de equipos
+      * @throws Exception 
+      */
      public ArrayList<EquipoTrans> readHistoricoByEntrenador(int id) throws Exception;
 }

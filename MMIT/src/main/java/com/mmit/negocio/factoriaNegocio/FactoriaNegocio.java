@@ -15,11 +15,27 @@ abstract public class FactoriaNegocio {
         return f;
     }
     
+    /**
+     * crea un nuevo Servicio de Aplicacion de equipos
+     * @return 
+     */
     abstract public EquiposSA crearEquiposSA();
 
+    /**
+     * crea un nuevo Servicio de Aplicacion de jugadores
+     * @return 
+     */
     abstract public JugadoresSA crearJugadoresSA();
     
+    /**
+     * crea un nuevo Servicio de Aplicacion de entrenadores
+     * @return 
+     */
     abstract public EntrenadorSA crearEntrenadoresSA();
     
+    /**
+     * crea un nuevo Servicio de Aplicacion de usuarios
+     * @return 
+     */
     abstract public UsuariosSA crearUsuariosSA();
 }

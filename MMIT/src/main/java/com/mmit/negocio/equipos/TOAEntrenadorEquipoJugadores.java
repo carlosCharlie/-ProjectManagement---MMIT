@@ -22,7 +22,7 @@ import com.mmit.negocio.jugadores.JugadorTrans;
 import java.util.ArrayList;
 
 /**
- *
+ * hereda de TOAEntrenadorEquipo y ademas contiene la lista de los jugadores que jugan en el equipo actual del entrenador
  * @author carlos
  */
 public class TOAEntrenadorEquipoJugadores extends TOAEntrenadorEquipo {

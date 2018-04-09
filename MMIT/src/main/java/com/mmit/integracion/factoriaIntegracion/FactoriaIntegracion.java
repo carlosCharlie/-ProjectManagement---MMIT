@@ -9,6 +9,10 @@ abstract public class FactoriaIntegracion {
     
     static private FactoriaIntegracion f=null;
     
+    /**
+     * Devuelve la instancia del singleton
+     * @return 
+     */
     static public FactoriaIntegracion getInstancia(){
         if(f==null)
             f=new FactoriaIntegracionImp();

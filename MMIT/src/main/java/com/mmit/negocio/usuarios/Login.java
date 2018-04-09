@@ -19,8 +19,7 @@ package com.mmit.negocio.usuarios;
 
 
 /**
- *
- * @author carlos
+ * Es una clase estatica que almacena el usuario actual de la aplicacion
  */
 public class Login {
     //En la base de datos hay insertado un admin por defecto: nombre="admin" password="adminP"
@@ -36,6 +35,10 @@ public class Login {
         Login.usuario = usuario;
     }
     
+    /**
+     * Devuelve el usuario actual
+     * @return 
+     */
     public static UsuarioTrans getUsuario(){
         return usuario;
     }

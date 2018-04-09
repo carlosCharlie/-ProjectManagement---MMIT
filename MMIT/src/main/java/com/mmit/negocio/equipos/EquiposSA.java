@@ -5,6 +5,11 @@ import java.util.ArrayList;
 
 public interface EquiposSA {
 
+    /**
+     * Devuelve la lista de todos los equipos
+     * @return lista de equipos de la base de datos
+     * @throws Exception 
+     */
     public ArrayList<EquipoTrans> listarEquipos() throws Exception;
 
     /**
@@ -14,5 +19,10 @@ public interface EquiposSA {
      */
     public TOAEntrenadorEquipoJugadores obtenerEquipoCompleto(int id) throws Exception;
     
+    /**
+     * Devuelve el transfer de un equipo dado su id
+     * @param id id del equipo
+     * @return 
+     */
     public EquipoTrans obtenerEquipo(int id);
 }

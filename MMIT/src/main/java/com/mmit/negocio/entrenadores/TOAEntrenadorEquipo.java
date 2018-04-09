@@ -3,6 +3,9 @@ package com.mmit.negocio.entrenadores;
 import com.mmit.negocio.equipos.EquipoTrans;
 import java.util.ArrayList;
 
+/**
+ * Contiene un entrenador, el equipo en el que entrena actualmente, y el historial de equipos
+ */
 public class TOAEntrenadorEquipo {
     
     private EquipoTrans equipo;
