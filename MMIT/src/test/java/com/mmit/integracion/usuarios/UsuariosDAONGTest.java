@@ -16,9 +16,11 @@
  */
 package com.mmit.integracion.usuarios;
 
+import com.mmit.integracion.factoriaIntegracion.FactoriaIntegracion;
 import com.mmit.negocio.usuarios.UsuarioTrans;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.junit.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
@@ -38,14 +40,11 @@ public class UsuariosDAONGTest {
     public void testReadByNombre() {
         try {
             System.out.println("readByNombre");
-            String nombre = "admin";
-            UsuariosDAO instance = new UsuariosDAOImp();
-            UsuarioTrans result = instance.readByNombre(nombre);
-            assertEquals(result.getAdmin(), true);
-            assertEquals(result.getNombre(),"admin");
-            assertEquals(result.getPassword(),"adminP");
+            UsuariosDAO instance = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
+            UsuarioTrans result = instance.readByNombre("admin");
+            assertNotNull(result);
         } catch (Exception ex) {
-            
+            Assert.fail();
         }
         
     }

@@ -31,8 +31,8 @@ public class TestIntegracionEquipo {
         Controlador controlador = Controlador.obtenerInstancia();
         //Listar un equipo con entrenador
         Contexto cont = new Contexto(Evento.ObtenerDatosEquipo, 7);
-        EquipoTrans et = new EquipoTrans(7, "Alabama", 20, 16);
-        EntrenadorTrans ent = new EntrenadorTrans(4, "Avery", "Johnson", 7);
+        EquipoTrans et = new EquipoTrans(7, "Alabama", 20, 16, 1000, 999, 90, 98, 10, 29, 28, 30, 34, 50, 83, 32, 21, 5, 24);
+        EntrenadorTrans ent = new EntrenadorTrans(4, "Avery", "Johnson", 7, 5, 65, 1);
         TOAEntrenadorEquipo toae = new TOAEntrenadorEquipo(ent, et);
         controlador.accion(cont);
         TOAEntrenadorEquipo nuevo = (TOAEntrenadorEquipo)(cont.getDatos());
@@ -47,7 +47,7 @@ public class TestIntegracionEquipo {
         Controlador controlador = Controlador.obtenerInstancia();
         //Listar un equipo sin entrenador
         Contexto cont = new Contexto(Evento.ObtenerDatosEquipo, 31);
-        EquipoTrans et = new EquipoTrans(31, "Brigham Young", 24, 11);
+        EquipoTrans et = new EquipoTrans(7, "Alabama", 20, 16, 1000, 999, 90, 98, 10, 29, 28, 30, 34, 50, 83, 32, 21, 5, 24);
         TOAEntrenadorEquipo toae = new TOAEntrenadorEquipo(null, et);
         TOAEntrenadorEquipo nuevo = (TOAEntrenadorEquipo)(cont.getDatos());
         Assert.assertEquals(nuevo.getIdEquipo(), toae.getIdEquipo());

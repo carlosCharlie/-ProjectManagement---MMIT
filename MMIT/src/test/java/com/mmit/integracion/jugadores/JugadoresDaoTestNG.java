@@ -17,6 +17,7 @@
 package com.mmit.integracion.jugadores;
 
 import com.mmit.integracion.conexion.Conexion;
+import com.mmit.integracion.factoriaIntegracion.FactoriaIntegracion;
 import com.mmit.negocio.jugadores.JugadorTrans;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -52,8 +53,21 @@ public class JugadoresDaoTestNG {
     public void TestReadAll(){
         try{
             System.out.println("Listar jugadores");
-            JugadoresDAO instance = new JugadoresDAOImp();
+            JugadoresDAO instance = FactoriaIntegracion.getInstancia().crearJugadoresDAO();
             ArrayList<JugadorTrans> result = instance.readAll();
+            assertNotNull(result);
+        }catch(Exception e){
+            Assert.fail();
+        }
+        
+    }
+    
+    @Test
+    public void TestReadById(){
+        try{
+            System.out.println("Sacar jugador por id");
+            JugadoresDAO instance = FactoriaIntegracion.getInstancia().crearJugadoresDAO();
+            JugadorTrans result = instance.readByID(1);
             assertNotNull(result);
         }catch(Exception e){
             Assert.fail();
@@ -65,7 +79,7 @@ public class JugadoresDaoTestNG {
     public void TestGetRoaster(){
         try{
             System.out.println("Mostar plantilla");
-            JugadoresDAO instance = new JugadoresDAOImp();
+            JugadoresDAO instance = FactoriaIntegracion.getInstancia().crearJugadoresDAO();
             ArrayList<JugadorTrans> result = instance.readRoster(1);
             assertNotNull(result);
         }catch(Exception e){
@@ -73,6 +87,7 @@ public class JugadoresDaoTestNG {
         }
     }
     
+    /*
     @Test
     public void informacionJugador(){
         try {
@@ -186,5 +201,5 @@ public class JugadoresDaoTestNG {
         }
         
     }
-    
+    */
 }

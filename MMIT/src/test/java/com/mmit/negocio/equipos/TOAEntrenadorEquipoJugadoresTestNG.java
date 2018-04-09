@@ -33,26 +33,39 @@ public class TOAEntrenadorEquipoJugadoresTestNG {
     @Test
     public void testNGTOAEntrenadorEquipoJugadores(){
         try{
-            EntrenadorTrans ent = new EntrenadorTrans(1, "juan", "ramirez", 1);
-            EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
+            EntrenadorTrans ent = new EntrenadorTrans(1, "juan", "ramirez", 20, 8, 42, 1);
+            EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10, 40, 40, 20, 20, 5, 6, 2, 5, 4, 12, 3, 9, 8, 3, 5);
             ArrayList<JugadorTrans> jugadores  = new ArrayList();
-            jugadores.add(new JugadorTrans(1, "manolo", "juarez", 1, 18, 80.68, 180.5, "Alero", 34, 360, 28, 30, 34, 86, 38, 78, 65, 20, 30, 1000, 30, 28, "derecha"));
+            jugadores.add(new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha"));
             new TOAEntrenadorEquipoJugadores(ent, et, jugadores);
         }catch(Exception e){
             Assert.fail();
         }
     }
     
-     @Test
+    @Test
     public void testNGGetJugadores(){
-        EntrenadorTrans ent = new EntrenadorTrans(1, "juan", "ramirez", 1);
-        EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
+        EntrenadorTrans ent = new EntrenadorTrans(1, "juan", "ramirez", 20, 8, 42, 1);
+        EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10, 40, 40, 20, 20, 5, 6, 2, 5, 4, 12, 3, 9, 8, 3, 5);
         ArrayList<JugadorTrans> jugadores  = new ArrayList();
-        jugadores.add(new JugadorTrans(1, "manolo", "juarez", 1, 18, 80.68, 180.5, "Alero", 34, 360, 28, 30, 34, 86, 38, 78, 65, 20, 30, 1000, 30, 28, "derecha"));
+        jugadores.add(new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha"));
         TOAEntrenadorEquipoJugadores instance = new TOAEntrenadorEquipoJugadores(ent, et, jugadores);
-        ArrayList<JugadorTrans> result = new ArrayList();
-        result = instance.getJugadores();
-        assertEquals(result, instance);
+        ArrayList<JugadorTrans> result = instance.getJugadores();
+        assertEquals(result, jugadores);
+    }
+    
+    @Test
+    public void testNGSetJugadores(){
+        EntrenadorTrans ent = new EntrenadorTrans(1, "juan", "ramirez", 20, 8, 42, 1);
+        EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10, 40, 40, 20, 20, 5, 6, 2, 5, 4, 12, 3, 9, 8, 3, 5);
+        ArrayList<JugadorTrans> jugadores  = new ArrayList();
+        jugadores.add(new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha"));
+        TOAEntrenadorEquipoJugadores instance = new TOAEntrenadorEquipoJugadores(ent, et, jugadores);
+        ArrayList<JugadorTrans> result2 = new ArrayList();
+        result2.add(new JugadorTrans(2, "pepe", "perez", 20, 20, 20.0, 20.0, "Base", 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, "derecha"));
+        instance.setJugadores(result2);
+        ArrayList<JugadorTrans> result = instance.getJugadores();
+        assertEquals(result, result2);
     }
     
 }

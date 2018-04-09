@@ -43,7 +43,7 @@ public class EquiposSATestNG {
     }
     
     @Test
-    public void TestGetById(){
+    public void TestObtenerEquipoCompleto(){
         try{
             System.out.println("Sacar equipo segun Id");
             EquiposSA instance = new EquiposSAImp();
@@ -64,24 +64,6 @@ public class EquiposSATestNG {
         }catch(Exception e){
             Assert.fail();
         }
-    }
-    
-    @Test
-    public void TestObtenerEquipoCompleto(){
-        try{
-            System.out.println("Obtener plantilla con entrenador con el id");
-            EquiposSA instance = new EquiposSAImp();
-            EntrenadorTrans ent = new EntrenadorTrans(1, "juan", "ramirez", 1);
-            EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10);
-            ArrayList<JugadorTrans> jugadores  = new ArrayList();
-            jugadores.add(new JugadorTrans(1, "manolo", "juarez", 1, 18, 80.68, 180.5, "Alero", 34, 360, 28, 30, 34, 86, 38, 78, 65, 20, 30, 1000, 30, 28, "derecha"));
-            TOAEntrenadorEquipoJugadores result = new TOAEntrenadorEquipoJugadores(ent, et, jugadores);
-            result = instance.obtenerEquipoCompleto(1);
-            assertNotNull(result);
-        }catch(Exception e){
-             Assert.fail();
-        }
-            
     }
 }
     

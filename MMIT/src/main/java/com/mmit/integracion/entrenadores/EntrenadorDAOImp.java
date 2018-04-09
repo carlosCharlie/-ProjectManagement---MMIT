@@ -38,33 +38,8 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
         
         return equipos;
     }
-    /*
-    Buscar entrenador
-    */
-    public ArrayList<EntrenadorTrans> readByName(String name, String surname) throws Exception{
-        
-        ArrayList<EntrenadorTrans> entrenador = null;
-        
-        try{
-            Conexion.getInstancia().abrir();
-            Connection c = Conexion.getInstancia().getResource();
-
-            PreparedStatement ps = c.prepareStatement("SELECT"
-                    + " * FROM entrenador WHERE nombre LIKE %" + name +"% OR "
-                    + " apellidos LIKE %" + name +"%");  
-
-            ResultSet rs = ps.executeQuery();
-            while(rs.next())
-                entrenador.add(new EntrenadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo")));
-            Conexion.getInstancia().cerrar();
-        }
-        catch (SQLException ex) {
-            Conexion.getInstancia().cerrar();
-            throw ex;
-        }
-        
-        return entrenador;
-    }
+    
+    
     @Override
     public ArrayList<EntrenadorTrans> readAll() throws Exception{
        try {
@@ -105,7 +80,7 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
             
             
             if(rs.next()){
-                entrenador= (new EntrenadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("id_equipo")));
+                entrenador= (new EntrenadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("victorias"), rs.getInt("derrotas"), rs.getInt("edad"), rs.getInt("id_equipo")));
 
             }
         

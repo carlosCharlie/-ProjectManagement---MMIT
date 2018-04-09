@@ -44,7 +44,7 @@ public class EntrenadorSATestNG {
     public void TestNGListarEntrenadores(){
         try{
             System.out.print("Listar Entrenadores");
-            EntrenadorSA instance = new EntrenadorSAImp();
+            EntrenadorSA instance = FactoriaNegocio.getInstancia().crearEntrenadoresSA();
             ArrayList<TOAEntrenadorEquipo> result = instance.listarEntrenadores();
             assertNotNull(result);
         }catch(Exception e){
@@ -53,33 +53,32 @@ public class EntrenadorSATestNG {
     }
     
     @Test
-    public void informacionEntreadorEquipo(){
+    public void TestNGObtenerEntrenadorCompleto(){
         try {
             int id=1;
-            EntrenadorSA entrenadorSa = FactoriaNegocio.getInstancia().crearEntrenadoresSA();
-            TOAEntrenadorEquipo entrenadorEquipo = entrenadorSa.obtenerEntrenadorCompleto(id);
+            EntrenadorSA instance = FactoriaNegocio.getInstancia().crearEntrenadoresSA();
+            TOAEntrenadorEquipo result = instance.obtenerEntrenadorCompleto(id);
             
-            assertNotNull(entrenadorEquipo);
-            assertTrue(entrenadorEquipo.getApellidosEntrenador()!=null && entrenadorEquipo.getApellidosEntrenador().length()>0);
-            assertTrue(entrenadorEquipo.getEntrenador()!=null);
+            assertNotNull(result);
+            //assertTrue(entrenadorEquipo.getApellidosEntrenador()!=null && entrenadorEquipo.getApellidosEntrenador().length()>0);
+            //assertTrue(entrenadorEquipo.getEntrenador()!=null);
             //assertTrue(entrenadorEquipo.getNombreEquipo()!= null && entrenadorEquipo.getNombreEquipo().length()>0);
             
             
-            if(entrenadorEquipo.getEntrenador()!=null) //no tenemos este caso en cuenta porque puede no estar asignado
-                informacionEntrenador(entrenadorEquipo.getEntrenador());
+            /*if(entrenadorEquipo.getEntrenador()!=null) //no tenemos este caso en cuenta porque puede no estar asignado
+                informacionEntrenador(entrenadorEquipo.getEntrenador());*/
         } catch (Exception ex) {
             Assert.fail();
         }
         
     }
     @Test
-    public void equiposEntrenador(EntrenadorTrans entrenador){
+    public void TestNGObtenerHistoricoEquipos(){
        try {
-            int id=1;
-            EntrenadorSA entrenadorSa = FactoriaNegocio.getInstancia().crearEntrenadoresSA();
-            ArrayList<EquipoTrans> equipos = entrenadorSa.obtenerHistoricoEquipos(id);
+            EntrenadorSA instance = FactoriaNegocio.getInstancia().crearEntrenadoresSA();
+            ArrayList<EquipoTrans> result = instance.obtenerHistoricoEquipos(1);
             
-            assertNotNull(equipos);
+            assertNotNull(result);
 
         } catch (Exception ex) {
             Assert.fail();
@@ -87,11 +86,16 @@ public class EntrenadorSATestNG {
         
     }
     
-    public void informacionEntrenador(EntrenadorTrans entrenador)
+    public void TestNGObtenerEntrenador()
     {
-        assertNotNull(entrenador);
-        assertTrue(entrenador.getNombre()!=null && entrenador.getNombre().length()>0);
-        assertTrue(entrenador.getApellidos()!= null && entrenador.getApellidos().length()>0);
-        assertTrue(entrenador.getIdEquipo()>0);
+        try{
+            EntrenadorSA instance = FactoriaNegocio.getInstancia().crearEntrenadoresSA();
+            EntrenadorTrans result = instance.obtenerEntrenador(1);
+            
+            assertNotNull(result);
+
+        }catch(Exception e){
+            Assert.fail();
+        }
     }
 }

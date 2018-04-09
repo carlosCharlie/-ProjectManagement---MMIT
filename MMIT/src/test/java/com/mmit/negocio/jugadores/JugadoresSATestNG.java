@@ -16,6 +16,7 @@
  */
 package com.mmit.negocio.jugadores;
 
+import com.mmit.negocio.factoriaNegocio.FactoriaNegocio;
 import java.util.ArrayList;
 import junit.framework.Assert;
 import static org.testng.Assert.*;
@@ -37,7 +38,7 @@ public class JugadoresSATestNG {
     public void TestNGListarJugadores(){
         try{
             System.out.print("Listar Jugadores");
-            JugadoresSA instance = new JugadoresSAImp();
+            JugadoresSA instance = FactoriaNegocio.getInstancia().crearJugadoresSA();
             ArrayList<TOAJugadorEquipo> result = instance.listarJugadores();
             assertNotNull(result);
         }catch(Exception e){
@@ -46,33 +47,15 @@ public class JugadoresSATestNG {
     }
     
     @Test
-    public void TestEstadisticasJugador(){
-       System.out.print("Estadisticas Jugador");
-       JugadoresSA jugadoresSa=new JugadoresSAImp();
-       JugadorTrans j = jugadoresSa.obtenerJugador(1);
-       assertNotNull(j);
-       assertNotNull(j.getNombre());
-       assertNotNull(j.getApellidos());
-       assertNotNull(j.getEdad());
-       assertNotNull(j.getPeso());
-       assertNotNull(j.getAltura());
-       assertNotNull(j.getPosicion());
-       assertNotNull(j.getPartidos());
-       assertNotNull(j.getMinutos());
-       assertNotNull(j.getTirosAnotados());
-       assertNotNull(j.getTirosTotales());
-       assertNotNull(j.getTirosPorcentaje());
-       assertNotNull(j.getRebotesDefensivos());
-       assertNotNull(j.getRebotesOfensivos());
-       assertNotNull(j.getRebotesTotales());
-       assertNotNull(j.getRobos());
-       assertNotNull(j.getAsistencias());
-       assertNotNull(j.getTapones());
-       assertNotNull(j.getPuntos());
-       assertNotNull(j.getPerdidas());
-       assertNotNull(j.getLibresAnotados());
-       assertNotNull(j.getLibresIntentados());
-       assertNotNull(j.getLibresPorcentaje());
+    public void TestNGObtenerJugador(){
+        try{
+            System.out.print("Estadisticas Jugador");
+            JugadoresSA jugadoresSa = FactoriaNegocio.getInstancia().crearJugadoresSA();
+            JugadorTrans j = jugadoresSa.obtenerJugador(1);
+            assertNotNull(j);
+        }catch(Exception e){
+            Assert.fail();
+        }
        
     }
     
