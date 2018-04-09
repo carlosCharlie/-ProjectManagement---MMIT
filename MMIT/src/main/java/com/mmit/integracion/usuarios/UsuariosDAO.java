@@ -29,5 +29,5 @@ public interface UsuariosDAO {
      * @param nombre nombre del usuario
      * @return datos del usuario
      */
-    public UsuarioTrans readByNombre(String nombre);
+    public UsuarioTrans readByNombre(String nombre) throws Exception;
 }

@@ -22,8 +22,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -32,7 +30,7 @@ import java.util.logging.Logger;
 public class UsuariosDAOImp implements UsuariosDAO{
 
     @Override
-    public UsuarioTrans readByNombre(String nombre) {
+    public UsuarioTrans readByNombre(String nombre) throws Exception {
         try {
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
@@ -52,9 +50,9 @@ public class UsuariosDAOImp implements UsuariosDAO{
                 
         
         } catch (SQLException ex) {
-            Logger.getLogger(UsuariosDAOImp.class.getName()).log(Level.SEVERE, null, ex);
+            Conexion.getInstancia().cerrar();
+            throw new Exception("Error al conectarse a la BBDD");
         }
-        return null;
     }
     
 }

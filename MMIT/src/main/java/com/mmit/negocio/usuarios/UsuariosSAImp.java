@@ -8,17 +8,24 @@ import com.mmit.integracion.usuarios.UsuariosDAO;
 
 public class UsuariosSAImp implements UsuariosSA {
 
-	public int comprobarLogin(String name, String pass) {
-		int result = -5;
-		UsuariosDAO usuariosDao = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
-		UsuarioTrans tUsuario = usuariosDao.readByNombre(name);
-			if (tUsuario == null) {
-				result = -1;
-			} else if (!tUsuario.getPassword().equals(pass)) {
-				result = -2;
-			} else {
-				result = 0;
-			}
-		return result;
+        @Override
+	public int comprobarLogin(UsuarioTrans usuarioTrans) {
+            int respuesta = 0;
+            try{
+                UsuariosDAO usuariosDao = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
+                UsuarioTrans tUsuario = usuariosDao.readByNombre(usuarioTrans.getNombre());
+                if (tUsuario == null) {
+                    respuesta = -1;
+                } else if (!tUsuario.getPassword().equals(usuarioTrans.getPassword())) {
+                    respuesta= -2;
+                } else {
+                    usuarioTrans = tUsuario;
+                    respuesta = 0;
+                }
+                
+            } catch (Exception ex) {
+                respuesta = -5;
+            }
+            return respuesta;
 	}
 }

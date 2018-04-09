@@ -1,6 +1,7 @@
 package com.mmit.presentacion.despachadorVista;
 
 
+import com.mmit.negocio.usuarios.Login;
 import com.mmit.presentacion.ControladorVista;
 import com.mmit.presentacion.ControladorVistaMenu;
 import com.mmit.presentacion.Evento;
@@ -44,7 +45,11 @@ public class DespachadorVistaImp extends DespachadorVista {
                     Scene scene = new Scene(borderPane);
                     scene.getStylesheets().add("/styles/Styles.css");
 
-                    stage.setTitle("MMIT");
+                    if (Login.getUsuario() == null){
+                        stage.setTitle("MMIT - Usuario no Registrado");
+                    } else {
+                        stage.setTitle("MMIT - " + Login.getUsuario().getNombre());
+                    }
                     stage.getIcons().add(new Image("/images/logo_nf.png"));
                     stage.centerOnScreen(); 
                     stage.setScene(scene);

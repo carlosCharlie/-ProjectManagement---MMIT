@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField; 
@@ -26,6 +27,8 @@ public class ControladorVistaLogin implements Initializable, ControladorVista{
     private Label errorUsuarioVacio;
     @FXML
     private Label errorContrasenaVacia;
+    @FXML
+    private Button sinInicio;
     /**
      * Initializes the controller class.
      */
@@ -74,6 +77,11 @@ public class ControladorVistaLogin implements Initializable, ControladorVista{
                 this.errorContrasenaVacia.setVisible(true);
             }
         }
+    }
+    
+    @FXML
+    private void noLogin(){
+            Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirMenuPrincipal, null));
     }
     
 }

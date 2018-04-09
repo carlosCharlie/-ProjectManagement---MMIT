@@ -11,13 +11,11 @@ public class ComandoComprobarLogin implements Comando {
 
     @Override
     public Contexto execute(Object datos) {
-        int respuesta = 0;
-        UsuarioTrans TUsuario = (UsuarioTrans) datos;
-			respuesta = FactoriaNegocio.getInstancia().crearUsuariosSA().comprobarLogin(TUsuario.getNombre(), TUsuario.getPassword());
-		switch(respuesta){
+	int respuesta = FactoriaNegocio.getInstancia().crearUsuariosSA().comprobarLogin((UsuarioTrans) datos);
+        switch(respuesta){
             case 0:
                 Login.setNuevaSesion((UsuarioTrans) datos);
-                return new Contexto(Evento.UsuarioCorrecto, null);
+                return new Contexto(Evento.AbrirMenuPrincipal, null);
             case -1:
                 return new Contexto(Evento.ErrorUsuario, datos);
             case -2:
