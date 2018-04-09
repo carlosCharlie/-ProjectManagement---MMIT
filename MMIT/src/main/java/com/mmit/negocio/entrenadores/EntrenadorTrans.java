@@ -11,12 +11,6 @@ public class EntrenadorTrans {
     private Integer edad;
     private Integer idEquipo;
     
-    public EntrenadorTrans(Integer id, String nombre, String apellidos, Integer idEquipo){
-        this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.idEquipo = idEquipo;
-    }
 
     public EntrenadorTrans(Integer id, String nombre, String apellidos, Integer victorias, Integer derrotas, Integer edad, Integer idEquipo) {
         this.id = id;

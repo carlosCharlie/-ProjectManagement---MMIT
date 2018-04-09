@@ -36,15 +36,6 @@ public class EquipoTrans {
         this.id = id;
         this.nombre = nombre;
     }
-     
-    public EquipoTrans(int id, String nombre, Integer victorias, Integer derrotas){
-        this.id = id;
-        this.nombre = nombre;
-        this.victorias = victorias;
-        this.derrotas = derrotas;
-        this.jugados = this.victorias + this.derrotas;
-        this.porcentaje = (Double.valueOf(this.victorias) / Double.valueOf(this.jugados)) * 100;
-    }
 
     public EquipoTrans(int id, String nombre, Integer victorias, Integer derrotas,
 			Integer anotados, Integer recibidos, Integer campoAnotados, Integer campoIntentados,
