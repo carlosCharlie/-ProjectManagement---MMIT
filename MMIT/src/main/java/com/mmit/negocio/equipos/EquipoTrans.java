@@ -1,5 +1,6 @@
 package com.mmit.negocio.equipos;
 
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class EquipoTrans {
@@ -31,6 +32,7 @@ public class EquipoTrans {
     private Integer faltas;
     private Integer tapones;
     private Integer perdidas;
+    private double porcentajeTiros;
 	
     public EquipoTrans(int id, String nombre){
         this.id = id;
@@ -44,6 +46,8 @@ public class EquipoTrans {
         this.derrotas = derrotas;
         this.jugados = this.victorias + this.derrotas;
         this.porcentaje = (Double.valueOf(this.victorias) / Double.valueOf(this.jugados)) * 100;
+        this.porcentajeTiros = ((Double.valueOf(campoAnotados) + Double.valueOf(libresAnotados)) /(Double.valueOf(campoIntentados) + Double.valueOf(libresIntentados))) * 100;
+
     }
 
     public EquipoTrans(int id, String nombre, Integer victorias, Integer derrotas,
@@ -79,6 +83,8 @@ public class EquipoTrans {
 		this.faltas = faltas;
 		this.tapones = tapones;
 		this.perdidas = perdidas;
+                this.porcentajeTiros = ((Double.valueOf(campoAnotados) + Double.valueOf(libresAnotados)) /(Double.valueOf(campoIntentados) + Double.valueOf(libresIntentados))) * 100;
+
 	}
 
 	public int getId() {
@@ -123,10 +129,11 @@ public class EquipoTrans {
 
 
 
-	public double getPorcentaje() {
-		DecimalFormat df = new DecimalFormat("#,00");
-            Double valor = Double.valueOf(df.format(porcentaje));
-		return valor;
+	public String getPorcentaje() {
+		DecimalFormat df = new DecimalFormat(".00");
+           df.setRoundingMode(RoundingMode.DOWN);
+           String valor = df.format(porcentaje);
+           return valor;
 	}
 
 	public void setPorcentaje(double porcentaje) {
@@ -314,6 +321,19 @@ public class EquipoTrans {
 	public void setPerdidas(Integer perdidas) {
 		this.perdidas = perdidas;
 	}
+        
+	public Integer getTirosIntentados() {
+		return campoIntentados + libresIntentados;
+	}
 
-    
+	public Integer getTirosAnotados() {
+		return campoAnotados + libresAnotados;
+	}
+
+	public String getPorcentajeTiros() {
+            DecimalFormat df = new DecimalFormat(".00");
+           df.setRoundingMode(RoundingMode.DOWN);
+           String valor = df.format(porcentajeTiros);
+           return valor;
+	}
 }

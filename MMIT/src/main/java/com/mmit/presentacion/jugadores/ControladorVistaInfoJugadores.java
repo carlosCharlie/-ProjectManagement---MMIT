@@ -35,39 +35,23 @@ public class ControladorVistaInfoJugadores implements Initializable, Controlador
     private Label campoAnotados;
     @FXML
     private Label campoIntentados;
-    @FXML
     private Label triplesAnotados;
-    @FXML
     private Label triplesIntentados;
-    @FXML
     private Label porcentajeTriples;
-    @FXML
     private Label libresAnotados;
-    @FXML
     private Label libresIntentados;
-    @FXML
     private Label porcentajeLibres;
-    @FXML
     private Label perdidas;
-    @FXML
     private Label rebotesOfensivos;
-    @FXML
     private Label rebotesDefensivos;
-    @FXML
     private Label tapones;
-    @FXML
     private Label asistencias;
-    @FXML
     private Label faltas;
-    @FXML
     private Label robos;
     @FXML
     private Label porcentajeCampo;
-    @FXML
     private Label dosAnotados;
-    @FXML
     private Label dosIntentados;
-    @FXML
     private Label porcentajeDos;
 
     /**
@@ -115,9 +99,9 @@ public class ControladorVistaInfoJugadores implements Initializable, Controlador
     
     private void rellenarEstadisticas(){
         this.puntos.setText(String.valueOf(this.jugador.getJugador().getPuntos()));
-        this.campoAnotados.setText(String.valueOf(this.jugador.getJugador().getCampoAnotados()));
-        this.campoIntentados.setText(String.valueOf(this.jugador.getJugador().getCampoIntentados()));
-        this.porcentajeCampo.setText(String.valueOf(this.jugador.getJugador().getCampoPorcentaje()));
+        this.campoAnotados.setText(String.valueOf(this.jugador.getJugador().getTirosTotalesAnotados()));
+        this.campoIntentados.setText(String.valueOf(this.jugador.getJugador().getTirosTotalesIntentados()));
+        this.porcentajeCampo.setText(this.jugador.getJugador().getPorcentajeTirosTotales());/*
         this.dosAnotados.setText(String.valueOf(this.jugador.getJugador().getDosAnotados()));
         this.dosIntentados.setText(String.valueOf(this.jugador.getJugador().getDosIntentados()));
         this.porcentajeDos.setText(String.valueOf(this.jugador.getJugador().getDosPorcentaje()));
@@ -133,7 +117,7 @@ public class ControladorVistaInfoJugadores implements Initializable, Controlador
         this.robos.setText(String.valueOf(this.jugador.getJugador().getRobos()));
         this.tapones.setText(String.valueOf(this.jugador.getJugador().getTapones()));
         this.faltas.setText(String.valueOf(this.jugador.getJugador().getFaltas()));
-        this.perdidas.setText(String.valueOf(this.jugador.getJugador().getPerdidas()));
+        this.perdidas.setText(String.valueOf(this.jugador.getJugador().getPerdidas()));*/
     }
 
 }

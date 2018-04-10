@@ -1,5 +1,6 @@
 package com.mmit.negocio.jugadores;
 
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class JugadorTrans {
@@ -39,6 +40,7 @@ public class JugadorTrans {
     private Integer tapones;
     private Integer perdidas;
     private String mano;
+    private double porcentajeTiros;
 
     public JugadorTrans(Integer id, String nombre, String apellidos, Integer idEquipo, Integer edad, double peso, double altura, String posicion, Integer partidos, Integer minutos, Integer campoAnotados, Integer campoIntentados, Integer dosAnotados, Integer dosIntentados, Integer tresAnotados, Integer tresIntentados, Integer libresAnotados, Integer libresIntentados, Integer rebotesOfensivos, Integer rebotesDefensivos, Integer asistencias, Integer robos, Integer faltas, Integer puntos, Integer tapones, Integer perdidas, String mano) {
         this.id = id;
@@ -76,6 +78,7 @@ public class JugadorTrans {
         this.tapones = tapones;
         this.perdidas = perdidas;
         this.mano = mano;
+        this.porcentajeTiros = ((Double.valueOf(campoAnotados) + Double.valueOf(libresAnotados)) /(Double.valueOf(campoIntentados) + Double.valueOf(libresIntentados))) * 100;
     }
 
     
@@ -109,6 +112,8 @@ public class JugadorTrans {
 		this.tapones = tapones;
 		this.perdidas = perdidas;
 		this.mano = mano;
+                this.porcentajeTiros = ((Double.valueOf(campoAnotados) + Double.valueOf(libresAnotados)) /(Double.valueOf(campoIntentados) + Double.valueOf(libresIntentados))) * 100;
+
 	}
 
 
@@ -408,4 +413,19 @@ public class JugadorTrans {
         public void setMano(String mano){
             this.mano = mano;
         }
+        
+        public Integer getTirosTotalesIntentados() {
+		return campoIntentados + libresIntentados;
+	}
+
+	public Integer getTirosTotalesAnotados() {
+		return campoAnotados + libresAnotados;
+	}
+
+	public String getPorcentajeTirosTotales() {
+           DecimalFormat df = new DecimalFormat(".00");
+           df.setRoundingMode(RoundingMode.DOWN);
+           String valor = df.format(porcentajeTiros);
+           return valor;
+	}
 }

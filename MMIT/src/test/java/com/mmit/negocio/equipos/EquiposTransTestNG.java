@@ -123,8 +123,8 @@ public class EquiposTransTestNG {
     @Test
     public void getPorcentajeTestNG(){
         EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
-        double result = instance.getPorcentaje();
-        assertEquals(result, 50.0);
+        String result = instance.getPorcentaje();
+        assertEquals(result, "50,00");
     }
     
     @Test

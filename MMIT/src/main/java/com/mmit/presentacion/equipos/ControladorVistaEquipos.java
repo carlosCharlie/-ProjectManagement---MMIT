@@ -41,7 +41,7 @@ public class ControladorVistaEquipos implements Initializable, ControladorVista 
     @FXML
     private TableColumn<EquipoTrans, Integer> colPP;
     @FXML
-    private TableColumn<EquipoTrans, Double> colPor;
+    private TableColumn<EquipoTrans, String> colPor;
     @FXML
     private TableColumn<EquipoTrans, Integer> colId;
    
@@ -82,7 +82,7 @@ public class ControladorVistaEquipos implements Initializable, ControladorVista 
         colPG.setCellValueFactory(new PropertyValueFactory<EquipoTrans, Integer>("victorias"));
         colPP.setCellValueFactory(new PropertyValueFactory<EquipoTrans, Integer>("derrotas"));
         colPJ.setCellValueFactory(new PropertyValueFactory<EquipoTrans, Integer>("jugados"));
-        colPor.setCellValueFactory(new PropertyValueFactory<EquipoTrans, Double>("porcentaje"));        
+        colPor.setCellValueFactory(new PropertyValueFactory<EquipoTrans, String>("porcentaje"));        
         
         
         
