@@ -130,7 +130,7 @@ public class EquipoTrans {
 
 
 	public String getPorcentaje() {
-		DecimalFormat df = new DecimalFormat(".00");
+		DecimalFormat df = new DecimalFormat("00.00");
            df.setRoundingMode(RoundingMode.DOWN);
            String valor = df.format(porcentaje);
            return valor;
