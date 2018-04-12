@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.graficotriangulo.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
@@ -25,7 +27,7 @@
          <center>
             <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
-                  <Tab text="Estadísticas">
+                  <Tab text="Estadísticas A">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -40,7 +42,7 @@
                                   <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="231.0" prefWidth="300.0" GridPane.columnSpan="2" GridPane.rowSpan="2">
+                                    <GridPane>
                                       <columnConstraints>
                                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -55,7 +57,7 @@
                                           <Label fx:id="puntos" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                                        </children>
                                     </GridPane>
-                                    <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="231.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowSpan="2">
+                                    <GridPane GridPane.columnIndex="2">
                                       <columnConstraints>
                                           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -67,7 +69,7 @@
                                         <RowConstraints minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <Label styleClass="tituloPequenoInformacionBasica" text="Tiros" GridPane.columnSpan="3" />
+                                          <Label styleClass="tituloPequenoInformacionBasica" text="Tiros de Campo" GridPane.columnSpan="3" />
                                           <Label styleClass="textoDestacadoInformacionBasica" text="Anotados" GridPane.rowIndex="1" />
                                           <Label styleClass="textoDestacadoInformacionBasica" text="Intentados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                           <Label styleClass="textoDestacadoInformacionBasica" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
@@ -76,10 +78,195 @@
                                           <Label fx:id="porcentajeCampo" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                        </children>
                                     </GridPane>
+                                    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                      <columnConstraints>
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label styleClass="tituloPequenoInformacionBasica" text="Triples" GridPane.columnSpan="3" GridPane.halignment="CENTER" />
+                                          <Label styleClass="textoDestacadoInformacionBasica" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Label styleClass="textoDestacadoInformacionBasica" text="Intentados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label styleClass="textoDestacadoInformacionBasica" text="Anotados" GridPane.rowIndex="1" />
+                                          <Label fx:id="triplesAnotados" GridPane.rowIndex="2" />
+                                          <Label fx:id="triplesIntentados" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label fx:id="porcentajeTriples" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label styleClass="textoDestacadoInformacionBasica" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Label styleClass="textoDestacadoInformacionBasica" text="Intentados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label styleClass="textoDestacadoInformacionBasica" text="Anotados" GridPane.rowIndex="1" />
+                                          <Label fx:id="libresAnotados" GridPane.rowIndex="2" />
+                                          <Label fx:id="libresIntentados" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label fx:id="porcentajeLibres" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Label styleClass="tituloPequenoInformacionBasica" text="Tiros Libres" GridPane.columnSpan="3" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <GridPane GridPane.rowIndex="1">
+                                       <children>
+                                          <Label styleClass="tituloPequenoInformacionBasica" text="Tiros de Dos" GridPane.columnSpan="3" />
+                                          <Label styleClass="textoDestacadoInformacionBasica" text="Anotados" GridPane.rowIndex="1" />
+                                          <Label styleClass="textoDestacadoInformacionBasica" text="Intentados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label styleClass="textoDestacadoInformacionBasica" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Label fx:id="dosAnotados" GridPane.rowIndex="2" />
+                                          <Label fx:id="dosIntentados" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label fx:id="porcentajeDos" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
                                  </children>
                               </GridPane>
                            </children></AnchorPane>
                      </content>
+                  </Tab>
+                  <Tab text="Estadísticas B">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane prefHeight="461.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <GridPane GridPane.columnIndex="1">
+                                       <children>
+                                          <Label fx:id="perdidas" styleClass="textoDestacadoInformacionBasica" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <Label styleClass="tituloPequenoInformacionBasica" text="Perdidas" GridPane.columnSpan="2" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <GridPane>
+                                       <children>
+                                          <Label styleClass="textoDestacadoInformacionBasica" text="Ofensivos" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <Label styleClass="textoDestacadoInformacionBasica" text="Defensivos" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <Label fx:id="rebotesOfensivos" GridPane.rowIndex="2" />
+                                          <Label fx:id="rebotesDefensivos" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label styleClass="tituloPequenoInformacionBasica" text="Rebotes" GridPane.columnSpan="2" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <GridPane GridPane.columnIndex="2">
+                                       <children>
+                                          <Label fx:id="tapones" styleClass="textoDestacadoInformacionBasica" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <Label styleClass="tituloPequenoInformacionBasica" text="Tapones" GridPane.columnSpan="2" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <GridPane GridPane.rowIndex="1">
+                                       <children>
+                                          <Label fx:id="asistencias" styleClass="textoDestacadoInformacionBasica" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <Label styleClass="tituloPequenoInformacionBasica" text="Asistencias" GridPane.columnSpan="2" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label fx:id="faltas" styleClass="textoDestacadoInformacionBasica" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <Label styleClass="tituloPequenoInformacionBasica" text="Faltas" GridPane.columnSpan="2" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label fx:id="robos" styleClass="textoDestacadoInformacionBasica" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <Label styleClass="tituloPequenoInformacionBasica" text="Robos" GridPane.columnSpan="2" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="300.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" prefWidth="300.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" prefWidth="300.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Graficas">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GraficoTriangular fx:id="grafico" layoutX="169.0" layoutY="64.0" />
+                           </children></AnchorPane>
+                    </content>
                   </Tab>
               </tabs>
             </TabPane>

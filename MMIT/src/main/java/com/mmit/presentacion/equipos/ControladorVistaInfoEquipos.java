@@ -42,27 +42,40 @@ public class ControladorVistaInfoEquipos implements Initializable, ControladorVi
     private Label puntosAnotados;
     @FXML
     private Label puntosRecibidos;
+    @FXML
     private Label campoAnotados;
+    @FXML
     private Label porcentajeCampo;
+    @FXML
     private Label triplesAnotados;
+    @FXML
     private Label porcentajeTriples;
+    @FXML
     private Label libresAnotados;
+    @FXML
     private Label porcentajeLibres;
+    @FXML
     private Label perdidas;
+    @FXML
     private Label rebotesOfensivos;
+    @FXML
     private Label tapones;
+    @FXML
     private Label asistencias;
+    @FXML
     private Label faltas;
+    @FXML
     private Label robos;
+    @FXML
     private Label campoIntentados;
+    @FXML
     private Label triplesIntentados;
+    @FXML
     private Label libresIntentados;
+    @FXML
     private Label rebotesTotales;
-    @FXML
     private Label tirosAnotados;
-    @FXML
     private Label tirosIntentados;
-    @FXML
     private Label porcentajeTiros;
 
     @Override
@@ -130,7 +143,6 @@ public class ControladorVistaInfoEquipos implements Initializable, ControladorVi
         this.victorias.setText(String.valueOf(this.equipo.getEquipo().getVictorias()) + "V");
         this.derrotas.setText(String.valueOf(this.equipo.getEquipo().getDerrotas()) + "D");
         this.porcentaje.setText("(" + this.equipo.getEquipo().getPorcentaje() + "%)");
-       /*
         this.campoAnotados.setText(String.valueOf(this.equipo.getEquipo().getCampoAnotados()));
         this.campoIntentados.setText(String.valueOf(this.equipo.getEquipo().getCampoIntentados()));
         this.porcentajeCampo.setText(String.valueOf(this.equipo.getEquipo().getCampoPorcentaje()));
@@ -147,10 +159,6 @@ public class ControladorVistaInfoEquipos implements Initializable, ControladorVi
         this.perdidas.setText(String.valueOf(this.equipo.getEquipo().getPerdidas()));
         this.tapones.setText(String.valueOf(this.equipo.getEquipo().getTapones()));
         this.robos.setText(String.valueOf(this.equipo.getEquipo().getRobos()));
-        */
-        
-        this.tirosAnotados.setText(String.valueOf(this.equipo.getEquipo().getTirosAnotados()));
-        this.tirosIntentados.setText(String.valueOf(this.equipo.getEquipo().getTirosIntentados()));
-        this.porcentajeTiros.setText(String.valueOf(this.equipo.getEquipo().getPorcentajeTiros()));
+
     }
 }

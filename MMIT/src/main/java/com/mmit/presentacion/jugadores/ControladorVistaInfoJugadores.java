@@ -1,5 +1,6 @@
 package com.mmit.presentacion.jugadores;
 
+import com.graficotriangulo.GraficoTriangular;
 import com.mmit.negocio.jugadores.TOAJugadorEquipo;
 import com.mmit.presentacion.ControladorVista;
 import com.mmit.presentacion.controlador.Contexto;
@@ -9,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Polygon;
 
 public class ControladorVistaInfoJugadores implements Initializable, ControladorVista {
     
@@ -35,24 +38,42 @@ public class ControladorVistaInfoJugadores implements Initializable, Controlador
     private Label campoAnotados;
     @FXML
     private Label campoIntentados;
+    @FXML
     private Label triplesAnotados;
+    @FXML
     private Label triplesIntentados;
+    @FXML
     private Label porcentajeTriples;
+    @FXML
     private Label libresAnotados;
+    @FXML
     private Label libresIntentados;
+    @FXML
     private Label porcentajeLibres;
+    @FXML
     private Label perdidas;
+    @FXML
     private Label rebotesOfensivos;
+    @FXML
     private Label rebotesDefensivos;
+    @FXML
     private Label tapones;
+    @FXML
     private Label asistencias;
+    @FXML
     private Label faltas;
+    @FXML
     private Label robos;
     @FXML
     private Label porcentajeCampo;
+    @FXML
     private Label dosAnotados;
+    @FXML
     private Label dosIntentados;
+    @FXML
     private Label porcentajeDos;
+    @FXML
+    private GraficoTriangular grafico;
 
     /**
      * Initializes the controller class.
@@ -69,6 +90,7 @@ public class ControladorVistaInfoJugadores implements Initializable, Controlador
                 this.jugador = (TOAJugadorEquipo) contexto.getDatos();
                 rellenarInformacionBasica();
                 rellenarEstadisticas();
+                rellenarGrafico();
                 break;
             case ErrorSQL:
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -101,7 +123,7 @@ public class ControladorVistaInfoJugadores implements Initializable, Controlador
         this.puntos.setText(String.valueOf(this.jugador.getJugador().getPuntos()));
         this.campoAnotados.setText(String.valueOf(this.jugador.getJugador().getTirosTotalesAnotados()));
         this.campoIntentados.setText(String.valueOf(this.jugador.getJugador().getTirosTotalesIntentados()));
-        this.porcentajeCampo.setText(this.jugador.getJugador().getPorcentajeTirosTotales());/*
+        this.porcentajeCampo.setText(this.jugador.getJugador().getPorcentajeTirosTotales());
         this.dosAnotados.setText(String.valueOf(this.jugador.getJugador().getDosAnotados()));
         this.dosIntentados.setText(String.valueOf(this.jugador.getJugador().getDosIntentados()));
         this.porcentajeDos.setText(String.valueOf(this.jugador.getJugador().getDosPorcentaje()));
@@ -117,7 +139,15 @@ public class ControladorVistaInfoJugadores implements Initializable, Controlador
         this.robos.setText(String.valueOf(this.jugador.getJugador().getRobos()));
         this.tapones.setText(String.valueOf(this.jugador.getJugador().getTapones()));
         this.faltas.setText(String.valueOf(this.jugador.getJugador().getFaltas()));
-        this.perdidas.setText(String.valueOf(this.jugador.getJugador().getPerdidas()));*/
+        this.perdidas.setText(String.valueOf(this.jugador.getJugador().getPerdidas()));
     }
 
+    private void rellenarGrafico(){
+        this.grafico.setPorcentajeA(Double.valueOf(this.porcentajeDos.getText()));
+        this.grafico.setVariableA("Tiros de 2");
+        this.grafico.setPorcentajeB(Double.valueOf(this.porcentajeTriples.getText()));
+        this.grafico.setVariableB("Tiros de 3");
+        this.grafico.setPorcentajeC(Double.valueOf(this.porcentajeLibres.getText()));  
+        this.grafico.setVariableC("Tiros Libres");
+    }
 }
