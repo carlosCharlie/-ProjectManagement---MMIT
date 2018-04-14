@@ -267,8 +267,7 @@
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
                               <GraficoTriangular fx:id="grafico" layoutX="169.0" layoutY="69.0" />
-                           </children>
-                        </AnchorPane>
+                           </children></AnchorPane>
                      </content>
                   </Tab>
               </tabs>
