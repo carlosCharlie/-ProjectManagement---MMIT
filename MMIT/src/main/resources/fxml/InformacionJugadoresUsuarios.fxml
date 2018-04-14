@@ -262,10 +262,7 @@
                   </Tab>
                   <Tab text="Graficas">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <GraficoTriangular fx:id="grafico" layoutX="169.0" layoutY="64.0" />
-                           </children></AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                     </content>
                   </Tab>
               </tabs>

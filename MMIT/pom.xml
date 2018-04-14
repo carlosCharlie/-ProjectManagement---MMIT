@@ -119,14 +119,6 @@
             <version>6.8.1</version>
             <scope>test</scope>
         </dependency>
-         <dependency>
-            <groupId>graficoTriangular</groupId>
-            <artifactId>community</artifactId>
-            <scope>system</scope>
-            <version>1.0</version>
-            <systemPath>${basedir}/src/main/resources/components/GraficoTriangulo/target/GraficoTriangulo-1.0.jar</systemPath>
-        </dependency>
-        
         
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
