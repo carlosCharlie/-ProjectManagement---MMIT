@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.grafico.graficotriangular.*?>
 <?import graficos.graficotriangulo.*?>
 <?import com.graficotriangulo.*?>
 <?import javafx.scene.shape.*?>
@@ -263,7 +264,11 @@
                   </Tab>
                   <Tab text="Graficas">
                      <content>
-                        <BorderPane fx:id="tabGraficas" prefHeight="200.0" prefWidth="200.0" />
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <GraficoTriangular fx:id="grafico" layoutX="169.0" layoutY="69.0" />
+                           </children>
+                        </AnchorPane>
                      </content>
                   </Tab>
               </tabs>

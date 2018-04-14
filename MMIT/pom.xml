@@ -103,7 +103,28 @@
                   <skipTests>true</skipTests> <!--Poner a false para probar test-->
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                        <configuration>
+                            <groupId>com.grafico.graficotriangular</groupId>
+                            <artifactId>GraficoTriangular</artifactId>
+                            <version>1.0</version>
+                            <packaging>jar</packaging>
+                            <file>${basedir}/lib/GraficoTriangular-1.0.jar</file>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
+        
     </build>
     <dependencies>
                 <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
@@ -111,6 +132,12 @@
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.21.0.1</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.grafico.graficotriangular</groupId>
+            <artifactId>GraficoTriangular</artifactId>
+            <version>1.0</version>
         </dependency>
     
         <dependency>
