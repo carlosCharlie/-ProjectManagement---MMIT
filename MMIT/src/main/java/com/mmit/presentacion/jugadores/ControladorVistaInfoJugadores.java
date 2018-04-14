@@ -3,6 +3,7 @@ package com.mmit.presentacion.jugadores;
 import com.mmit.negocio.jugadores.TOAJugadorEquipo;
 import com.mmit.presentacion.ControladorVista;
 import com.mmit.presentacion.controlador.Contexto;
+import graficos.graficotriangulo.GraficoTriangular;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -72,7 +73,7 @@ public class ControladorVistaInfoJugadores implements Initializable, Controlador
     @FXML
     private Label porcentajeDos;
     @FXML
-    //private GraficoTriangular grafico;
+    private GraficoTriangular grafico;
 
     /**
      * Initializes the controller class.
@@ -142,13 +143,11 @@ public class ControladorVistaInfoJugadores implements Initializable, Controlador
     }
 
     private void rellenarGrafico(){
-        /*
         this.grafico.setPorcentajeA(Double.valueOf(this.porcentajeDos.getText()));
         this.grafico.setVariableA("Tiros de 2");
         this.grafico.setPorcentajeB(Double.valueOf(this.porcentajeTriples.getText()));
         this.grafico.setVariableB("Tiros de 3");
         this.grafico.setPorcentajeC(Double.valueOf(this.porcentajeLibres.getText()));  
         this.grafico.setVariableC("Tiros Libres");
-*/
     }
 }
