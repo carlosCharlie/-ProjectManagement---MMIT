@@ -1,17 +1,17 @@
 package com.mmit.presentacion.jugadores;
 
+import com.components.GraficoTriangular;
 import com.mmit.negocio.jugadores.TOAJugadorEquipo;
 import com.mmit.presentacion.ControladorVista;
 import com.mmit.presentacion.controlador.Contexto;
-import graficos.graficotriangulo.GraficoTriangular;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Polygon;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
 public class ControladorVistaInfoJugadores implements Initializable, ControladorVista {
     
@@ -73,6 +73,8 @@ public class ControladorVistaInfoJugadores implements Initializable, Controlador
     @FXML
     private Label porcentajeDos;
     @FXML
+    private BorderPane tabGraficas;
+
     private GraficoTriangular grafico;
 
     /**
@@ -143,6 +145,8 @@ public class ControladorVistaInfoJugadores implements Initializable, Controlador
     }
 
     private void rellenarGrafico(){
+        this.grafico = new GraficoTriangular();
+        this.tabGraficas.setCenter(this.grafico);
         this.grafico.setPorcentajeA(Double.valueOf(this.porcentajeDos.getText()));
         this.grafico.setVariableA("Tiros de 2");
         this.grafico.setPorcentajeB(Double.valueOf(this.porcentajeTriples.getText()));
