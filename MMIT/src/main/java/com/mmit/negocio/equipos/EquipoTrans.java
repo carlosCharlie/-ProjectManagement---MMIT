@@ -6,33 +6,43 @@ import java.text.DecimalFormat;
 public class EquipoTrans {
     private int id;
     private String nombre;
+    
     private Integer victorias;
     private Integer derrotas;
     private Integer jugados;
     private double porcentaje;
+    
     private Integer anotados;
     private Integer recibidos;
+    
     private Integer campoAnotados;
     private Integer campoIntentados;
     private Integer campoFallados;
     private double campoPorcentaje;
+    
+    private Integer dosAnotados;
+    private Integer dosIntentados;
+    private double dosPorcentaje;
+    
     private Integer tresAnotados;
     private Integer tresIntentados;
     private Integer tresFallados;
     private double tresPorcentaje;
+    
     private Integer libresAnotados;
     private Integer libresIntentados;
     private Integer libresFallados;
     private double libresPorcentaje;
+    
     private Integer rebotesOfensivos;
     private Integer rebotesTotales;
     private Integer rebotesDefensivos;
+    
     private Integer asistencias;
     private Integer robos;
     private Integer faltas;
     private Integer tapones;
     private Integer perdidas;
-    private double porcentajeTiros;
 	
     public EquipoTrans(int id, String nombre){
         this.id = id;
@@ -42,11 +52,11 @@ public class EquipoTrans {
     public EquipoTrans(int id, String nombre, Integer victorias, Integer derrotas){
         this.id = id;
         this.nombre = nombre;
+        
         this.victorias = victorias;
         this.derrotas = derrotas;
         this.jugados = this.victorias + this.derrotas;
         this.porcentaje = (Double.valueOf(this.victorias) / Double.valueOf(this.jugados)) * 100;
-        this.porcentajeTiros = ((Double.valueOf(campoAnotados) + Double.valueOf(libresAnotados)) /(Double.valueOf(campoIntentados) + Double.valueOf(libresIntentados))) * 100;
 
     }
 
@@ -57,34 +67,63 @@ public class EquipoTrans {
 			Integer tapones, Integer perdidas) {
 		this.id = id;
 		this.nombre = nombre;
+                
 		this.victorias = victorias;
 		this.derrotas = derrotas;
 		this.jugados = this.victorias + this.derrotas;
-		this.porcentaje = (Double.valueOf(this.victorias) / Double.valueOf(this.jugados)) * 100;
+                if (this.jugados > 0){
+                    this.porcentaje = (Double.valueOf(this.victorias) / Double.valueOf(this.jugados)) * 100;
+                } else {
+                    this.porcentaje = 0;
+                }
+                                
 		this.anotados = anotados;
 		this.recibidos = recibidos;
+                
 		this.campoAnotados = campoAnotados;
 		this.campoIntentados = campoIntentados;
 		this.campoFallados = this.campoIntentados - this.campoAnotados;
-		this.campoPorcentaje = (Double.valueOf(this.campoAnotados) / Double.valueOf(this.campoIntentados)) * 100;
+                if (this.campoIntentados > 0){
+                    this.campoPorcentaje = (Double.valueOf(this.campoAnotados) / Double.valueOf(this.campoIntentados)) * 100;
+                } else {
+                    this.campoPorcentaje = 0;
+                }
+                
+                this.dosAnotados = campoAnotados - tresAnotados;
+		this.dosIntentados = campoIntentados - tresIntentados;
+                if (this.dosIntentados > 0){
+                    this.dosPorcentaje = (Double.valueOf(this.dosAnotados) / Double.valueOf(this.dosIntentados)) * 100;
+                } else {
+                    this.dosPorcentaje = 0;
+                }
+                
 		this.tresAnotados = tresAnotados;
 		this.tresIntentados = tresIntentados;
 		this.tresFallados = this.tresIntentados - this.tresAnotados;
-        this.tresPorcentaje = (Double.valueOf(this.tresAnotados) / Double.valueOf(this.tresIntentados)) * 100;
+                if (this.tresIntentados > 0){
+                    this.tresPorcentaje = (Double.valueOf(this.tresAnotados) / Double.valueOf(this.tresIntentados)) * 100;
+                } else {
+                    this.tresPorcentaje = 0;
+                }
+                
 		this.libresAnotados = libresAnotados;
 		this.libresIntentados = libresIntentados;
 		this.libresFallados = this.libresIntentados - this.libresAnotados;
-        this.libresPorcentaje = (Double.valueOf(this.libresAnotados) / Double.valueOf(this.libresIntentados)) * 100;
+                if (this.libresIntentados > 0){
+                    this.libresPorcentaje = (Double.valueOf(this.libresAnotados) / Double.valueOf(this.libresIntentados)) * 100;
+                } else {
+                    this.libresPorcentaje = 0;
+                }
+                
 		this.rebotesOfensivos = rebotesOfensivos;
 		this.rebotesTotales = rebotesTotales;
 		this.rebotesDefensivos = this.rebotesTotales - this.rebotesOfensivos;
+                
 		this.asistencias = asistencias;
 		this.robos = robos;
 		this.faltas = faltas;
 		this.tapones = tapones;
 		this.perdidas = perdidas;
-                this.porcentajeTiros = ((Double.valueOf(campoAnotados) + Double.valueOf(libresAnotados)) /(Double.valueOf(campoIntentados) + Double.valueOf(libresIntentados))) * 100;
-
 	}
 
 	public int getId() {
@@ -126,8 +165,6 @@ public class EquipoTrans {
 	public void setJugados(Integer jugados) {
 		this.jugados = jugados;
 	}
-
-
 
 	public String getPorcentaje() {
 		DecimalFormat df = new DecimalFormat("00.00");
@@ -180,10 +217,11 @@ public class EquipoTrans {
 		this.campoFallados = campoFallados;
 	}
 
-	public double getCampoPorcentaje() {
-		DecimalFormat df = new DecimalFormat("#,00");
-            Double valor = Double.valueOf(df.format(campoPorcentaje));
-		return valor;
+	public String getCampoPorcentaje() {
+            DecimalFormat df = new DecimalFormat("00.00");
+            df.setRoundingMode(RoundingMode.DOWN);
+            String valor = df.format(campoPorcentaje);
+            return valor;
 	}
 
 	public void setCampoPorcentaje(double campoPorcentaje) {
@@ -214,10 +252,11 @@ public class EquipoTrans {
 		this.tresFallados = tresFallados;
 	}
 
-	public double getTresPorcentaje() {
-		DecimalFormat df = new DecimalFormat("#,00");
-            Double valor = Double.valueOf(df.format(tresPorcentaje));
-		return valor;
+	public String getTresPorcentaje() {
+            DecimalFormat df = new DecimalFormat("00.00");
+            df.setRoundingMode(RoundingMode.DOWN);
+            String valor = df.format(tresPorcentaje);
+            return valor;
 	}
 
 	public void setTresPorcentaje(double tresPorcentaje) {
@@ -248,10 +287,11 @@ public class EquipoTrans {
 		this.libresFallados = libresFallados;
 	}
 
-	public double getLibresPorcentaje() {
-		DecimalFormat df = new DecimalFormat("#,00");
-            Double valor = Double.valueOf(df.format(libresPorcentaje));
-		return valor;
+	public String getLibresPorcentaje() {
+            DecimalFormat df = new DecimalFormat("00.00");
+            df.setRoundingMode(RoundingMode.DOWN);
+            String valor = df.format(libresPorcentaje);
+            return valor;
 	}
 
 	public void setLibresPorcentaje(double libresPorcentaje) {
@@ -322,18 +362,30 @@ public class EquipoTrans {
 		this.perdidas = perdidas;
 	}
         
-	public Integer getTirosIntentados() {
-		return campoIntentados + libresIntentados;
+        public Integer getDosAnotados() {
+		return dosAnotados;
+	}
+        
+        public void setDosAnotados(Integer dosAnotados) {
+		this.dosAnotados = dosAnotados;
 	}
 
-	public Integer getTirosAnotados() {
-		return campoAnotados + libresAnotados;
+	public Integer getDosIntentados() {
+		return dosIntentados;
 	}
 
-	public String getPorcentajeTiros() {
-            DecimalFormat df = new DecimalFormat(".00");
-           df.setRoundingMode(RoundingMode.DOWN);
-           String valor = df.format(porcentajeTiros);
-           return valor;
+	public void setdosIntentados(Integer dosIntentados) {
+		this.dosIntentados = dosIntentados;
+	}
+
+	public String getDosPorcentaje() {
+            DecimalFormat df = new DecimalFormat("00.00");
+            df.setRoundingMode(RoundingMode.DOWN);
+            String valor = df.format(dosPorcentaje);
+            return valor;
+	}
+
+	public void setDosPorcentaje(double dosPorcentaje) {
+		this.dosPorcentaje = dosPorcentaje;
 	}
 }

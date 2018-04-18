@@ -86,13 +86,13 @@
                                         <RowConstraints minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <Label styleClass="tituloPequenoInformacionBasica" text="Tiros de Campo" GridPane.columnSpan="3" />
+                                          <Label styleClass="tituloPequenoInformacionBasica" text="Tiros de Dos" GridPane.columnSpan="3" />
                                           <Label styleClass="textoDestacadoInformacionBasica" text="Anotados" GridPane.rowIndex="1" />
                                           <Label styleClass="textoDestacadoInformacionBasica" text="Intentados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                           <Label styleClass="textoDestacadoInformacionBasica" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                          <Label fx:id="campoAnotados" GridPane.rowIndex="2" />
-                                          <Label fx:id="campoIntentados" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <Label fx:id="porcentajeCampo" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Label fx:id="dosAnotados" GridPane.rowIndex="2" />
+                                          <Label fx:id="dosIntentados" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label fx:id="porcentajeDos" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                        </children>
                                     </GridPane>
                                     <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
