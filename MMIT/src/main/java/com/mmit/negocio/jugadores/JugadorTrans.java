@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 
 public class JugadorTrans {
 
+    //basico
     private Integer id;
     private String nombre;
     private String apellidos;
@@ -12,37 +13,50 @@ public class JugadorTrans {
     private Integer edad;
     private double peso;
     private double altura;
+  
     private String posicion;
+  
+    //estadisticas
     private Integer partidos;
     private Integer minutos;
+    
     private Integer campoAnotados;
     private Integer campoIntentados;
     private double campoPorcentaje;
+   
     private Integer dosAnotados;
     private Integer dosIntentados;
     private double dosPorcentaje;
+    
     private Integer tresAnotados;
     private Integer tresIntentados;
     private double tresPorcentaje;
+    
     private Integer libresAnotados;
     private Integer libresIntentados;
     private double libresPorcentaje;
+    
     private Integer tirosTotales;
-	private Integer tirosAnotados;
-	private double tirosPorcentaje;
+    private Integer tirosAnotados;
+    private double tirosPorcentaje;
+    
     private Integer rebotesOfensivos;
     private Integer rebotesDefensivos;
-	private int rebotesTotales;
+    private int rebotesTotales;
+    
     private Integer asistencias;
     private Integer robos;
     private Integer faltas;
     private Integer puntos;
     private Integer tapones;
     private Integer perdidas;
+    
     private String mano;
+    
     private double porcentajeTiros;
 
     public JugadorTrans(Integer id, String nombre, String apellidos, Integer idEquipo, Integer edad, double peso, double altura, String posicion, Integer partidos, Integer minutos, Integer campoAnotados, Integer campoIntentados, Integer dosAnotados, Integer dosIntentados, Integer tresAnotados, Integer tresIntentados, Integer libresAnotados, Integer libresIntentados, Integer rebotesOfensivos, Integer rebotesDefensivos, Integer asistencias, Integer robos, Integer faltas, Integer puntos, Integer tapones, Integer perdidas, String mano) {
+       
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -50,36 +64,74 @@ public class JugadorTrans {
         this.edad = edad;
         this.peso = peso;
         this.altura = altura;
+    
         this.posicion = posicion;
+        
         this.partidos = partidos;
         this.minutos = minutos;
+        
         this.campoAnotados = campoAnotados;
-        this.campoIntentados = campoIntentados;
-        this.campoPorcentaje = (Double.valueOf(this.campoAnotados) / Double.valueOf(this.campoIntentados)) * 100;
+        this.campoIntentados = campoIntentados;  
+        if(this.campoIntentados<1){
+            this.campoPorcentaje=0;
+        }else{
+            this.campoPorcentaje = (Double.valueOf(this.campoAnotados) / Double.valueOf(this.campoIntentados)) * 100;
+        }
+        
+        
         this.dosAnotados = dosAnotados;
         this.dosIntentados = dosIntentados;
-        this.dosPorcentaje = (Double.valueOf(this.dosAnotados) / Double.valueOf(this.dosIntentados)) * 100;
+        if(this.dosIntentados<1){
+            this.dosPorcentaje = 0;
+        }else{
+            this.dosPorcentaje = (Double.valueOf(this.dosAnotados) / Double.valueOf(this.dosIntentados)) * 100;
+        }
+        
         this.tresAnotados = tresAnotados;
         this.tresIntentados = tresIntentados;
-        this.tresPorcentaje = (Double.valueOf(this.tresAnotados) / Double.valueOf(this.tresIntentados)) * 100;
+        if(this.tresIntentados<1){
+            this.tresPorcentaje = 0;
+            
+        }else{
+            this.tresPorcentaje = (Double.valueOf(this.tresAnotados) / Double.valueOf(this.tresIntentados)) * 100;
+        }
+        
         this.libresAnotados = libresAnotados;
         this.libresIntentados = libresIntentados;
-        this.libresPorcentaje = (Double.valueOf(this.libresAnotados) / Double.valueOf(this.libresIntentados)) * 100;
+        if(this.libresIntentados<1){
+           this.libresPorcentaje = 0;
+        }else{
+             this.libresPorcentaje = (Double.valueOf(this.libresAnotados) / Double.valueOf(this.libresIntentados)) * 100;
+        }
+        
+        
         this.tirosTotales = this.campoIntentados + this.dosIntentados + this.tresIntentados;
         this.tirosAnotados = this.campoAnotados + this.dosAnotados + this.tresAnotados;
-        this.tirosPorcentaje = (Double.valueOf(this.tirosAnotados) / Double.valueOf(this.tirosTotales)) * 100;
+        if(this.tirosTotales<1){
+            this.tirosPorcentaje = 0;
+        }else{
+            this.tirosPorcentaje = (Double.valueOf(this.tirosAnotados) / Double.valueOf(this.tirosTotales)) * 100;
+        }
+        
         this.rebotesOfensivos = rebotesOfensivos;
         this.rebotesDefensivos = rebotesDefensivos;
         this.rebotesTotales = this.rebotesOfensivos + this.rebotesDefensivos;
+        
         this.asistencias = asistencias;
         this.robos = robos;
         this.faltas = faltas;
         this.puntos = puntos;
         this.tapones = tapones;
         this.perdidas = perdidas;
+        
         this.mano = mano;
-        this.porcentajeTiros = ((Double.valueOf(campoAnotados) + Double.valueOf(libresAnotados)) /(Double.valueOf(campoIntentados) + Double.valueOf(libresIntentados))) * 100;
-    }
+        if(campoIntentados+libresIntentados<1){
+            this.porcentajeTiros = 0;
+        }
+        else{
+            this.porcentajeTiros = ((Double.valueOf(campoAnotados) + Double.valueOf(libresAnotados)) /(Double.valueOf(campoIntentados) + Double.valueOf(libresIntentados))) * 100;
+        }
+     }
 
     
 	public JugadorTrans(Integer id, String nombre, String apellidos, Integer idEquipo, Integer edad, double peso,
