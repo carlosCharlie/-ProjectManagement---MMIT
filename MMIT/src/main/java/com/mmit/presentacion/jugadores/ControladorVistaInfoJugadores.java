@@ -105,47 +105,141 @@ public class ControladorVistaInfoJugadores implements Initializable, Controlador
     private void rellenarInformacionBasica(){
         this.nombreJugador.setText(this.jugador.getNombreJugador());
         this.apellidosJugador.setText(this.jugador.getApellidosJugador());
-        this.edad.setText(String.valueOf(this.jugador.getJugador().getEdad()));
-        this.peso.setText(String.valueOf(this.jugador.getJugador().getPeso()));
-        this.altura.setText(String.valueOf(this.jugador.getJugador().getAltura()));
+        
+        if (this.jugador.getJugador().getEdad() != null){
+            this.edad.setText(String.valueOf(this.jugador.getJugador().getEdad()));
+        } else {
+            this.edad.setText("-");
+        }
+        
+        if (this.jugador.getJugador().getPeso() != 0.0){
+            this.peso.setText(String.valueOf(this.jugador.getJugador().getPeso()));
+        } else {
+            this.peso.setText("-");
+        }
+        
+        if (this.jugador.getJugador().getAltura() != 0.0){
+            this.altura.setText(String.valueOf(this.jugador.getJugador().getAltura()));
+        } else {
+            this.altura.setText("-");
+        }
+        
         if (this.jugador.getEquipo() != null){
             this.nombreEquipo.setText(this.jugador.getEquipo().getNombre());
         } else {
             this.nombreEquipo.setText("-");
         }
-        this.posicion.setText(this.jugador.getJugador().getPosicion());
-        this.mano.setText(this.jugador.getJugador().getMano());
+        
+        if (this.jugador.getJugador().getPosicion() != null){
+            this.posicion.setText(this.jugador.getJugador().getPosicion());
+        } else {
+            this.posicion.setText("-");
+        }
+        
+        if (this.jugador.getJugador().getMano() != null){
+            this.mano.setText(this.jugador.getJugador().getMano());
+        } else {
+            this.mano.setText("-");
+        }
     }
     
     private void rellenarEstadisticas(){
-        this.puntos.setText(String.valueOf(this.jugador.getJugador().getPuntos()));
-        this.campoAnotados.setText(String.valueOf(this.jugador.getJugador().getTirosTotalesAnotados()));
-        this.campoIntentados.setText(String.valueOf(this.jugador.getJugador().getTirosTotalesIntentados()));
-        this.porcentajeCampo.setText(this.jugador.getJugador().getPorcentajeTirosTotales());
-        this.dosAnotados.setText(String.valueOf(this.jugador.getJugador().getDosAnotados()));
-        this.dosIntentados.setText(String.valueOf(this.jugador.getJugador().getDosIntentados()));
-        this.porcentajeDos.setText(String.valueOf(this.jugador.getJugador().getDosPorcentaje()));
-        this.triplesAnotados.setText(String.valueOf(this.jugador.getJugador().getTresAnotados()));
-        this.triplesIntentados.setText(String.valueOf(this.jugador.getJugador().getTresIntentados()));
-        this.porcentajeTriples.setText(String.valueOf(this.jugador.getJugador().getTresPorcentaje()));
-        this.libresAnotados.setText(String.valueOf(this.jugador.getJugador().getLibresAnotados()));
-        this.libresIntentados.setText(String.valueOf(this.jugador.getJugador().getLibresIntentados()));
-        this.porcentajeLibres.setText(String.valueOf(this.jugador.getJugador().getLibresPorcentaje()));
-        this.rebotesOfensivos.setText(String.valueOf(this.jugador.getJugador().getRebotesOfensivos()));
-        this.rebotesDefensivos.setText(String.valueOf(this.jugador.getJugador().getRebotesDefensivos()));
-        this.asistencias.setText(String.valueOf(this.jugador.getJugador().getAsistencias()));
-        this.robos.setText(String.valueOf(this.jugador.getJugador().getRobos()));
-        this.tapones.setText(String.valueOf(this.jugador.getJugador().getTapones()));
-        this.faltas.setText(String.valueOf(this.jugador.getJugador().getFaltas()));
-        this.perdidas.setText(String.valueOf(this.jugador.getJugador().getPerdidas()));
+        if (this.jugador.getJugador().getPuntos() != null){
+            this.puntos.setText(String.valueOf(this.jugador.getJugador().getPuntos()));
+        } else {
+            this.puntos.setText("-");
+        }
+        
+        if (this.jugador.getJugador().getCampoAnotados() <= this.jugador.getJugador().getCampoIntentados()){
+            this.campoAnotados.setText(String.valueOf(this.jugador.getJugador().getCampoAnotados()));
+            this.campoIntentados.setText(String.valueOf(this.jugador.getJugador().getCampoIntentados())); 
+            this.porcentajeCampo.setText(this.jugador.getJugador().getCampoPorcentaje());
+        } else {
+            this.campoAnotados.setText("-");
+            this.campoIntentados.setText("-"); 
+            this.porcentajeCampo.setText("-");
+        }
+        
+        if (this.jugador.getJugador().getDosIntentados() <= this.jugador.getJugador().getDosIntentados()){
+            this.dosAnotados.setText(String.valueOf(this.jugador.getJugador().getDosAnotados()));
+            this.dosIntentados.setText(String.valueOf(this.jugador.getJugador().getDosIntentados()));
+            this.porcentajeDos.setText(String.valueOf(this.jugador.getJugador().getDosPorcentaje()));
+        } else {
+            this.dosAnotados.setText("-");
+            this.dosIntentados.setText("-");
+            this.porcentajeDos.setText("-");
+        }
+        
+        if (this.jugador.getJugador().getTresAnotados() <= this.jugador.getJugador().getTresIntentados()){
+            this.triplesAnotados.setText(String.valueOf(this.jugador.getJugador().getTresAnotados()));
+            this.triplesIntentados.setText(String.valueOf(this.jugador.getJugador().getTresIntentados()));
+            this.porcentajeTriples.setText(String.valueOf(this.jugador.getJugador().getTresPorcentaje()));
+        } else {
+            this.triplesAnotados.setText("-");
+            this.triplesIntentados.setText("-");
+            this.porcentajeTriples.setText("-");
+        }
+        
+        if (this.jugador.getJugador().getLibresAnotados() <= this.jugador.getJugador().getLibresIntentados()){
+            this.libresAnotados.setText(String.valueOf(this.jugador.getJugador().getLibresAnotados()));
+            this.libresIntentados.setText(String.valueOf(this.jugador.getJugador().getLibresIntentados()));
+            this.porcentajeLibres.setText(String.valueOf(this.jugador.getJugador().getLibresPorcentaje()));
+        } else {
+            this.libresAnotados.setText("-");
+            this.libresIntentados.setText("-");
+            this.porcentajeLibres.setText("-");
+        }
+        
+        if (this.jugador.getJugador().getRebotesOfensivos() != null){
+            this.rebotesOfensivos.setText(String.valueOf(this.jugador.getJugador().getRebotesOfensivos()));
+        } else {
+            this.rebotesOfensivos.setText("-");
+        }
+        
+        if (this.jugador.getJugador().getRebotesDefensivos() != null){
+            this.rebotesDefensivos.setText(String.valueOf(this.jugador.getJugador().getRebotesDefensivos()));
+        } else {
+            this.rebotesDefensivos.setText("-");
+        }
+        
+        if (this.jugador.getJugador().getAsistencias() != null){
+            this.asistencias.setText(String.valueOf(this.jugador.getJugador().getAsistencias()));
+        } else {
+            this.asistencias.setText("-");
+        }
+        
+        if (this.jugador.getJugador().getRobos() != null){
+            this.robos.setText(String.valueOf(this.jugador.getJugador().getRobos()));
+        } else {
+            this.robos.setText("-");
+        }
+        
+        if (this.jugador.getJugador().getTapones() != null){
+            this.tapones.setText(String.valueOf(this.jugador.getJugador().getTapones()));
+        } else {
+            this.tapones.setText("-");
+        }
+        
+        if (this.jugador.getJugador().getFaltas() != null){
+            this.faltas.setText(String.valueOf(this.jugador.getJugador().getFaltas()));
+        } else {
+            this.faltas.setText("-");
+        }
+        
+        if (this.jugador.getJugador().getPerdidas() != null){
+            this.perdidas.setText(String.valueOf(this.jugador.getJugador().getPerdidas()));
+        } else {
+            this.perdidas.setText("-");
+        }
+        
     }
 
     private void rellenarGrafico(){
-        this.grafico.setPorcentajeA(Double.valueOf(this.porcentajeDos.getText()));
+        this.grafico.setPorcentajeA(Double.valueOf(this.jugador.getJugador().getDosPorcentaje()));
         this.grafico.setVariableA("Tiros de 2");
-        this.grafico.setPorcentajeB(Double.valueOf(this.porcentajeTriples.getText()));
+        this.grafico.setPorcentajeB(Double.valueOf(this.jugador.getJugador().getTresPorcentaje()));
         this.grafico.setVariableB("Tiros de 3");
-        this.grafico.setPorcentajeC(Double.valueOf(this.porcentajeLibres.getText()));  
+        this.grafico.setPorcentajeC(Double.valueOf(this.jugador.getJugador().getLibresPorcentaje()));
         this.grafico.setVariableC("Tiros Libres");
     }
 }

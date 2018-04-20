@@ -226,7 +226,7 @@ public class JugadoresTransTestNG {
     @Test
     public void TestNGgetCampoPorcentaje() {
         JugadorTrans instance =  new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha");
-        double result = instance.getCampoPorcentaje();
+        double result = Double.valueOf(instance.getCampoPorcentaje());
         assertEquals(result, 1.0);
     }
     
@@ -234,7 +234,7 @@ public class JugadoresTransTestNG {
     public void TestNGSetCampoPorcentaje() {
         JugadorTrans instance =  new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha");
         instance.setCampoPorcentaje(10.0);
-        double result = instance.getCampoPorcentaje();
+        double result = Double.valueOf(instance.getCampoPorcentaje());
         assertEquals(result, 10.0);
     }
     
@@ -271,7 +271,7 @@ public class JugadoresTransTestNG {
     @Test
     public void TestNGgeDosPorcentaje(){
         JugadorTrans instance =  new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha");
-        double result = instance.getDosPorcentaje();
+        double result = Double.valueOf(instance.getDosPorcentaje());
         assertEquals(result, 100.0);
     }
     
@@ -279,7 +279,7 @@ public class JugadoresTransTestNG {
     public void TestNSgeDosPorcentaje(){
         JugadorTrans instance =  new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha");
         instance.setDosPorcentaje(10.0);
-        double result = instance.getDosPorcentaje();
+        double result = Double.valueOf(instance.getDosPorcentaje());
         assertEquals(result, 10.0);
     }
     
@@ -316,7 +316,7 @@ public class JugadoresTransTestNG {
     @Test
     public void TestNGgeTresPorcentaje(){
         JugadorTrans instance =  new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha");
-        double result = instance.getTresPorcentaje();
+        double result = Double.valueOf(instance.getTresPorcentaje());
         assertEquals(result, 100.0);
     }
     
@@ -324,7 +324,7 @@ public class JugadoresTransTestNG {
     public void TestNSgeTresPorcentaje(){
         JugadorTrans instance =  new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha");
         instance.setTresPorcentaje(10.0);
-        double result = instance.getTresPorcentaje();
+        double result = Double.valueOf(instance.getTresPorcentaje());
         assertEquals(result, 10.0);
     }
     
@@ -372,53 +372,7 @@ public class JugadoresTransTestNG {
         instance.setLibresPorcentaje(10.0);
         double result = instance.getLibresIntentados();
         assertEquals(result, 10.0);
-    }
-    
-    @Test   
-    public void TestNGgetTirosTotales() {
-        JugadorTrans instance =  new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha");
-        int result = instance.getTirosTotales();
-        assertEquals(result, 10);
-    }
-    
-    @Test   
-    public void TestNGSetTirosTotales() {
-        JugadorTrans instance =  new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha");
-        instance.setTirosTotales(12);
-        int result = instance.getTirosTotales();
-        assertEquals(result, 12);
-    }
-    
-    @Test   
-    public void TestNGgetTirosAnotados() {
-        JugadorTrans instance =  new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha");
-        int result = instance.getTirosAnotados();
-        assertEquals(result, 10);
-    }
-    
-    @Test   
-    public void TestNGSetTirosAnotados() {
-        JugadorTrans instance =  new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha");
-        instance.setTirosAnotados(12);
-        int result = instance.getTirosAnotados();
-        assertEquals(result, 12);
-    }
-    
-    @Test
-    public void TestNGgetTirosPorcentaje() {
-        JugadorTrans instance =  new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha");
-        double result = instance.getTirosTotales();
-        assertEquals(result, 100.0);
-    }
-    
-    @Test
-    public void TestNGSetTirosPorcentaje() {
-        JugadorTrans instance =  new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha");
-        instance.setTirosPorcentaje(10.0);
-        double result = instance.getTirosPorcentaje();
-        assertEquals(result, 10.0);
-    }
-    
+    }   
         
     @Test   
     public void TestNGgetRebotesOfensivos() {

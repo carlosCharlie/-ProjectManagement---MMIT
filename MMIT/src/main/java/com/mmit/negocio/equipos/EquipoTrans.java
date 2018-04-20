@@ -2,6 +2,7 @@ package com.mmit.negocio.equipos;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 public class EquipoTrans {
     private int id;
@@ -167,10 +168,12 @@ public class EquipoTrans {
 	}
 
 	public String getPorcentaje() {
-		DecimalFormat df = new DecimalFormat("00.00");
-           df.setRoundingMode(RoundingMode.DOWN);
-           String valor = df.format(porcentaje);
-           return valor;
+            DecimalFormatSymbols symbol = new DecimalFormatSymbols();
+            symbol.setDecimalSeparator('.');
+            DecimalFormat df = new DecimalFormat("00.00", symbol);        
+            df.setRoundingMode(RoundingMode.DOWN);
+            String valor = df.format(porcentaje);
+            return valor;
 	}
 
 	public void setPorcentaje(double porcentaje) {
@@ -218,7 +221,9 @@ public class EquipoTrans {
 	}
 
 	public String getCampoPorcentaje() {
-            DecimalFormat df = new DecimalFormat("00.00");
+            DecimalFormatSymbols symbol = new DecimalFormatSymbols();
+            symbol.setDecimalSeparator('.');
+            DecimalFormat df = new DecimalFormat("00.00", symbol);        
             df.setRoundingMode(RoundingMode.DOWN);
             String valor = df.format(campoPorcentaje);
             return valor;
@@ -253,7 +258,9 @@ public class EquipoTrans {
 	}
 
 	public String getTresPorcentaje() {
-            DecimalFormat df = new DecimalFormat("00.00");
+            DecimalFormatSymbols symbol = new DecimalFormatSymbols();
+            symbol.setDecimalSeparator('.');
+            DecimalFormat df = new DecimalFormat("00.00", symbol);        
             df.setRoundingMode(RoundingMode.DOWN);
             String valor = df.format(tresPorcentaje);
             return valor;
@@ -288,7 +295,9 @@ public class EquipoTrans {
 	}
 
 	public String getLibresPorcentaje() {
-            DecimalFormat df = new DecimalFormat("00.00");
+            DecimalFormatSymbols symbol = new DecimalFormatSymbols();
+            symbol.setDecimalSeparator('.');
+            DecimalFormat df = new DecimalFormat("00.00", symbol);        
             df.setRoundingMode(RoundingMode.DOWN);
             String valor = df.format(libresPorcentaje);
             return valor;
@@ -379,7 +388,9 @@ public class EquipoTrans {
 	}
 
 	public String getDosPorcentaje() {
-            DecimalFormat df = new DecimalFormat("00.00");
+            DecimalFormatSymbols symbol = new DecimalFormatSymbols();
+            symbol.setDecimalSeparator('.');
+            DecimalFormat df = new DecimalFormat("00.00", symbol);        
             df.setRoundingMode(RoundingMode.DOWN);
             String valor = df.format(dosPorcentaje);
             return valor;

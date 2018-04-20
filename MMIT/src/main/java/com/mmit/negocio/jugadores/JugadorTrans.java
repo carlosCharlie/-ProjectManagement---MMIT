@@ -2,6 +2,7 @@ package com.mmit.negocio.jugadores;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 public class JugadorTrans {
 
@@ -35,10 +36,6 @@ public class JugadorTrans {
     private Integer libresAnotados;
     private Integer libresIntentados;
     private double libresPorcentaje;
-    
-    private Integer tirosTotales;
-    private Integer tirosAnotados;
-    private double tirosPorcentaje;
     
     private Integer rebotesOfensivos;
     private Integer rebotesDefensivos;
@@ -104,15 +101,6 @@ public class JugadorTrans {
              this.libresPorcentaje = (Double.valueOf(this.libresAnotados) / Double.valueOf(this.libresIntentados)) * 100;
         }
         
-        
-        this.tirosTotales = this.campoIntentados + this.dosIntentados + this.tresIntentados;
-        this.tirosAnotados = this.campoAnotados + this.dosAnotados + this.tresAnotados;
-        if(this.tirosTotales<1){
-            this.tirosPorcentaje = 0;
-        }else{
-            this.tirosPorcentaje = (Double.valueOf(this.tirosAnotados) / Double.valueOf(this.tirosTotales)) * 100;
-        }
-        
         this.rebotesOfensivos = rebotesOfensivos;
         this.rebotesDefensivos = rebotesDefensivos;
         this.rebotesTotales = this.rebotesOfensivos + this.rebotesDefensivos;
@@ -142,30 +130,36 @@ public class JugadorTrans {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.idEquipo = idEquipo;
+                
 		this.edad = edad;
 		this.peso = peso;
-		this.altura = altura;
+		this.altura = altura;   
+                
 		this.posicion = posicion;
 		this.partidos = partidos;
 		this.minutos = minutos;
+                
 		this.libresAnotados = libresAnotados;
 		this.libresIntentados = libresIntentados;
-        this.libresPorcentaje = (Double.valueOf(this.libresAnotados) / Double.valueOf(this.libresIntentados)) * 100;
-		this.tirosTotales = tirosTotales;
-		this.tirosAnotados = tirosAnotados;
-        this.tirosPorcentaje = (Double.valueOf(this.tirosAnotados) / Double.valueOf(this.tirosTotales)) * 100;
-		this.rebotesOfensivos = rebotesOfensivos;
+                this.libresPorcentaje = (Double.valueOf(this.libresAnotados) / Double.valueOf(this.libresIntentados)) * 100;
+		
+                this.rebotesOfensivos = rebotesOfensivos;
 		this.rebotesDefensivos = rebotesTotales-rebotesOfensivos;
 		this.rebotesTotales = rebotesTotales;
-		this.asistencias = asistencias;
-		this.robos = robos;
-		this.faltas = faltas;
-		this.puntos = puntos;
-		this.tapones = tapones;
-		this.perdidas = perdidas;
-		this.mano = mano;
-                this.porcentajeTiros = ((Double.valueOf(campoAnotados) + Double.valueOf(libresAnotados)) /(Double.valueOf(campoIntentados) + Double.valueOf(libresIntentados))) * 100;
-
+		
+                this.asistencias = asistencias;
+		
+                this.robos = robos;
+		
+                this.faltas = faltas;
+		
+                this.puntos = puntos;
+		
+                this.tapones = tapones;
+		
+                this.perdidas = perdidas;
+		
+                this.mano = mano;
 	}
 
 
@@ -265,10 +259,13 @@ public class JugadorTrans {
 		this.campoIntentados = campoIntentados;
 	}
 
-	public double getCampoPorcentaje() {
-		DecimalFormat df = new DecimalFormat("#,00");
-            Double valor = Double.valueOf(df.format(campoPorcentaje));
-		return valor;
+	public String getCampoPorcentaje() {
+            DecimalFormatSymbols symbol = new DecimalFormatSymbols();
+            symbol.setDecimalSeparator('.');
+            DecimalFormat df = new DecimalFormat("00.00", symbol);        
+            df.setRoundingMode(RoundingMode.DOWN);
+            String valor = df.format(campoPorcentaje);
+            return valor;
 	}
 
 	public void setCampoPorcentaje(double campoPorcentaje) {
@@ -291,10 +288,13 @@ public class JugadorTrans {
 		this.dosIntentados = dosIntentados;
 	}
 
-	public double getDosPorcentaje() {
-		DecimalFormat df = new DecimalFormat("#,00");
-            Double valor = Double.valueOf(df.format(dosPorcentaje));
-		return valor;
+	public String getDosPorcentaje() {
+            DecimalFormatSymbols symbol = new DecimalFormatSymbols();
+            symbol.setDecimalSeparator('.');
+            DecimalFormat df = new DecimalFormat("00.00", symbol);        
+            df.setRoundingMode(RoundingMode.DOWN);
+            String valor = df.format(dosPorcentaje);
+            return valor;
 	}
 
 	public void setDosPorcentaje(double dosPorcentaje) {
@@ -317,10 +317,13 @@ public class JugadorTrans {
 		this.tresIntentados = tresIntentados;
 	}
 
-	public double getTresPorcentaje() {
-		DecimalFormat df = new DecimalFormat("#,00");
-            Double valor = Double.valueOf(df.format(tresPorcentaje));
-		return valor;
+	public String getTresPorcentaje() {
+            DecimalFormatSymbols symbol = new DecimalFormatSymbols();
+            symbol.setDecimalSeparator('.');
+            DecimalFormat df = new DecimalFormat("00.00", symbol);        
+            df.setRoundingMode(RoundingMode.DOWN);
+            String valor = df.format(tresPorcentaje);
+            return valor;
 	}
 
 	public void setTresPorcentaje(double tresPorcentaje) {
@@ -343,43 +346,18 @@ public class JugadorTrans {
 		this.libresIntentados = libresIntentados;
 	}
 
-	public double getLibresPorcentaje() {
-            DecimalFormat df = new DecimalFormat("#,00");
-            Double valor = Double.valueOf(df.format(libresPorcentaje));
-		return valor;
+	public String getLibresPorcentaje() {
+            DecimalFormatSymbols symbol = new DecimalFormatSymbols();
+            symbol.setDecimalSeparator('.');
+            DecimalFormat df = new DecimalFormat("00.00", symbol);        
+            df.setRoundingMode(RoundingMode.DOWN);
+            String valor = df.format(libresPorcentaje);
+            return valor;
 	}
 
 	public void setLibresPorcentaje(double libresPorcentaje) {
             this.libresPorcentaje = libresPorcentaje;
 	}
-
-	public int getTirosTotales() {
-		return tirosTotales;
-	}
-
-	public void setTirosTotales(int tirosTotales) {
-		this.tirosTotales = tirosTotales;
-	}
-
-	public int getTirosAnotados() {
-		return tirosAnotados;
-	}
-
-	public void setTirosAnotados(int tirosAnotados) {
-		this.tirosAnotados = tirosAnotados;
-	}
-
-	public double getTirosPorcentaje() {
-		DecimalFormat df = new DecimalFormat("#,00");
-        Double valor = Double.valueOf(df.format(tirosPorcentaje));
-	return valor;
-	}
-
-
-	public void setTirosPorcentaje(double tirosPorcentaje) {
-		this.tirosPorcentaje = tirosPorcentaje;
-	}
-
 
 	public Integer getRebotesOfensivos() {
 		return rebotesOfensivos;
@@ -454,30 +432,11 @@ public class JugadorTrans {
 	}
         
         public String getMano(){
-            if (this.mano != null){
-                return this.mano;
-            } else {
-                return "-";
-            }
-            
+            return this.mano;     
         }
     
         public void setMano(String mano){
             this.mano = mano;
         }
         
-        public Integer getTirosTotalesIntentados() {
-		return campoIntentados + libresIntentados;
-	}
-
-	public Integer getTirosTotalesAnotados() {
-		return campoAnotados + libresAnotados;
-	}
-
-	public String getPorcentajeTirosTotales() {
-           DecimalFormat df = new DecimalFormat(".00");
-           df.setRoundingMode(RoundingMode.DOWN);
-           String valor = df.format(porcentajeTiros);
-           return valor;
-	}
 }
