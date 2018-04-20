@@ -1,41 +1,15 @@
-/*
- * Copyright (C) 2018 Your Organisation
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package com.mmit.negocio.equipos;
 
 import org.testng.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
-/**
- *
- * @author Fernando
- */
 public class EquiposTransTestNG {
     
     public EquiposTransTestNG() {
         
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
-    
     @Test
     public void TestNGEquipoTrans(){
         try{
@@ -207,7 +181,38 @@ public class EquiposTransTestNG {
     public void getCampPorcentajeFalladosTestNG(){
         EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
         double result = Double.valueOf(instance.getCampoPorcentaje());
-        assertEquals(result, 1.0);
+        assertEquals(result, "50,00");
+    }
+    
+    @Test
+    public void getCampoPorcentajeTestNG2(){
+    	EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 0, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        double result = Double.valueOf(instance.getCampoPorcentaje());
+        assertEquals(result, 0.0);
+    }
+    
+    @Test
+    public void getDosIntentadosTestNG(){
+    	EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 5, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        int result = instance.getDosIntentados();
+        assertEquals(result, 5);
+    
+    }
+    
+    @Test
+    public void getDosPorcentajeTestNG(){
+    	EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 20, 20, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        double result = Double.valueOf(instance.getDosPorcentaje());
+        assertEquals(result, "50,00");
+    
+    }
+    
+    @Test
+    public void getDosPorcentajeTestN2G(){
+    	EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        double result = Double.valueOf(instance.getDosPorcentaje());
+        assertEquals(result, 0.0);
+    
     }
     
     @Test
@@ -259,7 +264,14 @@ public class EquiposTransTestNG {
     public void getTresPorcentajeTestNG(){
         EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
         double result = Double.valueOf(instance.getTresPorcentaje());
-        assertEquals(result, 1.0);
+        assertEquals(result, "50,00");
+    }
+    
+    @Test
+    public void getTresPorcentajeTestNG2(){
+    	EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 0, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        double result = Double.valueOf(instance.getTresPorcentaje());
+        assertEquals(result, 0.0);
     }
     
     @Test
@@ -311,17 +323,15 @@ public class EquiposTransTestNG {
     public void getLibresPorcentajeTestNG(){
         EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
         double result = Double.valueOf(instance.getLibresPorcentaje());
-        assertEquals(result, 1.0);
+        assertEquals(result, 100.0);
     }
-    
     @Test
-    public void setLibresPorcentajeTestNG(){
-        EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
-        instance.setPorcentaje(20.0);
+    public void getLibresPorcentajeTestNG2(){
+    	EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 0, 10, 10, 10, 10, 10, 10, 10, 10);
         double result = Double.valueOf(instance.getLibresPorcentaje());
-        assertEquals(result, 1.0);
+        assertEquals(result, 0.0);
     }
-    
+        
     @Test
     public void getRebotesOfensivosTestNG(){
         EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
