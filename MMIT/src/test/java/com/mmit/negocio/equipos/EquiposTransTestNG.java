@@ -97,8 +97,8 @@ public class EquiposTransTestNG {
     @Test
     public void getPorcentajeTestNG(){
         EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
-        String result = instance.getPorcentaje();
-        assertEquals(result, "50,00");
+        double result = Double.valueOf(instance.getPorcentaje());
+        assertEquals(result, 50.0);
     }
     
     @Test
@@ -178,10 +178,10 @@ public class EquiposTransTestNG {
     }
     
     @Test
-    public void getCampPorcentajeFalladosTestNG(){
+    public void getCampoPorcentajeTestNG(){
         EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
         double result = Double.valueOf(instance.getCampoPorcentaje());
-        assertEquals(result, "50,00");
+        assertEquals(result, 100.0);
     }
     
     @Test
@@ -203,7 +203,7 @@ public class EquiposTransTestNG {
     public void getDosPorcentajeTestNG(){
     	EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 20, 20, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
         double result = Double.valueOf(instance.getDosPorcentaje());
-        assertEquals(result, "50,00");
+        assertEquals(result, 100.0);
     
     }
     
@@ -264,7 +264,7 @@ public class EquiposTransTestNG {
     public void getTresPorcentajeTestNG(){
         EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
         double result = Double.valueOf(instance.getTresPorcentaje());
-        assertEquals(result, "50,00");
+        assertEquals(result, 100.0);
     }
     
     @Test
