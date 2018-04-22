@@ -1,5 +1,6 @@
 package com.mmit.presentacion;
 
+import com.mmit.negocio.usuarios.Login;
 import com.mmit.presentacion.controlador.Contexto;
 import com.mmit.presentacion.controlador.Controlador;
 import java.net.URL;
@@ -20,13 +21,21 @@ public class ControladorVistaMenu implements Initializable, ControladorVista {
     private Button botonEntrenadores;
     @FXML
     private GridPane menu;
+    @FXML
+    private Button botonIniciarSesion;
+    @FXML
+    private Button botonCerrarSesion;
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        if (Login.getUsuario() != null){
+            this.botonCerrarSesion.setVisible(true);
+        } else {
+            this.botonIniciarSesion.setVisible(true);
+        }
     }
     
     @FXML
@@ -49,6 +58,16 @@ public class ControladorVistaMenu implements Initializable, ControladorVista {
             botonEquipos.getStyleClass().remove("botonMenuPulsado");
             Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEntrenadores, null));
         }
+    }
+    
+    @FXML
+    private void iniciarSesion(){
+        Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirLogin, null));
+    }
+    
+    @FXML
+    private void cerrarSesion(){
+        Controlador.obtenerInstancia().accion(new Contexto(Evento.CerrarSesion, null));
     }
 
     @Override

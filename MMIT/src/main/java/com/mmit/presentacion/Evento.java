@@ -31,6 +31,7 @@ public enum Evento {
     ComprobarLogin,
     UsuarioCorrecto,
     ErrorUsuario,
-    ErrorContrasena
+    ErrorContrasena,
+    CerrarSesion
     
 }

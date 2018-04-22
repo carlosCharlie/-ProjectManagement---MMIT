@@ -27,9 +27,11 @@ public class DespachadorVistaImp extends DespachadorVista {
         switch(contexto.getEvento()) {
             case AbrirMenuPrincipal:
                 try{
-                    stage.close();
+                    if (stage != null){
+                        stage.close();
+                    }
                     stage = new Stage();
-                    FXMLLoader loaderMenu = new FXMLLoader(getClass().getResource("/fxml/MenuNoLog.fxml"));
+                    FXMLLoader loaderMenu = new FXMLLoader(getClass().getResource("/fxml/Menu.fxml"));
                     FXMLLoader loaderContenido = new FXMLLoader(getClass().getResource("/fxml/Index.fxml"));
 
                     AnchorPane menu = (AnchorPane) loaderMenu.load();
@@ -59,8 +61,17 @@ public class DespachadorVistaImp extends DespachadorVista {
                 }
                 break;
             case AbrirLogin:
+            case CerrarSesion:
                 try{
-                    stage = (Stage) contexto.getDatos();
+                    if (stage != null){
+                        stage.close();
+                    }
+                    
+                    if (contexto.getEvento() == Evento.CerrarSesion){
+                        Login.setNuevaSesion(null);
+                    }
+                    
+                    stage = new Stage();
                     FXMLLoader loaderContenido = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
 
                     AnchorPane index = (AnchorPane) loaderContenido.load();

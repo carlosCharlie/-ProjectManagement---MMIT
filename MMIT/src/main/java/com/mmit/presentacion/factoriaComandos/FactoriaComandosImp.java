@@ -11,6 +11,7 @@ import com.mmit.presentacion.comando.equipos.ComandoAbrirListarEquipos;
 import com.mmit.presentacion.comando.equipos.ComandoAbrirMostrarEquipo;
 import com.mmit.presentacion.comando.jugadores.ComandoAbrirListarJugadores;
 import com.mmit.presentacion.comando.jugadores.ComandoAbrirMostrarJugador;
+import com.mmit.presentacion.comando.usuarios.ComandoCerrarSesion;
 import com.mmit.presentacion.comando.usuarios.ComandoComprobarLogin;
 
 public class FactoriaComandosImp extends FactoriaComandos{
@@ -22,6 +23,8 @@ public class FactoriaComandosImp extends FactoriaComandos{
                 return new ComandoAbrirMenuPrincipal();
             case AbrirLogin:
                 return new ComandoAbrirLogin();
+            case CerrarSesion:
+                return new ComandoCerrarSesion();
             case AbrirListarJugadores:
                 return new ComandoAbrirListarJugadores();
             case AbrirListarEquipos:

@@ -45,7 +45,11 @@ public class UsuariosDAOImp implements UsuariosDAO{
             }
             else
             {
-                return new UsuarioTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("password"),rs.getBoolean("esAdmin"));
+                if (rs.getInt("admin") == 1){
+                    return new UsuarioTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("password"),true);
+                } else {
+                    return new UsuarioTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("password"),false);
+                }
             }
                 
         

@@ -12,7 +12,7 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirLogin, stage));
+        Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirMenuPrincipal, null));
     }
 
     /**
