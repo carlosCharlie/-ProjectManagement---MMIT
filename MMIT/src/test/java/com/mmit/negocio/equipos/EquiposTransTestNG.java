@@ -9,9 +9,27 @@ public class EquiposTransTestNG {
     public EquiposTransTestNG() {
         
     }
-
+    
     @Test
     public void TestNGEquipoTrans(){
+        try{
+            new EquipoTrans(1, "pepe");
+        }catch(Exception e){
+            Assert.fail();
+        }
+    }
+    
+    @Test
+    public void TestNGEquipoTrans2(){
+        try{
+            new EquipoTrans(1, "pepe", 10, 10);
+        }catch(Exception e){
+            Assert.fail();
+        }
+    }
+
+    @Test
+    public void TestNGEquipoTrans3(){
         try{
             new EquipoTrans(1, "pepe", 10, 10, 40, 40, 20, 20, 5, 6, 2, 5, 4, 12, 3, 9, 8, 3, 5);
         }catch(Exception e){
@@ -99,6 +117,14 @@ public class EquiposTransTestNG {
         EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
         double result = Double.valueOf(instance.getPorcentaje());
         assertEquals(result, 50.0);
+    }
+    
+    @Test
+    public void setPorcentajeTestNG(){
+        EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        instance.setPorcentaje(10.0);
+        double result = Double.valueOf(instance.getPorcentaje());
+        assertEquals(result, 10.0);
     }
     
     @Test
@@ -192,6 +218,14 @@ public class EquiposTransTestNG {
     }
     
     @Test
+    public void setCampoPorcentajeTestNG(){
+        EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        instance.setCampoPorcentaje(10.0);
+        double result = Double.valueOf(instance.getCampoPorcentaje());
+        assertEquals(result, 10.0);
+    }
+    
+    @Test
     public void getDosIntentadosTestNG(){
     	EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 5, 10, 10, 10, 10, 10, 10, 10, 10, 10);
         int result = instance.getDosIntentados();
@@ -214,6 +248,15 @@ public class EquiposTransTestNG {
         assertEquals(result, 0.0);
     
     }
+    
+    @Test
+    public void setDosPorcentajeTestNG(){
+        EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        instance.setDosPorcentaje(10.0);
+        double result = Double.valueOf(instance.getDosPorcentaje());
+        assertEquals(result, 10.0);
+    }
+    
     
     @Test
     public void getTresAnotadosTestNG(){
@@ -275,6 +318,14 @@ public class EquiposTransTestNG {
     }
     
     @Test
+    public void setTresPorcentajeTestNG(){
+        EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        instance.setTresPorcentaje(10.0);
+        double result = Double.valueOf(instance.getTresPorcentaje());
+        assertEquals(result, 10.0);
+    }
+    
+    @Test
     public void getLibresAnotadosTestNG(){
         EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
         int result = instance.getLibresAnotados();
@@ -331,6 +382,14 @@ public class EquiposTransTestNG {
         double result = Double.valueOf(instance.getLibresPorcentaje());
         assertEquals(result, 0.0);
     }
+    
+    @Test
+    public void setLibresPorcentajeTestNG(){
+        EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
+        instance.setLibresPorcentaje(10.0);
+        double result = Double.valueOf(instance.getLibresPorcentaje());
+        assertEquals(result, 10.0);
+    }
         
     @Test
     public void getRebotesOfensivosTestNG(){
@@ -361,7 +420,7 @@ public class EquiposTransTestNG {
         int result = instance.getRebotesDefensivos();
         assertEquals(result, 12);
     }
-    
+    /*
     @Test
     public void getRebotesTotalesTestNG(){
         EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
@@ -376,7 +435,7 @@ public class EquiposTransTestNG {
         int result = instance.getRebotesTotales();
         assertEquals(result, 12);
     }
-    
+    */
     @Test
     public void getAsistenciasTestNG(){
         EquipoTrans instance = new EquipoTrans(1, "pepe", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
