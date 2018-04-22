@@ -1,24 +1,18 @@
 package com.mmit.presentacion.equipos;
 
-import com.mmit.negocio.entrenadores.TOAEntrenadorEquipo;
 import com.mmit.negocio.equipos.EquipoTrans;
 import com.mmit.presentacion.ControladorVista;
 import com.mmit.presentacion.Evento;
 import com.mmit.presentacion.controlador.Contexto;
 import com.mmit.presentacion.controlador.Controlador;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
@@ -26,7 +20,6 @@ import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.BorderPane;
 
 public class ControladorVistaEquipos implements Initializable, ControladorVista {
 
@@ -49,9 +42,6 @@ public class ControladorVistaEquipos implements Initializable, ControladorVista 
     @FXML
     private TextField buscar;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
              
@@ -92,18 +82,17 @@ public class ControladorVistaEquipos implements Initializable, ControladorVista 
 
         buscar.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(nombre-> {
-                // If filter text is empty, display all persons.
+
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
 
-                // Compare first name and last name of every person with filter text.
                 String lowerCaseFilter = newValue.toLowerCase();
 
                 if (nombre.getNombre().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches first name.
+                    return true;
                 }
-                return false; // Does not match.
+                return false;
             });
         });
 

@@ -217,13 +217,13 @@ public class ControladorVistaInfoEquipos implements Initializable, ControladorVi
             this.perdidas.setText("-");
         }
         
-        if (this.equipo.getEquipo().getFaltas() != null){
+        if (this.equipo.getEquipo().getTapones() != null){
             this.tapones.setText(String.valueOf(this.equipo.getEquipo().getTapones()));
         } else {
             this.perdidas.setText("-");
         }
         
-        if (this.equipo.getEquipo().getFaltas() != null){
+        if (this.equipo.getEquipo().getRobos() != null){
             this.robos.setText(String.valueOf(this.equipo.getEquipo().getRobos()));
         } else {
             this.perdidas.setText("-");

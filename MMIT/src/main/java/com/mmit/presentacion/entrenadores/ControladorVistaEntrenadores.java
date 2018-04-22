@@ -44,9 +44,7 @@ public class ControladorVistaEntrenadores implements Initializable, ControladorV
     private ObservableList<TOAEntrenadorEquipo> listaEntrenadores;
     @FXML
     private TextField buscar;
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
      
@@ -82,20 +80,19 @@ public class ControladorVistaEntrenadores implements Initializable, ControladorV
 
         buscar.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(jugador-> {
-                // If filter text is empty, display all persons.
+
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
 
-                // Compare first name and last name of every person with filter text.
                 String lowerCaseFilter = newValue.toLowerCase();
 
                 if (jugador.getNombreEntrenador().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches first name.
+                    return true; 
                 } else if (jugador.getApellidosEntrenador().toLowerCase().contains(lowerCaseFilter)) {
-                    return true; // Filter matches first name.
+                    return true;
                 }
-                return false; // Does not match.
+                return false;
             });
         });
 
