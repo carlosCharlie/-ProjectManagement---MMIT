@@ -157,7 +157,7 @@ public class ControladorVistaInfoEquipos implements Initializable, ControladorVi
             this.porcentaje.setText("(-%)");
         }
         
-        if (this.equipo.getEquipo().getDosAnotados() != null && this.equipo.getEquipo().getDosIntentados() != null){
+        if (this.equipo.getEquipo().getDosAnotados() <= this.equipo.getEquipo().getDosIntentados()){
             this.dosAnotados.setText(String.valueOf(this.equipo.getEquipo().getDosAnotados()));
             this.dosIntentados.setText(String.valueOf(this.equipo.getEquipo().getDosIntentados()));
             this.porcentajeDos.setText(String.valueOf(this.equipo.getEquipo().getDosPorcentaje()));
@@ -167,7 +167,7 @@ public class ControladorVistaInfoEquipos implements Initializable, ControladorVi
             this.porcentajeDos.setText("-");
         }
        
-        if (this.equipo.getEquipo().getTresAnotados() != null && this.equipo.getEquipo().getTresIntentados() != null){
+        if (this.equipo.getEquipo().getTresAnotados() <= this.equipo.getEquipo().getTresIntentados()){
             this.triplesAnotados.setText(String.valueOf(this.equipo.getEquipo().getTresAnotados()));
             this.triplesIntentados.setText(String.valueOf(this.equipo.getEquipo().getTresIntentados()));
             this.porcentajeTriples.setText(String.valueOf(this.equipo.getEquipo().getTresPorcentaje()));
@@ -177,7 +177,7 @@ public class ControladorVistaInfoEquipos implements Initializable, ControladorVi
             this.porcentajeTriples.setText("-");
         }
         
-        if (this.equipo.getEquipo().getLibresAnotados() != null && this.equipo.getEquipo().getLibresIntentados() != null){
+        if (this.equipo.getEquipo().getLibresAnotados() <= this.equipo.getEquipo().getLibresIntentados()){
             this.libresAnotados.setText(String.valueOf(this.equipo.getEquipo().getLibresAnotados()));
             this.libresIntentados.setText(String.valueOf(this.equipo.getEquipo().getLibresIntentados()));
             this.porcentajeLibres.setText(String.valueOf(this.equipo.getEquipo().getLibresPorcentaje()));
