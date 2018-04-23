@@ -22,9 +22,7 @@ import junit.framework.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 import com.grafico.graficotriangular.GraficoTriangular;
-import com.mmit.negocio.entrenadores.EntrenadorTrans;
 import com.mmit.negocio.equipos.EquipoTrans;
-import com.mmit.negocio.equipos.TOAEntrenadorEquipoJugadores;
 
 
 public class JugadoresSATestNG {
