@@ -64,7 +64,11 @@ public class ControladorVistaInfoEntrenadores implements Initializable,Controlad
     private void rellenarInformacionBasica(){
         this.nombreEntrenador.setText(this.entrenador.getNombreEntrenador());
         this.apellidosEntrenador.setText(this.entrenador.getApellidosEntrenador());
-        this.edad.setText(String.valueOf(this.entrenador.getEntrenador().getEdad()));
+        if (this.entrenador.getEntrenador().getEdad() != null && this.entrenador.getEntrenador().getEdad() >= 18){
+            this.edad.setText(String.valueOf(this.entrenador.getEntrenador().getEdad()));
+        } else {
+            this.edad.setText("-");
+        }
         if (this.entrenador.getEquipo() != null){
             this.nombreEquipo.setText(this.entrenador.getEquipo().getNombre());
         } else {

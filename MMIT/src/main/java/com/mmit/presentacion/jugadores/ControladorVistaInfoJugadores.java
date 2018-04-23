@@ -106,7 +106,7 @@ public class ControladorVistaInfoJugadores implements Initializable, Controlador
         this.nombreJugador.setText(this.jugador.getNombreJugador());
         this.apellidosJugador.setText(this.jugador.getApellidosJugador());
         
-        if (this.jugador.getJugador().getEdad() != null){
+        if (this.jugador.getJugador().getEdad() != null && this.jugador.getJugador().getEdad() >= 17){
             this.edad.setText(String.valueOf(this.jugador.getJugador().getEdad()));
         } else {
             this.edad.setText("-");
@@ -160,7 +160,7 @@ public class ControladorVistaInfoJugadores implements Initializable, Controlador
             this.porcentajeCampo.setText("-");
         }
         
-        if (this.jugador.getJugador().getDosIntentados() <= this.jugador.getJugador().getDosIntentados()){
+        if (this.jugador.getJugador().getDosAnotados() <= this.jugador.getJugador().getDosIntentados()){
             this.dosAnotados.setText(String.valueOf(this.jugador.getJugador().getDosAnotados()));
             this.dosIntentados.setText(String.valueOf(this.jugador.getJugador().getDosIntentados()));
             this.porcentajeDos.setText(String.valueOf(this.jugador.getJugador().getDosPorcentaje()));
