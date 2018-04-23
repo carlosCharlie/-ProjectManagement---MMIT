@@ -43,19 +43,25 @@ public class ControladorVistaMenu implements Initializable, ControladorVista {
         this.menu.setDisable(true);
         Controlador.obtenerInstancia().accion(new Contexto(Evento.Preloader, null));
         if (event.getSource() == botonEquipos){
-            botonJugadores.getStyleClass().remove("botonMenuPulsado");
-            botonEntrenadores.getStyleClass().remove("botonMenuPulsado");
-            botonEquipos.getStyleClass().add("botonMenuPulsado");
+            if (!botonEquipos.getStyleClass().contains("botonMenuPulsado")){
+                botonJugadores.getStyleClass().remove("botonMenuPulsado");
+                botonEntrenadores.getStyleClass().remove("botonMenuPulsado");
+                botonEquipos.getStyleClass().add("botonMenuPulsado");
+            }
             Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEquipos, null));
         } else if (event.getSource() == botonJugadores){;
-            botonJugadores.getStyleClass().add("botonMenuPulsado");
-            botonEntrenadores.getStyleClass().remove("botonMenuPulsado");
-            botonEquipos.getStyleClass().remove("botonMenuPulsado");
+            if (!botonJugadores.getStyleClass().contains("botonMenuPulsado")){
+                botonJugadores.getStyleClass().add("botonMenuPulsado");
+                botonEntrenadores.getStyleClass().remove("botonMenuPulsado");
+                botonEquipos.getStyleClass().remove("botonMenuPulsado");
+            }
             Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarJugadores, null));
         } else if (event.getSource() == botonEntrenadores){
-            botonJugadores.getStyleClass().remove("botonMenuPulsado");
-            botonEntrenadores.getStyleClass().add("botonMenuPulsado");
-            botonEquipos.getStyleClass().remove("botonMenuPulsado");
+            if (!botonEntrenadores.getStyleClass().contains("botonMenuPulsado")){
+                botonJugadores.getStyleClass().remove("botonMenuPulsado");
+                botonEntrenadores.getStyleClass().add("botonMenuPulsado");
+                botonEquipos.getStyleClass().remove("botonMenuPulsado");
+            }
             Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEntrenadores, null));
         }
     }
