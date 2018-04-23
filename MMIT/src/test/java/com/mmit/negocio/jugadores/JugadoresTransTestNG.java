@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2018 Your Organisation
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package com.mmit.negocio.jugadores;
 
 import org.testng.Assert;
@@ -227,7 +211,7 @@ public class JugadoresTransTestNG {
     public void TestNGgetCampoPorcentaje() {
         JugadorTrans instance =  new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha");
         double result = Double.valueOf(instance.getCampoPorcentaje());
-        assertEquals(result, 1.0);
+        assertEquals(result, 100.0);
     }
     
     @Test
@@ -363,15 +347,15 @@ public class JugadoresTransTestNG {
     public void TestNGgetLibresPorcentaje() {
         JugadorTrans instance =  new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha");
         double result = instance.getLibresIntentados();
-        assertEquals(result, 100.0);
+        assertEquals(result, 10.0);
     }
     
     @Test
     public void TestNGSetLibresPorcentaje() {
         JugadorTrans instance =  new JugadorTrans(1, "manolo", "juarez", 10, 10, 10.0, 10.0, "Alero", 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, "derecha");
-        instance.setLibresPorcentaje(10.0);
-        double result = instance.getLibresIntentados();
-        assertEquals(result, 10.0);
+        instance.setLibresPorcentaje(20.0);
+        double result = Double.valueOf(instance.getLibresPorcentaje());
+        assertEquals(result, 20.0);
     }   
         
     @Test   
