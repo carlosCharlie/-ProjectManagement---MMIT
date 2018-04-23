@@ -87,7 +87,7 @@ public class JugadoresDaoTestNG {
         }
     }
     
-    /*
+    
     @Test
     public void informacionJugador(){
         try {
@@ -118,7 +118,8 @@ public class JugadoresDaoTestNG {
                    "                          posicion,\n" +
                    "                          id_equipo,\n" +
                    "                          apellidos,\n" +
-                   "                          nombre\n" +
+                   "                          nombre,\n" +
+                   "                          mano\n"+
                    "                      )\n" +
                    "                      VALUES (\n" +
                    "                          21,\n" +
@@ -143,9 +144,10 @@ public class JugadoresDaoTestNG {
                    "                          2,\n" +
                    "                          1,\n" +
                    "                          'p',\n" +
-                   "                          NULL,\n" +
+                   "                          1,\n" +
                    "                          'a',\n" +
-                   "                          'n'\n" +
+                   "                          'n',\n" +
+                   "                           'zurdo'\n "+
                    "                      );",Statement.RETURN_GENERATED_KEYS);
             
             
@@ -158,48 +160,34 @@ public class JugadoresDaoTestNG {
             assertNotNull(j.getApellidos());
             assertTrue(j.getNombre().length()>0);
             assertTrue(j.getApellidos().length()>0);
+           
+            for(Method m: j.getClass().getDeclaredMethods()){
+                if(m.getParameterCount()==0)//si es un getter
+                    assertTrue(m.invoke(j, null)!=null);
+            }
             Conexion.getInstancia().cerrar();
             Conexion.getInstancia().abrir();
+            
+            
             c = Conexion.getInstancia().getResource();
+            
             ps = c.prepareStatement("DELETE FROM jugadores\n" +
-"      WHERE " +
-"            posicion = 'p' AND \n" +
-"            dosAnotados = 5 AND \n" +
-"            id_equipo = NULL AND \n" +
-"            partidos = 1 AND \n" +
-"            tresAnotados = 7 AND \n" +
-"            libresIntentados = 10 AND \n" +
-"            nombre = 'n' AND \n" +
-"            perdidas = 18 AND \n" +
-"            tresIntentados = 8 AND \n" +
-"            rebotesOfensivos = 11 AND \n" +
-"            libresAnotados = 9 AND \n" +
-"            asistencias = 13 AND \n" +
-"            tapones = 17 AND \n" +
-"            peso = 20 AND \n" +
-"            faltas = 15 AND \n" +
-"            apellidos = 'a' AND \n" +
-"            puntos = 16 AND \n" +
-"            altura = 21 AND \n" +
-"            minutos = 2 AND \n" +
-"            dosIntentados = 6 AND \n" +
-"            campoAnotados = 3 AND \n" +
-"            campoIntentados = 4 AND \n" +
-"            rebotesDefensivos = 12 AND \n" +
-"            robos = 14 AND \n" +
-"            edad = 19;");
+            "      WHERE id = "+j.getId());
             ps.execute();
             ps.close();
             Conexion.getInstancia().cerrar();
             
         } catch (SQLException ex) {
             Logger.getLogger(JugadoresDaoTestNG.class.getName()).log(Level.SEVERE, null, ex);
+            fail();
         } catch (IllegalArgumentException ex) {
             Logger.getLogger(JugadoresDaoTestNG.class.getName()).log(Level.SEVERE, null, ex);
+            fail();
         } catch (Exception ex) {
             Logger.getLogger(JugadoresDaoTestNG.class.getName()).log(Level.SEVERE, null, ex);
+            fail();
         }
         
     }
-    */
+    
 }
