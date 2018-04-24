@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import junit.framework.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
+import com.grafico.graficotriangular.GraficoTriangular;
+import com.mmit.negocio.equipos.EquipoTrans;
 
 
 public class JugadoresSATestNG {
@@ -56,7 +58,5 @@ public class JugadoresSATestNG {
         }catch(Exception e){
             Assert.fail();
         }
-       
     }
-    
 }

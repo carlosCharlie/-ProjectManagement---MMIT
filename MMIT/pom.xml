@@ -100,7 +100,7 @@
                     <additionalClasspathElements>
                         <additionalClasspathElement>${java.home}/lib/jfxrt.jar</additionalClasspathElement>
                     </additionalClasspathElements>
-                  <skipTests>true</skipTests> <!--Poner a false para probar test-->
+                  <skipTests>false</skipTests> <!--Poner a false para probar test-->
                 </configuration>
             </plugin>
             <plugin>
@@ -139,7 +139,7 @@
             <artifactId>GraficoTriangular</artifactId>
             <version>1.0</version>
         </dependency>
-    
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>

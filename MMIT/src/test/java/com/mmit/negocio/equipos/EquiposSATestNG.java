@@ -16,9 +16,8 @@
  */
 package com.mmit.negocio.equipos;
 
-import com.mmit.negocio.entrenadores.EntrenadorTrans;
+import com.grafico.graficotriangular.GraficoTriangular;
 import com.mmit.negocio.entrenadores.TOAEntrenadorEquipo;
-import com.mmit.negocio.jugadores.JugadorTrans;
 import java.util.ArrayList;
 import junit.framework.Assert;
 import static org.testng.Assert.*;
@@ -61,6 +60,55 @@ public class EquiposSATestNG {
             EquiposSA instance = new EquiposSAImp();
             EquipoTrans result = instance.obtenerEquipo(1);
             assertNotNull(result);
+        }catch(Exception e){
+            Assert.fail();
+        }
+    }
+    @Test
+    public void TestNGGraficoEquiposCorrecto(){
+        try{
+            System.out.print("Mostrar Grafico Equipos Correcto");
+            EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10, 40, 40, 20, 20, 5, 6, 2, 5, 4, 12, 3, 9, 8, 3, 5);
+            GraficoTriangular grafico = null;
+            grafico.setPorcentajeA(Double.valueOf(et.getDosPorcentaje()));
+            grafico.setVariableA("Tiros de 2");
+            grafico.setPorcentajeB(Double.valueOf(et.getTresPorcentaje()));
+            grafico.setVariableB("Tiros de 3");
+            grafico.setPorcentajeC(Double.valueOf(et.getLibresPorcentaje()));
+            grafico.setVariableC("Tiros Libres");
+            assertNotNull(grafico);
+        }catch(Exception e){
+            Assert.fail();
+        }
+    }
+    @Test
+    public void TestNGGraficoEquiposNull(){
+        try{
+            System.out.print("Mostrar Grafico Equipos Con Null");
+            GraficoTriangular grafico = null;
+            grafico.setPorcentajeA(null);
+            grafico.setVariableA(null);
+            grafico.setPorcentajeB(null);
+            grafico.setVariableB(null);
+            grafico.setPorcentajeC(null);
+            grafico.setVariableC(null);
+            assertNotNull(grafico);
+        }catch(Exception e){
+            Assert.fail();
+        }
+    }
+    @Test
+    public void TestNGGraficoEquiposVacio(){
+        try{
+            System.out.print("Mostrar Grafico Equipos Vacio");
+            GraficoTriangular grafico = null;
+            grafico.setPorcentajeA(0.0);
+            grafico.setVariableA("Tiros de 2");
+            grafico.setPorcentajeB(0.0);
+            grafico.setVariableB("Tiros de 3");
+            grafico.setPorcentajeC(0.0);
+            grafico.setVariableC("Tiros Libres");
+            assertNotNull(grafico);
         }catch(Exception e){
             Assert.fail();
         }
