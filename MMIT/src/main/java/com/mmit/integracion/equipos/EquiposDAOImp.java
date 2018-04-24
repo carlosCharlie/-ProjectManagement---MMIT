@@ -40,7 +40,7 @@ public class EquiposDAOImp implements EquiposDAO{
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
             
-            PreparedStatement ps = c.prepareStatement("SELECT * FROM equipos WHERE id = " + id);
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM equipos WHERE id = " + id+" order by equipos.victorias");
             
             ResultSet rs = ps.executeQuery();
             

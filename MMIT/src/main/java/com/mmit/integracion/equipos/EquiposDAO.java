@@ -17,4 +17,5 @@ public interface EquiposDAO {
      * @return  datos del equipo
      */
     public EquipoTrans readById(Integer id) throws Exception;
+    
 }
