@@ -1,5 +1,6 @@
 package com.mmit.presentacion.equipos;
 
+import com.grafico.graficotriangular.GraficoTriangular;
 import com.mmit.negocio.equipos.TOAEntrenadorEquipoJugadores;
 import com.mmit.negocio.jugadores.JugadorTrans;
 import com.mmit.presentacion.ControladorVista;
@@ -74,6 +75,8 @@ public class ControladorVistaInfoEquipos implements Initializable, ControladorVi
     private Label dosIntentados;
     @FXML
     private Label porcentajeDos;
+    @FXML
+    private GraficoTriangular grafico;
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
@@ -88,6 +91,7 @@ public class ControladorVistaInfoEquipos implements Initializable, ControladorVi
                 rellenarInformacionBasica();
                 rellenarTabla();
                 rellenarEstadisticas();
+                rellenarGrafico();
                 break;
             case ErrorSQL:
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -229,5 +233,14 @@ public class ControladorVistaInfoEquipos implements Initializable, ControladorVi
             this.perdidas.setText("-");
         }
 
+    }
+    
+        private void rellenarGrafico(){
+        this.grafico.setPorcentajeA(Double.valueOf(this.equipo.getEquipo().getDosPorcentaje()));
+        this.grafico.setVariableA("Tiros de 2");
+        this.grafico.setPorcentajeB(Double.valueOf(this.equipo.getEquipo().getTresPorcentaje()));
+        this.grafico.setVariableB("Tiros de 3");
+        this.grafico.setPorcentajeC(Double.valueOf(this.equipo.getEquipo().getLibresPorcentaje()));
+        this.grafico.setVariableC("Tiros Libres");
     }
 }
