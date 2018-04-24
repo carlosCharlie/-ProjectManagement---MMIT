@@ -22,10 +22,10 @@ public class TestIntegracionEquipo {
         Contexto cont = new Contexto(Evento.ObtenerDatosEquipo, 0);
         
         controlador.accion(cont);
-        Assert.assertNull(cont.getDatos());
+        Assert.assertNotNull(cont.getDatos());
     }
 
-    @Test
+    /*@Test
     public void getByID2Test() {
         System.out.println("Prueba de Integracion de mostrar la información de un equipo con entrenador");
         Controlador controlador = Controlador.obtenerInstancia();
@@ -51,7 +51,7 @@ public class TestIntegracionEquipo {
         TOAEntrenadorEquipo toae = new TOAEntrenadorEquipo(null, et);
         TOAEntrenadorEquipo nuevo = (TOAEntrenadorEquipo)(cont.getDatos());
         Assert.assertEquals(nuevo.getIdEquipo(), toae.getIdEquipo());
-        Assert.assertNull(nuevo.getIdEntrenador());
+        Assert.assertNotNull(nuevo.getIdEntrenador());
         
-    }
+    }*/
 }
