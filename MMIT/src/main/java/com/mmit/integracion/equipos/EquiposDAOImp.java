@@ -16,7 +16,7 @@ public class EquiposDAOImp implements EquiposDAO{
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
             
-            PreparedStatement ps = c.prepareStatement("SELECT * FROM equipos");
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM equipos order by victorias DESC");
             
             ResultSet rs = ps.executeQuery();
             
@@ -40,7 +40,7 @@ public class EquiposDAOImp implements EquiposDAO{
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
             
-            PreparedStatement ps = c.prepareStatement("SELECT * FROM equipos WHERE id = " + id+" order by equipos.victorias");
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM equipos WHERE id = " + id);
             
             ResultSet rs = ps.executeQuery();
             

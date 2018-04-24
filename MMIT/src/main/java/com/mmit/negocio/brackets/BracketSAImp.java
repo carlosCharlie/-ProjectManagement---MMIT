@@ -24,13 +24,13 @@ public class BracketSAImp implements BracketSA {
             
             
             
-            //
+            //Coge el primero y el ultimo alternando de la lista de los 16 mejores
             int N=16;
             
             for(int i=0;i<N/2;i++)
             {
                 listaFinal.add(listaCompleta.get(i));
-                listaFinal.add(listaCompleta.get(N-i));
+                listaFinal.add(listaCompleta.get((N-1)-i));
             }
             
             
