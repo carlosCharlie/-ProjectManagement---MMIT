@@ -9,8 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" stylesheets="@../styles/Styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mmit.presentacion.bracket.ControladorVistaBracket">
    <children>
       <GridPane prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -29,6 +28,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
@@ -36,44 +36,142 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
          <children>
-            <Label fx:id="Celda1" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.hgrow="ALWAYS" />
-            <Label fx:id="Celda2" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
-            <Label fx:id="Celda3" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
-            <Label fx:id="Celda4" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
-            <Label fx:id="Celda5" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
-            <Label fx:id="Celda6" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" />
-            <Label fx:id="Celda8" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" />
-            <Label fx:id="Celda7" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" />
-            <Label fx:id="Celda9" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" />
-            <Label fx:id="Celda10" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
-            <Label fx:id="Celda11" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
-            <Label fx:id="Celda12" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
-            <Label fx:id="Celda13" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
-            <Label fx:id="Celda14" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" />
-            <Label fx:id="Celda15" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" />
-            <Label fx:id="Celda16" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" />
-            <Label fx:id="Celda17" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2" />
-            <Label fx:id="Celda18" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.rowSpan="2" />
-            <Label fx:id="Celda19" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.rowSpan="2" />
-            <Label fx:id="Celda20" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.rowSpan="2" />
-            <Label fx:id="Celda21" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2" />
-            <Label fx:id="Celda22" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.rowSpan="2" />
-            <Label fx:id="Celda23" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.rowSpan="2" />
-            <Label fx:id="Celda24" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.rowSpan="2" />
-            <Label fx:id="Celda25" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2" />
-            <Label fx:id="Celda26" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.rowSpan="2" />
-            <Label fx:id="Celda27" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2" />
-            <Label fx:id="Celda28" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.rowSpan="2" />
-            <Label fx:id="Celda29" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="375.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
+            <Label fx:id="Celda1" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
                <font>
-                  <Font size="24.0" />
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda2" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda3" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda4" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda5" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda6" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda8" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda7" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda9" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda10" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda11" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda12" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda13" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda14" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda15" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda16" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="6" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda17" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda18" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda19" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.rowSpan="2" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda20" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.rowSpan="2" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda21" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda22" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda23" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.rowSpan="2" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda24" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="5" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.rowSpan="2" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda25" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.rowSpan="2" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda26" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.rowSpan="2" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda27" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.rowSpan="2" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda28" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.rowSpan="2" GridPane.vgrow="NEVER">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="Celda29" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="375.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4">
+               <font>
+                  <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="Celda30" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="375.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4">
+            <Label fx:id="Celda30" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="375.0" styleClass="celdaBracket" text="Label" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5">
                <font>
-                  <Font size="24.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="7">
+               <children>
+                  <Label styleClass="tituloPequenoInformacionBasica" text="Ganador">
+                     <FlowPane.margin>
+                        <Insets right="20.0" />
+                     </FlowPane.margin>
+                  </Label>
+                  <Label fx:id="Celda301" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="375.0" styleClass="celdaBracket" text="Label">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </FlowPane>
          </children>
       </GridPane>
    </children>

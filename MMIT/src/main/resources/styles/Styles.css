@@ -8,7 +8,8 @@
 
 .escenaMenu {
     -fx-border-style: solid;
-    -fx-border-width: 0px 2px 0px 0px;
+    -fx-border-width: 0px 1px 0px 0px;
+    -fx-border-color: rgba(0, 0, 0, 0.5);
     -fx-background-color: orange;
 }
 
@@ -36,8 +37,8 @@
 }
 
 .escenasContenido {
-    -fx-pref-height: 600px;
-    -fx-pref-width: 900px;
+    -fx-pref-height: 800px;
+    -fx-pref-width: 1200px;
 }
 
 .botonMenu {
@@ -59,4 +60,8 @@
     -fx-border-style: solid;
     -fx-border-width: 2px 2px 2px 2px;
     -fx-background-color: orange;
+}
+
+.celdaBracket:hover {
+    -fx-background-color: #e59400;
 }

@@ -5,6 +5,7 @@ import com.mmit.presentacion.comando.Comando;
 import com.mmit.presentacion.comando.ComandoAbrirLogin;
 import com.mmit.presentacion.comando.ComandoAbrirMenuPrincipal;
 import com.mmit.presentacion.comando.ComandoPreloader;
+import com.mmit.presentacion.comando.bracket.ComandoAbrirBracket;
 import com.mmit.presentacion.comando.entrenadores.ComandoAbrirListarEntrenadores;
 import com.mmit.presentacion.comando.entrenadores.ComandoAbrirMostrarEntrenador;
 import com.mmit.presentacion.comando.equipos.ComandoAbrirListarEquipos;
@@ -37,6 +38,8 @@ public class FactoriaComandosImp extends FactoriaComandos{
                 return new ComandoAbrirMostrarEquipo();
             case AbrirMostrarEntrenador:
                 return new ComandoAbrirMostrarEntrenador();
+            case AbrirHacerBracket:
+                return new ComandoAbrirBracket();
             case ComprobarLogin:
                 return new ComandoComprobarLogin();
             case Preloader:

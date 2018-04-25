@@ -169,6 +169,19 @@ public class DespachadorVistaImp extends DespachadorVista {
                     Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 break;
+            case AbrirHacerBracket:
+                try {
+                    BorderPane root = (BorderPane) stage.getScene().getRoot();
+                    FXMLLoader loaderContenido = new FXMLLoader(getClass().getResource("/fxml/Bracket.fxml"));
+                             
+                    root.setCenter((AnchorPane) loaderContenido.load());
+                    controladorContenido = loaderContenido.getController();
+                    controladorContenido.Actualizar(contexto);
+                    controladorMenu.Actualizar(new Contexto(Evento.HabilitarMenu, null));
+                } catch (IOException ex) {
+                    Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                break;
             case ErrorUsuario:
             case ErrorContrasena:
                 controladorContenido.Actualizar(contexto);
