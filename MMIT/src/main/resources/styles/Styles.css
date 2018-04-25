@@ -54,3 +54,9 @@
     font-size: 50px;
     -fx-background-color: #b27300;
 }
+
+.celdaBracket {
+    -fx-border-style: solid;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-background-color: orange;
+}
