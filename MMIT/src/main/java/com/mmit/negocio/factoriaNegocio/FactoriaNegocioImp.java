@@ -1,5 +1,7 @@
 package com.mmit.negocio.factoriaNegocio;
 
+import com.mmit.negocio.brackets.BracketSA;
+import com.mmit.negocio.brackets.BracketSAImp;
 import com.mmit.negocio.entrenadores.EntrenadorSA;
 import com.mmit.negocio.entrenadores.EntrenadorSAImp;
 import com.mmit.negocio.equipos.EquiposSA;
@@ -34,4 +36,8 @@ class FactoriaNegocioImp extends FactoriaNegocio {
     	return new UsuariosSAImp();
     }
     
+    @Override
+    public BracketSA crearBracketSA(){
+        return new BracketSAImp();
+    }
 }

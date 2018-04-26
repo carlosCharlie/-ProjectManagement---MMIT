@@ -182,6 +182,9 @@ public class DespachadorVistaImp extends DespachadorVista {
                     Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 break;
+            case RellenarBracket:
+                controladorContenido.Actualizar(contexto);
+                break;
             case ErrorUsuario:
             case ErrorContrasena:
                 controladorContenido.Actualizar(contexto);

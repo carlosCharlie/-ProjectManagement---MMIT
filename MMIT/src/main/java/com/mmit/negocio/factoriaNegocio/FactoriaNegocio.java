@@ -1,5 +1,6 @@
 package com.mmit.negocio.factoriaNegocio;
 
+import com.mmit.negocio.brackets.BracketSA;
 import com.mmit.negocio.entrenadores.EntrenadorSA;
 import com.mmit.negocio.equipos.EquiposSA;
 import com.mmit.negocio.jugadores.JugadoresSA;
@@ -38,4 +39,6 @@ abstract public class FactoriaNegocio {
      * @return 
      */
     abstract public UsuariosSA crearUsuariosSA();
+    
+    abstract public BracketSA crearBracketSA();
 }

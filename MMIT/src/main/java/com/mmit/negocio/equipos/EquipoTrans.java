@@ -48,6 +48,10 @@ public class EquipoTrans {
     private Integer perdidas;
     
     private StringProperty propiedadNombre;
+    
+    public EquipoTrans(){
+        this.propiedadNombre = new SimpleStringProperty("");
+    }
 	
     public EquipoTrans(int id, String nombre){
         this.id = id;

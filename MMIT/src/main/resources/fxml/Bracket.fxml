@@ -369,7 +369,7 @@
                   <Font size="12.0" />
                </font>
             </Label>
-            <Label fx:id="Celda2" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="NEVER">
+            <Label fx:id="Celda2" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="25.0" onMouseClicked="#PruebaCambio" prefHeight="25.0" prefWidth="125.0" styleClass="celdaBracket" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="NEVER">
                <font>
                   <Font size="12.0" />
                </font>

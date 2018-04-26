@@ -1,6 +1,8 @@
 package com.mmit.negocio.usuarios;
 
 import com.mmit.negocio.brackets.BracketTrans;
+import com.mmit.negocio.equipos.EquipoTrans;
+import java.util.ArrayList;
 
 /**
  * Es una clase estatica que almacena el usuario actual de la aplicacion
@@ -9,7 +11,7 @@ public class Login {
     //En la base de datos hay insertado un admin por defecto: nombre="admin" password="adminP"
     
     static private UsuarioTrans usuario;
-    static private BracketTrans bracket;
+    static private ArrayList<EquipoTrans> bracket;
 
     /**
      * Inicia una nueva sesion
@@ -27,11 +29,11 @@ public class Login {
         return usuario;
     }
     
-    public static void setBracket(BracketTrans bracket){
+    public static void setBracket(ArrayList<EquipoTrans> bracket){
     	Login.bracket = bracket;
     }
     
-    public static BracketTrans getBracket(){
+    public static ArrayList getBracket(){
     	return bracket;
     }
   

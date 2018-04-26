@@ -35,6 +35,7 @@ public enum Evento {
     CerrarSesion,
     
     //Eventos Bracket
-    AbrirHacerBracket
+    AbrirHacerBracket, 
+    RellenarBracket
     
 }
