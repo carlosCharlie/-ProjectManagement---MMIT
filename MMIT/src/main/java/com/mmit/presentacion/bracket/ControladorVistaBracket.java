@@ -70,6 +70,8 @@ public class ControladorVistaBracket implements Initializable, ControladorVista{
     private Label Celda29;
     @FXML
     private Label Celda30;
+    @FXML
+    private Label Celda31;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
