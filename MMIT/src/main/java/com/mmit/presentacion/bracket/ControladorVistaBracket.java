@@ -1,9 +1,12 @@
 package com.mmit.presentacion.bracket;
 
+import com.mmit.negocio.equipos.EquipoTrans;
 import com.mmit.presentacion.*;
 import com.mmit.presentacion.controlador.Contexto;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -23,9 +26,9 @@ public class ControladorVistaBracket implements Initializable, ControladorVista{
     @FXML
     private Label Celda6;
     @FXML
-    private Label Celda8;
-    @FXML
     private Label Celda7;
+    @FXML
+    private Label Celda8;
     @FXML
     private Label Celda9;
     @FXML
@@ -72,6 +75,8 @@ public class ControladorVistaBracket implements Initializable, ControladorVista{
     private Label Celda30;
     @FXML
     private Label Celda31;
+    
+    ArrayList<EquipoTrans> celdas;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -80,7 +85,35 @@ public class ControladorVistaBracket implements Initializable, ControladorVista{
 
     @Override
     public void Actualizar(Contexto contexto) {
+        switch (contexto.getEvento()){
+            case AbrirHacerBracket:
+                InicializarBracket();
+                break;
+            default:
+                break;
+        }
+    }
+    
+    private void InicializarBracket(){
+        celdas = new ArrayList<EquipoTrans>();
         
+        celdas.add(new EquipoTrans(1, "Movistar Estudiantes"));
+        celdas.add(new EquipoTrans(2, "Real Madrid"));
+        celdas.add(new EquipoTrans(3, null));
+        
+        Celda1.textProperty().bind(celdas.get(0).getPropiedadNombre());
+        Celda2.textProperty().bind(celdas.get(1).getPropiedadNombre());
+        Celda17.textProperty().bind(celdas.get(2).getPropiedadNombre());
+
+    }
+    
+    @FXML
+    private void PruebaCambio(ActionEvent event){
+        if (event.getSource() == Celda1){
+            celdas.get(2).setNombre(celdas.get(0).getNombre());
+        } else if (event.getSource() == Celda2){
+            celdas.get(2).setNombre(celdas.get(1).getNombre());
+        }
     }
     
 }

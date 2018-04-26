@@ -20,7 +20,7 @@ public class BracketSAImp implements BracketSA {
             EquiposDAO equiposDao = FactoriaIntegracion.getInstancia().crearEquiposDAO();
             ArrayList<EquipoTrans> listaCompleta = equiposDao.readAll();
             
-            ArrayList<EquipoTrans>listaFinal=new ArrayList<EquipoTrans>();
+            ArrayList<EquipoTrans>listaFinal = new ArrayList<EquipoTrans>();
             
             
             

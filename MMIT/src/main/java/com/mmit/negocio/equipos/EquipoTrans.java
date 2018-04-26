@@ -3,6 +3,8 @@ package com.mmit.negocio.equipos;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class EquipoTrans {
     private int id;
@@ -44,15 +46,23 @@ public class EquipoTrans {
     private Integer faltas;
     private Integer tapones;
     private Integer perdidas;
+    
+    private StringProperty propiedadNombre;
 	
     public EquipoTrans(int id, String nombre){
         this.id = id;
         this.nombre = nombre;
+        if (this.nombre != null){
+            this.propiedadNombre = new SimpleStringProperty(nombre);
+        } else {
+            this.propiedadNombre = new SimpleStringProperty("");
+        }
     }
      
     public EquipoTrans(int id, String nombre, Integer victorias, Integer derrotas){
         this.id = id;
         this.nombre = nombre;
+        this.propiedadNombre = new SimpleStringProperty(nombre);
         
         this.victorias = victorias;
         this.derrotas = derrotas;
@@ -68,6 +78,7 @@ public class EquipoTrans {
 			Integer tapones, Integer perdidas) {
 		this.id = id;
 		this.nombre = nombre;
+                this.propiedadNombre = new SimpleStringProperty(nombre);
                 
 		this.victorias = victorias;
 		this.derrotas = derrotas;
@@ -141,6 +152,10 @@ public class EquipoTrans {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+                if (this.propiedadNombre == null){
+                    this.propiedadNombre = new SimpleStringProperty();
+                }
+                this.propiedadNombre.setValue(nombre);
 	}
 
 	public Integer getVictorias() {
@@ -399,4 +414,8 @@ public class EquipoTrans {
 	public void setDosPorcentaje(double dosPorcentaje) {
 		this.dosPorcentaje = dosPorcentaje;
 	}
+        
+        public StringProperty getPropiedadNombre(){
+            return this.propiedadNombre;
+        }
 }
