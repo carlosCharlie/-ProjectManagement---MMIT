@@ -16,7 +16,7 @@ public class EquiposDAOImp implements EquiposDAO{
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
             
-            PreparedStatement ps = c.prepareStatement("SELECT * FROM equipos");
+            PreparedStatement ps = c.prepareStatement("SELECT * FROM equipos order by victorias DESC");
             
             ResultSet rs = ps.executeQuery();
             
