@@ -19,6 +19,7 @@ public class Login {
      */
     public static void setNuevaSesion(UsuarioTrans usuario){
         Login.usuario = usuario;
+        bracket = null;
     }
     
     /**
@@ -33,7 +34,7 @@ public class Login {
     	Login.bracket = bracket;
     }
     
-    public static ArrayList getBracket(){
+    public static ArrayList<EquipoTrans> getBracket(){
     	return bracket;
     }
   

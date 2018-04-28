@@ -100,46 +100,45 @@ public class ControladorVistaBracket implements Initializable, ControladorVista{
     }
     
     private void InicializarBracket(){
-        celdas = Login.getBracket();
         
-        Celda1.textProperty().bind(celdas.get(0).getPropiedadNombre());
-        Celda2.textProperty().bind(celdas.get(1).getPropiedadNombre());
-        Celda3.textProperty().bind(celdas.get(2).getPropiedadNombre());
-        Celda4.textProperty().bind(celdas.get(3).getPropiedadNombre());
-        Celda9.textProperty().bind(celdas.get(4).getPropiedadNombre());
-        Celda10.textProperty().bind(celdas.get(5).getPropiedadNombre());
-        Celda11.textProperty().bind(celdas.get(6).getPropiedadNombre());
-        Celda12.textProperty().bind(celdas.get(7).getPropiedadNombre());
+        Celda1.textProperty().bind(Login.getBracket().get(0).getPropiedadNombre());
+        Celda2.textProperty().bind(Login.getBracket().get(1).getPropiedadNombre());
+        Celda3.textProperty().bind(Login.getBracket().get(2).getPropiedadNombre());
+        Celda4.textProperty().bind(Login.getBracket().get(3).getPropiedadNombre());
+        Celda9.textProperty().bind(Login.getBracket().get(4).getPropiedadNombre());
+        Celda10.textProperty().bind(Login.getBracket().get(5).getPropiedadNombre());
+        Celda11.textProperty().bind(Login.getBracket().get(6).getPropiedadNombre());
+        Celda12.textProperty().bind(Login.getBracket().get(7).getPropiedadNombre());
         
-        Celda5.textProperty().bind(celdas.get(8).getPropiedadNombre());
-        Celda6.textProperty().bind(celdas.get(9).getPropiedadNombre());
-        Celda7.textProperty().bind(celdas.get(10).getPropiedadNombre());
-        Celda8.textProperty().bind(celdas.get(11).getPropiedadNombre());     
-        Celda13.textProperty().bind(celdas.get(12).getPropiedadNombre());
-        Celda14.textProperty().bind(celdas.get(13).getPropiedadNombre());
-        Celda15.textProperty().bind(celdas.get(14).getPropiedadNombre());
-        Celda16.textProperty().bind(celdas.get(15).getPropiedadNombre());
+        Celda5.textProperty().bind(Login.getBracket().get(8).getPropiedadNombre());
+        Celda6.textProperty().bind(Login.getBracket().get(9).getPropiedadNombre());
+        Celda7.textProperty().bind(Login.getBracket().get(10).getPropiedadNombre());
+        Celda8.textProperty().bind(Login.getBracket().get(11).getPropiedadNombre());     
+        Celda13.textProperty().bind(Login.getBracket().get(12).getPropiedadNombre());
+        Celda14.textProperty().bind(Login.getBracket().get(13).getPropiedadNombre());
+        Celda15.textProperty().bind(Login.getBracket().get(14).getPropiedadNombre());
+        Celda16.textProperty().bind(Login.getBracket().get(15).getPropiedadNombre());
         
-        Celda17.textProperty().bind(celdas.get(16).getPropiedadNombre());
-        Celda18.textProperty().bind(celdas.get(17).getPropiedadNombre());
-        Celda21.textProperty().bind(celdas.get(18).getPropiedadNombre());
-        Celda22.textProperty().bind(celdas.get(19).getPropiedadNombre());
+        Celda17.textProperty().bind(Login.getBracket().get(16).getPropiedadNombre());
+        Celda18.textProperty().bind(Login.getBracket().get(17).getPropiedadNombre());
+        Celda21.textProperty().bind(Login.getBracket().get(18).getPropiedadNombre());
+        Celda22.textProperty().bind(Login.getBracket().get(19).getPropiedadNombre());
         
-        Celda19.textProperty().bind(celdas.get(20).getPropiedadNombre());
-        Celda20.textProperty().bind(celdas.get(21).getPropiedadNombre());      
-        Celda23.textProperty().bind(celdas.get(22).getPropiedadNombre());
-        Celda24.textProperty().bind(celdas.get(23).getPropiedadNombre());
+        Celda19.textProperty().bind(Login.getBracket().get(20).getPropiedadNombre());
+        Celda20.textProperty().bind(Login.getBracket().get(21).getPropiedadNombre());      
+        Celda23.textProperty().bind(Login.getBracket().get(22).getPropiedadNombre());
+        Celda24.textProperty().bind(Login.getBracket().get(23).getPropiedadNombre());
         
-        Celda25.textProperty().bind(celdas.get(24).getPropiedadNombre());
-        Celda27.textProperty().bind(celdas.get(25).getPropiedadNombre());
+        Celda25.textProperty().bind(Login.getBracket().get(24).getPropiedadNombre());
+        Celda27.textProperty().bind(Login.getBracket().get(25).getPropiedadNombre());
         
-        Celda26.textProperty().bind(celdas.get(26).getPropiedadNombre());
-        Celda28.textProperty().bind(celdas.get(27).getPropiedadNombre());
+        Celda26.textProperty().bind(Login.getBracket().get(26).getPropiedadNombre());
+        Celda28.textProperty().bind(Login.getBracket().get(27).getPropiedadNombre());
         
-        Celda29.textProperty().bind(celdas.get(28).getPropiedadNombre());
-        Celda30.textProperty().bind(celdas.get(29).getPropiedadNombre());
+        Celda29.textProperty().bind(Login.getBracket().get(28).getPropiedadNombre());
+        Celda30.textProperty().bind(Login.getBracket().get(29).getPropiedadNombre());
         
-        Celda31.textProperty().bind(celdas.get(30).getPropiedadNombre());
+        Celda31.textProperty().bind(Login.getBracket().get(30).getPropiedadNombre());
   
     }
     
@@ -147,65 +146,65 @@ public class ControladorVistaBracket implements Initializable, ControladorVista{
     private void ElegirEquipo(MouseEvent event){
         if (!event.getSource().equals("")){
             if (event.getSource() == Celda1){
-                celdas.get(16).setNombre(celdas.get(0).getNombre());
+                Login.getBracket().get(16).setNombre(Login.getBracket().get(0).getNombre());
             } else if (event.getSource() == Celda2){
-                celdas.get(16).setNombre(celdas.get(1).getNombre());
+                Login.getBracket().get(16).setNombre(Login.getBracket().get(1).getNombre());
             } else if (event.getSource() == Celda3){
-                celdas.get(17).setNombre(celdas.get(2).getNombre());
+                Login.getBracket().get(17).setNombre(Login.getBracket().get(2).getNombre());
             } else if (event.getSource() == Celda4){
-                celdas.get(17).setNombre(celdas.get(3).getNombre());
+                Login.getBracket().get(17).setNombre(Login.getBracket().get(3).getNombre());
             } else if (event.getSource() == Celda5){
-                celdas.get(20).setNombre(celdas.get(8).getNombre());
+                Login.getBracket().get(20).setNombre(Login.getBracket().get(8).getNombre());
             } else if (event.getSource() == Celda6){
-                celdas.get(20).setNombre(celdas.get(9).getNombre());
+                Login.getBracket().get(20).setNombre(Login.getBracket().get(9).getNombre());
             } else if (event.getSource() == Celda7){
-                celdas.get(21).setNombre(celdas.get(10).getNombre());
+                Login.getBracket().get(21).setNombre(Login.getBracket().get(10).getNombre());
             } else if (event.getSource() == Celda8){
-                celdas.get(21).setNombre(celdas.get(11).getNombre());
+                Login.getBracket().get(21).setNombre(Login.getBracket().get(11).getNombre());
             } else if (event.getSource() == Celda9){
-                celdas.get(18).setNombre(celdas.get(4).getNombre());
+                Login.getBracket().get(18).setNombre(Login.getBracket().get(4).getNombre());
             } else if (event.getSource() == Celda10){
-                celdas.get(18).setNombre(celdas.get(5).getNombre());
+                Login.getBracket().get(18).setNombre(Login.getBracket().get(5).getNombre());
             } else if (event.getSource() == Celda11){
-                celdas.get(19).setNombre(celdas.get(6).getNombre());
+                Login.getBracket().get(19).setNombre(Login.getBracket().get(6).getNombre());
             } else if (event.getSource() == Celda12){
-                celdas.get(19).setNombre(celdas.get(7).getNombre());
+                Login.getBracket().get(19).setNombre(Login.getBracket().get(7).getNombre());
             } else if (event.getSource() == Celda13){
-                celdas.get(22).setNombre(celdas.get(12).getNombre());
+                Login.getBracket().get(22).setNombre(Login.getBracket().get(12).getNombre());
             } else if (event.getSource() == Celda14){
-                celdas.get(22).setNombre(celdas.get(13).getNombre());
+                Login.getBracket().get(22).setNombre(Login.getBracket().get(13).getNombre());
             } else if (event.getSource() == Celda15){
-                celdas.get(23).setNombre(celdas.get(14).getNombre());
+                Login.getBracket().get(23).setNombre(Login.getBracket().get(14).getNombre());
             } else if (event.getSource() == Celda16){
-                celdas.get(23).setNombre(celdas.get(15).getNombre());
+                Login.getBracket().get(23).setNombre(Login.getBracket().get(15).getNombre());
             } else if (event.getSource() == Celda17){
-                celdas.get(24).setNombre(celdas.get(16).getNombre());
+                Login.getBracket().get(24).setNombre(Login.getBracket().get(16).getNombre());
             } else if (event.getSource() == Celda18){
-                celdas.get(24).setNombre(celdas.get(17).getNombre());
+                Login.getBracket().get(24).setNombre(Login.getBracket().get(17).getNombre());
             } else if (event.getSource() == Celda19){
-                celdas.get(26).setNombre(celdas.get(20).getNombre());
+                Login.getBracket().get(26).setNombre(Login.getBracket().get(20).getNombre());
             } else if (event.getSource() == Celda20){
-                celdas.get(26).setNombre(celdas.get(21).getNombre());
+                Login.getBracket().get(26).setNombre(Login.getBracket().get(21).getNombre());
             } else if (event.getSource() == Celda21){
-                celdas.get(25).setNombre(celdas.get(18).getNombre());
+                Login.getBracket().get(25).setNombre(Login.getBracket().get(18).getNombre());
             } else if (event.getSource() == Celda22){
-                celdas.get(25).setNombre(celdas.get(19).getNombre());
+                Login.getBracket().get(25).setNombre(Login.getBracket().get(19).getNombre());
             } else if (event.getSource() == Celda23){
-                celdas.get(27).setNombre(celdas.get(22).getNombre());
+                Login.getBracket().get(27).setNombre(Login.getBracket().get(22).getNombre());
             } else if (event.getSource() == Celda24){
-                celdas.get(27).setNombre(celdas.get(23).getNombre());
+                Login.getBracket().get(27).setNombre(Login.getBracket().get(23).getNombre());
             } else if (event.getSource() == Celda25){
-                celdas.get(28).setNombre(celdas.get(24).getNombre());
+                Login.getBracket().get(28).setNombre(Login.getBracket().get(24).getNombre());
             } else if (event.getSource() == Celda26){
-                celdas.get(29).setNombre(celdas.get(26).getNombre());
+                Login.getBracket().get(29).setNombre(Login.getBracket().get(26).getNombre());
             } else if (event.getSource() == Celda27){
-                celdas.get(28).setNombre(celdas.get(25).getNombre());
+                Login.getBracket().get(28).setNombre(Login.getBracket().get(25).getNombre());
             } else if (event.getSource() == Celda28){
-                celdas.get(29).setNombre(celdas.get(27).getNombre());
+                Login.getBracket().get(29).setNombre(Login.getBracket().get(27).getNombre());
             } else if (event.getSource() == Celda29){
-                celdas.get(30).setNombre(celdas.get(28).getNombre());
+                Login.getBracket().get(30).setNombre(Login.getBracket().get(28).getNombre());
             } else if (event.getSource() == Celda30){
-                celdas.get(30).setNombre(celdas.get(29).getNombre());
+                Login.getBracket().get(30).setNombre(Login.getBracket().get(29).getNombre());
             }
         }
     }

@@ -16,33 +16,37 @@ public class BracketSAImp implements BracketSA {
     @Override
     public int loadInitBracket() {
         
-        try {
-        
-            EquiposDAO equiposDao = FactoriaIntegracion.getInstancia().crearEquiposDAO();
-            ArrayList<EquipoTrans> listaCompleta = equiposDao.readAll();
-            
-            ArrayList<EquipoTrans> listaFinal = new ArrayList<EquipoTrans>();
-            
+            if (Login.getBracket() == null){
+            try {
 
-            int N=16;
-            
-            for(int i=0;i<N/2;i++)
-            {
-                listaFinal.add(listaCompleta.get(i));
-                listaFinal.add(listaCompleta.get((N-1)-i));
+                EquiposDAO equiposDao = FactoriaIntegracion.getInstancia().crearEquiposDAO();
+                ArrayList<EquipoTrans> listaCompleta = equiposDao.readAll();
+
+                ArrayList<EquipoTrans> listaFinal = new ArrayList<EquipoTrans>();
+
+
+                int N=16;
+
+                for(int i=0;i<N/2;i++)
+                {
+                    listaFinal.add(listaCompleta.get(i));
+                    listaFinal.add(listaCompleta.get((N-1)-i));
+                }
+
+                for (int i = N; i < 31; i++){
+                    listaFinal.add(new EquipoTrans());
+                }
+
+                Login.setBracket(listaFinal);
+
+                return 0;
+
+            } catch (Exception ex) {
+                return -5;
             }
-            
-            for (int i = N; i < 31; i++){
-                listaFinal.add(new EquipoTrans());
-            }
-            
-            Login.setBracket(listaFinal);
-            
-            return 0;
-            
-        } catch (Exception ex) {
-            return -5;
         }
+            
+        return 0;
     }
     
 }

@@ -43,8 +43,8 @@ public class ControladorVistaMenu implements Initializable, ControladorVista {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         this.menu.setDisable(true);
-        Controlador.obtenerInstancia().accion(new Contexto(Evento.Preloader, null));
         if (event.getSource() == botonEquipos){
+            Controlador.obtenerInstancia().accion(new Contexto(Evento.Preloader, null));
             if (!botonEquipos.getStyleClass().contains("botonMenuPulsado")){
                 botonBracket.getStyleClass().remove("botonMenuPulsado");
                 botonJugadores.getStyleClass().remove("botonMenuPulsado");
@@ -53,6 +53,7 @@ public class ControladorVistaMenu implements Initializable, ControladorVista {
             }
             Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarEquipos, null));
         } else if (event.getSource() == botonJugadores){
+            Controlador.obtenerInstancia().accion(new Contexto(Evento.Preloader, null));
             if (!botonJugadores.getStyleClass().contains("botonMenuPulsado")){
                 botonBracket.getStyleClass().remove("botonMenuPulsado");
                 botonJugadores.getStyleClass().add("botonMenuPulsado");
@@ -61,6 +62,7 @@ public class ControladorVistaMenu implements Initializable, ControladorVista {
             }
             Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirListarJugadores, null));
         } else if (event.getSource() == botonEntrenadores){
+            Controlador.obtenerInstancia().accion(new Contexto(Evento.Preloader, null));
             if (!botonEntrenadores.getStyleClass().contains("botonMenuPulsado")){
                 botonBracket.getStyleClass().remove("botonMenuPulsado");
                 botonJugadores.getStyleClass().remove("botonMenuPulsado");

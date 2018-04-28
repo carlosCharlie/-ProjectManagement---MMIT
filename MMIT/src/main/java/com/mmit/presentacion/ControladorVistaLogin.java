@@ -1,5 +1,6 @@
 package com.mmit.presentacion;
 
+import com.mmit.negocio.usuarios.Login;
 import com.mmit.negocio.usuarios.UsuarioTrans;
 import com.mmit.presentacion.controlador.Contexto;
 import com.mmit.presentacion.controlador.Controlador;
@@ -81,6 +82,7 @@ public class ControladorVistaLogin implements Initializable, ControladorVista{
     
     @FXML
     private void noLogin(){
+            Login.setNuevaSesion(new UsuarioTrans(null, null));
             Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirMenuPrincipal, null));
     }
     
