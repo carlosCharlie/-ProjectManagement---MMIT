@@ -145,67 +145,129 @@ public class ControladorVistaBracket implements Initializable, ControladorVista{
     @FXML
     private void ElegirEquipo(MouseEvent event){
         if (!event.getSource().equals("")){
-            if (event.getSource() == Celda1){
+            
+            if (event.getSource() == Celda1 && Login.getBracket().get(24).getNombre() == null){
+                
                 Login.getBracket().get(16).setNombre(Login.getBracket().get(0).getNombre());
-            } else if (event.getSource() == Celda2){
+                
+            } else if (event.getSource() == Celda2 && Login.getBracket().get(24).getNombre() == null){
+                
                 Login.getBracket().get(16).setNombre(Login.getBracket().get(1).getNombre());
-            } else if (event.getSource() == Celda3){
+                
+            } else if (event.getSource() == Celda3 && Login.getBracket().get(24).getNombre() == null){
+                
                 Login.getBracket().get(17).setNombre(Login.getBracket().get(2).getNombre());
-            } else if (event.getSource() == Celda4){
+                
+            } else if (event.getSource() == Celda4 && Login.getBracket().get(24).getNombre() == null){
+                
                 Login.getBracket().get(17).setNombre(Login.getBracket().get(3).getNombre());
-            } else if (event.getSource() == Celda5){
+                
+            } else if (event.getSource() == Celda5 && Login.getBracket().get(26).getNombre() == null){
+                
                 Login.getBracket().get(20).setNombre(Login.getBracket().get(8).getNombre());
-            } else if (event.getSource() == Celda6){
+                
+            } else if (event.getSource() == Celda6 && Login.getBracket().get(26).getNombre() == null){
+                
                 Login.getBracket().get(20).setNombre(Login.getBracket().get(9).getNombre());
-            } else if (event.getSource() == Celda7){
+                
+            } else if (event.getSource() == Celda7 && Login.getBracket().get(26).getNombre() == null){
+                
                 Login.getBracket().get(21).setNombre(Login.getBracket().get(10).getNombre());
-            } else if (event.getSource() == Celda8){
+                
+            } else if (event.getSource() == Celda8 && Login.getBracket().get(26).getNombre() == null){
+                
                 Login.getBracket().get(21).setNombre(Login.getBracket().get(11).getNombre());
-            } else if (event.getSource() == Celda9){
+                
+            } else if (event.getSource() == Celda9 && Login.getBracket().get(25).getNombre() == null){
+                
                 Login.getBracket().get(18).setNombre(Login.getBracket().get(4).getNombre());
-            } else if (event.getSource() == Celda10){
+                
+            } else if (event.getSource() == Celda10 && Login.getBracket().get(25).getNombre() == null){
+                
                 Login.getBracket().get(18).setNombre(Login.getBracket().get(5).getNombre());
-            } else if (event.getSource() == Celda11){
+                
+            } else if (event.getSource() == Celda11 && Login.getBracket().get(25).getNombre() == null){
+                
                 Login.getBracket().get(19).setNombre(Login.getBracket().get(6).getNombre());
-            } else if (event.getSource() == Celda12){
+                
+            } else if (event.getSource() == Celda12 && Login.getBracket().get(25).getNombre() == null){
+                
                 Login.getBracket().get(19).setNombre(Login.getBracket().get(7).getNombre());
-            } else if (event.getSource() == Celda13){
+                
+            } else if (event.getSource() == Celda13 && Login.getBracket().get(27).getNombre() == null){
+                
                 Login.getBracket().get(22).setNombre(Login.getBracket().get(12).getNombre());
-            } else if (event.getSource() == Celda14){
+                
+            } else if (event.getSource() == Celda14 && Login.getBracket().get(27).getNombre() == null){
+                
                 Login.getBracket().get(22).setNombre(Login.getBracket().get(13).getNombre());
-            } else if (event.getSource() == Celda15){
+                
+            } else if (event.getSource() == Celda15 && Login.getBracket().get(27).getNombre() == null){
+                
                 Login.getBracket().get(23).setNombre(Login.getBracket().get(14).getNombre());
-            } else if (event.getSource() == Celda16){
+                
+            } else if (event.getSource() == Celda16 && Login.getBracket().get(27).getNombre() == null){
+                
                 Login.getBracket().get(23).setNombre(Login.getBracket().get(15).getNombre());
-            } else if (event.getSource() == Celda17){
+                
+            } else if (event.getSource() == Celda17 && Login.getBracket().get(17).getNombre() != null && Login.getBracket().get(28).getNombre() == null){
+                
                 Login.getBracket().get(24).setNombre(Login.getBracket().get(16).getNombre());
-            } else if (event.getSource() == Celda18){
+                
+            } else if (event.getSource() == Celda18 && Login.getBracket().get(16).getNombre() != null && Login.getBracket().get(28).getNombre() == null){
+                
                 Login.getBracket().get(24).setNombre(Login.getBracket().get(17).getNombre());
-            } else if (event.getSource() == Celda19){
+                
+            } else if (event.getSource() == Celda19 && Login.getBracket().get(21).getNombre() != null && Login.getBracket().get(29).getNombre() == null){
+                
                 Login.getBracket().get(26).setNombre(Login.getBracket().get(20).getNombre());
-            } else if (event.getSource() == Celda20){
+                
+            } else if (event.getSource() == Celda20 && Login.getBracket().get(20).getNombre() != null && Login.getBracket().get(29).getNombre() == null){
+                
                 Login.getBracket().get(26).setNombre(Login.getBracket().get(21).getNombre());
-            } else if (event.getSource() == Celda21){
+                
+            } else if (event.getSource() == Celda21 && Login.getBracket().get(19).getNombre() != null && Login.getBracket().get(28).getNombre() == null){
+                
                 Login.getBracket().get(25).setNombre(Login.getBracket().get(18).getNombre());
-            } else if (event.getSource() == Celda22){
+                
+            } else if (event.getSource() == Celda22 && Login.getBracket().get(18).getNombre() != null && Login.getBracket().get(28).getNombre() == null){
+                
                 Login.getBracket().get(25).setNombre(Login.getBracket().get(19).getNombre());
-            } else if (event.getSource() == Celda23){
+                
+            } else if (event.getSource() == Celda23 && Login.getBracket().get(23).getNombre() != null && Login.getBracket().get(29).getNombre() == null){
+                
                 Login.getBracket().get(27).setNombre(Login.getBracket().get(22).getNombre());
-            } else if (event.getSource() == Celda24){
+                
+            } else if (event.getSource() == Celda24 && Login.getBracket().get(22).getNombre() != null && Login.getBracket().get(29).getNombre() == null){
+                
                 Login.getBracket().get(27).setNombre(Login.getBracket().get(23).getNombre());
-            } else if (event.getSource() == Celda25){
+                
+            } else if (event.getSource() == Celda25 && Login.getBracket().get(26).getNombre() != null && Login.getBracket().get(30).getNombre() == null){
+                
                 Login.getBracket().get(28).setNombre(Login.getBracket().get(24).getNombre());
-            } else if (event.getSource() == Celda26){
+                
+            } else if (event.getSource() == Celda26 && Login.getBracket().get(24).getNombre() != null && Login.getBracket().get(30).getNombre() == null){
+                
                 Login.getBracket().get(29).setNombre(Login.getBracket().get(26).getNombre());
-            } else if (event.getSource() == Celda27){
+                
+            } else if (event.getSource() == Celda27 && Login.getBracket().get(27).getNombre() != null && Login.getBracket().get(30).getNombre() == null){
+                
                 Login.getBracket().get(28).setNombre(Login.getBracket().get(25).getNombre());
-            } else if (event.getSource() == Celda28){
+                
+            } else if (event.getSource() == Celda28 && Login.getBracket().get(25).getNombre() != null && Login.getBracket().get(30).getNombre() == null){
+                
                 Login.getBracket().get(29).setNombre(Login.getBracket().get(27).getNombre());
-            } else if (event.getSource() == Celda29){
+                
+            } else if (event.getSource() == Celda29 && Login.getBracket().get(29).getNombre() != null){
+                
                 Login.getBracket().get(30).setNombre(Login.getBracket().get(28).getNombre());
-            } else if (event.getSource() == Celda30){
+                
+            } else if (event.getSource() == Celda30 && Login.getBracket().get(28).getNombre() != null){
+                
                 Login.getBracket().get(30).setNombre(Login.getBracket().get(29).getNombre());
+                
             }
+            
         }
     }
     
