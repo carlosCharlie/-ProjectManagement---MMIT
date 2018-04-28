@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseButton;
 
 public class ControladorVistaBracket implements Initializable, ControladorVista{
 
@@ -143,6 +144,14 @@ public class ControladorVistaBracket implements Initializable, ControladorVista{
     }
     
     @FXML
+    private void AccionCelda(MouseEvent event){
+        if (event.getButton() == MouseButton.PRIMARY){
+            ElegirEquipo(event);
+        } else if (event.getButton() == MouseButton.SECONDARY){
+            BorrarEquipo(event);
+        }
+    }
+
     private void ElegirEquipo(MouseEvent event){
         if (!event.getSource().equals("")){
             
@@ -242,19 +251,19 @@ public class ControladorVistaBracket implements Initializable, ControladorVista{
                 
                 Login.getBracket().get(27).setNombre(Login.getBracket().get(23).getNombre());
                 
-            } else if (event.getSource() == Celda25 && Login.getBracket().get(26).getNombre() != null && Login.getBracket().get(30).getNombre() == null){
+            } else if (event.getSource() == Celda25 && Login.getBracket().get(25).getNombre() != null && Login.getBracket().get(30).getNombre() == null){
                 
                 Login.getBracket().get(28).setNombre(Login.getBracket().get(24).getNombre());
                 
-            } else if (event.getSource() == Celda26 && Login.getBracket().get(24).getNombre() != null && Login.getBracket().get(30).getNombre() == null){
+            } else if (event.getSource() == Celda26 && Login.getBracket().get(27).getNombre() != null && Login.getBracket().get(30).getNombre() == null){
                 
                 Login.getBracket().get(29).setNombre(Login.getBracket().get(26).getNombre());
                 
-            } else if (event.getSource() == Celda27 && Login.getBracket().get(27).getNombre() != null && Login.getBracket().get(30).getNombre() == null){
+            } else if (event.getSource() == Celda27 && Login.getBracket().get(24).getNombre() != null && Login.getBracket().get(30).getNombre() == null){
                 
                 Login.getBracket().get(28).setNombre(Login.getBracket().get(25).getNombre());
                 
-            } else if (event.getSource() == Celda28 && Login.getBracket().get(25).getNombre() != null && Login.getBracket().get(30).getNombre() == null){
+            } else if (event.getSource() == Celda28 && Login.getBracket().get(26).getNombre() != null && Login.getBracket().get(30).getNombre() == null){
                 
                 Login.getBracket().get(29).setNombre(Login.getBracket().get(27).getNombre());
                 
@@ -270,5 +279,68 @@ public class ControladorVistaBracket implements Initializable, ControladorVista{
             
         }
     }
-    
+
+    private void BorrarEquipo(MouseEvent event){
+       if (event.getSource() == Celda17 && Login.getBracket().get(24).getNombre() == null){
+
+            Login.getBracket().get(16).setNombre(null);
+
+        } else if (event.getSource() == Celda18 && Login.getBracket().get(24).getNombre() == null){
+
+            Login.getBracket().get(17).setNombre(null);
+
+        } else if (event.getSource() == Celda19 && Login.getBracket().get(26).getNombre() == null){
+
+            Login.getBracket().get(20).setNombre(null);
+
+        } else if (event.getSource() == Celda20 && Login.getBracket().get(26).getNombre() == null){
+
+            Login.getBracket().get(21).setNombre(null);
+
+        } else if (event.getSource() == Celda21 && Login.getBracket().get(25).getNombre() == null){
+
+            Login.getBracket().get(18).setNombre(null);
+
+        } else if (event.getSource() == Celda22 && Login.getBracket().get(25).getNombre() == null){
+
+            Login.getBracket().get(19).setNombre(null);
+
+        } else if (event.getSource() == Celda23 && Login.getBracket().get(27).getNombre() == null){
+
+            Login.getBracket().get(22).setNombre(null);
+
+        } else if (event.getSource() == Celda24 && Login.getBracket().get(27).getNombre() == null){
+
+            Login.getBracket().get(23).setNombre(null);
+
+        } else if (event.getSource() == Celda25 && Login.getBracket().get(28).getNombre() == null){
+
+            Login.getBracket().get(24).setNombre(null);
+
+        } else if (event.getSource() == Celda26 && Login.getBracket().get(29).getNombre() == null){
+
+            Login.getBracket().get(26).setNombre(null);
+
+        } else if (event.getSource() == Celda27 && Login.getBracket().get(28).getNombre() == null){
+
+            Login.getBracket().get(25).setNombre(null);
+
+        } else if (event.getSource() == Celda28 && Login.getBracket().get(29).getNombre() == null){
+
+            Login.getBracket().get(27).setNombre(null);
+
+        } else if (event.getSource() == Celda29 && Login.getBracket().get(30).getNombre() == null){
+
+            Login.getBracket().get(28).setNombre(null);
+
+        } else if (event.getSource() == Celda30 && Login.getBracket().get(30).getNombre() == null){
+
+            Login.getBracket().get(29).setNombre(null);
+
+        } else if (event.getSource() == Celda31){
+
+            Login.getBracket().get(30).setNombre(null);
+
+        }
+    }
 }
