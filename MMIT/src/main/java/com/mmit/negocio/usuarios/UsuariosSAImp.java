@@ -28,4 +28,12 @@ public class UsuariosSAImp implements UsuariosSA {
             }
             return respuesta;
 	}
+
+    @Override
+    public void cerrarSesion() {
+        
+        Login.setNuevaSesion(null);
+        
+        //falta inicializar el bracket a -1, no se puede hacer hasta el merge
+    }
 }

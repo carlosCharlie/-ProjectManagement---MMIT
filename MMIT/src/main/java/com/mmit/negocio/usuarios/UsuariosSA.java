@@ -9,5 +9,10 @@ public interface UsuariosSA {
          * @return codigo de salida: correcto = 0, usuario no existente=-1, password incorrecta=-2, error SQL=-5
          */
 	public int comprobarLogin(UsuarioTrans usuarioTrans);
+        
+        /**
+         * Cierra la  sesion  actual
+         */
+        public void cerrarSesion();
 	
 }
