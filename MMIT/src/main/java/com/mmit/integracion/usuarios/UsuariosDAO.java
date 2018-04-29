@@ -30,4 +30,6 @@ public interface UsuariosDAO {
      * @return datos del usuario
      */
     public UsuarioTrans readByNombre(String nombre) throws Exception;
+
+    public void singUpUser(UsuarioTrans usuarioTrans);
 }

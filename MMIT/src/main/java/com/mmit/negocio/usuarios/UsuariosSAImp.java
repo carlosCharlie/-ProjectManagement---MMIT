@@ -28,4 +28,41 @@ public class UsuariosSAImp implements UsuariosSA {
             }
             return respuesta;
 	}
+        /*
+        -1 si se ha hecho el registro
+        -2 si ya existe admin
+        -3 si existe y no es admin
+        -4 volver a introducir datos correctamente
+        -5 si ha habido fallo
+        */
+        
+        public int singUpUser(UsuarioTrans usuarioTrans){
+            int respuesta = 0;
+            try{
+                UsuariosDAO usuariosDao = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
+                UsuarioTrans tUsuario = usuariosDao.readByNombre(usuarioTrans.getNombre());
+                
+                if (tUsuario == null) {
+                    
+                    if(usuarioTrans.getPassword() != null && usuarioTrans.getNombre() != null){
+                        usuariosDao.singUpUser(usuarioTrans);//Nuevo usuario
+                        respuesta = -1;
+                    }
+                }
+                else if(usuarioTrans.getPassword() == null || usuarioTrans.getNombre() == null){
+                    respuesta = -4;
+                }
+                else{
+                    if(tUsuario.getAdmin()){
+                        respuesta = -2;
+                    }
+                    else  respuesta = -3;
+                    
+                }
+                
+            } catch (Exception ex) {
+                respuesta = -5;
+            }
+            return respuesta;
+        }
 }
