@@ -16,8 +16,12 @@
  */
 package com.mmit.integracion.usuarios;
 
+import com.mmit.integracion.conexion.Conexion;
 import com.mmit.integracion.factoriaIntegracion.FactoriaIntegracion;
 import com.mmit.negocio.usuarios.UsuarioTrans;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.Assert;
@@ -48,16 +52,38 @@ public class UsuariosDAONGTest {
         }
         
     }
-     @Test
-        public void testReadByNombreSinNombre() {
-            try {
-                System.out.println("readByNombre");
-                UsuariosDAO instance = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
-                UsuarioTrans result = instance.readByNombre(" ");
-                assertNull(result);
-            } catch (Exception ex) {
-                Assert.fail();
-            }
-
+     
+    @Test
+    public void testReadByNombreSinNombre() {
+        try {
+            System.out.println("readByNombre");
+            UsuariosDAO instance = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
+            UsuarioTrans result = instance.readByNombre(" ");
+            assertNull(result);
+        } catch (Exception ex) {
+            Assert.fail();
         }
+
+    }
+        
+     @Test
+    public void testSignUpUser() {
+        try {
+            System.out.println("SignUpUser");
+            UsuariosDAO instance = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
+            UsuarioTrans trans = new UsuarioTrans(200,"MonkeyD","Luffy",false);
+            instance.singUpUser(trans);
+            assertEquals(trans,instance.readByNombre("MonkeyD"));
+            
+            //Borrar usuario introducido
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            PreparedStatement ps =  c.prepareStatement("Delete * from usuarios where nombre = ?");
+            ps.setString(1, "MonkeyD");
+            ResultSet rs = ps.executeQuery();
+        } catch (Exception ex) {
+            Assert.fail();
+        }
+
+    }
 }
