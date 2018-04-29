@@ -35,7 +35,7 @@ public class UsuariosSAImp implements UsuariosSA {
         -4 volver a introducir datos correctamente
         -5 si ha habido fallo
         */
-        
+        @Override
         public int singUpUser(UsuarioTrans usuarioTrans){
             int respuesta = 0;
             try{
