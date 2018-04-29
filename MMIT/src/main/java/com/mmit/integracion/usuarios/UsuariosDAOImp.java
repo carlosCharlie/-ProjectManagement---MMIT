@@ -22,6 +22,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -56,6 +58,24 @@ public class UsuariosDAOImp implements UsuariosDAO{
         } catch (SQLException ex) {
             Conexion.getInstancia().cerrar();
             throw new Exception("Error al conectarse a la BBDD");
+        }
+    }
+
+    @Override
+    public void singUpUser(UsuarioTrans usuarioTrans) {
+       try {
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+          
+            PreparedStatement ps =  c.prepareStatement("Insert into usuarios values (?,?,?,?)");
+        
+            ps.setInt(1,usuarioTrans.getId());
+            ps.setString(1,usuarioTrans.getNombre());
+            ps.setString(2,usuarioTrans.getPassword());
+            ps.setBoolean(3,usuarioTrans.getAdmin());
+            ResultSet rs = ps.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuariosDAOImp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
