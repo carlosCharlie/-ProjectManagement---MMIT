@@ -14,9 +14,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.mmit.presentacion.comando;
+package com.mmit.presentacion.comando.usuarios;
 
+import com.mmit.negocio.factoriaNegocio.FactoriaNegocio;
+import com.mmit.negocio.usuarios.Login;
+import com.mmit.negocio.usuarios.UsuarioTrans;
 import com.mmit.presentacion.Evento;
+import com.mmit.presentacion.comando.Comando;
 import com.mmit.presentacion.controlador.Contexto;
 
 /**
@@ -27,7 +31,20 @@ public class ComandoRegistroUsuario implements Comando {
 
     @Override
     public Contexto execute(Object datos) {
-        return new Contexto(Evento.RegistroUsuario, datos);
+        int respuesta = FactoriaNegocio.getInstancia().crearUsuariosSA().singUpUser((UsuarioTrans) datos);
+        switch(respuesta){
+            case 0:
+                return new Contexto(Evento.RegistroUsuario, datos);
+            case -2:
+                return new Contexto(Evento.ErrorUsuario, datos);
+            case -1:
+                return new Contexto(Evento.ErrorVacios, datos);
+            case -5:
+                return new Contexto(Evento.ErrorSQL, null);
+            default:
+                return null;
+        }
+        
     }
     
 }

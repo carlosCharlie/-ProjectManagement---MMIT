@@ -5,7 +5,7 @@ import com.mmit.presentacion.comando.Comando;
 import com.mmit.presentacion.comando.ComandoAbrirLogin;
 import com.mmit.presentacion.comando.ComandoAbrirMenuPrincipal;
 import com.mmit.presentacion.comando.ComandoPreloader;
-import com.mmit.presentacion.comando.ComandoRegistroUsuario;
+import com.mmit.presentacion.comando.usuarios.ComandoRegistroUsuario;
 import com.mmit.presentacion.comando.entrenadores.ComandoAbrirListarEntrenadores;
 import com.mmit.presentacion.comando.entrenadores.ComandoAbrirMostrarEntrenador;
 import com.mmit.presentacion.comando.equipos.ComandoAbrirListarEquipos;

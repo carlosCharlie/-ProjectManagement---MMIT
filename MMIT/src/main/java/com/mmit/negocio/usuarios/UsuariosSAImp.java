@@ -44,19 +44,17 @@ public class UsuariosSAImp implements UsuariosSA {
                 
                 if (tUsuario == null) {
                     
-                    if(usuarioTrans.getPassword() != null && usuarioTrans.getNombre() != null){
+                    if(usuarioTrans.getPassword() != null && usuarioTrans.getNombre() != null)
                         usuariosDao.singUpUser(usuarioTrans);//Nuevo usuario
-                        respuesta = -1;
-                    }
                 }
                 else if(usuarioTrans.getPassword() == null || usuarioTrans.getNombre() == null){
-                    respuesta = -4;
+                    respuesta = -3;
                 }
                 else{
-                    if(tUsuario.getAdmin()){
-                        respuesta = -2;
-                    }
-                    else  respuesta = -3;
+                    //if(tUsuario.getAdmin()){
+                    respuesta = -2;
+                    //}
+                    //else  respuesta = -3;
                     
                 }
                 
