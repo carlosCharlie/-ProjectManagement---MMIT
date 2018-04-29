@@ -48,4 +48,16 @@ public class UsuariosDAONGTest {
         }
         
     }
+     @Test
+        public void testReadByNombreSinNombre() {
+            try {
+                System.out.println("readByNombre");
+                UsuariosDAO instance = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
+                UsuarioTrans result = instance.readByNombre(" ");
+                assertNull(result);
+            } catch (Exception ex) {
+                Assert.fail();
+            }
+
+        }
 }
