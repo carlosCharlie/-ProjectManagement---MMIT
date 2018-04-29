@@ -38,7 +38,7 @@ public class ComandoRegistroUsuario implements Comando {
             case -2:
                 return new Contexto(Evento.ErrorUsuario, datos);
             case -1:
-                return new Contexto(Evento.ErrorVacios, datos);
+                return new Contexto(Evento.ErrorVacios, datos); 
             case -5:
                 return new Contexto(Evento.ErrorSQL, null);
             default:

@@ -32,6 +32,7 @@ public enum Evento {
     UsuarioCorrecto,
     ErrorUsuario,
     ErrorContrasena,
+    ErrorVacios,
     RegistroUsuario,
     CerrarSesion
     
