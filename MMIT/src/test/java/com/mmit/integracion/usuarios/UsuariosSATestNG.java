@@ -80,6 +80,7 @@ public class UsuariosSATestNG {
             Assert.fail();
         }
     }
+    
      @Test
     public void TestSingUpUserExisteYesUser(){
         try{
