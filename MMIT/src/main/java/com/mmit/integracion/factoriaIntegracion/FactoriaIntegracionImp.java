@@ -1,5 +1,7 @@
 package com.mmit.integracion.factoriaIntegracion;
 
+import com.mmit.integracion.brackets.BracketsDAO;
+import com.mmit.integracion.brackets.BracketsDAOImp;
 import com.mmit.integracion.entrenadores.EntrenadorDAO;
 import com.mmit.integracion.entrenadores.EntrenadorDAOImp;
 import com.mmit.integracion.equipos.EquiposDAO;
@@ -29,5 +31,10 @@ class FactoriaIntegracionImp extends FactoriaIntegracion {
     @Override
     public UsuariosDAO crearUsuariosDAO(){
     	return new UsuariosDAOImp();
+    }
+
+    @Override
+    public BracketsDAO crearBracketsDAO() {
+        return new BracketsDAOImp();
     }
 }
