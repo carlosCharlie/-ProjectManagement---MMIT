@@ -183,6 +183,16 @@ public class DespachadorVistaImp extends DespachadorVista {
                     Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 break;
+            case RegistroUsuario:
+            try {
+                BorderPane root = (BorderPane) stage.getScene().getRoot();
+                FXMLLoader loaderContenido = new FXMLLoader(getClass().getResource("/fxml/SignUpUser.fxml"));
+
+                root.setCenter((AnchorPane) loaderContenido.load());
+            } catch (IOException ex) {
+                Logger.getLogger(ControladorVistaMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            break;
             case ErrorSQL:
                 controladorContenido.Actualizar(contexto);
                 break;
