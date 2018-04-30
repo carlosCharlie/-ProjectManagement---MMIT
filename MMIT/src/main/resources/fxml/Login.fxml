@@ -113,7 +113,7 @@
                      </GridPane.margin>
                      <children>
                         <Button mnemonicParsing="false" onAction="#aceptar" styleClass="botonMenu" text="Aceptar" />
-                        <Button disable="true" mnemonicParsing="false" styleClass="botonMenu" text="Registrarse" />
+                        <Button fx:id="botonRegistro" mnemonicParsing="false" onAction="#registrar" styleClass="botonMenu" text="Registrarse" />
                      </children></FlowPane>
                   <Label prefWidth="80.0" styleClass="textoDestacadoInformacionBasica" text="Usuario" GridPane.columnIndex="1">
                      <GridPane.margin>

@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -342,5 +343,12 @@ public class ControladorVistaBracket implements Initializable, ControladorVista{
             Login.getBracket().get(30).setNombre(null);
 
         }
+    }
+
+    @FXML
+    private void reiniciarEquipos(ActionEvent event) {
+        Login.resetBracket();
+        
+        InicializarBracket();
     }
 }

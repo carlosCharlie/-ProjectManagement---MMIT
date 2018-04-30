@@ -30,6 +30,8 @@ public class ControladorVistaLogin implements Initializable, ControladorVista{
     private Label errorContrasenaVacia;
     @FXML
     private Button sinInicio;
+    @FXML
+    private Button botonRegistro;
     /**
      * Initializes the controller class.
      */
@@ -84,6 +86,25 @@ public class ControladorVistaLogin implements Initializable, ControladorVista{
     private void noLogin(){
             Login.setNuevaSesion(new UsuarioTrans(null, null));
             Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirMenuPrincipal, null));
+    }
+    
+    @FXML
+    private void registrar(){
+        this.errorUsuario.setVisible(false);
+        this.errorContrasena.setVisible(false);
+        this.errorUsuarioVacio.setVisible(false);
+        this.errorContrasenaVacia.setVisible(false);
+        if (!this.usuario.getText().equals("") && !this.contrasena.getText().equals("")){
+            UsuarioTrans usuarioTrans = new UsuarioTrans(this.usuario.getText(), this.contrasena.getText());
+            Controlador.obtenerInstancia().accion(new Contexto(Evento.RegistroUsuario, usuarioTrans));
+        } else {
+            if (this.usuario.getText().equals("")){
+                this.errorUsuarioVacio.setVisible(true);
+            }
+            if (this.contrasena.getText().equals("")){
+                this.errorContrasenaVacia.setVisible(true);
+            }
+        }
     }
     
 }

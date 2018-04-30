@@ -37,6 +37,12 @@ public class Login {
     public static ArrayList<EquipoTrans> getBracket(){
     	return bracket;
     }
+
+    public static void resetBracket() {
+        for (int i = 16; i < bracket.size(); i++){
+            bracket.set(i, new EquipoTrans());
+        }
+    }
   
     public static void cerrarSesion(){
         Login.usuario = null;

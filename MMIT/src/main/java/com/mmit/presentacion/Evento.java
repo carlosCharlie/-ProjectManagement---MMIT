@@ -33,9 +33,12 @@ public enum Evento {
     ErrorUsuario,
     ErrorContrasena,
     CerrarSesion,
+    RegistroUsuario,
+    ErrorVacios,
+    
     
     //Eventos Bracket
     AbrirHacerBracket, 
-    RellenarBracket
+    RellenarBracket, 
     
 }

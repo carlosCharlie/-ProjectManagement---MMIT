@@ -15,6 +15,7 @@ import com.mmit.presentacion.comando.jugadores.ComandoAbrirListarJugadores;
 import com.mmit.presentacion.comando.jugadores.ComandoAbrirMostrarJugador;
 import com.mmit.presentacion.comando.usuarios.ComandoCerrarSesion;
 import com.mmit.presentacion.comando.usuarios.ComandoComprobarLogin;
+import com.mmit.presentacion.comando.usuarios.ComandoRegistroUsuario;
 
 public class FactoriaComandosImp extends FactoriaComandos{
 
@@ -43,6 +44,8 @@ public class FactoriaComandosImp extends FactoriaComandos{
                 return new ComandoAbrirBracket();
             case RellenarBracket:
                 return new ComandoInicializarBracket();
+            case RegistroUsuario:
+                return new ComandoRegistroUsuario();
             case ComprobarLogin:
                 return new ComandoComprobarLogin();
             case Preloader:
