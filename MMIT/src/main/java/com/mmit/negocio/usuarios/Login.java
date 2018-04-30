@@ -38,4 +38,10 @@ public class Login {
     	return bracket;
     }
   
+    public static void cerrarSesion(){
+        Login.usuario = null;
+        for(int i=0;i<Login.bracket.size();i++){
+            Login.bracket.set(i, null);
+        }
+    }
 }
