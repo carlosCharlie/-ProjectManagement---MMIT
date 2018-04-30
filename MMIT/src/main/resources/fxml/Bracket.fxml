@@ -49,7 +49,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
          <children>
-            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="7">
+            <FlowPane alignment="CENTER_LEFT" columnHalignment="CENTER" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="6">
                <children>
                   <Label styleClass="tituloPequenoInformacionBasica" text="Ganador">
                      <FlowPane.margin>
@@ -569,6 +569,7 @@
                   <Font size="12.0" />
                </font>
             </Label>
+            <Button mnemonicParsing="false" onAction="#reiniciarEquipos" styleClass="botonMenu" text="Reiniciar" GridPane.columnIndex="6" />
          </children>
       </GridPane>
    </children>
