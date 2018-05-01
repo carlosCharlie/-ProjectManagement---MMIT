@@ -28,13 +28,7 @@ public class UsuariosSAImp implements UsuariosSA {
             }
             return respuesta;
 	}
-        /*
-        -1 si se ha hecho el registro
-        -2 si ya existe admin
-        -3 si existe y no es admin
-        -4 volver a introducir datos correctamente
-        -5 si ha habido fallo
-        */
+
         @Override
         public int singUpUser(UsuarioTrans usuarioTrans){
             int respuesta = 0;
@@ -43,19 +37,10 @@ public class UsuariosSAImp implements UsuariosSA {
                 UsuarioTrans tUsuario = usuariosDao.readByNombre(usuarioTrans.getNombre());
                 
                 if (tUsuario == null) {
-                    
-                    if(usuarioTrans.getPassword() != null && usuarioTrans.getNombre() != null)
-                        usuariosDao.singUpUser(usuarioTrans);//Nuevo usuario
-                }
-                else if(usuarioTrans.getPassword() == null || usuarioTrans.getNombre() == null){
-                    respuesta = -1;
+                    usuariosDao.write(usuarioTrans);
                 }
                 else{
-                    //if(tUsuario.getAdmin()){
-                    respuesta = -2;
-                    //}
-                    //else  respuesta = -3;
-                    
+                    respuesta = -1;                   
                 }
                 
             } catch (Exception ex) {

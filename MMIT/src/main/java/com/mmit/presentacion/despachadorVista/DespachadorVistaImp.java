@@ -187,6 +187,8 @@ public class DespachadorVistaImp extends DespachadorVista {
                 break;
             case ErrorUsuario:
             case ErrorContrasena:
+            case ErrorUsuarioDuplicado:
+            case RegistroUsuario:
                 controladorContenido.Actualizar(contexto);
                 break;
             case Preloader:

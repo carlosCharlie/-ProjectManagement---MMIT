@@ -72,7 +72,7 @@ public class UsuariosDAONGTest {
             System.out.println("SignUpUser");
             UsuariosDAO instance = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
             UsuarioTrans trans = new UsuarioTrans(200,"MonkeyD","Luffy",false);
-            instance.singUpUser(trans);
+            instance.write(trans);
             assertEquals(trans,instance.readByNombre("MonkeyD"));
             
             //Borrar usuario introducido

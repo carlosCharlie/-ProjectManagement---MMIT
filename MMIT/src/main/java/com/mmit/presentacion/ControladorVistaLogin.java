@@ -32,6 +32,8 @@ public class ControladorVistaLogin implements Initializable, ControladorVista{
     private Button sinInicio;
     @FXML
     private Button botonRegistro;
+    @FXML
+    private Label errorUsuarioDuplicado;
     /**
      * Initializes the controller class.
      */
@@ -42,9 +44,21 @@ public class ControladorVistaLogin implements Initializable, ControladorVista{
 
     @Override
     public void Actualizar(Contexto contexto) {
+        Alert alert = null;
         switch(contexto.getEvento()){
+            case RegistroUsuario:
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("");
+                alert.setHeaderText("Registro");
+                alert.setContentText("Registro realizado correctamente");
+                alert.show();
+                break;
             case ErrorUsuario:
                 this.errorUsuario.setVisible(true);
+                this.contrasena.setText("");
+                break;
+            case ErrorUsuarioDuplicado:
+                this.errorUsuarioDuplicado.setVisible(true);
                 this.contrasena.setText("");
                 break;
             case ErrorContrasena:
@@ -52,7 +66,7 @@ public class ControladorVistaLogin implements Initializable, ControladorVista{
                 this.contrasena.setText("");
                 break;
             case ErrorSQL:
-                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("");
                 alert.setHeaderText("Error");
                 alert.setContentText("Error al obtener los datos de la BBDD");

@@ -62,18 +62,17 @@ public class UsuariosDAOImp implements UsuariosDAO{
     }
 
     @Override
-    public void singUpUser(UsuarioTrans usuarioTrans) {
+    public void write(UsuarioTrans usuarioTrans) {
        try {
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
           
-            PreparedStatement ps =  c.prepareStatement("Insert into usuarios values (?,?,?,?)");
+            PreparedStatement ps =  c.prepareStatement("Insert into usuarios (nombre, password, admin) values (?,?,?)");
         
-            ps.setInt(1,usuarioTrans.getId());
-            ps.setString(1,usuarioTrans.getNombre());
-            ps.setString(2,usuarioTrans.getPassword());
-            ps.setBoolean(3,usuarioTrans.getAdmin());
-            ResultSet rs = ps.executeQuery();
+            ps.setString(1, usuarioTrans.getNombre());
+            ps.setString(2, usuarioTrans.getPassword());
+            ps.setBoolean(3, false);
+            ps.execute();
         } catch (SQLException ex) {
             Logger.getLogger(UsuariosDAOImp.class.getName()).log(Level.SEVERE, null, ex);
         }
