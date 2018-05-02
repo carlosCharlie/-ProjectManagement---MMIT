@@ -1,8 +1,10 @@
 
 package com.mmit.negocio.brackets;
 
+import com.mmit.integracion.brackets.BracketsDAO;
 import com.mmit.integracion.equipos.EquiposDAO;
 import com.mmit.integracion.factoriaIntegracion.FactoriaIntegracion;
+import com.mmit.integracion.usuarios.UsuariosDAO;
 import com.mmit.negocio.equipos.EquipoTrans;
 import com.mmit.negocio.usuarios.Login;
 import java.util.ArrayList;
@@ -48,5 +50,42 @@ public class BracketSAImp implements BracketSA {
             
         return 0;
     }
-    
+
+    @Override
+    public int crearBracket(ArrayList<EquipoTrans> bracketNuevo,int idUser) {
+        
+        try {
+            BracketsDAO bracketDao = FactoriaIntegracion.getInstancia().crearBracketsDAO();
+            UsuariosDAO usuarioDao = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
+            
+            if(usuarioDao.readById(idUser)==null){
+                return -1;
+            }
+            
+            bracketDao.crearBracket(bracketNuevo, idUser);
+            
+        } catch (Exception ex) {
+            return -5;
+        }
+        
+        return 0;
+    }
+
+    @Override
+    public ArrayList<EquipoTrans> getBracketByUser(int idUsuario) {
+        
+        try {
+            BracketsDAO bracketDao = FactoriaIntegracion.getInstancia().crearBracketsDAO();
+            UsuariosDAO usuarioDao = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
+            
+            if(usuarioDao.readById(idUsuario)==null){
+                return null;
+            }else{
+                return bracketDao.readBracketByUser(idUsuario);
+            }
+            
+        } catch (Exception ex) {
+            return null;
+        }
+    };
 }

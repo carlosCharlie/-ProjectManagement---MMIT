@@ -7,4 +7,6 @@ public interface UsuariosDAO {
     public UsuarioTrans readByNombre(String nombre) throws Exception;
 
     public void write(UsuarioTrans usuarioTrans);
+
+    public UsuarioTrans readById(int idUser)throws Exception;
 }

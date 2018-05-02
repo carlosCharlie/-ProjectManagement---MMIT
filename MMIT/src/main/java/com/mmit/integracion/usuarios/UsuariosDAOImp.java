@@ -77,5 +77,25 @@ public class UsuariosDAOImp implements UsuariosDAO{
             Logger.getLogger(UsuariosDAOImp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public UsuarioTrans readById(int idUser) throws Exception{
+        
+        Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+          
+            PreparedStatement ps =  c.prepareStatement("Select * from usuarios where id = ?");
+            ps.setInt(1,idUser);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(!rs.next()){
+                return null;
+            }
+            else
+            {
+                    return new UsuarioTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("password"),rs.getInt("admin")==1);
+            }
+    }
     
 }
