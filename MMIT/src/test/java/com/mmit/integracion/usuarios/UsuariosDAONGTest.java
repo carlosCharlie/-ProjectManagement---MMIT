@@ -71,7 +71,7 @@ public class UsuariosDAONGTest {
         try {
             System.out.println("SignUpUser");
             UsuariosDAO instance = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
-            UsuarioTrans trans = new UsuarioTrans(200,"MonkeyD","Luffy",false);
+            UsuarioTrans trans = new UsuarioTrans(300,"MonkeyD","Luffy",false);
             instance.write(trans);
             UsuarioTrans trans2 = instance.readByNombre("MonkeyD");
             assertNotNull(trans2);
@@ -79,8 +79,8 @@ public class UsuariosDAONGTest {
             //Borrar usuario introducido
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
-            PreparedStatement ps = c.prepareStatement("DELETE FROM jugadores\n" +
-            "      WHERE id = "+trans.getId());
+            PreparedStatement ps = c.prepareStatement("DELETE FROM usuarios\n" +
+            "      WHERE id = "+trans2.getId());
             ps.execute();
             ps.close();
             Conexion.getInstancia().cerrar();
@@ -95,15 +95,16 @@ public class UsuariosDAONGTest {
         try {
             System.out.println("SignUpUser sin Nombre");
             UsuariosDAO instance = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
-            UsuarioTrans trans = new UsuarioTrans(200,null,null,false);
+            UsuarioTrans trans = new UsuarioTrans(200," "," ",false);
             instance.write(trans);
-            assertNull(instance.readByNombre(null));
+            UsuarioTrans trans2 = instance.readByNombre(" ");
+            assertNotNull(trans2);
             
             //Borrar usuario introducido
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
-            PreparedStatement ps = c.prepareStatement("DELETE FROM jugadores\n" +
-            "      WHERE id = "+trans.getId());
+            PreparedStatement ps = c.prepareStatement("DELETE FROM usuarios\n" +
+            "      WHERE id = "+trans2.getId());
             ps.execute();
             ps.close();
             Conexion.getInstancia().cerrar();
