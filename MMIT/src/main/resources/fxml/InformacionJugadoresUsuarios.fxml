@@ -55,11 +55,14 @@
                                           <RowConstraints maxHeight="1.7976931348623157E308" minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasSuperior" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasInferior" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasTitulo" GridPane.columnSpan="2" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Puntos" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
-                                          <Label fx:id="puntos" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                          <Label fx:id="puntos" styleClass="textoCeldasEstadisticas" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                                        </children>
                                     </GridPane>
-                                    <GridPane GridPane.columnIndex="2">
+                                    <GridPane GridPane.columnIndex="1" GridPane.columnSpan="2">
                                       <columnConstraints>
                                           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -71,13 +74,16 @@
                                         <RowConstraints minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasTitulo" GridPane.columnSpan="3" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasPrimera" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasSegunda" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+                                          <Label fx:id="campoIntentados" styleClass="textoCeldasEstadisticas" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label fx:id="campoAnotados" styleClass="textoCeldasEstadisticas" GridPane.rowIndex="2" />
+                                          <Label fx:id="porcentajeCampo" styleClass="textoCeldasEstadisticas" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Tiros de Campo" GridPane.columnSpan="3" />
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="Anotados" GridPane.rowIndex="1" />
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="Intentados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                          <Label fx:id="campoAnotados" GridPane.rowIndex="2" />
-                                          <Label fx:id="campoIntentados" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <Label fx:id="porcentajeCampo" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Label styleClass="textoCeldasEstadisticas" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Label styleClass="textoCeldasEstadisticas" text="Intentados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label styleClass="textoCeldasEstadisticas" text="Anotados" GridPane.rowIndex="1" />
                                        </children>
                                     </GridPane>
                                     <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -92,24 +98,30 @@
                                         <RowConstraints minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasTitulo" GridPane.columnSpan="3" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasPrimera" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasSegunda" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+                                          <Label styleClass="textoCeldasEstadisticas" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Label fx:id="porcentajeTriples" styleClass="textoCeldasEstadisticas" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Label styleClass="textoCeldasEstadisticas" text="Anotados" GridPane.rowIndex="1" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Triples" GridPane.columnSpan="3" GridPane.halignment="CENTER" />
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="Intentados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="Anotados" GridPane.rowIndex="1" />
-                                          <Label fx:id="triplesAnotados" GridPane.rowIndex="2" />
-                                          <Label fx:id="triplesIntentados" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <Label fx:id="porcentajeTriples" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Label styleClass="textoCeldasEstadisticas" text="Intentados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label fx:id="triplesAnotados" styleClass="textoCeldasEstadisticas" GridPane.rowIndex="2" />
+                                          <Label fx:id="triplesIntentados" styleClass="textoCeldasEstadisticas" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                        </children>
                                     </GridPane>
                                     <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
                                        <children>
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="Intentados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="Anotados" GridPane.rowIndex="1" />
-                                          <Label fx:id="libresAnotados" GridPane.rowIndex="2" />
-                                          <Label fx:id="libresIntentados" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <Label fx:id="porcentajeLibres" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasTitulo" GridPane.columnSpan="3" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasPrimera" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasSegunda" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+                                          <Label styleClass="textoCeldasEstadisticas" text="Intentados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label fx:id="libresIntentados" styleClass="textoCeldasEstadisticas" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label styleClass="textoCeldasEstadisticas" text="Anotados" GridPane.rowIndex="1" />
+                                          <Label fx:id="porcentajeLibres" styleClass="textoCeldasEstadisticas" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Tiros Libres" GridPane.columnSpan="3" />
+                                          <Label fx:id="libresAnotados" styleClass="textoCeldasEstadisticas" GridPane.rowIndex="2" />
+                                          <Label styleClass="textoCeldasEstadisticas" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                        </children>
                                        <columnConstraints>
                                           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -124,13 +136,16 @@
                                     </GridPane>
                                     <GridPane GridPane.rowIndex="1">
                                        <children>
+                                          <Pane styleClass="celdaEstadisticasTitulo" GridPane.columnSpan="3" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasPrimera" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasSegunda" GridPane.columnSpan="3" GridPane.rowIndex="2" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Tiros de Dos" GridPane.columnSpan="3" />
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="Anotados" GridPane.rowIndex="1" />
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="Intentados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                          <Label fx:id="dosAnotados" GridPane.rowIndex="2" />
-                                          <Label fx:id="dosIntentados" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <Label fx:id="porcentajeDos" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Label styleClass="textoCeldasEstadisticas" text="Anotados" GridPane.rowIndex="1" />
+                                          <Label fx:id="porcentajeDos" styleClass="textoCeldasEstadisticas" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Label styleClass="textoCeldasEstadisticas" text="Intentados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label styleClass="textoCeldasEstadisticas" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Label fx:id="dosIntentados" styleClass="textoCeldasEstadisticas" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label fx:id="dosAnotados" styleClass="textoCeldasEstadisticas" GridPane.rowIndex="2" />
                                        </children>
                                        <columnConstraints>
                                           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -139,7 +154,7 @@
                                        </columnConstraints>
                                        <rowConstraints>
                                           <RowConstraints minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                           <RowConstraints minHeight="5.0" prefHeight="5.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                     </GridPane>
@@ -156,7 +171,10 @@
                                  <children>
                                     <GridPane GridPane.columnIndex="1">
                                        <children>
-                                          <Label fx:id="perdidas" styleClass="textoDestacadoInformacionBasica" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasInferior" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasTitulo" GridPane.columnSpan="2" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasSuperior" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                          <Label fx:id="perdidas" styleClass="textoCeldasEstadisticas" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Perdidas" GridPane.columnSpan="2" />
                                        </children>
                                        <columnConstraints>
@@ -171,10 +189,13 @@
                                     </GridPane>
                                     <GridPane>
                                        <children>
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="Ofensivos" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                          <Label styleClass="textoDestacadoInformacionBasica" text="Defensivos" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                          <Label fx:id="rebotesOfensivos" GridPane.rowIndex="2" />
-                                          <Label fx:id="rebotesDefensivos" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasPrimera" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasSegunda" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasTitulo" GridPane.columnSpan="2" />
+                                          <Label styleClass="textoCeldasEstadisticas" text="Ofensivos" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <Label styleClass="textoCeldasEstadisticas" text="Defensivos" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <Label fx:id="rebotesOfensivos" styleClass="textoCeldasEstadisticas" GridPane.rowIndex="2" />
+                                          <Label fx:id="rebotesDefensivos" styleClass="textoCeldasEstadisticas" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Rebotes" GridPane.columnSpan="2" />
                                        </children>
                                        <columnConstraints>
@@ -189,7 +210,10 @@
                                     </GridPane>
                                     <GridPane GridPane.columnIndex="2">
                                        <children>
-                                          <Label fx:id="tapones" styleClass="textoDestacadoInformacionBasica" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasInferior" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasSuperior" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasTitulo" GridPane.columnSpan="2" />
+                                          <Label fx:id="tapones" styleClass="textoCeldasEstadisticas" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Tapones" GridPane.columnSpan="2" />
                                        </children>
                                        <columnConstraints>
@@ -204,7 +228,10 @@
                                     </GridPane>
                                     <GridPane GridPane.rowIndex="1">
                                        <children>
-                                          <Label fx:id="asistencias" styleClass="textoDestacadoInformacionBasica" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasInferior" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasSuperior" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasTitulo" GridPane.columnSpan="2" />
+                                          <Label fx:id="asistencias" styleClass="textoCeldasEstadisticas" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Asistencias" GridPane.columnSpan="2" />
                                        </children>
                                        <columnConstraints>
@@ -219,7 +246,10 @@
                                     </GridPane>
                                     <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <children>
-                                          <Label fx:id="faltas" styleClass="textoDestacadoInformacionBasica" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasInferior" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasTitulo" GridPane.columnSpan="2" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasSuperior" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                          <Label fx:id="faltas" styleClass="textoCeldasEstadisticas" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Faltas" GridPane.columnSpan="2" />
                                        </children>
                                        <columnConstraints>
@@ -234,7 +264,10 @@
                                     </GridPane>
                                     <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
                                        <children>
-                                          <Label fx:id="robos" styleClass="textoDestacadoInformacionBasica" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasTitulo" GridPane.columnSpan="2" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasSuperior" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                          <Pane prefHeight="200.0" prefWidth="200.0" styleClass="celdaEstadisticasInferior" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                                          <Label fx:id="robos" styleClass="textoCeldasEstadisticas" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                                           <Label styleClass="tituloPequenoInformacionBasica" text="Robos" GridPane.columnSpan="2" />
                                        </children>
                                        <columnConstraints>

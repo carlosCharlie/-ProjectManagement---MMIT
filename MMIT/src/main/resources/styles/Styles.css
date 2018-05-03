@@ -25,12 +25,16 @@
 
 .tituloPequenoInformacionBasica {
     -fx-font-size: 30px;
-    -fx-font-style: italic;
+    -fx-font-style: bold;
 }
 
 .tituloGrandeInformacionBasica {
     -fx-font-size: 60px;
 }
+
+.textoCeldasEstadisticas {
+    -fx-font-size: 24px;
+} 
 
 .tablaListar .column-header-background .filler{
     -fx-background-color: orange;
@@ -55,6 +59,34 @@
     font-size: 50px;
     -fx-background-color: #b27300;
 }
+
+.celdaEstadisticasTitulo {
+    -fx-border-style: solid;
+    -fx-border-width: 1px 1px 1px 1px;
+    -fx-background-color: orange;
+}
+
+.celdaEstadisticasPrimera {
+    -fx-border-style: solid;
+    -fx-border-width: 1px 1px 1px 1px;
+    -fx-background-color: lightgrey;
+}
+
+.celdaEstadisticasSuperior{
+    -fx-border-style: solid;
+    -fx-border-width: 1px 1px 0px 1px;
+}
+
+.celdaEstadisticasInferior{
+    -fx-border-style: solid;
+    -fx-border-width: 0px 1px 1px 1px;
+}
+
+.celdaEstadisticasSegunda {
+    -fx-border-style: solid;
+    -fx-border-width: 1px 1px 1px 1px;
+}
+
 
 .celdaBracket {
     -fx-border-style: solid;
