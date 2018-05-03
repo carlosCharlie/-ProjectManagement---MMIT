@@ -36,7 +36,7 @@ public class EquiposDAOImp implements EquiposDAO{
 
     @Override
     public EquipoTrans readById(Integer id) throws Exception{
-         try {
+        try {
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
             
@@ -56,6 +56,31 @@ public class EquiposDAOImp implements EquiposDAO{
         }
         
         return null;
+    }
+    
+    public int Modify(EquipoTrans team) throws Exception{
+        
+        int devolver = 0;
+        
+        try {
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            
+            PreparedStatement ps = c.prepareStatement("UPDATE equipos SET nombre=?, victorias=?, derrotas=? WHERE id = " + team.getId());
+            
+            ps.setString(1, team.getNombre());
+            ps.setInt(2, team.getVictorias());
+            ps.setInt(3, team.getDerrotas());
+            
+            devolver = ps.executeUpdate();
+            
+            Conexion.getInstancia().cerrar();
+
+        } catch (SQLException ex) {
+            Conexion.getInstancia().cerrar();
+            throw new Exception("Error al conectarse a la BBDD");
+        }
+        return devolver;
     }
     
 }
