@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.mmit.integracion.usuarios;
+package com.mmit.negocio.usuarios;
 
 import com.mmit.negocio.usuarios.UsuarioTrans;
 import com.mmit.negocio.usuarios.UsuariosSA;
