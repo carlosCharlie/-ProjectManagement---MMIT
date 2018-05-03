@@ -66,24 +66,51 @@ public class UsuariosDAONGTest {
 
     }
         
-     @Test
+    @Test
     public void testSignUpUser() {
         try {
             System.out.println("SignUpUser");
             UsuariosDAO instance = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
             UsuarioTrans trans = new UsuarioTrans(200,"MonkeyD","Luffy",false);
             instance.write(trans);
-            assertEquals(trans,instance.readByNombre("MonkeyD"));
-            
+            UsuarioTrans trans2 = instance.readByNombre("MonkeyD");
+            assertNotNull(trans2);
+
             //Borrar usuario introducido
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
-            PreparedStatement ps =  c.prepareStatement("Delete * from usuarios where nombre = ?");
-            ps.setString(1, "MonkeyD");
-            ResultSet rs = ps.executeQuery();
+            PreparedStatement ps = c.prepareStatement("DELETE FROM jugadores\n" +
+            "      WHERE id = "+trans.getId());
+            ps.execute();
+            ps.close();
+            Conexion.getInstancia().cerrar();
         } catch (Exception ex) {
             Assert.fail();
         }
 
     }
+    
+    @Test
+    public void testSignUpUserSinPasswordYSinNombre() {
+        try {
+            System.out.println("SignUpUser sin Nombre");
+            UsuariosDAO instance = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
+            UsuarioTrans trans = new UsuarioTrans(200,null,null,false);
+            instance.write(trans);
+            assertNull(instance.readByNombre(null));
+            
+            //Borrar usuario introducido
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            PreparedStatement ps = c.prepareStatement("DELETE FROM jugadores\n" +
+            "      WHERE id = "+trans.getId());
+            ps.execute();
+            ps.close();
+            Conexion.getInstancia().cerrar();
+        } catch (Exception ex) {
+            Assert.fail();
+        }
+
+    }
+    
 }
