@@ -72,20 +72,23 @@ public class BracketSAImp implements BracketSA {
     }
 
     @Override
-    public ArrayList<EquipoTrans> getBracketByUser(int idUsuario) {
+    public int getBracketByUser(int idUsuario){
         
         try {
             BracketsDAO bracketDao = FactoriaIntegracion.getInstancia().crearBracketsDAO();
             UsuariosDAO usuarioDao = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
             
-            if(usuarioDao.readById(idUsuario)==null){
-                return null;
-            }else{
-                return bracketDao.readBracketByUser(idUsuario);
+            ArrayList<EquipoTrans> equipos = bracketDao.readBracketByUser(idUsuario);
+            
+            if(equipos == null){
+                return -1;
+            }else{               
+                Login.setBracket(equipos);
+                return 0;
             }
             
         } catch (Exception ex) {
-            return null;
+            return -5;
         }
     };
 }

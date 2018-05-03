@@ -7,7 +7,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class EquipoTrans {
-    private int id;
+    private Integer id;
     private String nombre;
     
     private Integer victorias;
@@ -142,7 +142,7 @@ public class EquipoTrans {
 		this.perdidas = perdidas;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 

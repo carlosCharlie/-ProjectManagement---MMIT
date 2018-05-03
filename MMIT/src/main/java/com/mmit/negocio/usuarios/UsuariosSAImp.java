@@ -19,7 +19,7 @@ public class UsuariosSAImp implements UsuariosSA {
                 } else if (!tUsuario.getPassword().equals(usuarioTrans.getPassword())) {
                     respuesta= -2;
                 } else {
-                    usuarioTrans = tUsuario;
+                    Login.setNuevaSesion(tUsuario);             
                     respuesta = 0;
                 }
                 

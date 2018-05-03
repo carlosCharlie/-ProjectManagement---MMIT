@@ -98,7 +98,7 @@ public class ControladorVistaLogin implements Initializable, ControladorVista{
     
     @FXML
     private void noLogin(){
-            Login.setNuevaSesion(new UsuarioTrans(null, null));
+            Login.setNuevaSesion(null);
             Controlador.obtenerInstancia().accion(new Contexto(Evento.AbrirMenuPrincipal, null));
     }
     

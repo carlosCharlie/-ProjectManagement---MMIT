@@ -88,7 +88,7 @@ public class ControladorVistaMenu implements Initializable, ControladorVista {
     
     @FXML
     private void cerrarSesion(){
-        Controlador.obtenerInstancia().accion(new Contexto(Evento.CerrarSesion, null));
+        Controlador.obtenerInstancia().accion(new Contexto(Evento.CerrarSesion, null));        
     }
 
     @Override

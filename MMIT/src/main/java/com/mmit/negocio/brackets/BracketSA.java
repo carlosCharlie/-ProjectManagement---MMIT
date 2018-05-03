@@ -22,5 +22,5 @@ public interface BracketSA {
     * @param idUsuario id del usuario
     * @return bracket o null si algo ha salido mal
     */
-   public ArrayList<EquipoTrans> getBracketByUser(int idUsuario);
+   public int getBracketByUser(int idUsuario);
 }

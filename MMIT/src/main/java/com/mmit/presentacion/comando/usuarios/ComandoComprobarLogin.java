@@ -14,7 +14,6 @@ public class ComandoComprobarLogin implements Comando {
 	int respuesta = FactoriaNegocio.getInstancia().crearUsuariosSA().comprobarLogin((UsuarioTrans) datos);
         switch(respuesta){
             case 0:
-                Login.setNuevaSesion((UsuarioTrans) datos);
                 return new Contexto(Evento.AbrirMenuPrincipal, null);
             case -1:
                 return new Contexto(Evento.ErrorUsuario, datos);
