@@ -17,4 +17,12 @@ public interface EquiposDAO {
      * @return  datos del equipo
      */
     public EquipoTrans readById(Integer id) throws Exception;
+    
+    /**
+     * Inserta un equipo en la BBDD
+     * @param team equipo que se inserta
+     * @return true insertado correctamente
+     *          false no insertado
+     */
+    public boolean insert(EquipoTrans team) throws Exception;
 }
