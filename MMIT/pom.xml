@@ -99,7 +99,7 @@
                     <additionalClasspathElements>
                         <additionalClasspathElement>${java.home}/lib/jfxrt.jar</additionalClasspathElement>
                     </additionalClasspathElements>
-                  <skipTests>true</skipTests> <!--Poner a false para probar test-->
+                  <skipTests>false</skipTests> <!--Poner a false para probar test-->
                 </configuration>
             </plugin>
             <plugin>

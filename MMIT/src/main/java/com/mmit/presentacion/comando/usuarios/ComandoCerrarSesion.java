@@ -11,6 +11,16 @@ public class ComandoCerrarSesion implements Comando {
 
     @Override
     public Contexto execute(Object datos) {
-	return new Contexto(Evento.CerrarSesion, null);
+        int respuesta = FactoriaNegocio.getInstancia().crearBracketSA().crearBracket(Login.getBracket(), Login.getUsuario().getId());
+        switch (respuesta){
+            case 0:
+                Login.cerrarSesion();
+                return new Contexto(Evento.CerrarSesion, null);
+            case -5:
+                return new Contexto(Evento.ErrorSQL, null);
+            default:
+                return null;
+        }       
+	
     }
 }

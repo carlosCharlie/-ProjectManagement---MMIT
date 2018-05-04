@@ -40,5 +40,6 @@ public enum Evento {
     //Eventos Bracket
     AbrirHacerBracket, 
     RellenarBracket, 
+    GuardarBracket, 
     
 }

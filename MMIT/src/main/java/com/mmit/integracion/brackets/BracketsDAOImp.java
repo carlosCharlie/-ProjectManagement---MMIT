@@ -42,7 +42,11 @@ public class BracketsDAOImp implements BracketsDAO{
         String s = "";
         
         for (EquipoTrans equipo:bracket){
-            s += equipo.getId()+RESTRICCION;
+            if (equipo.getId() == null){
+                s += "0" + RESTRICCION;
+            } else {
+                 s += equipo.getId() + RESTRICCION;
+            }
         }
         
         return s;
@@ -65,7 +69,11 @@ public class BracketsDAOImp implements BracketsDAO{
             //lo transformo en numeros
             idTmp=Integer.parseInt(split[i]);
             
-            equipos.add(equiposDao.readById(idTmp));
+            if (idTmp == 0){
+                equipos.add(new EquipoTrans());
+            } else {
+                equipos.add(equiposDao.readById(idTmp));
+            }
         }
 
         return equipos;

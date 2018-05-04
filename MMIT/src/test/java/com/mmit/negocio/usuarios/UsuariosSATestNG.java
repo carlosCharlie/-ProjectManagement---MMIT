@@ -14,13 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.mmit.integracion.usuarios;
+package com.mmit.negocio.usuarios;
 
-import com.mmit.negocio.usuarios.UsuarioTrans;
-import com.mmit.negocio.usuarios.UsuariosSA;
-import com.mmit.negocio.usuarios.UsuariosSAImp;
+import com.mmit.integracion.conexion.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import junit.framework.Assert;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
 import org.testng.annotations.Test;
 
 /**
@@ -34,8 +36,20 @@ public class UsuariosSATestNG {
             System.out.print("Registro usuario no existente sin contraseña");
             UsuariosSA instance = new UsuariosSAImp();
             UsuarioTrans us = new UsuarioTrans(300,"jaja"," ",true);
-            int respuesta = instance.singUpUser(us);
-            assertEquals(-4, respuesta);
+            instance.singUpUser(us);
+            
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            PreparedStatement ps =  c.prepareStatement("Select password from usuarios where id = 300");
+            ResultSet rs = ps.executeQuery();
+            
+            PreparedStatement ts =  c.prepareStatement("delete from usuarios where id = 300");
+            ts.execute();
+            ps.close();
+            ts.close();
+            c.close();
+            
+            assertEquals(instance.singUpUser(us), -1);
             
         }catch(Exception e){
             Assert.fail();
@@ -48,7 +62,20 @@ public class UsuariosSATestNG {
             UsuariosSA instance = new UsuariosSAImp();
             UsuarioTrans us = new UsuarioTrans(300," ","jaja",true);
             int respuesta = instance.singUpUser(us);
-            assertEquals(-4, respuesta);
+           
+            
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            PreparedStatement ps =  c.prepareStatement("Select nombre from usuarios where id = 300");
+            ResultSet rs = ps.executeQuery();
+            
+            PreparedStatement ts =  c.prepareStatement("delete from usuarios where id = 300");
+            ts.execute();
+            ps.close();
+            ts.close();
+            c.close();
+            
+            assertEquals(instance.singUpUser(us), -1);
             
         }catch(Exception e){
             Assert.fail();
@@ -61,12 +88,27 @@ public class UsuariosSATestNG {
             UsuariosSA instance = new UsuariosSAImp();
             UsuarioTrans us = new UsuarioTrans(4500,"sergio","jaja",false);
             int respuesta = instance.singUpUser(us);
-            assertEquals(-1, respuesta);
+        
+            
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            PreparedStatement ps =  c.prepareStatement("Select nombre from usuarios where id = 300");
+            ResultSet rs = ps.executeQuery();
+            
+            PreparedStatement ts =  c.prepareStatement("delete from usuarios where id = 300");
+            ts.execute();
+            ps.close();
+            ts.close();
+            c.close();
+            
+            assertNotNull(instance.singUpUser(us));
             
         }catch(Exception e){
             Assert.fail();
         }
     }
+    
+    
     @Test
     public void TestSingUpUserExisteYesAdmin(){
         try{
@@ -74,7 +116,7 @@ public class UsuariosSATestNG {
             UsuariosSA instance = new UsuariosSAImp();
             UsuarioTrans us = new UsuarioTrans(1,"admin","adminP",true);
             int respuesta = instance.singUpUser(us);
-            assertEquals(-2, respuesta);
+            assertEquals(respuesta, -1);
             
         }catch(Exception e){
             Assert.fail();
@@ -88,10 +130,12 @@ public class UsuariosSATestNG {
             UsuariosSA instance = new UsuariosSAImp();
             UsuarioTrans us = new UsuarioTrans(1,"michael","jajaja",false);
             int respuesta = instance.singUpUser(us);
-            assertEquals(-3, respuesta);
+            assertEquals(respuesta, -1);
+            
             
         }catch(Exception e){
             Assert.fail();
         }
     }
+    
 }
