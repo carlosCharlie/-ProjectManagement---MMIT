@@ -25,4 +25,11 @@ public interface EquiposSA {
      * @return 
      */
     public EquipoTrans obtenerEquipo(int id);
+    
+    /**
+     * añade informacion basica de un equipo
+     * @param equipoEntr transfer de TOAEntrenadorEquipo
+     * @return 
+     */
+    public int añadir(TOAEntrenadorEquipo equipoEntr);
 }
