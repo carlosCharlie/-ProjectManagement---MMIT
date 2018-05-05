@@ -1,10 +1,16 @@
 package com.mmit.integracion.equipos;
 
+import com.mmit.integracion.conexion.Conexion;
 import com.mmit.integracion.factoriaIntegracion.FactoriaIntegracion;
 import com.mmit.integracion.jugadores.JugadoresDAO;
 import com.mmit.integracion.jugadores.JugadoresDAOImp;
+import com.mmit.negocio.entrenadores.EntrenadorTrans;
+import com.mmit.negocio.entrenadores.TOAEntrenadorEquipo;
 import com.mmit.negocio.equipos.EquipoTrans;
+import com.mmit.negocio.equipos.TOAEntrenadorEquipoJugadores;
 import com.mmit.negocio.jugadores.JugadorTrans;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import org.junit.Assert;
 import static org.testng.Assert.*;
@@ -35,11 +41,62 @@ public class EquiposDAONGTest {
         try{
             System.out.println("Listar un equipo");
             EquiposDAO instance = FactoriaIntegracion.getInstancia().crearEquiposDAO();
-            EquipoTrans result = instance.readById(1);
+            EquipoTrans result = instance.readById(2);
+            assertNotNull(result);
+        }catch(Exception e){
+            Assert.fail();
+        }
+    }
+    /*
+    @Test
+    public void testInsert(){
+        try{
+            System.out.println("Insert equipo");
+            EquiposDAO instance = FactoriaIntegracion.getInstancia().crearEquiposDAO();
+            EquipoTrans et = new EquipoTrans(21, "pepe", 10, 10, 40, 40, 20, 20, 5, 6, 2, 5, 4, 12, 3, 9, 8, 3, 5);
+            instance.insert(et);
+            EquipoTrans result = instance.readById(et.getId());
+            
+            //Borrar Equipo Introducido
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            PreparedStatement ps = c.prepareStatement("DELETE FROM equipos\n" +
+            "      WHERE id = 21 ");
+            //ps.setInt(1, result.getId());
+            System.out.println(result.getId());
+            ps.execute();
+            ps.close();
+            Conexion.getInstancia().cerrar();
+            
             assertNotNull(result);
         }catch(Exception e){
             Assert.fail();
         }
     }
     
+    @Test
+    public void testInsertSinNombre(){
+        try{
+            System.out.println("Insert equipo sin nombre");
+            EquiposDAO instance = FactoriaIntegracion.getInstancia().crearEquiposDAO();
+            EquipoTrans et = new EquipoTrans(22, " ", 10, 10, 40, 40, 20, 20, 5, 6, 2, 5, 4, 12, 3, 9, 8, 3, 5);
+            instance.insert(et);
+            EquipoTrans result = instance.readById(et.getId());
+            
+            //Borrar Equipo Introducido
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            PreparedStatement ps = c.prepareStatement("DELETE FROM equipos\n" +
+            "      WHERE id = "+result.getId());
+            ps.execute();
+            ps.close();
+            Conexion.getInstancia().cerrar();
+            
+            assertNull(result);
+        }catch(Exception e){
+            Assert.fail();
+        }
+    }
+    */
 }
+  

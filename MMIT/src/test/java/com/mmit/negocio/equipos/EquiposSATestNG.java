@@ -17,7 +17,11 @@
 package com.mmit.negocio.equipos;
 
 import com.grafico.graficotriangular.GraficoTriangular;
+import com.mmit.integracion.conexion.Conexion;
+import com.mmit.negocio.entrenadores.EntrenadorTrans;
 import com.mmit.negocio.entrenadores.TOAEntrenadorEquipo;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import junit.framework.Assert;
 import static org.testng.Assert.*;
@@ -46,7 +50,7 @@ public class EquiposSATestNG {
         try{
             System.out.println("Sacar equipo segun Id");
             EquiposSA instance = new EquiposSAImp();
-            TOAEntrenadorEquipo result = instance.obtenerEquipoCompleto(1);
+            TOAEntrenadorEquipo result = instance.obtenerEquipoCompleto(2);
             assertNotNull(result);
         }catch(Exception e){
             Assert.fail();
@@ -58,12 +62,65 @@ public class EquiposSATestNG {
          try{
             System.out.println("Obtener plantilla sin entrenador con el id");
             EquiposSA instance = new EquiposSAImp();
-            EquipoTrans result = instance.obtenerEquipo(1);
+            EquipoTrans result = instance.obtenerEquipo(2);
             assertNotNull(result);
         }catch(Exception e){
             Assert.fail();
         }
     }
+    /*
+    @Test
+    public void testAñadirSinNombre(){
+        try{
+            System.out.println("Insert equipo sin nombre");
+            EquiposSA instance = new EquiposSAImp();
+            EntrenadorTrans ent = new EntrenadorTrans(1, "juan", "ramirez", 20, 8, 42, 1);
+            EquipoTrans et = new EquipoTrans(1, " ", 10, 10, 40, 40, 20, 20, 5, 6, 2, 5, 4, 12, 3, 9, 8, 3, 5);
+            TOAEntrenadorEquipo toa = new TOAEntrenadorEquipo(ent, et);
+            instance.añadir(toa);
+            EquipoTrans result = instance.obtenerEquipo(toa.getEquipo().getId());
+            
+            //Borrar Equipo Introducido
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            PreparedStatement ps = c.prepareStatement("DELETE FROM usuarios\n" +
+            "      WHERE id = "+toa.getEquipo().getId());
+            ps.execute();
+            ps.close();
+            Conexion.getInstancia().cerrar();
+            
+            assertNotNull(result);
+        }catch(Exception e){
+            Assert.fail();
+        }
+    }
+    
+    @Test
+    public void testAñadir(){
+        try{
+            System.out.println("Insert equipo sin nombre");
+            EquiposSA instance = new EquiposSAImp();
+            EntrenadorTrans ent = new EntrenadorTrans(1, "juan", "ramirez", 20, 8, 42, 1);
+            EquipoTrans et = new EquipoTrans(1, "pepe", 10, 10, 40, 40, 20, 20, 5, 6, 2, 5, 4, 12, 3, 9, 8, 3, 5);
+            TOAEntrenadorEquipo toa = new TOAEntrenadorEquipo(ent, et);
+            instance.añadir(toa);
+            EquipoTrans result = instance.obtenerEquipo(toa.getEquipo().getId());
+            
+            //Borrar Equipo Introducido
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            PreparedStatement ps = c.prepareStatement("DELETE FROM usuarios\n" +
+            "      WHERE id = "+toa.getEquipo().getId());
+            ps.execute();
+            ps.close();
+            Conexion.getInstancia().cerrar();
+            
+            assertNotNull(result);
+        }catch(Exception e){
+            Assert.fail();
+        }
+    }*/
+    
     @Test
     public void TestNGGraficoEquiposCorrecto(){
         try{
@@ -76,7 +133,7 @@ public class EquiposSATestNG {
             grafico.setVariableB("Tiros de 3");
             grafico.setPorcentajeC(Double.valueOf(et.getLibresPorcentaje()));
             grafico.setVariableC("Tiros Libres");
-            assertNotNull(grafico);
+            assertNull(grafico);
         }catch(Exception e){
             Assert.fail();
         }

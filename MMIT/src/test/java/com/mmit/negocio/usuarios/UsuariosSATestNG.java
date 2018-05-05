@@ -17,6 +17,8 @@
 package com.mmit.negocio.usuarios;
 
 import com.mmit.integracion.conexion.Conexion;
+import com.mmit.integracion.factoriaIntegracion.FactoriaIntegracion;
+import com.mmit.integracion.usuarios.UsuariosDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -92,10 +94,10 @@ public class UsuariosSATestNG {
             
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
-            PreparedStatement ps =  c.prepareStatement("Select nombre from usuarios where id = 300");
+            PreparedStatement ps =  c.prepareStatement("Select nombre from usuarios where id = "+us.getId());
             ResultSet rs = ps.executeQuery();
             
-            PreparedStatement ts =  c.prepareStatement("delete from usuarios where id = 300");
+            PreparedStatement ts =  c.prepareStatement("delete from usuarios where id = "+us.getId());
             ts.execute();
             ps.close();
             ts.close();
@@ -123,12 +125,13 @@ public class UsuariosSATestNG {
         }
     }
     
-     @Test
+    @Test
     public void TestSingUpUserExisteYesUser(){
         try{
             System.out.print("Registro usuario existente normal");
             UsuariosSA instance = new UsuariosSAImp();
-            UsuarioTrans us = new UsuarioTrans(1,"michael","jajaja",false);
+            UsuariosDAO dao = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
+            UsuarioTrans us = dao.readById(1);
             int respuesta = instance.singUpUser(us);
             assertEquals(respuesta, -1);
             
