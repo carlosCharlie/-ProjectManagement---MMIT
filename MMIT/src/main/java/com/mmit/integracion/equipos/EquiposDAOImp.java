@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -61,8 +62,32 @@ public class EquiposDAOImp implements EquiposDAO{
         return null;
     }
     
-    public boolean insert(EquipoTrans team) throws Exception{
-        boolean devolver = false;
+    @Override
+    public EquipoTrans readByNombre(String nombre) throws Exception {
+        try {
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+          
+            PreparedStatement ps =  c.prepareStatement("Select * from equipos where nombre = ?");
+            ps.setString(1,nombre);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(!rs.next()){
+                return null;
+            }
+            else{
+                return new EquipoTrans(rs.getInt("id"),rs.getString("nombre"),rs.getInt("victorias"),rs.getInt("derrotas"));
+            } 
+                
+        } catch (SQLException ex) {
+            Conexion.getInstancia().cerrar();
+            throw new Exception("Error al conectarse a la BBDD");
+        }
+    }
+    
+    @Override
+    public void insert(EquipoTrans team) throws Exception{
          try {
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
@@ -72,15 +97,15 @@ public class EquiposDAOImp implements EquiposDAO{
             ps.setString(1, team.getNombre());
             ps.setInt(2, team.getVictorias());
             ps.setInt(3, team.getDerrotas());
-            devolver = ps.execute();
+            ps.execute();
             
             Conexion.getInstancia().cerrar();
             
         } catch (SQLException ex) {
             Conexion.getInstancia().cerrar();
+            Logger.getLogger(UsuariosDAOImp.class.getName()).log(Level.SEVERE, null, ex);
             throw new Exception("Error al conectarse a la BBDD");
         }
-         return devolver;
     }
     
     /*public int Modify(EquipoTrans team) throws Exception{

@@ -11,6 +11,7 @@ import com.mmit.negocio.equipos.TOAEntrenadorEquipoJugadores;
 import com.mmit.negocio.jugadores.JugadorTrans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.ArrayList;
 import org.junit.Assert;
 import static org.testng.Assert.*;
@@ -47,23 +48,22 @@ public class EquiposDAONGTest {
             Assert.fail();
         }
     }
-    /*
+   
     @Test
     public void testInsert(){
         try{
             System.out.println("Insert equipo");
             EquiposDAO instance = FactoriaIntegracion.getInstancia().crearEquiposDAO();
-            EquipoTrans et = new EquipoTrans(21, "pepe", 10, 10, 40, 40, 20, 20, 5, 6, 2, 5, 4, 12, 3, 9, 8, 3, 5);
+            EquipoTrans et = new EquipoTrans(300, "pepe", 10, 10, 40, 40, 20, 20, 5, 6, 2, 5, 4, 12, 3, 9, 8, 3, 5);
             instance.insert(et);
-            EquipoTrans result = instance.readById(et.getId());
+            EquipoTrans result = instance.readByNombre(et.getNombre());
             
             //Borrar Equipo Introducido
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
             PreparedStatement ps = c.prepareStatement("DELETE FROM equipos\n" +
-            "      WHERE id = 21 ");
-            //ps.setInt(1, result.getId());
-            System.out.println(result.getId());
+            "      WHERE id = ?");
+            ps.setInt(1, result.getId());
             ps.execute();
             ps.close();
             Conexion.getInstancia().cerrar();
@@ -79,9 +79,9 @@ public class EquiposDAONGTest {
         try{
             System.out.println("Insert equipo sin nombre");
             EquiposDAO instance = FactoriaIntegracion.getInstancia().crearEquiposDAO();
-            EquipoTrans et = new EquipoTrans(22, " ", 10, 10, 40, 40, 20, 20, 5, 6, 2, 5, 4, 12, 3, 9, 8, 3, 5);
+            EquipoTrans et = new EquipoTrans(200, " ", 10, 10, 40, 40, 20, 20, 5, 6, 2, 5, 4, 12, 3, 9, 8, 3, 5);
             instance.insert(et);
-            EquipoTrans result = instance.readById(et.getId());
+            EquipoTrans result = instance.readByNombre(et.getNombre());
             
             //Borrar Equipo Introducido
             Conexion.getInstancia().abrir();
@@ -92,11 +92,11 @@ public class EquiposDAONGTest {
             ps.close();
             Conexion.getInstancia().cerrar();
             
-            assertNull(result);
+            assertNotNull(result);
         }catch(Exception e){
             Assert.fail();
         }
     }
-    */
+    
 }
   

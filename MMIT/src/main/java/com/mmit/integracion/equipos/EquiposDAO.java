@@ -19,10 +19,15 @@ public interface EquiposDAO {
     public EquipoTrans readById(Integer id) throws Exception;
     
     /**
+     * Devuelve el equipo con un determinado nombre
+     * @param nombre del equipo a buscar
+     * @return  datos del equipo
+     */
+    public EquipoTrans readByNombre(String nombre) throws Exception;
+    
+    /**
      * Inserta un equipo en la BBDD
      * @param team equipo que se inserta
-     * @return true insertado correctamente
-     *          false no insertado
      */
-    public boolean insert(EquipoTrans team) throws Exception;
+    public void insert(EquipoTrans team) throws Exception;
 }
