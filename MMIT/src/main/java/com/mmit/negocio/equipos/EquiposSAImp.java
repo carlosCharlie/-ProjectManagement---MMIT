@@ -72,6 +72,7 @@ public class EquiposSAImp implements EquiposSA {
                 if (t1 == null) {
                     if(t2 == null ||t2.getIdEquipo() == null){
                         equiposDao.insert(t1);
+                        entrenadorDao.update(t2);
                     }
                 }
                 else{
