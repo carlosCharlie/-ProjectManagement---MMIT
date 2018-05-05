@@ -128,7 +128,7 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
             
-            PreparedStatement ps = c.prepareStatement("UPDATE entrenador SET nombre=?, apellidos=?, derrotas=?, victorias=?, id_equipo=?, edad=? WHERE id=?");
+            PreparedStatement ps = c.prepareStatement("UPDATE entrenador SET nombre=?, apellidos=?, id_equipo=?, edad=?, victorias=?, derrotas=? WHERE id = " + entrt.getId());
             
             ps.setString(1, entrt.getNombre());
             ps.setString(2, entrt.getApellidos());
@@ -136,37 +136,11 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
             ps.setInt(4, entrt.getEdad());
             ps.setInt(5, entrt.getVictorias());
             ps.setInt(6, entrt.getDerrotas());
-            ps.setInt(7, entrt.getId());
             
-            ps.execute();
+            ps.executeUpdate();
             
             Conexion.getInstancia().cerrar();
 
-        } catch (SQLException ex) {
-            Conexion.getInstancia().cerrar();
-            Logger.getLogger(UsuariosDAOImp.class.getName()).log(Level.SEVERE, null, ex);
-            throw new Exception("Error al conectarse a la BBDD");
-        }
-    }
-
-    @Override
-    public EntrenadorTrans readByNombre(String nombre) throws Exception {
-        try {
-            Conexion.getInstancia().abrir();
-            Connection c = Conexion.getInstancia().getResource();
-          
-            PreparedStatement ps =  c.prepareStatement("Select * from entrenador where nombre = ?");
-            ps.setString(1,nombre);
-            
-            ResultSet rs = ps.executeQuery();
-            
-            if(!rs.next()){
-                return null;
-            }
-            else{
-                 return new EntrenadorTrans(rs.getInt("id"),rs.getString("nombre"),rs.getString("apellidos"),rs.getInt("victorias"), rs.getInt("derrotas"), rs.getInt("edad"), rs.getInt("id_equipo"));
-            } 
-                
         } catch (SQLException ex) {
             Conexion.getInstancia().cerrar();
             Logger.getLogger(UsuariosDAOImp.class.getName()).log(Level.SEVERE, null, ex);

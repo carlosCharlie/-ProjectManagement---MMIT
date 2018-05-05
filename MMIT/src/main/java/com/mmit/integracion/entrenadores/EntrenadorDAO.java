@@ -36,20 +36,10 @@ public interface EntrenadorDAO {
       * @throws Exception 
       */
      public ArrayList<EquipoTrans> readHistoricoByEntrenador(int id) throws Exception;
-     
      /**
       * Actualiza al entrenador
       * @param entrt entrenador a actualizar
       * @throws Exception 
       */
      public void update(EntrenadorTrans entrt) throws Exception;
-     
-     /**
-      * Devuelve el transfer de un entrenador dado su nombre
-      * @param nombre del entrenador
-      * @return transfer con los datos del entrenador
-      * @throws Exception 
-      */
-     public EntrenadorTrans readByNombre(String nombre) throws Exception;
-
 }
