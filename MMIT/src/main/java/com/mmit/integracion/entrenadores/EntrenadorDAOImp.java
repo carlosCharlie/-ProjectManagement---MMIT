@@ -1,6 +1,7 @@
 package com.mmit.integracion.entrenadores;
 
 import com.mmit.integracion.conexion.Conexion;
+import com.mmit.integracion.usuarios.UsuariosDAOImp;
 import com.mmit.negocio.entrenadores.EntrenadorTrans;
 import com.mmit.negocio.equipos.EquipoTrans;
 import java.sql.Connection;
@@ -8,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class EntrenadorDAOImp implements EntrenadorDAO{
@@ -116,6 +119,33 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
         }
         
         return null;
+    }
+    
+    @Override
+    public void update(EntrenadorTrans entrt) throws Exception{
+        
+        try {
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            
+            PreparedStatement ps = c.prepareStatement("UPDATE entrenador SET nombre=?, apellidos=?, id_equipo=?, edad=?, victorias=?, derrotas=? WHERE id = " + entrt.getId());
+            
+            ps.setString(1, entrt.getNombre());
+            ps.setString(2, entrt.getApellidos());
+            ps.setInt(3, entrt.getIdEquipo());
+            ps.setInt(4, entrt.getEdad());
+            ps.setInt(5, entrt.getVictorias());
+            ps.setInt(6, entrt.getDerrotas());
+            
+            ps.executeUpdate();
+            
+            Conexion.getInstancia().cerrar();
+
+        } catch (SQLException ex) {
+            Conexion.getInstancia().cerrar();
+            Logger.getLogger(UsuariosDAOImp.class.getName()).log(Level.SEVERE, null, ex);
+            throw new Exception("Error al conectarse a la BBDD");
+        }
     }
     
 }
