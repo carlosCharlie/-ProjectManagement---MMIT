@@ -19,15 +19,10 @@ package com.mmit.integracion.entrenadores;
 import com.mmit.integracion.conexion.Conexion;
 import com.mmit.integracion.factoriaIntegracion.FactoriaIntegracion;
 import com.mmit.integracion.jugadores.JugadoresDaoTestNG;
-import com.mmit.negocio.entrenadores.EntrenadorSA;
 import com.mmit.negocio.entrenadores.EntrenadorTrans;
 import com.mmit.negocio.equipos.EquipoTrans;
-import com.mmit.negocio.factoriaNegocio.FactoriaNegocio;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -112,7 +107,7 @@ public class EntrenadoresDAOTestNG {
         try{
             System.out.println("Update");
             EntrenadorDAO instance = FactoriaIntegracion.getInstancia().crearEntrenadoresDAO();
-            EntrenadorTrans et = new EntrenadorTrans(300,"MonkeyD","Luffy",2,18,100,1);
+            EntrenadorTrans et = new EntrenadorTrans(300,"MonkeyD","Luffy",100,1,18,2);
             
             //Inserto al entrenador
             Conexion.getInstancia().abrir();
@@ -136,10 +131,8 @@ public class EntrenadoresDAOTestNG {
             Conexion.getInstancia().abrir();
             c = Conexion.getInstancia().getResource();
             ps = c.prepareStatement("DELETE FROM entrenador WHERE id=?");
-            System.out.println(result.getId());
             ps.setInt(1, result.getId());
             ps.execute();
-            System.out.println("Update 3");
             ps.close();
             Conexion.getInstancia().cerrar();
             

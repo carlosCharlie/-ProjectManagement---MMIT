@@ -2,16 +2,9 @@ package com.mmit.integracion.equipos;
 
 import com.mmit.integracion.conexion.Conexion;
 import com.mmit.integracion.factoriaIntegracion.FactoriaIntegracion;
-import com.mmit.integracion.jugadores.JugadoresDAO;
-import com.mmit.integracion.jugadores.JugadoresDAOImp;
-import com.mmit.negocio.entrenadores.EntrenadorTrans;
-import com.mmit.negocio.entrenadores.TOAEntrenadorEquipo;
 import com.mmit.negocio.equipos.EquipoTrans;
-import com.mmit.negocio.equipos.TOAEntrenadorEquipoJugadores;
-import com.mmit.negocio.jugadores.JugadorTrans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.Statement;
 import java.util.ArrayList;
 import org.junit.Assert;
 import static org.testng.Assert.*;

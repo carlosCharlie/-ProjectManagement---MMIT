@@ -132,10 +132,10 @@ public class EntrenadorDAOImp implements EntrenadorDAO{
             
             ps.setString(1, entrt.getNombre());
             ps.setString(2, entrt.getApellidos());
-            ps.setInt(3, entrt.getIdEquipo());
-            ps.setInt(4, entrt.getEdad());
-            ps.setInt(5, entrt.getVictorias());
-            ps.setInt(6, entrt.getDerrotas());
+            ps.setInt(3, entrt.getDerrotas());
+            ps.setInt(4, entrt.getVictorias());
+            ps.setInt(5, entrt.getIdEquipo());
+            ps.setInt(6, entrt.getEdad());
             ps.setInt(7, entrt.getId());
             
             ps.execute();
