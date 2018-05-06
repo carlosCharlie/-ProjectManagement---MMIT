@@ -42,12 +42,10 @@ public class UsuariosSATestNG {
             
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
-            PreparedStatement ps =  c.prepareStatement("Select password from usuarios where id = 300");
-            ResultSet rs = ps.executeQuery();
-            
-            PreparedStatement ts =  c.prepareStatement("delete from usuarios where id = 300");
+            UsuariosDAO dao = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
+            UsuarioTrans result = dao.readByNombre(us.getNombre());
+            PreparedStatement ts =  c.prepareStatement("delete from usuarios where id = " +result.getId());
             ts.execute();
-            ps.close();
             ts.close();
             c.close();
             
@@ -68,16 +66,16 @@ public class UsuariosSATestNG {
             
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
-            PreparedStatement ps =  c.prepareStatement("Select nombre from usuarios where id = 300");
-            ResultSet rs = ps.executeQuery();
+            PreparedStatement ps;
             
-            PreparedStatement ts =  c.prepareStatement("delete from usuarios where id = 300");
-            ts.execute();
+            UsuariosDAO dao = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
+            UsuarioTrans result = dao.readByNombre(us.getNombre());
+            ps =  c.prepareStatement("delete from usuarios where id = " +result.getId());
+            ps.execute();
             ps.close();
-            ts.close();
-            c.close();
+            Conexion.getInstancia().cerrar();
             
-            assertEquals(instance.singUpUser(us), -1);
+            assertEquals(respuesta, -1);
             
         }catch(Exception e){
             Assert.fail();
@@ -96,12 +94,16 @@ public class UsuariosSATestNG {
             Connection c = Conexion.getInstancia().getResource();
             PreparedStatement ps =  c.prepareStatement("Select nombre from usuarios where id = "+us.getId());
             ResultSet rs = ps.executeQuery();
+            Conexion.getInstancia().cerrar();
             
-            PreparedStatement ts =  c.prepareStatement("delete from usuarios where id = "+us.getId());
-            ts.execute();
+            UsuariosDAO dao = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
+            UsuarioTrans result = dao.readByNombre(us.getNombre());
+            Conexion.getInstancia().abrir();
+            c = Conexion.getInstancia().getResource();
+            ps =  c.prepareStatement("delete from usuarios where id = "+result.getId());
+            ps.execute();
             ps.close();
-            ts.close();
-            c.close();
+            Conexion.getInstancia().cerrar();
             
             assertNotNull(instance.singUpUser(us));
             
