@@ -27,10 +27,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 import org.testng.annotations.Test;
 
-/**
- *
- * @author guill
- */
+
 public class UsuariosSATestNG {
     @Test
     public void TestSingUpUserSinContraseña(){
@@ -40,78 +37,47 @@ public class UsuariosSATestNG {
             UsuarioTrans us = new UsuarioTrans(300,"jaja"," ",true);
             instance.singUpUser(us);
             
-            Conexion.getInstancia().abrir();
-            Connection c = Conexion.getInstancia().getResource();
             UsuariosDAO dao = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
             UsuarioTrans result = dao.readByNombre(us.getNombre());
-            PreparedStatement ts =  c.prepareStatement("delete from usuarios where id = " +result.getId());
-            ts.execute();
-            ts.close();
-            c.close();
-            
-            assertEquals(instance.singUpUser(us), -1);
-            
-        }catch(Exception e){
-            Assert.fail();
-        }
-    }
-    @Test
-    public void TestSingUpUserSinNombre(){
-        try{
-            System.out.print("Registro usuario no existente sin nombre");
-            UsuariosSA instance = new UsuariosSAImp();
-            UsuarioTrans us = new UsuarioTrans(300," ","jaja",true);
-            int respuesta = instance.singUpUser(us);
-           
-            
             Conexion.getInstancia().abrir();
             Connection c = Conexion.getInstancia().getResource();
-            PreparedStatement ps;
-            
-            UsuariosDAO dao = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
-            UsuarioTrans result = dao.readByNombre(us.getNombre());
-            ps =  c.prepareStatement("delete from usuarios where id = " +result.getId());
+            PreparedStatement ps = c.prepareStatement("DELETE FROM usuarios\n" +
+            "      WHERE id = ?");
+            ps.setInt(1, result.getId());
             ps.execute();
             ps.close();
             Conexion.getInstancia().cerrar();
             
-            assertEquals(respuesta, -1);
-            
+            assertNotNull(result);
         }catch(Exception e){
             Assert.fail();
         }
     }
+    
     @Test
     public void TestSingUpUserNuevoCorrecto(){
         try{
             System.out.print("Registro usuario nuevo correcto");
             UsuariosSA instance = new UsuariosSAImp();
             UsuarioTrans us = new UsuarioTrans(4500,"sergio","jaja",false);
-            int respuesta = instance.singUpUser(us);
-        
-            
-            Conexion.getInstancia().abrir();
-            Connection c = Conexion.getInstancia().getResource();
-            PreparedStatement ps =  c.prepareStatement("Select nombre from usuarios where id = "+us.getId());
-            ResultSet rs = ps.executeQuery();
-            Conexion.getInstancia().cerrar();
+            instance.singUpUser(us);
             
             UsuariosDAO dao = FactoriaIntegracion.getInstancia().crearUsuariosDAO();
             UsuarioTrans result = dao.readByNombre(us.getNombre());
             Conexion.getInstancia().abrir();
-            c = Conexion.getInstancia().getResource();
-            ps =  c.prepareStatement("delete from usuarios where id = "+result.getId());
+            Connection c = Conexion.getInstancia().getResource();
+            PreparedStatement ps = c.prepareStatement("DELETE FROM usuarios\n" +
+            "      WHERE id = ?");
+            ps.setInt(1, result.getId());
             ps.execute();
             ps.close();
             Conexion.getInstancia().cerrar();
             
-            assertNotNull(instance.singUpUser(us));
-            
+            assertNotNull(result);   
         }catch(Exception e){
             Assert.fail();
         }
     }
-    
     
     @Test
     public void TestSingUpUserExisteYesAdmin(){
