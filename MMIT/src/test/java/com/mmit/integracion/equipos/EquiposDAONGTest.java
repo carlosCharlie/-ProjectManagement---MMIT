@@ -5,7 +5,10 @@ import com.mmit.integracion.factoriaIntegracion.FactoriaIntegracion;
 import com.mmit.negocio.equipos.EquipoTrans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Assert;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
@@ -89,6 +92,47 @@ public class EquiposDAONGTest {
         }catch(Exception e){
             Assert.fail();
         }
+    }
+    
+    @Test
+    public void testBaseDatosInsertarEquipo(){
+        System.out.println("Test insert equipos con base de datos");
+        
+        try {
+                
+            EquiposDAO instance = FactoriaIntegracion.getInstancia().crearEquiposDAO();
+            
+            String nombre="nombrePrueba";
+            
+            EquipoTrans et = new EquipoTrans(200, nombre, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            
+            et.setVictorias(1);
+            et.setDerrotas(2);
+            
+            
+            
+            
+            instance.insert(et);
+            
+         //   Conexion.getInstancia().cerrar();
+            Conexion.getInstancia().abrir();
+            Connection c = Conexion.getInstancia().getResource();
+            
+            PreparedStatement ps = c.prepareStatement("Select * from equipos where nombre = '"+nombre+"';");
+            ResultSet rs = ps.executeQuery();
+            
+            assertTrue(rs.getString("nombre").equals(nombre));
+            assertEquals(rs.getInt("victorias"),1);
+            assertEquals(rs.getInt("derrotas"),2);
+            
+            
+            PreparedStatement ps1 = c.prepareStatement("DELETE FROM equipos\n" +
+                    "      WHERE nombre = '"+nombre+"';");
+            ps1.execute();
+        } catch (Exception ex) {
+            Assert.fail();
+        }
+        
     }
     
 }
