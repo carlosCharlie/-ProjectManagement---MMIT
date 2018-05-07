@@ -1,6 +1,7 @@
 package com.mmit.presentacion.equipos;
 
 import com.mmit.negocio.equipos.EquipoTrans;
+import com.mmit.negocio.usuarios.Login;
 import com.mmit.presentacion.ControladorVista;
 import com.mmit.presentacion.Evento;
 import com.mmit.presentacion.controlador.Contexto;
@@ -15,6 +16,7 @@ import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
@@ -41,6 +43,8 @@ public class ControladorVistaEquipos implements Initializable, ControladorVista 
     private ObservableList<EquipoTrans> listaEquipos = null;
     @FXML
     private TextField buscar;
+    @FXML
+    private Button botonAñadir;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -51,6 +55,11 @@ public class ControladorVistaEquipos implements Initializable, ControladorVista 
     public void Actualizar(Contexto contexto) {
         switch(contexto.getEvento()){
             case AbrirListarEquipos:
+                if (Login.getUsuario() != null){
+                    if (Login.getUsuario().getAdmin()){
+                        this.botonAñadir.setVisible(true);
+                    }
+                }
                 rellenarTabla(contexto.getDatos());
                 break;
             case ErrorSQL:
@@ -103,7 +112,6 @@ public class ControladorVistaEquipos implements Initializable, ControladorVista 
 
     }
  
-    
     @FXML
     public void seleccionarEquipo(){
        

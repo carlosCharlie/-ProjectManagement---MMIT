@@ -39,6 +39,11 @@
                         <Insets left="2.0" right="10.0" />
                      </GridPane.margin>
                   </TextField>
+                  <Button fx:id="botonAñadir" mnemonicParsing="false" prefHeight="31.0" prefWidth="195.0" styleClass="botonMenu" text="Añadir" visible="false">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Button>
                </children>
             </GridPane>
          </top>
