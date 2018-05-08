@@ -46,6 +46,8 @@ public class Login {
   
     public static void cerrarSesion(){
         Login.usuario = null;
-        resetBracket();
+        if(bracket!= null){
+            resetBracket();
+        }
     }
 }

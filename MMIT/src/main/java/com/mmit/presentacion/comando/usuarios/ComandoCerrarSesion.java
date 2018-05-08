@@ -11,7 +11,10 @@ public class ComandoCerrarSesion implements Comando {
 
     @Override
     public Contexto execute(Object datos) {
-        int respuesta = FactoriaNegocio.getInstancia().crearBracketSA().crearBracket(Login.getBracket(), Login.getUsuario().getId());
+        int respuesta = 0;
+        if (Login.getBracket() != null){
+            respuesta = FactoriaNegocio.getInstancia().crearBracketSA().crearBracket(Login.getBracket(), Login.getUsuario().getId());
+        }
         switch (respuesta){
             case 0:
                 Login.cerrarSesion();
