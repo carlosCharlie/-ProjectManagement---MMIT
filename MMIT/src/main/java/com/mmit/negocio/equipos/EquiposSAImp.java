@@ -58,7 +58,7 @@ public class EquiposSAImp implements EquiposSA {
     
     
     @Override
-    public int añadir(TOAEntrenadorEquipo equipoEntr) {
+    public int insert(TOAEntrenadorEquipo equipoEntr) {
          int respuesta = 0;
             try{
                 EquiposDAO equiposDao = FactoriaIntegracion.getInstancia().crearEquiposDAO();
@@ -67,6 +67,14 @@ public class EquiposSAImp implements EquiposSA {
                 EquipoTrans t1 = equipoEntr.getEquipo();
                 EntrenadorTrans t2 = equipoEntr.getEntrenador();
                 if (equiposDao.readById(t1.getId()) == null && t2.getIdEquipo() == null) {
+                    
+                    //comprobaciones de estadisticas de juego
+                    //si el numero es < que 0 se guarda un 0, no se puede dejar vacio
+                    t1.setDerrotas(java.lang.Math.max(0,t1.getDerrotas()));
+                    t1.setVictorias(java.lang.Math.max(0,t1.getVictorias()));
+                    
+                    
+                    
                     equiposDao.insert(t1);
                     t2.setIdEquipo(equiposDao.readByNombre(t1.getNombre()).getId());
                     entrenadorDao.update(t2);

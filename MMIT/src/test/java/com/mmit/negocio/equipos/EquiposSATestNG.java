@@ -95,7 +95,7 @@ public class EquiposSATestNG {
             EquipoTrans et = new EquipoTrans(200, " ", 10, 10, 40, 40, 20, 20, 5, 6, 2, 5, 4, 12, 3, 9, 8, 3, 5);
             ent.setId(eDao.readByNombre(ent.getNombre()).getId());
             TOAEntrenadorEquipo toa = new TOAEntrenadorEquipo(ent, et);
-            instance.añadir(toa);
+            instance.insert(toa);
             
             //Borrar Equipo y Entrenador Introducido
             EquipoTrans result = tDao.readByNombre(" ");
@@ -144,7 +144,7 @@ public class EquiposSATestNG {
             EquipoTrans et = new EquipoTrans(200, "pepe", 10, 10, 40, 40, 20, 20, 5, 6, 2, 5, 4, 12, 3, 9, 8, 3, 5);
             ent.setId(eDao.readByNombre(ent.getNombre()).getId());
             TOAEntrenadorEquipo toa = new TOAEntrenadorEquipo(ent, et);
-            instance.añadir(toa);
+            instance.insert(toa);
             
             //Borrar Equipo y Entrenador Introducido
             EquipoTrans result = tDao.readByNombre("pepe");
@@ -192,7 +192,7 @@ public class EquiposSATestNG {
             EquipoTrans et = new EquipoTrans(200, "pepe", 10, 10, 40, 40, 20, 20, 5, 6, 2, 5, 4, 12, 3, 9, 8, 3, 5);
             ent.setId(eDao.readByNombre(ent.getNombre()).getId());
             TOAEntrenadorEquipo toa = new TOAEntrenadorEquipo(ent, et);
-            int respuesta = instance.añadir(toa);
+            int respuesta = instance.insert(toa);
             
             //Borrar Equipo y Entrenador Introducido
             EntrenadorTrans result2 = eDao.readByNombre(ent.getNombre());
