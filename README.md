@@ -9,9 +9,9 @@ El objetivo de esta aplicación es proporcionar una serie de estadísticas que p
 
 MEMORIA PRÁCTICA 2 MMIT
 
-<p align="center"><img url="media/image1.jpg"></g>
+<p align="center"><img url="media/image1.jpg" width="100%" height="100%"></g>
 
-# **INTRODUCCIÓN**
+# **ÍNDICE**
 
 [<span class="underline">1.</span>
 <span class="underline">Introducción</span> 1](#introducción-1)
