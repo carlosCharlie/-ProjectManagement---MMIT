@@ -9,7 +9,7 @@ El objetivo de esta aplicación es proporcionar una serie de estadísticas que p
 <p align="center">(Converted from a docx file)</p>
 <h1 align="center">MEMORIA MMIT</h1>
 
-<p align="center"><img src="media/image1.jpg" width="100%" height="100%"></p>
+<p align="center"><img src="media/image1.jpg" width="70%" height="70%"></p>
 
 # **Introducción**
 
