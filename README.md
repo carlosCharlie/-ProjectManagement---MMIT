@@ -6,54 +6,10 @@ Nuestro proyecto va a consistir en una aplicación de escritorio para proporcion
 El objetivo de esta aplicación es proporcionar una serie de estadísticas que permitan a un usuario conocer más información sobre ciertos equipos, jugadores o entrenadores. De esta forma el usuario podrá conocer los aspectos positivos y negativos de cada uno de ellos.
 
 
+<p align="center">(Converted from a docx file)</p>
+<h1 align="center">MEMORIA MMIT</h1>
 
-MEMORIA PRÁCTICA 2 MMIT
-
-<p align="center"><img url="media/image1.jpg" width="100%" height="100%"></g>
-
-# **ÍNDICE**
-
-[<span class="underline">1.</span>
-<span class="underline">Introducción</span> 1](#introducción-1)
-
-[<span class="underline">2.</span> <span class="underline">Historias de
-usuario</span> 2](#historias-de-usuario)
-
-[<span class="underline">a) Herramientas usadas para gestionar el P.B. y
-el S.B.</span>
-3](#a-herramientas-usadas-para-gestionar-el-p.b.-y-el-s.b.)
-
-[<span class="underline">b) Validación de las Historias de
-Usuario</span> 3](#b-validación-de-las-historias-de-usuario)
-
-[<span class="underline">C) PRIORIZACIÓN DE LAS HISTORIAS DE
-USUARIO</span> 4](#c-priorización-de-las-historias-de-usuario)
-
-[<span class="underline">D) MOCKUPS CREADOS</span> 4](#_Toc508546035)
-
-[<span class="underline">e) Perfiles de usuario</span>
-4](#e-perfiles-de-usuario)
-
-[<span class="underline">3.-Prototipo</span> 5](#prototipo)
-
-[<span class="underline">A)</span> <span class="underline">HERRAMIENTAS
-Y TECNOLOGÍAS PROBADAS</span> 5](#herramientas-y-tecnologías-probadas)
-
-[<span class="underline">B) DESARROLLO DEL PROTOTIPO</span>
-6](#b-desarrollo-del-prototipo)
-
-[<span class="underline">C) INSTRUCCIONES DE EJECUCIÓN Y CÓMO PROBAR EL
-PROTOTIPO</span>
-8](#c-instrucciones-de-ejecución-y-cómo-probar-el-prototipo)
-
-[<span class="underline">4.- Dinámica grupal</span> 9](#dinámica-grupal)
-
-[<span class="underline">A) DESCRIPCIÓN DE LA DINÁMICA</span>
-9](#a-descripción-de-la-dinámica)
-
-[<span class="underline">B) DESARROLLO</span> 10](#b-desarrollo)
-
-[<span class="underline">C) RESULTADOS</span> 10](#c-resultados)
+<p align="center"><img src="media/image1.jpg" width="100%" height="100%"></p>
 
 # **Introducción**
 
@@ -323,14 +279,6 @@ distintos perfiles con la información de los jugadores, equipos y
 entrenadores, y distintas pantallas donde mostrar las estadísticas
 pedidas. Todas las imágenes se encuentran incluidas en la carpeta extra
 del proyecto.
-
-## **e) Perfiles de usuario** 
-
-![Darnell.JPG](media/image2.jpeg)
-
-![Dona.JPG](media/image3.jpeg)
-
-![Pete.JPG](media/image4.jpeg)
 
 # **3.-Prototipo**
 
